@@ -1,0 +1,16 @@
+<paper-drawer-panel id="paperHeaderPanel">
+  <paper-header-panel drawer>
+    <paper-toolbar class="drawerToolbar">
+      <div>Application</div>
+    </paper-toolbar>
+    <div>
+      {{> sideNav selected_number="2"}}
+    </div>
+  </paper-header-panel>
+  <paper-header-panel main>
+    {{> paperToolbar}}
+    <div>
+      {{> productcls/browse}}
+    </div>
+  </paper-header-panel>
+</paper-drawer-panel>

@@ -1,0 +1,27 @@
+.remove-button{
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    border: medium none;
+    background: transparent none repeat scroll 0px 0px;
+    cursor: pointer;
+    vertical-align: middle;
+    font: 700 16px Arial,sans-serif;
+    color: #585858;
+}
+
+.tag-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.tag-item {
+    margin-left: 2px;
+    padding: 0px 5px;
+    border: 1px solid #ACACAC;
+    border-radius: 3px;
+    background: transparent linear-gradient(to bottom, #F0F0F0 0px, #EEEEEE 47%, #FFFFFF 100%) repeat scroll 0% 0%;
+}

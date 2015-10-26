@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<style>
+ul, ol {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+a {
+    color: #4078C0;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+.block-red{
+  color:red;
+  background:red;
+}
+.block-green{
+  color:green;
+  background:green;
+}
+.block-blue{
+  color:blue;
+  background:blue;
+}
+.flex-container-right{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+.flex-container-center{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+}
+.flex-container-between{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+.flex-item-right{
+  align-self:right;
+}
+.task-browser > div, .task-browser > ul{
+  width:100%;
+  max-width:800px;
+}
+.subnav{
+  margin-bottom:20px;
+}
+.subnav > .right {
+    margin-left: 10px;
+}
+.btn:hover, .btn:active, .btn.zeroclipboard-is-hover, .btn.zeroclipboard-is-active {
+    text-decoration: none;
+    background-color: #DDD;
+    background-image: linear-gradient(#EEE, #DDD);
+    border-color: #CCC;
+}
+.btn-primary:hover {
+    color: #FFF;
+    background-color: #569E3D;
+    background-image: linear-gradient(#79D858, #569E3D);
+    border-color: #4A993E;
+}
+a:active, a:hover {
+    outline: 0px none;
+}
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #333;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #EEE;
+	background-image: linear-gradient(#FCFCFC, #EEE);
+	border: 1px solid #D5D5D5;
+	border-radius: 3px;
+	-moz-user-select: none;
+}
+.btn-primary {
+    border-color: #5CA941;
+    background-image: linear-gradient(#8ADD6D, #60B044);
+    background-color: #60B044;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.15);
+    color: #FFF;
+}
+
+.table-list-header {
+    margin-top: 20px;
+    margin-bottom: 1px;
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px 3px 0px 0px;
+}
+.table-list {
+    color: #999;
+    border-bottom: 1px solid #E5E5E5;
+}
+.table-list-item {
+    list-style: outside none none;
+	border-bottom: 1px solid #E5E5E5;
+	border-left: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+}
+.table-list-item:hover {
+    list-style: outside none none;
+    background-color: #F8F8F8;
+}
+.issues-listing .table-list-issues .issue-title {
+    padding-top: 12px;
+}
+.table-list-cell {
+    padding: 8px 10px;
+    font-size: 12px;
+    vertical-align: top;
+    border-top: 1px solid #EEE;
+}
+.issue-title-link {
+    padding-right: 3px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #333;
+}
+.issues-listing .table-list-issues .labels {
+    margin-bottom: 2px;
+    vertical-align: 1px;
+}
+.label {
+    padding: 3px 4px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1;
+    color: #FFF;
+    border-radius: 2px;
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.12) inset;
+}
+.issue-meta {
+    margin-top: 1px;
+    margin-bottom: 2px;
+    font-weight: normal;
+    color: #767676;
+}
+.issue-meta-section {
+    margin-right: 10px;
+}
+</style>
+
+<div class='flex-container-center task-browser'>
+  <div class='subnav flex-container-right'>
+    <a class='btn btn-primary right'>新任务</a>
+  </div>
+  <div class='table-list-header flex-container-between'>
+      <div class='table-list-header-toggle states left'>中文</div>
+      <div class='table-list-header-toggle right'>english</div>
+  </div>
+  <ul class="table-list table-list-bordered table-list-issues js-navigation-container js-active-navigation-container">
+    <li class="read table-list-item js-navigation-item js-issue-row">
+		<a href="/twbs/bootstrap/issues/17935" class="issue-title-link js-navigation-open">
+		  should have a CSS class which is styled like fill in the blanks
+		</a>
+		  <span class="labels">
+				<a href="/twbs/bootstrap/issues?q=is%3Aopen+label%3Acss" aria-label="View all css issues" class="label labelstyle-563d7c linked-labelstyle-563d7c tooltipped tooltipped-n" style="background-color: #563d7c; color: #fff;">css</a>
+				<a href="/twbs/bootstrap/issues?q=is%3Aopen+label%3Afeature" aria-label="View all feature issues" class="label labelstyle-4bb14b linked-labelstyle-4bb14b tooltipped tooltipped-n" style="background-color: #4bb14b; color: #fff;">feature</a>
+				<a href="/twbs/bootstrap/issues?q=is%3Aopen+label%3Av4" aria-label="View all v4 issues" class="label labelstyle-563d7c linked-labelstyle-563d7c tooltipped tooltipped-n" style="background-color: #563d7c; color: #fff;">v4</a>
+		  </span>
+		<div class="issue-meta">
+		  <span class="issue-meta-section opened-by">
+			#17935
+			  opened <time title="2015年10月15日 GMT+8下午8:23" datetime="2015-10-15T12:23:33Z" is="relative-time">5 hours ago</time> by
+			  <a href="/twbs/bootstrap/issues?q=is%3Aissue+is%3Aopen+author%3Amrinal013" aria-label="View all issues opened by mrinal013" class="tooltipped tooltipped-s muted-link">mrinal013</a>
+		  </span>
+		  <span class="issue-meta-section css-truncate issue-milestone">
+		  </span>
+		</div>
+	</li>
+  </ul>
+</div>
+</body>
+</html>

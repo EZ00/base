@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<style>
+/*div {
+    font-size: 0;
+    letter-spacing: -1px
+}*/
+
+.tag-container{
+    border: 1px solid #ACACAC;
+    /*height: 32px;*/
+}
+
+.tag-container:after{
+  content: " "; display: block; clear: both;
+}
+/*
+.tag-item {
+    height: 30px;
+    line-height: 29px;
+}
+*/
+
+.tag-item {
+    margin-left: 2px;
+    padding: 0px 5px;
+    display: inline-block;
+    float: left;
+    font: 14px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*height: 26px;*/
+    border: 1px solid #ACACAC;
+    border-radius: 3px;
+    background: transparent linear-gradient(to bottom, #F0F0F0 0px, #EEEEEE 47%, #FFFFFF 100%) repeat scroll 0% 0%;
+}
+
+.remove-button{
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    border: medium none;
+    background: transparent none repeat scroll 0px 0px;
+    cursor: pointer;
+    vertical-align: middle;
+    font: 700 16px Arial,sans-serif;
+    color: #585858;
+}
+</style>
+
+<div class='tag-input'>
+  <div class='tag-container'>
+      <div class='tag-item'>
+        <span >a tag</span>
+        <a class='remove-button'>×</a></div>
+      <div class='tag-item'>
+        <span >a tag</span>
+        <a class='remove-button'>×</a></div>
+  </div>
+  <div class='input-container'>
+      <input type='text' placeholder='输入标签，按回车添加'>
+  </div>
+</div>
+</body>
+</html>

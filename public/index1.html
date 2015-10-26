@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>server-msg Demo</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="dpd.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="bower_components/server-msg/server-msg.html">
+</head>
+<body>
+  <p>An example of <code>&lt;server-msg&gt;</code>:</p>
+
+  <button>Say Something</button>
+
+  <server-msg author='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' title="data" fancy>
+    <h2>Hello server-msg</h2>
+  </server-msg>
+
+  <script>
+    document.querySelector('button').addEventListener('click', function() {
+      alert(document.querySelector('server-msg').sayHello('Hallo!'));
+    });
+  </script>
+  <script src="bower_components/server-msg/server-msg.js"></script>
+  <script>
+  initSocket()
+  </script>
+</body>
+</html>

@@ -1,0 +1,7954 @@
+.prettyprint ol,
+.prettyprint ul {
+  list-style: none;
+}
+.prettyprint ol.linenums {
+  list-style: decimal outside;
+  padding-left: 47px;
+  color: #747474;
+  font-size: 12px;
+}
+.prettyprint ol.linenums li {
+  padding-left: 15px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-left: 3px #f9f9ef solid;
+}
+.prettyprint li > * {
+  font-size: 14px;
+  line-height: 14px;
+}
+.prettyprint {
+  border: 1px solid #e7e6e6;
+  padding: 7px 0 5px;
+}
+.prettyprint ol,
+.prettyprint ul {
+  padding: 5px 15px;
+}
+.prettyprint li.L0,
+.prettyprint li.L1,
+.prettyprint li.L2,
+.prettyprint li.L3,
+.prettyprint li.L4,
+.prettyprint li.L5,
+.prettyprint li.L6,
+.prettyprint li.L7,
+.prettyprint li.L8,
+.prettyprint li.L9 {
+  list-style: inherit;
+  background: none;
+}
+.prettyprint.alternate li.L1,
+.prettyprint.alternate li.L3,
+.prettyprint.alternate li.L5,
+.prettyprint.alternate li.L7,
+.prettyprint.alternate li.L9 {
+  background: #f9f9ef;
+}
+.prettyprint.theme-linode {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+.prettyprint.theme-linode .com {
+  color: #3bb878;
+}
+.prettyprint.theme-linode .lit {
+  color: #35a56b;
+}
+.prettyprint.theme-linode .atv,
+.prettyprint.theme-linode .str {
+  color: #2d8ec6;
+}
+.prettyprint.theme-linode .atn {
+  color: gray;
+}
+.prettyprint.theme-linode .pln {
+  color: #000000;
+}
+.prettyprint.theme-linode .pun {
+  color: #747474;
+}
+.prettyprint.theme-linode .typ {
+  color: #be6cc8;
+}
+.prettyprint.theme-linode .tag,
+.prettyprint.theme-linode .kwd {
+  color: #1f6188;
+  font-weight: bold;
+}
+.white {
+  background-color: #ffffff;
+  color: #747474;
+}
+.white .lead a {
+  font-weight: 300;
+}
+.white h1 > a,
+.white h2 > a,
+.white h3 > a,
+.white h4 > a,
+.white h5 > a,
+.white h6 > a,
+.white p > a,
+.white li > a,
+.white td > a,
+.white address > a,
+.white .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.white h1 > a:hover,
+.white h2 > a:hover,
+.white h3 > a:hover,
+.white h4 > a:hover,
+.white h5 > a:hover,
+.white h6 > a:hover,
+.white p > a:hover,
+.white li > a:hover,
+.white td > a:hover,
+.white address > a:hover,
+.white .span > a:hover,
+.white h1 > a:active,
+.white h2 > a:active,
+.white h3 > a:active,
+.white h4 > a:active,
+.white h5 > a:active,
+.white h6 > a:active,
+.white p > a:active,
+.white li > a:active,
+.white td > a:active,
+.white address > a:active,
+.white .span > a:active {
+  text-decoration: none;
+}
+.white .nav li > a {
+  text-decoration: none;
+}
+.white.separated {
+  border-bottom-color: #d9d9d9;
+}
+.white h1,
+.white .h1,
+.white h2,
+.white .h2,
+.white h3,
+.white .h3,
+.white h4,
+.white .h4,
+.white h5,
+.white .h5,
+.white h6,
+.white .h6 {
+  color: #000000;
+}
+.white.jumbotron h1,
+.white.jumbotron .h1 {
+  color: #343434;
+}
+.white.jumbotron h2,
+.white.jumbotron .h2,
+.white.jumbotron h3,
+.white.jumbotron .h3,
+.white.jumbotron h4,
+.white.jumbotron .h4,
+.white.jumbotron h5,
+.white.jumbotron .h5,
+.white.jumbotron h6,
+.white.jumbotron .h6 {
+  color: #747474;
+}
+.white h1 > a:link,
+.white h2 > a:link,
+.white h3 > a:link,
+.white h4 > a:link,
+.white h5 > a:link,
+.white h6 > a:link,
+.white p > a:link,
+.white li > a:link,
+.white td > a:link,
+.white address > a:link,
+.white .span > a:link,
+.white h1 > a:visited,
+.white h2 > a:visited,
+.white h3 > a:visited,
+.white h4 > a:visited,
+.white h5 > a:visited,
+.white h6 > a:visited,
+.white p > a:visited,
+.white li > a:visited,
+.white td > a:visited,
+.white address > a:visited,
+.white .span > a:visited,
+.white h1 > a:active,
+.white h2 > a:active,
+.white h3 > a:active,
+.white h4 > a:active,
+.white h5 > a:active,
+.white h6 > a:active,
+.white p > a:active,
+.white li > a:active,
+.white td > a:active,
+.white address > a:active,
+.white .span > a:active {
+  color: #0089bc;
+}
+.white h1 > a:hover,
+.white h2 > a:hover,
+.white h3 > a:hover,
+.white h4 > a:hover,
+.white h5 > a:hover,
+.white h6 > a:hover,
+.white p > a:hover,
+.white li > a:hover,
+.white td > a:hover,
+.white address > a:hover,
+.white .span > a:hover {
+  color: #005170;
+}
+.white h1 > a .glyphicon.tile,
+.white h2 > a .glyphicon.tile,
+.white h3 > a .glyphicon.tile,
+.white h4 > a .glyphicon.tile,
+.white h5 > a .glyphicon.tile,
+.white h6 > a .glyphicon.tile,
+.white p > a .glyphicon.tile,
+.white li > a .glyphicon.tile,
+.white td > a .glyphicon.tile,
+.white address > a .glyphicon.tile,
+.white .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.white h1 > a .glyphicon.tile:hover,
+.white h2 > a .glyphicon.tile:hover,
+.white h3 > a .glyphicon.tile:hover,
+.white h4 > a .glyphicon.tile:hover,
+.white h5 > a .glyphicon.tile:hover,
+.white h6 > a .glyphicon.tile:hover,
+.white p > a .glyphicon.tile:hover,
+.white li > a .glyphicon.tile:hover,
+.white td > a .glyphicon.tile:hover,
+.white address > a .glyphicon.tile:hover,
+.white .span > a .glyphicon.tile:hover,
+.white h1 > a .glyphicon.tile:active,
+.white h2 > a .glyphicon.tile:active,
+.white h3 > a .glyphicon.tile:active,
+.white h4 > a .glyphicon.tile:active,
+.white h5 > a .glyphicon.tile:active,
+.white h6 > a .glyphicon.tile:active,
+.white p > a .glyphicon.tile:active,
+.white li > a .glyphicon.tile:active,
+.white td > a .glyphicon.tile:active,
+.white address > a .glyphicon.tile:active,
+.white .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.white ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.white ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.white ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.white ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.white ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.white ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.white.subnav {
+  opacity: 0.96;
+}
+.white.subnav .navbar-brand {
+  color: #000000;
+}
+.white.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.white.subnav li > a {
+  color: #aaa;
+}
+.white.subnav li > a.active {
+  color: #000000;
+}
+.white.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.white.subnav .navbar-toggle {
+  color: #000000;
+}
+.white.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.white.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.white.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.white .sidebar strong {
+  color: #000000;
+}
+.white .sidebar a strong {
+  color: #0089bc;
+}
+.white .sidebar a strong:link,
+.white .sidebar a strong:visited,
+.white .sidebar a strong:active {
+  color: #0089bc;
+}
+.white .sidebar a strong:hover {
+  color: #005170;
+}
+.white cite.bubble strong {
+  color: #414141;
+}
+.white cite.bubble a:link,
+.white cite.bubble a:visited,
+.white cite.bubble a:active {
+  color: #0089bc;
+}
+.white cite.bubble a:hover {
+  color: #005170;
+}
+.white blockquote {
+  color: #747474;
+}
+.white blockquote p,
+.white blockquote ul > li,
+.white blockquote * {
+  color: #747474;
+}
+.sand {
+  background-color: #f9f9ef;
+  color: #6f6f6f;
+}
+.sand .lead a {
+  font-weight: 300;
+}
+.sand h1 > a,
+.sand h2 > a,
+.sand h3 > a,
+.sand h4 > a,
+.sand h5 > a,
+.sand h6 > a,
+.sand p > a,
+.sand li > a,
+.sand td > a,
+.sand address > a,
+.sand .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.sand h1 > a:hover,
+.sand h2 > a:hover,
+.sand h3 > a:hover,
+.sand h4 > a:hover,
+.sand h5 > a:hover,
+.sand h6 > a:hover,
+.sand p > a:hover,
+.sand li > a:hover,
+.sand td > a:hover,
+.sand address > a:hover,
+.sand .span > a:hover,
+.sand h1 > a:active,
+.sand h2 > a:active,
+.sand h3 > a:active,
+.sand h4 > a:active,
+.sand h5 > a:active,
+.sand h6 > a:active,
+.sand p > a:active,
+.sand li > a:active,
+.sand td > a:active,
+.sand address > a:active,
+.sand .span > a:active {
+  text-decoration: none;
+}
+.sand .nav li > a {
+  text-decoration: none;
+}
+.sand.separated {
+  border-bottom-color: #e4e4b7;
+}
+.sand h1,
+.sand .h1,
+.sand h2,
+.sand .h2,
+.sand h3,
+.sand .h3,
+.sand h4,
+.sand .h4,
+.sand h5,
+.sand .h5,
+.sand h6,
+.sand .h6 {
+  color: #000000;
+}
+.sand.jumbotron h1,
+.sand.jumbotron .h1 {
+  color: #2f2f2f;
+}
+.sand.jumbotron h2,
+.sand.jumbotron .h2,
+.sand.jumbotron h3,
+.sand.jumbotron .h3,
+.sand.jumbotron h4,
+.sand.jumbotron .h4,
+.sand.jumbotron h5,
+.sand.jumbotron .h5,
+.sand.jumbotron h6,
+.sand.jumbotron .h6 {
+  color: #6f6f6f;
+}
+.sand h1 > a:link,
+.sand h2 > a:link,
+.sand h3 > a:link,
+.sand h4 > a:link,
+.sand h5 > a:link,
+.sand h6 > a:link,
+.sand p > a:link,
+.sand li > a:link,
+.sand td > a:link,
+.sand address > a:link,
+.sand .span > a:link,
+.sand h1 > a:visited,
+.sand h2 > a:visited,
+.sand h3 > a:visited,
+.sand h4 > a:visited,
+.sand h5 > a:visited,
+.sand h6 > a:visited,
+.sand p > a:visited,
+.sand li > a:visited,
+.sand td > a:visited,
+.sand address > a:visited,
+.sand .span > a:visited,
+.sand h1 > a:active,
+.sand h2 > a:active,
+.sand h3 > a:active,
+.sand h4 > a:active,
+.sand h5 > a:active,
+.sand h6 > a:active,
+.sand p > a:active,
+.sand li > a:active,
+.sand td > a:active,
+.sand address > a:active,
+.sand .span > a:active {
+  color: #0089bc;
+}
+.sand h1 > a:hover,
+.sand h2 > a:hover,
+.sand h3 > a:hover,
+.sand h4 > a:hover,
+.sand h5 > a:hover,
+.sand h6 > a:hover,
+.sand p > a:hover,
+.sand li > a:hover,
+.sand td > a:hover,
+.sand address > a:hover,
+.sand .span > a:hover {
+  color: #005170;
+}
+.sand h1 > a .glyphicon.tile,
+.sand h2 > a .glyphicon.tile,
+.sand h3 > a .glyphicon.tile,
+.sand h4 > a .glyphicon.tile,
+.sand h5 > a .glyphicon.tile,
+.sand h6 > a .glyphicon.tile,
+.sand p > a .glyphicon.tile,
+.sand li > a .glyphicon.tile,
+.sand td > a .glyphicon.tile,
+.sand address > a .glyphicon.tile,
+.sand .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.sand h1 > a .glyphicon.tile:hover,
+.sand h2 > a .glyphicon.tile:hover,
+.sand h3 > a .glyphicon.tile:hover,
+.sand h4 > a .glyphicon.tile:hover,
+.sand h5 > a .glyphicon.tile:hover,
+.sand h6 > a .glyphicon.tile:hover,
+.sand p > a .glyphicon.tile:hover,
+.sand li > a .glyphicon.tile:hover,
+.sand td > a .glyphicon.tile:hover,
+.sand address > a .glyphicon.tile:hover,
+.sand .span > a .glyphicon.tile:hover,
+.sand h1 > a .glyphicon.tile:active,
+.sand h2 > a .glyphicon.tile:active,
+.sand h3 > a .glyphicon.tile:active,
+.sand h4 > a .glyphicon.tile:active,
+.sand h5 > a .glyphicon.tile:active,
+.sand h6 > a .glyphicon.tile:active,
+.sand p > a .glyphicon.tile:active,
+.sand li > a .glyphicon.tile:active,
+.sand td > a .glyphicon.tile:active,
+.sand address > a .glyphicon.tile:active,
+.sand .span > a .glyphicon.tile:active {
+  color: #494949;
+}
+.sand ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.sand ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.sand ul.nav-sidebar > li > a {
+  color: #888888;
+  transition: 0.1s all;
+}
+.sand ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.sand ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.sand ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.sand.subnav {
+  opacity: 0.96;
+}
+.sand.subnav .navbar-brand {
+  color: #000000;
+}
+.sand.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.sand.subnav li > a {
+  color: #aaa;
+}
+.sand.subnav li > a.active {
+  color: #000000;
+}
+.sand.subnav li > a:hover {
+  color: #555555;
+}
+.sand.subnav .navbar-toggle {
+  color: #000000;
+}
+.sand.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.sand.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.sand.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.sand .sidebar strong {
+  color: #000000;
+}
+.sand .sidebar a strong {
+  color: #0089bc;
+}
+.sand .sidebar a strong:link,
+.sand .sidebar a strong:visited,
+.sand .sidebar a strong:active {
+  color: #0089bc;
+}
+.sand .sidebar a strong:hover {
+  color: #005170;
+}
+.sand cite.bubble strong {
+  color: #414141;
+}
+.sand cite.bubble a:link,
+.sand cite.bubble a:visited,
+.sand cite.bubble a:active {
+  color: #0089bc;
+}
+.sand cite.bubble a:hover {
+  color: #005170;
+}
+.sand blockquote {
+  color: #747474;
+}
+.sand blockquote p,
+.sand blockquote ul > li,
+.sand blockquote * {
+  color: #747474;
+}
+.light-gray {
+  background-color: #f4f4f4;
+  color: #6f6f6f;
+}
+.light-gray .lead a {
+  font-weight: 300;
+}
+.light-gray h1 > a,
+.light-gray h2 > a,
+.light-gray h3 > a,
+.light-gray h4 > a,
+.light-gray h5 > a,
+.light-gray h6 > a,
+.light-gray p > a,
+.light-gray li > a,
+.light-gray td > a,
+.light-gray address > a,
+.light-gray .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.light-gray h1 > a:hover,
+.light-gray h2 > a:hover,
+.light-gray h3 > a:hover,
+.light-gray h4 > a:hover,
+.light-gray h5 > a:hover,
+.light-gray h6 > a:hover,
+.light-gray p > a:hover,
+.light-gray li > a:hover,
+.light-gray td > a:hover,
+.light-gray address > a:hover,
+.light-gray .span > a:hover,
+.light-gray h1 > a:active,
+.light-gray h2 > a:active,
+.light-gray h3 > a:active,
+.light-gray h4 > a:active,
+.light-gray h5 > a:active,
+.light-gray h6 > a:active,
+.light-gray p > a:active,
+.light-gray li > a:active,
+.light-gray td > a:active,
+.light-gray address > a:active,
+.light-gray .span > a:active {
+  text-decoration: none;
+}
+.light-gray .nav li > a {
+  text-decoration: none;
+}
+.light-gray.separated {
+  border-bottom-color: #cdcdcd;
+}
+.light-gray h1,
+.light-gray .h1,
+.light-gray h2,
+.light-gray .h2,
+.light-gray h3,
+.light-gray .h3,
+.light-gray h4,
+.light-gray .h4,
+.light-gray h5,
+.light-gray .h5,
+.light-gray h6,
+.light-gray .h6 {
+  color: #000000;
+}
+.light-gray.jumbotron h1,
+.light-gray.jumbotron .h1 {
+  color: #2f2f2f;
+}
+.light-gray.jumbotron h2,
+.light-gray.jumbotron .h2,
+.light-gray.jumbotron h3,
+.light-gray.jumbotron .h3,
+.light-gray.jumbotron h4,
+.light-gray.jumbotron .h4,
+.light-gray.jumbotron h5,
+.light-gray.jumbotron .h5,
+.light-gray.jumbotron h6,
+.light-gray.jumbotron .h6 {
+  color: #6f6f6f;
+}
+.light-gray h1 > a:link,
+.light-gray h2 > a:link,
+.light-gray h3 > a:link,
+.light-gray h4 > a:link,
+.light-gray h5 > a:link,
+.light-gray h6 > a:link,
+.light-gray p > a:link,
+.light-gray li > a:link,
+.light-gray td > a:link,
+.light-gray address > a:link,
+.light-gray .span > a:link,
+.light-gray h1 > a:visited,
+.light-gray h2 > a:visited,
+.light-gray h3 > a:visited,
+.light-gray h4 > a:visited,
+.light-gray h5 > a:visited,
+.light-gray h6 > a:visited,
+.light-gray p > a:visited,
+.light-gray li > a:visited,
+.light-gray td > a:visited,
+.light-gray address > a:visited,
+.light-gray .span > a:visited,
+.light-gray h1 > a:active,
+.light-gray h2 > a:active,
+.light-gray h3 > a:active,
+.light-gray h4 > a:active,
+.light-gray h5 > a:active,
+.light-gray h6 > a:active,
+.light-gray p > a:active,
+.light-gray li > a:active,
+.light-gray td > a:active,
+.light-gray address > a:active,
+.light-gray .span > a:active {
+  color: #0089bc;
+}
+.light-gray h1 > a:hover,
+.light-gray h2 > a:hover,
+.light-gray h3 > a:hover,
+.light-gray h4 > a:hover,
+.light-gray h5 > a:hover,
+.light-gray h6 > a:hover,
+.light-gray p > a:hover,
+.light-gray li > a:hover,
+.light-gray td > a:hover,
+.light-gray address > a:hover,
+.light-gray .span > a:hover {
+  color: #005170;
+}
+.light-gray h1 > a .glyphicon.tile,
+.light-gray h2 > a .glyphicon.tile,
+.light-gray h3 > a .glyphicon.tile,
+.light-gray h4 > a .glyphicon.tile,
+.light-gray h5 > a .glyphicon.tile,
+.light-gray h6 > a .glyphicon.tile,
+.light-gray p > a .glyphicon.tile,
+.light-gray li > a .glyphicon.tile,
+.light-gray td > a .glyphicon.tile,
+.light-gray address > a .glyphicon.tile,
+.light-gray .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.light-gray h1 > a .glyphicon.tile:hover,
+.light-gray h2 > a .glyphicon.tile:hover,
+.light-gray h3 > a .glyphicon.tile:hover,
+.light-gray h4 > a .glyphicon.tile:hover,
+.light-gray h5 > a .glyphicon.tile:hover,
+.light-gray h6 > a .glyphicon.tile:hover,
+.light-gray p > a .glyphicon.tile:hover,
+.light-gray li > a .glyphicon.tile:hover,
+.light-gray td > a .glyphicon.tile:hover,
+.light-gray address > a .glyphicon.tile:hover,
+.light-gray .span > a .glyphicon.tile:hover,
+.light-gray h1 > a .glyphicon.tile:active,
+.light-gray h2 > a .glyphicon.tile:active,
+.light-gray h3 > a .glyphicon.tile:active,
+.light-gray h4 > a .glyphicon.tile:active,
+.light-gray h5 > a .glyphicon.tile:active,
+.light-gray h6 > a .glyphicon.tile:active,
+.light-gray p > a .glyphicon.tile:active,
+.light-gray li > a .glyphicon.tile:active,
+.light-gray td > a .glyphicon.tile:active,
+.light-gray address > a .glyphicon.tile:active,
+.light-gray .span > a .glyphicon.tile:active {
+  color: #494949;
+}
+.light-gray ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.light-gray ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.light-gray ul.nav-sidebar > li > a {
+  color: #888888;
+  transition: 0.1s all;
+}
+.light-gray ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.light-gray ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.light-gray ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.light-gray.subnav {
+  opacity: 0.96;
+}
+.light-gray.subnav .navbar-brand {
+  color: #000000;
+}
+.light-gray.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.light-gray.subnav li > a {
+  color: #aaa;
+}
+.light-gray.subnav li > a.active {
+  color: #000000;
+}
+.light-gray.subnav li > a:hover {
+  color: #555555;
+}
+.light-gray.subnav .navbar-toggle {
+  color: #000000;
+}
+.light-gray.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.light-gray.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.light-gray.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.light-gray .sidebar strong {
+  color: #000000;
+}
+.light-gray .sidebar a strong {
+  color: #0089bc;
+}
+.light-gray .sidebar a strong:link,
+.light-gray .sidebar a strong:visited,
+.light-gray .sidebar a strong:active {
+  color: #0089bc;
+}
+.light-gray .sidebar a strong:hover {
+  color: #005170;
+}
+.light-gray cite.bubble strong {
+  color: #414141;
+}
+.light-gray cite.bubble a:link,
+.light-gray cite.bubble a:visited,
+.light-gray cite.bubble a:active {
+  color: #0089bc;
+}
+.light-gray cite.bubble a:hover {
+  color: #005170;
+}
+.light-gray blockquote {
+  color: #747474;
+}
+.light-gray blockquote p,
+.light-gray blockquote ul > li,
+.light-gray blockquote * {
+  color: #747474;
+}
+.striped {
+  background-color: #f8f8f8;
+  color: #747474;
+  background: url("/media/images/common/stripes.png");
+}
+.striped .lead a {
+  font-weight: 300;
+}
+.striped h1 > a,
+.striped h2 > a,
+.striped h3 > a,
+.striped h4 > a,
+.striped h5 > a,
+.striped h6 > a,
+.striped p > a,
+.striped li > a,
+.striped td > a,
+.striped address > a,
+.striped .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.striped h1 > a:hover,
+.striped h2 > a:hover,
+.striped h3 > a:hover,
+.striped h4 > a:hover,
+.striped h5 > a:hover,
+.striped h6 > a:hover,
+.striped p > a:hover,
+.striped li > a:hover,
+.striped td > a:hover,
+.striped address > a:hover,
+.striped .span > a:hover,
+.striped h1 > a:active,
+.striped h2 > a:active,
+.striped h3 > a:active,
+.striped h4 > a:active,
+.striped h5 > a:active,
+.striped h6 > a:active,
+.striped p > a:active,
+.striped li > a:active,
+.striped td > a:active,
+.striped address > a:active,
+.striped .span > a:active {
+  text-decoration: none;
+}
+.striped .nav li > a {
+  text-decoration: none;
+}
+.striped.separated {
+  border-bottom-color: #d2d2d2;
+}
+.striped h1,
+.striped .h1,
+.striped h2,
+.striped .h2,
+.striped h3,
+.striped .h3,
+.striped h4,
+.striped .h4,
+.striped h5,
+.striped .h5,
+.striped h6,
+.striped .h6 {
+  color: #000000;
+}
+.striped.jumbotron h1,
+.striped.jumbotron .h1 {
+  color: #343434;
+}
+.striped.jumbotron h2,
+.striped.jumbotron .h2,
+.striped.jumbotron h3,
+.striped.jumbotron .h3,
+.striped.jumbotron h4,
+.striped.jumbotron .h4,
+.striped.jumbotron h5,
+.striped.jumbotron .h5,
+.striped.jumbotron h6,
+.striped.jumbotron .h6 {
+  color: #747474;
+}
+.striped h1 > a:link,
+.striped h2 > a:link,
+.striped h3 > a:link,
+.striped h4 > a:link,
+.striped h5 > a:link,
+.striped h6 > a:link,
+.striped p > a:link,
+.striped li > a:link,
+.striped td > a:link,
+.striped address > a:link,
+.striped .span > a:link,
+.striped h1 > a:visited,
+.striped h2 > a:visited,
+.striped h3 > a:visited,
+.striped h4 > a:visited,
+.striped h5 > a:visited,
+.striped h6 > a:visited,
+.striped p > a:visited,
+.striped li > a:visited,
+.striped td > a:visited,
+.striped address > a:visited,
+.striped .span > a:visited,
+.striped h1 > a:active,
+.striped h2 > a:active,
+.striped h3 > a:active,
+.striped h4 > a:active,
+.striped h5 > a:active,
+.striped h6 > a:active,
+.striped p > a:active,
+.striped li > a:active,
+.striped td > a:active,
+.striped address > a:active,
+.striped .span > a:active {
+  color: #0089bc;
+}
+.striped h1 > a:hover,
+.striped h2 > a:hover,
+.striped h3 > a:hover,
+.striped h4 > a:hover,
+.striped h5 > a:hover,
+.striped h6 > a:hover,
+.striped p > a:hover,
+.striped li > a:hover,
+.striped td > a:hover,
+.striped address > a:hover,
+.striped .span > a:hover {
+  color: #005170;
+}
+.striped h1 > a .glyphicon.tile,
+.striped h2 > a .glyphicon.tile,
+.striped h3 > a .glyphicon.tile,
+.striped h4 > a .glyphicon.tile,
+.striped h5 > a .glyphicon.tile,
+.striped h6 > a .glyphicon.tile,
+.striped p > a .glyphicon.tile,
+.striped li > a .glyphicon.tile,
+.striped td > a .glyphicon.tile,
+.striped address > a .glyphicon.tile,
+.striped .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.striped h1 > a .glyphicon.tile:hover,
+.striped h2 > a .glyphicon.tile:hover,
+.striped h3 > a .glyphicon.tile:hover,
+.striped h4 > a .glyphicon.tile:hover,
+.striped h5 > a .glyphicon.tile:hover,
+.striped h6 > a .glyphicon.tile:hover,
+.striped p > a .glyphicon.tile:hover,
+.striped li > a .glyphicon.tile:hover,
+.striped td > a .glyphicon.tile:hover,
+.striped address > a .glyphicon.tile:hover,
+.striped .span > a .glyphicon.tile:hover,
+.striped h1 > a .glyphicon.tile:active,
+.striped h2 > a .glyphicon.tile:active,
+.striped h3 > a .glyphicon.tile:active,
+.striped h4 > a .glyphicon.tile:active,
+.striped h5 > a .glyphicon.tile:active,
+.striped h6 > a .glyphicon.tile:active,
+.striped p > a .glyphicon.tile:active,
+.striped li > a .glyphicon.tile:active,
+.striped td > a .glyphicon.tile:active,
+.striped address > a .glyphicon.tile:active,
+.striped .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.striped ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.striped ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.striped ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.striped ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.striped ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.striped ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.striped.subnav {
+  opacity: 0.96;
+}
+.striped.subnav .navbar-brand {
+  color: #000000;
+}
+.striped.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.striped.subnav li > a {
+  color: #aaa;
+}
+.striped.subnav li > a.active {
+  color: #000000;
+}
+.striped.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.striped.subnav .navbar-toggle {
+  color: #000000;
+}
+.striped.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.striped.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.striped.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.striped .sidebar strong {
+  color: #000000;
+}
+.striped .sidebar a strong {
+  color: #0089bc;
+}
+.striped .sidebar a strong:link,
+.striped .sidebar a strong:visited,
+.striped .sidebar a strong:active {
+  color: #0089bc;
+}
+.striped .sidebar a strong:hover {
+  color: #005170;
+}
+.striped cite.bubble strong {
+  color: #414141;
+}
+.striped cite.bubble a:link,
+.striped cite.bubble a:visited,
+.striped cite.bubble a:active {
+  color: #0089bc;
+}
+.striped cite.bubble a:hover {
+  color: #005170;
+}
+.striped blockquote {
+  color: #747474;
+}
+.striped blockquote p,
+.striped blockquote ul > li,
+.striped blockquote * {
+  color: #747474;
+}
+.striped h1,
+.striped .h1,
+.striped h2,
+.striped .h2,
+.striped h3,
+.striped .h3,
+.striped h4,
+.striped .h4,
+.striped h5,
+.striped .h5,
+.striped h6,
+.striped .h6 {
+  color: #4e4e4e;
+}
+.cubes {
+  background-color: #f8f8f8;
+  color: #747474;
+  background: url("/media/images/common/cube_tile_lt_gray.png");
+}
+.cubes .lead a {
+  font-weight: 300;
+}
+.cubes h1 > a,
+.cubes h2 > a,
+.cubes h3 > a,
+.cubes h4 > a,
+.cubes h5 > a,
+.cubes h6 > a,
+.cubes p > a,
+.cubes li > a,
+.cubes td > a,
+.cubes address > a,
+.cubes .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.cubes h1 > a:hover,
+.cubes h2 > a:hover,
+.cubes h3 > a:hover,
+.cubes h4 > a:hover,
+.cubes h5 > a:hover,
+.cubes h6 > a:hover,
+.cubes p > a:hover,
+.cubes li > a:hover,
+.cubes td > a:hover,
+.cubes address > a:hover,
+.cubes .span > a:hover,
+.cubes h1 > a:active,
+.cubes h2 > a:active,
+.cubes h3 > a:active,
+.cubes h4 > a:active,
+.cubes h5 > a:active,
+.cubes h6 > a:active,
+.cubes p > a:active,
+.cubes li > a:active,
+.cubes td > a:active,
+.cubes address > a:active,
+.cubes .span > a:active {
+  text-decoration: none;
+}
+.cubes .nav li > a {
+  text-decoration: none;
+}
+.cubes.separated {
+  border-bottom-color: #d2d2d2;
+}
+.cubes h1,
+.cubes .h1,
+.cubes h2,
+.cubes .h2,
+.cubes h3,
+.cubes .h3,
+.cubes h4,
+.cubes .h4,
+.cubes h5,
+.cubes .h5,
+.cubes h6,
+.cubes .h6 {
+  color: #000000;
+}
+.cubes.jumbotron h1,
+.cubes.jumbotron .h1 {
+  color: #343434;
+}
+.cubes.jumbotron h2,
+.cubes.jumbotron .h2,
+.cubes.jumbotron h3,
+.cubes.jumbotron .h3,
+.cubes.jumbotron h4,
+.cubes.jumbotron .h4,
+.cubes.jumbotron h5,
+.cubes.jumbotron .h5,
+.cubes.jumbotron h6,
+.cubes.jumbotron .h6 {
+  color: #747474;
+}
+.cubes h1 > a:link,
+.cubes h2 > a:link,
+.cubes h3 > a:link,
+.cubes h4 > a:link,
+.cubes h5 > a:link,
+.cubes h6 > a:link,
+.cubes p > a:link,
+.cubes li > a:link,
+.cubes td > a:link,
+.cubes address > a:link,
+.cubes .span > a:link,
+.cubes h1 > a:visited,
+.cubes h2 > a:visited,
+.cubes h3 > a:visited,
+.cubes h4 > a:visited,
+.cubes h5 > a:visited,
+.cubes h6 > a:visited,
+.cubes p > a:visited,
+.cubes li > a:visited,
+.cubes td > a:visited,
+.cubes address > a:visited,
+.cubes .span > a:visited,
+.cubes h1 > a:active,
+.cubes h2 > a:active,
+.cubes h3 > a:active,
+.cubes h4 > a:active,
+.cubes h5 > a:active,
+.cubes h6 > a:active,
+.cubes p > a:active,
+.cubes li > a:active,
+.cubes td > a:active,
+.cubes address > a:active,
+.cubes .span > a:active {
+  color: #0089bc;
+}
+.cubes h1 > a:hover,
+.cubes h2 > a:hover,
+.cubes h3 > a:hover,
+.cubes h4 > a:hover,
+.cubes h5 > a:hover,
+.cubes h6 > a:hover,
+.cubes p > a:hover,
+.cubes li > a:hover,
+.cubes td > a:hover,
+.cubes address > a:hover,
+.cubes .span > a:hover {
+  color: #005170;
+}
+.cubes h1 > a .glyphicon.tile,
+.cubes h2 > a .glyphicon.tile,
+.cubes h3 > a .glyphicon.tile,
+.cubes h4 > a .glyphicon.tile,
+.cubes h5 > a .glyphicon.tile,
+.cubes h6 > a .glyphicon.tile,
+.cubes p > a .glyphicon.tile,
+.cubes li > a .glyphicon.tile,
+.cubes td > a .glyphicon.tile,
+.cubes address > a .glyphicon.tile,
+.cubes .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.cubes h1 > a .glyphicon.tile:hover,
+.cubes h2 > a .glyphicon.tile:hover,
+.cubes h3 > a .glyphicon.tile:hover,
+.cubes h4 > a .glyphicon.tile:hover,
+.cubes h5 > a .glyphicon.tile:hover,
+.cubes h6 > a .glyphicon.tile:hover,
+.cubes p > a .glyphicon.tile:hover,
+.cubes li > a .glyphicon.tile:hover,
+.cubes td > a .glyphicon.tile:hover,
+.cubes address > a .glyphicon.tile:hover,
+.cubes .span > a .glyphicon.tile:hover,
+.cubes h1 > a .glyphicon.tile:active,
+.cubes h2 > a .glyphicon.tile:active,
+.cubes h3 > a .glyphicon.tile:active,
+.cubes h4 > a .glyphicon.tile:active,
+.cubes h5 > a .glyphicon.tile:active,
+.cubes h6 > a .glyphicon.tile:active,
+.cubes p > a .glyphicon.tile:active,
+.cubes li > a .glyphicon.tile:active,
+.cubes td > a .glyphicon.tile:active,
+.cubes address > a .glyphicon.tile:active,
+.cubes .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.cubes ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.cubes ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.cubes ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.cubes ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.cubes ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.cubes ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.cubes.subnav {
+  opacity: 0.96;
+}
+.cubes.subnav .navbar-brand {
+  color: #000000;
+}
+.cubes.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.cubes.subnav li > a {
+  color: #aaa;
+}
+.cubes.subnav li > a.active {
+  color: #000000;
+}
+.cubes.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.cubes.subnav .navbar-toggle {
+  color: #000000;
+}
+.cubes.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.cubes.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.cubes.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.cubes .sidebar strong {
+  color: #000000;
+}
+.cubes .sidebar a strong {
+  color: #0089bc;
+}
+.cubes .sidebar a strong:link,
+.cubes .sidebar a strong:visited,
+.cubes .sidebar a strong:active {
+  color: #0089bc;
+}
+.cubes .sidebar a strong:hover {
+  color: #005170;
+}
+.cubes cite.bubble strong {
+  color: #414141;
+}
+.cubes cite.bubble a:link,
+.cubes cite.bubble a:visited,
+.cubes cite.bubble a:active {
+  color: #0089bc;
+}
+.cubes cite.bubble a:hover {
+  color: #005170;
+}
+.cubes blockquote {
+  color: #747474;
+}
+.cubes blockquote p,
+.cubes blockquote ul > li,
+.cubes blockquote * {
+  color: #747474;
+}
+.cubes h1,
+.cubes .h1,
+.cubes h2,
+.cubes .h2,
+.cubes h3,
+.cubes .h3,
+.cubes h4,
+.cubes .h4,
+.cubes h5,
+.cubes .h5,
+.cubes h6,
+.cubes .h6 {
+  color: #4e4e4e;
+}
+.green {
+  background-color: #3bb878;
+  color: #ffffff;
+}
+.green .lead a {
+  font-weight: 300;
+}
+.green h1 > a,
+.green h2 > a,
+.green h3 > a,
+.green h4 > a,
+.green h5 > a,
+.green h6 > a,
+.green p > a,
+.green li > a,
+.green td > a,
+.green address > a,
+.green .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.green h1 > a:hover,
+.green h2 > a:hover,
+.green h3 > a:hover,
+.green h4 > a:hover,
+.green h5 > a:hover,
+.green h6 > a:hover,
+.green p > a:hover,
+.green li > a:hover,
+.green td > a:hover,
+.green address > a:hover,
+.green .span > a:hover,
+.green h1 > a:active,
+.green h2 > a:active,
+.green h3 > a:active,
+.green h4 > a:active,
+.green h5 > a:active,
+.green h6 > a:active,
+.green p > a:active,
+.green li > a:active,
+.green td > a:active,
+.green address > a:active,
+.green .span > a:active {
+  text-decoration: none;
+}
+.green .nav li > a {
+  text-decoration: none;
+}
+.green.separated {
+  border-bottom-color: #287e52;
+}
+.green h1,
+.green .h1,
+.green h2,
+.green .h2,
+.green h3,
+.green .h3,
+.green h4,
+.green .h4,
+.green h5,
+.green .h5,
+.green h6,
+.green .h6 {
+  color: #ffffff;
+}
+.green h1 > a,
+.green h2 > a,
+.green h3 > a,
+.green h4 > a,
+.green h5 > a,
+.green h6 > a,
+.green p > a,
+.green li > a,
+.green td > a,
+.green address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.green h1 > a:hover,
+.green h2 > a:hover,
+.green h3 > a:hover,
+.green h4 > a:hover,
+.green h5 > a:hover,
+.green h6 > a:hover,
+.green p > a:hover,
+.green li > a:hover,
+.green td > a:hover,
+.green address > a:hover {
+  text-decoration: none;
+}
+.green.subnav .navbar-brand {
+  color: #ffffff;
+}
+.green.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.green.subnav li > a {
+  color: #a1e1c0;
+}
+.green.subnav li > a.active {
+  color: #ffffff;
+}
+.green.subnav li > a:hover {
+  color: #ffffff;
+}
+.green.subnav .navbar-toggle {
+  color: #226b46;
+}
+.green.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.green.subnav .navbar-collapse {
+  border-top-color: #226b46;
+}
+.green.subnav .subnav-divider {
+  border-bottom: 1px solid #3bb878;
+}
+.green .form-control {
+  border: 0 !important;
+}
+.dark-green {
+  background-color: #35a56b;
+  color: #ffffff;
+}
+.dark-green .lead a {
+  font-weight: 300;
+}
+.dark-green h1 > a,
+.dark-green h2 > a,
+.dark-green h3 > a,
+.dark-green h4 > a,
+.dark-green h5 > a,
+.dark-green h6 > a,
+.dark-green p > a,
+.dark-green li > a,
+.dark-green td > a,
+.dark-green address > a,
+.dark-green .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.dark-green h1 > a:hover,
+.dark-green h2 > a:hover,
+.dark-green h3 > a:hover,
+.dark-green h4 > a:hover,
+.dark-green h5 > a:hover,
+.dark-green h6 > a:hover,
+.dark-green p > a:hover,
+.dark-green li > a:hover,
+.dark-green td > a:hover,
+.dark-green address > a:hover,
+.dark-green .span > a:hover,
+.dark-green h1 > a:active,
+.dark-green h2 > a:active,
+.dark-green h3 > a:active,
+.dark-green h4 > a:active,
+.dark-green h5 > a:active,
+.dark-green h6 > a:active,
+.dark-green p > a:active,
+.dark-green li > a:active,
+.dark-green td > a:active,
+.dark-green address > a:active,
+.dark-green .span > a:active {
+  text-decoration: none;
+}
+.dark-green .nav li > a {
+  text-decoration: none;
+}
+.dark-green.separated {
+  border-bottom-color: #226b46;
+}
+.dark-green h1,
+.dark-green .h1,
+.dark-green h2,
+.dark-green .h2,
+.dark-green h3,
+.dark-green .h3,
+.dark-green h4,
+.dark-green .h4,
+.dark-green h5,
+.dark-green .h5,
+.dark-green h6,
+.dark-green .h6 {
+  color: #ffffff;
+}
+.dark-green h1 > a,
+.dark-green h2 > a,
+.dark-green h3 > a,
+.dark-green h4 > a,
+.dark-green h5 > a,
+.dark-green h6 > a,
+.dark-green p > a,
+.dark-green li > a,
+.dark-green td > a,
+.dark-green address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.dark-green h1 > a:hover,
+.dark-green h2 > a:hover,
+.dark-green h3 > a:hover,
+.dark-green h4 > a:hover,
+.dark-green h5 > a:hover,
+.dark-green h6 > a:hover,
+.dark-green p > a:hover,
+.dark-green li > a:hover,
+.dark-green td > a:hover,
+.dark-green address > a:hover {
+  text-decoration: none;
+}
+.dark-green.subnav .navbar-brand {
+  color: #ffffff;
+}
+.dark-green.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.dark-green.subnav li > a {
+  color: #8edbb3;
+}
+.dark-green.subnav li > a.active {
+  color: #ffffff;
+}
+.dark-green.subnav li > a:hover {
+  color: #ffffff;
+}
+.dark-green.subnav .navbar-toggle {
+  color: #1c5739;
+}
+.dark-green.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.dark-green.subnav .navbar-collapse {
+  border-top-color: #1c5739;
+}
+.dark-green.subnav .subnav-divider {
+  border-bottom: 1px solid #35a56b;
+}
+.dark-green .form-control {
+  border: 0 !important;
+}
+.blue {
+  background-color: #00aeef;
+  color: #ffffff;
+}
+.blue .lead a {
+  font-weight: 300;
+}
+.blue h1 > a,
+.blue h2 > a,
+.blue h3 > a,
+.blue h4 > a,
+.blue h5 > a,
+.blue h6 > a,
+.blue p > a,
+.blue li > a,
+.blue td > a,
+.blue address > a,
+.blue .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.blue h1 > a:hover,
+.blue h2 > a:hover,
+.blue h3 > a:hover,
+.blue h4 > a:hover,
+.blue h5 > a:hover,
+.blue h6 > a:hover,
+.blue p > a:hover,
+.blue li > a:hover,
+.blue td > a:hover,
+.blue address > a:hover,
+.blue .span > a:hover,
+.blue h1 > a:active,
+.blue h2 > a:active,
+.blue h3 > a:active,
+.blue h4 > a:active,
+.blue h5 > a:active,
+.blue h6 > a:active,
+.blue p > a:active,
+.blue li > a:active,
+.blue td > a:active,
+.blue address > a:active,
+.blue .span > a:active {
+  text-decoration: none;
+}
+.blue .nav li > a {
+  text-decoration: none;
+}
+.blue.separated {
+  border-bottom-color: #0076a3;
+}
+.blue h1,
+.blue .h1,
+.blue h2,
+.blue .h2,
+.blue h3,
+.blue .h3,
+.blue h4,
+.blue .h4,
+.blue h5,
+.blue .h5,
+.blue h6,
+.blue .h6 {
+  color: #ffffff;
+}
+.blue h1 > a,
+.blue h2 > a,
+.blue h3 > a,
+.blue h4 > a,
+.blue h5 > a,
+.blue h6 > a,
+.blue p > a,
+.blue li > a,
+.blue td > a,
+.blue address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.blue h1 > a:hover,
+.blue h2 > a:hover,
+.blue h3 > a:hover,
+.blue h4 > a:hover,
+.blue h5 > a:hover,
+.blue h6 > a:hover,
+.blue p > a:hover,
+.blue li > a:hover,
+.blue td > a:hover,
+.blue address > a:hover {
+  text-decoration: none;
+}
+.blue.subnav .navbar-brand {
+  color: #ffffff;
+}
+.blue.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.blue.subnav li > a {
+  color: #7fdcff;
+}
+.blue.subnav li > a.active {
+  color: #ffffff;
+}
+.blue.subnav li > a:hover {
+  color: #ffffff;
+}
+.blue.subnav .navbar-toggle {
+  color: #006489;
+}
+.blue.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.blue.subnav .navbar-collapse {
+  border-top-color: #006489;
+}
+.blue.subnav .subnav-divider {
+  border-bottom: 1px solid #00aeef;
+}
+.blue .form-control {
+  border: 0 !important;
+}
+.dark-blue {
+  background-color: #00aeef;
+  color: #ffffff;
+}
+.dark-blue .lead a {
+  font-weight: 300;
+}
+.dark-blue h1 > a,
+.dark-blue h2 > a,
+.dark-blue h3 > a,
+.dark-blue h4 > a,
+.dark-blue h5 > a,
+.dark-blue h6 > a,
+.dark-blue p > a,
+.dark-blue li > a,
+.dark-blue td > a,
+.dark-blue address > a,
+.dark-blue .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.dark-blue h1 > a:hover,
+.dark-blue h2 > a:hover,
+.dark-blue h3 > a:hover,
+.dark-blue h4 > a:hover,
+.dark-blue h5 > a:hover,
+.dark-blue h6 > a:hover,
+.dark-blue p > a:hover,
+.dark-blue li > a:hover,
+.dark-blue td > a:hover,
+.dark-blue address > a:hover,
+.dark-blue .span > a:hover,
+.dark-blue h1 > a:active,
+.dark-blue h2 > a:active,
+.dark-blue h3 > a:active,
+.dark-blue h4 > a:active,
+.dark-blue h5 > a:active,
+.dark-blue h6 > a:active,
+.dark-blue p > a:active,
+.dark-blue li > a:active,
+.dark-blue td > a:active,
+.dark-blue address > a:active,
+.dark-blue .span > a:active {
+  text-decoration: none;
+}
+.dark-blue .nav li > a {
+  text-decoration: none;
+}
+.dark-blue.separated {
+  border-bottom-color: #0076a3;
+}
+.dark-blue h1,
+.dark-blue .h1,
+.dark-blue h2,
+.dark-blue .h2,
+.dark-blue h3,
+.dark-blue .h3,
+.dark-blue h4,
+.dark-blue .h4,
+.dark-blue h5,
+.dark-blue .h5,
+.dark-blue h6,
+.dark-blue .h6 {
+  color: #ffffff;
+}
+.dark-blue h1 > a,
+.dark-blue h2 > a,
+.dark-blue h3 > a,
+.dark-blue h4 > a,
+.dark-blue h5 > a,
+.dark-blue h6 > a,
+.dark-blue p > a,
+.dark-blue li > a,
+.dark-blue td > a,
+.dark-blue address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.dark-blue h1 > a:hover,
+.dark-blue h2 > a:hover,
+.dark-blue h3 > a:hover,
+.dark-blue h4 > a:hover,
+.dark-blue h5 > a:hover,
+.dark-blue h6 > a:hover,
+.dark-blue p > a:hover,
+.dark-blue li > a:hover,
+.dark-blue td > a:hover,
+.dark-blue address > a:hover {
+  text-decoration: none;
+}
+.dark-blue.subnav .navbar-brand {
+  color: #ffffff;
+}
+.dark-blue.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.dark-blue.subnav li > a {
+  color: #7fdcff;
+}
+.dark-blue.subnav li > a.active {
+  color: #ffffff;
+}
+.dark-blue.subnav li > a:hover {
+  color: #ffffff;
+}
+.dark-blue.subnav .navbar-toggle {
+  color: #006489;
+}
+.dark-blue.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.dark-blue.subnav .navbar-collapse {
+  border-top-color: #006489;
+}
+.dark-blue.subnav .subnav-divider {
+  border-bottom: 1px solid #00aeef;
+}
+.dark-blue .form-control {
+  border: 0 !important;
+}
+.light-blue {
+  background-color: #edf7fe;
+  color: #747474;
+}
+.light-blue .lead a {
+  font-weight: 300;
+}
+.light-blue h1 > a,
+.light-blue h2 > a,
+.light-blue h3 > a,
+.light-blue h4 > a,
+.light-blue h5 > a,
+.light-blue h6 > a,
+.light-blue p > a,
+.light-blue li > a,
+.light-blue td > a,
+.light-blue address > a,
+.light-blue .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.light-blue h1 > a:hover,
+.light-blue h2 > a:hover,
+.light-blue h3 > a:hover,
+.light-blue h4 > a:hover,
+.light-blue h5 > a:hover,
+.light-blue h6 > a:hover,
+.light-blue p > a:hover,
+.light-blue li > a:hover,
+.light-blue td > a:hover,
+.light-blue address > a:hover,
+.light-blue .span > a:hover,
+.light-blue h1 > a:active,
+.light-blue h2 > a:active,
+.light-blue h3 > a:active,
+.light-blue h4 > a:active,
+.light-blue h5 > a:active,
+.light-blue h6 > a:active,
+.light-blue p > a:active,
+.light-blue li > a:active,
+.light-blue td > a:active,
+.light-blue address > a:active,
+.light-blue .span > a:active {
+  text-decoration: none;
+}
+.light-blue .nav li > a {
+  text-decoration: none;
+}
+.light-blue.separated {
+  border-bottom-color: #a5d7fa;
+}
+.light-blue h1,
+.light-blue .h1,
+.light-blue h2,
+.light-blue .h2,
+.light-blue h3,
+.light-blue .h3,
+.light-blue h4,
+.light-blue .h4,
+.light-blue h5,
+.light-blue .h5,
+.light-blue h6,
+.light-blue .h6 {
+  color: #000000;
+}
+.light-blue.jumbotron h1,
+.light-blue.jumbotron .h1 {
+  color: #343434;
+}
+.light-blue.jumbotron h2,
+.light-blue.jumbotron .h2,
+.light-blue.jumbotron h3,
+.light-blue.jumbotron .h3,
+.light-blue.jumbotron h4,
+.light-blue.jumbotron .h4,
+.light-blue.jumbotron h5,
+.light-blue.jumbotron .h5,
+.light-blue.jumbotron h6,
+.light-blue.jumbotron .h6 {
+  color: #747474;
+}
+.light-blue h1 > a:link,
+.light-blue h2 > a:link,
+.light-blue h3 > a:link,
+.light-blue h4 > a:link,
+.light-blue h5 > a:link,
+.light-blue h6 > a:link,
+.light-blue p > a:link,
+.light-blue li > a:link,
+.light-blue td > a:link,
+.light-blue address > a:link,
+.light-blue .span > a:link,
+.light-blue h1 > a:visited,
+.light-blue h2 > a:visited,
+.light-blue h3 > a:visited,
+.light-blue h4 > a:visited,
+.light-blue h5 > a:visited,
+.light-blue h6 > a:visited,
+.light-blue p > a:visited,
+.light-blue li > a:visited,
+.light-blue td > a:visited,
+.light-blue address > a:visited,
+.light-blue .span > a:visited,
+.light-blue h1 > a:active,
+.light-blue h2 > a:active,
+.light-blue h3 > a:active,
+.light-blue h4 > a:active,
+.light-blue h5 > a:active,
+.light-blue h6 > a:active,
+.light-blue p > a:active,
+.light-blue li > a:active,
+.light-blue td > a:active,
+.light-blue address > a:active,
+.light-blue .span > a:active {
+  color: #0089bc;
+}
+.light-blue h1 > a:hover,
+.light-blue h2 > a:hover,
+.light-blue h3 > a:hover,
+.light-blue h4 > a:hover,
+.light-blue h5 > a:hover,
+.light-blue h6 > a:hover,
+.light-blue p > a:hover,
+.light-blue li > a:hover,
+.light-blue td > a:hover,
+.light-blue address > a:hover,
+.light-blue .span > a:hover {
+  color: #005170;
+}
+.light-blue h1 > a .glyphicon.tile,
+.light-blue h2 > a .glyphicon.tile,
+.light-blue h3 > a .glyphicon.tile,
+.light-blue h4 > a .glyphicon.tile,
+.light-blue h5 > a .glyphicon.tile,
+.light-blue h6 > a .glyphicon.tile,
+.light-blue p > a .glyphicon.tile,
+.light-blue li > a .glyphicon.tile,
+.light-blue td > a .glyphicon.tile,
+.light-blue address > a .glyphicon.tile,
+.light-blue .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.light-blue h1 > a .glyphicon.tile:hover,
+.light-blue h2 > a .glyphicon.tile:hover,
+.light-blue h3 > a .glyphicon.tile:hover,
+.light-blue h4 > a .glyphicon.tile:hover,
+.light-blue h5 > a .glyphicon.tile:hover,
+.light-blue h6 > a .glyphicon.tile:hover,
+.light-blue p > a .glyphicon.tile:hover,
+.light-blue li > a .glyphicon.tile:hover,
+.light-blue td > a .glyphicon.tile:hover,
+.light-blue address > a .glyphicon.tile:hover,
+.light-blue .span > a .glyphicon.tile:hover,
+.light-blue h1 > a .glyphicon.tile:active,
+.light-blue h2 > a .glyphicon.tile:active,
+.light-blue h3 > a .glyphicon.tile:active,
+.light-blue h4 > a .glyphicon.tile:active,
+.light-blue h5 > a .glyphicon.tile:active,
+.light-blue h6 > a .glyphicon.tile:active,
+.light-blue p > a .glyphicon.tile:active,
+.light-blue li > a .glyphicon.tile:active,
+.light-blue td > a .glyphicon.tile:active,
+.light-blue address > a .glyphicon.tile:active,
+.light-blue .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.light-blue ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.light-blue ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.light-blue ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.light-blue ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.light-blue ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.light-blue ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.light-blue.subnav {
+  opacity: 0.96;
+}
+.light-blue.subnav .navbar-brand {
+  color: #000000;
+}
+.light-blue.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.light-blue.subnav li > a {
+  color: #aaa;
+}
+.light-blue.subnav li > a.active {
+  color: #000000;
+}
+.light-blue.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.light-blue.subnav .navbar-toggle {
+  color: #000000;
+}
+.light-blue.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.light-blue.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.light-blue.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.light-blue .sidebar strong {
+  color: #000000;
+}
+.light-blue .sidebar a strong {
+  color: #0089bc;
+}
+.light-blue .sidebar a strong:link,
+.light-blue .sidebar a strong:visited,
+.light-blue .sidebar a strong:active {
+  color: #0089bc;
+}
+.light-blue .sidebar a strong:hover {
+  color: #005170;
+}
+.light-blue cite.bubble strong {
+  color: #414141;
+}
+.light-blue cite.bubble a:link,
+.light-blue cite.bubble a:visited,
+.light-blue cite.bubble a:active {
+  color: #0089bc;
+}
+.light-blue cite.bubble a:hover {
+  color: #005170;
+}
+.light-blue blockquote {
+  color: #747474;
+}
+.light-blue blockquote p,
+.light-blue blockquote ul > li,
+.light-blue blockquote * {
+  color: #747474;
+}
+.red {
+  background-color: #d7594c;
+  color: #ffffff;
+}
+.red .lead a {
+  font-weight: 300;
+}
+.red h1 > a,
+.red h2 > a,
+.red h3 > a,
+.red h4 > a,
+.red h5 > a,
+.red h6 > a,
+.red p > a,
+.red li > a,
+.red td > a,
+.red address > a,
+.red .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.red h1 > a:hover,
+.red h2 > a:hover,
+.red h3 > a:hover,
+.red h4 > a:hover,
+.red h5 > a:hover,
+.red h6 > a:hover,
+.red p > a:hover,
+.red li > a:hover,
+.red td > a:hover,
+.red address > a:hover,
+.red .span > a:hover,
+.red h1 > a:active,
+.red h2 > a:active,
+.red h3 > a:active,
+.red h4 > a:active,
+.red h5 > a:active,
+.red h6 > a:active,
+.red p > a:active,
+.red li > a:active,
+.red td > a:active,
+.red address > a:active,
+.red .span > a:active {
+  text-decoration: none;
+}
+.red .nav li > a {
+  text-decoration: none;
+}
+.red.separated {
+  border-bottom-color: #af3428;
+}
+.red h1,
+.red .h1,
+.red h2,
+.red .h2,
+.red h3,
+.red .h3,
+.red h4,
+.red .h4,
+.red h5,
+.red .h5,
+.red h6,
+.red .h6 {
+  color: #ffffff;
+}
+.red h1 > a,
+.red h2 > a,
+.red h3 > a,
+.red h4 > a,
+.red h5 > a,
+.red h6 > a,
+.red p > a,
+.red li > a,
+.red td > a,
+.red address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.red h1 > a:hover,
+.red h2 > a:hover,
+.red h3 > a:hover,
+.red h4 > a:hover,
+.red h5 > a:hover,
+.red h6 > a:hover,
+.red p > a:hover,
+.red li > a:hover,
+.red td > a:hover,
+.red address > a:hover {
+  text-decoration: none;
+}
+.red.subnav .navbar-brand {
+  color: #ffffff;
+}
+.red.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.red.subnav li > a {
+  color: #f1c5c1;
+}
+.red.subnav li > a.active {
+  color: #ffffff;
+}
+.red.subnav li > a:hover {
+  color: #ffffff;
+}
+.red.subnav .navbar-toggle {
+  color: #9a2e23;
+}
+.red.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.red.subnav .navbar-collapse {
+  border-top-color: #9a2e23;
+}
+.red.subnav .subnav-divider {
+  border-bottom: 1px solid #d7594c;
+}
+.red .form-control {
+  border: 0 !important;
+}
+.purple {
+  background-color: #c67fcf;
+  color: #ffffff;
+}
+.purple .lead a {
+  font-weight: 300;
+}
+.purple h1 > a,
+.purple h2 > a,
+.purple h3 > a,
+.purple h4 > a,
+.purple h5 > a,
+.purple h6 > a,
+.purple p > a,
+.purple li > a,
+.purple td > a,
+.purple address > a,
+.purple .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.purple h1 > a:hover,
+.purple h2 > a:hover,
+.purple h3 > a:hover,
+.purple h4 > a:hover,
+.purple h5 > a:hover,
+.purple h6 > a:hover,
+.purple p > a:hover,
+.purple li > a:hover,
+.purple td > a:hover,
+.purple address > a:hover,
+.purple .span > a:hover,
+.purple h1 > a:active,
+.purple h2 > a:active,
+.purple h3 > a:active,
+.purple h4 > a:active,
+.purple h5 > a:active,
+.purple h6 > a:active,
+.purple p > a:active,
+.purple li > a:active,
+.purple td > a:active,
+.purple address > a:active,
+.purple .span > a:active {
+  text-decoration: none;
+}
+.purple .nav li > a {
+  text-decoration: none;
+}
+.purple.separated {
+  border-bottom-color: #ad47ba;
+}
+.purple h1,
+.purple .h1,
+.purple h2,
+.purple .h2,
+.purple h3,
+.purple .h3,
+.purple h4,
+.purple .h4,
+.purple h5,
+.purple .h5,
+.purple h6,
+.purple .h6 {
+  color: #ffffff;
+}
+.purple h1 > a,
+.purple h2 > a,
+.purple h3 > a,
+.purple h4 > a,
+.purple h5 > a,
+.purple h6 > a,
+.purple p > a,
+.purple li > a,
+.purple td > a,
+.purple address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.purple h1 > a:hover,
+.purple h2 > a:hover,
+.purple h3 > a:hover,
+.purple h4 > a:hover,
+.purple h5 > a:hover,
+.purple h6 > a:hover,
+.purple p > a:hover,
+.purple li > a:hover,
+.purple td > a:hover,
+.purple address > a:hover {
+  text-decoration: none;
+}
+.purple.subnav .navbar-brand {
+  color: #ffffff;
+}
+.purple.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.purple.subnav li > a {
+  color: #f4e7f6;
+}
+.purple.subnav li > a.active {
+  color: #ffffff;
+}
+.purple.subnav li > a:hover {
+  color: #ffffff;
+}
+.purple.subnav .navbar-toggle {
+  color: #9d3fa9;
+}
+.purple.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.purple.subnav .navbar-collapse {
+  border-top-color: #9d3fa9;
+}
+.purple.subnav .subnav-divider {
+  border-bottom: 1px solid #c67fcf;
+}
+.purple .form-control {
+  border: 0 !important;
+}
+.dark-purple {
+  background-color: #be6cc8;
+  color: #ffffff;
+}
+.dark-purple .lead a {
+  font-weight: 300;
+}
+.dark-purple h1 > a,
+.dark-purple h2 > a,
+.dark-purple h3 > a,
+.dark-purple h4 > a,
+.dark-purple h5 > a,
+.dark-purple h6 > a,
+.dark-purple p > a,
+.dark-purple li > a,
+.dark-purple td > a,
+.dark-purple address > a,
+.dark-purple .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.dark-purple h1 > a:hover,
+.dark-purple h2 > a:hover,
+.dark-purple h3 > a:hover,
+.dark-purple h4 > a:hover,
+.dark-purple h5 > a:hover,
+.dark-purple h6 > a:hover,
+.dark-purple p > a:hover,
+.dark-purple li > a:hover,
+.dark-purple td > a:hover,
+.dark-purple address > a:hover,
+.dark-purple .span > a:hover,
+.dark-purple h1 > a:active,
+.dark-purple h2 > a:active,
+.dark-purple h3 > a:active,
+.dark-purple h4 > a:active,
+.dark-purple h5 > a:active,
+.dark-purple h6 > a:active,
+.dark-purple p > a:active,
+.dark-purple li > a:active,
+.dark-purple td > a:active,
+.dark-purple address > a:active,
+.dark-purple .span > a:active {
+  text-decoration: none;
+}
+.dark-purple .nav li > a {
+  text-decoration: none;
+}
+.dark-purple.separated {
+  border-bottom-color: #9d3fa9;
+}
+.dark-purple h1,
+.dark-purple .h1,
+.dark-purple h2,
+.dark-purple .h2,
+.dark-purple h3,
+.dark-purple .h3,
+.dark-purple h4,
+.dark-purple .h4,
+.dark-purple h5,
+.dark-purple .h5,
+.dark-purple h6,
+.dark-purple .h6 {
+  color: #ffffff;
+}
+.dark-purple h1 > a,
+.dark-purple h2 > a,
+.dark-purple h3 > a,
+.dark-purple h4 > a,
+.dark-purple h5 > a,
+.dark-purple h6 > a,
+.dark-purple p > a,
+.dark-purple li > a,
+.dark-purple td > a,
+.dark-purple address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.dark-purple h1 > a:hover,
+.dark-purple h2 > a:hover,
+.dark-purple h3 > a:hover,
+.dark-purple h4 > a:hover,
+.dark-purple h5 > a:hover,
+.dark-purple h6 > a:hover,
+.dark-purple p > a:hover,
+.dark-purple li > a:hover,
+.dark-purple td > a:hover,
+.dark-purple address > a:hover {
+  text-decoration: none;
+}
+.dark-purple.subnav .navbar-brand {
+  color: #ffffff;
+}
+.dark-purple.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.dark-purple.subnav li > a {
+  color: #ecd4ef;
+}
+.dark-purple.subnav li > a.active {
+  color: #ffffff;
+}
+.dark-purple.subnav li > a:hover {
+  color: #ffffff;
+}
+.dark-purple.subnav .navbar-toggle {
+  color: #8c3896;
+}
+.dark-purple.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.dark-purple.subnav .navbar-collapse {
+  border-top-color: #8c3896;
+}
+.dark-purple.subnav .subnav-divider {
+  border-bottom: 1px solid #be6cc8;
+}
+.dark-purple .form-control {
+  border: 0 !important;
+}
+.light-purple {
+  background-color: #eed8f0;
+  color: #ffffff;
+}
+.light-purple .lead a {
+  font-weight: 300;
+}
+.light-purple h1 > a,
+.light-purple h2 > a,
+.light-purple h3 > a,
+.light-purple h4 > a,
+.light-purple h5 > a,
+.light-purple h6 > a,
+.light-purple p > a,
+.light-purple li > a,
+.light-purple td > a,
+.light-purple address > a,
+.light-purple .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.light-purple h1 > a:hover,
+.light-purple h2 > a:hover,
+.light-purple h3 > a:hover,
+.light-purple h4 > a:hover,
+.light-purple h5 > a:hover,
+.light-purple h6 > a:hover,
+.light-purple p > a:hover,
+.light-purple li > a:hover,
+.light-purple td > a:hover,
+.light-purple address > a:hover,
+.light-purple .span > a:hover,
+.light-purple h1 > a:active,
+.light-purple h2 > a:active,
+.light-purple h3 > a:active,
+.light-purple h4 > a:active,
+.light-purple h5 > a:active,
+.light-purple h6 > a:active,
+.light-purple p > a:active,
+.light-purple li > a:active,
+.light-purple td > a:active,
+.light-purple address > a:active,
+.light-purple .span > a:active {
+  text-decoration: none;
+}
+.light-purple .nav li > a {
+  text-decoration: none;
+}
+.light-purple.separated {
+  border-bottom-color: #d5a0dc;
+}
+.light-purple h1,
+.light-purple .h1,
+.light-purple h2,
+.light-purple .h2,
+.light-purple h3,
+.light-purple .h3,
+.light-purple h4,
+.light-purple .h4,
+.light-purple h5,
+.light-purple .h5,
+.light-purple h6,
+.light-purple .h6 {
+  color: #ffffff;
+}
+.light-purple h1 > a,
+.light-purple h2 > a,
+.light-purple h3 > a,
+.light-purple h4 > a,
+.light-purple h5 > a,
+.light-purple h6 > a,
+.light-purple p > a,
+.light-purple li > a,
+.light-purple td > a,
+.light-purple address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.light-purple h1 > a:hover,
+.light-purple h2 > a:hover,
+.light-purple h3 > a:hover,
+.light-purple h4 > a:hover,
+.light-purple h5 > a:hover,
+.light-purple h6 > a:hover,
+.light-purple p > a:hover,
+.light-purple li > a:hover,
+.light-purple td > a:hover,
+.light-purple address > a:hover {
+  text-decoration: none;
+}
+.light-purple.subnav .navbar-brand {
+  color: #ffffff;
+}
+.light-purple.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.light-purple.subnav li > a {
+  color: #ffffff;
+}
+.light-purple.subnav li > a.active {
+  color: #ffffff;
+}
+.light-purple.subnav li > a:hover {
+  color: #ffffff;
+}
+.light-purple.subnav .navbar-toggle {
+  color: #cd8ed5;
+}
+.light-purple.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.light-purple.subnav .navbar-collapse {
+  border-top-color: #cd8ed5;
+}
+.light-purple.subnav .subnav-divider {
+  border-bottom: 1px solid #eed8f0;
+}
+.light-purple .form-control {
+  border: 0 !important;
+}
+.dark {
+  background-color: #161616;
+  color: #666666;
+}
+.dark a {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #a6a6a6;
+}
+.dark a:hover,
+.dark a:active {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+.dark-moar {
+  background-color: #161616;
+  color: #666666;
+  background-color: #0a0a0a;
+}
+.dark-moar a {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #a6a6a6;
+}
+.dark-moar a:hover,
+.dark-moar a:active {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+.dark-less {
+  background-color: #161616;
+  color: #666666;
+  background-color: #222222;
+  color: #ffffff;
+}
+.dark-less a {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #a6a6a6;
+}
+.dark-less a:hover,
+.dark-less a:active {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+.charcoal {
+  background-color: #161616;
+  color: #666666;
+  background-color: #353535;
+}
+.charcoal a {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #a6a6a6;
+}
+.charcoal a:hover,
+.charcoal a:active {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+.logo-bg-dark {
+  background-color: #2d3339;
+  color: #ffffff;
+}
+.logo-bg-dark .lead a {
+  font-weight: 300;
+}
+.logo-bg-dark h1 > a,
+.logo-bg-dark h2 > a,
+.logo-bg-dark h3 > a,
+.logo-bg-dark h4 > a,
+.logo-bg-dark h5 > a,
+.logo-bg-dark h6 > a,
+.logo-bg-dark p > a,
+.logo-bg-dark li > a,
+.logo-bg-dark td > a,
+.logo-bg-dark address > a,
+.logo-bg-dark .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.logo-bg-dark h1 > a:hover,
+.logo-bg-dark h2 > a:hover,
+.logo-bg-dark h3 > a:hover,
+.logo-bg-dark h4 > a:hover,
+.logo-bg-dark h5 > a:hover,
+.logo-bg-dark h6 > a:hover,
+.logo-bg-dark p > a:hover,
+.logo-bg-dark li > a:hover,
+.logo-bg-dark td > a:hover,
+.logo-bg-dark address > a:hover,
+.logo-bg-dark .span > a:hover,
+.logo-bg-dark h1 > a:active,
+.logo-bg-dark h2 > a:active,
+.logo-bg-dark h3 > a:active,
+.logo-bg-dark h4 > a:active,
+.logo-bg-dark h5 > a:active,
+.logo-bg-dark h6 > a:active,
+.logo-bg-dark p > a:active,
+.logo-bg-dark li > a:active,
+.logo-bg-dark td > a:active,
+.logo-bg-dark address > a:active,
+.logo-bg-dark .span > a:active {
+  text-decoration: none;
+}
+.logo-bg-dark .nav li > a {
+  text-decoration: none;
+}
+.logo-bg-dark.separated {
+  border-bottom-color: #0b0d0e;
+}
+.logo-bg-dark h1,
+.logo-bg-dark .h1,
+.logo-bg-dark h2,
+.logo-bg-dark .h2,
+.logo-bg-dark h3,
+.logo-bg-dark .h3,
+.logo-bg-dark h4,
+.logo-bg-dark .h4,
+.logo-bg-dark h5,
+.logo-bg-dark .h5,
+.logo-bg-dark h6,
+.logo-bg-dark .h6 {
+  color: #ffffff;
+}
+.logo-bg-dark h1 > a,
+.logo-bg-dark h2 > a,
+.logo-bg-dark h3 > a,
+.logo-bg-dark h4 > a,
+.logo-bg-dark h5 > a,
+.logo-bg-dark h6 > a,
+.logo-bg-dark p > a,
+.logo-bg-dark li > a,
+.logo-bg-dark td > a,
+.logo-bg-dark address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.logo-bg-dark h1 > a:hover,
+.logo-bg-dark h2 > a:hover,
+.logo-bg-dark h3 > a:hover,
+.logo-bg-dark h4 > a:hover,
+.logo-bg-dark h5 > a:hover,
+.logo-bg-dark h6 > a:hover,
+.logo-bg-dark p > a:hover,
+.logo-bg-dark li > a:hover,
+.logo-bg-dark td > a:hover,
+.logo-bg-dark address > a:hover {
+  text-decoration: none;
+}
+.logo-bg-dark.subnav .navbar-brand {
+  color: #ffffff;
+}
+.logo-bg-dark.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.logo-bg-dark.subnav li > a {
+  color: #6c7a89;
+}
+.logo-bg-dark.subnav li > a.active {
+  color: #ffffff;
+}
+.logo-bg-dark.subnav li > a:hover {
+  color: #ffffff;
+}
+.logo-bg-dark.subnav .navbar-toggle {
+  color: #000000;
+}
+.logo-bg-dark.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.logo-bg-dark.subnav .navbar-collapse {
+  border-top-color: #000000;
+}
+.logo-bg-dark.subnav .subnav-divider {
+  border-bottom: 1px solid #2d3339;
+}
+.logo-bg-dark .form-control {
+  border: 0 !important;
+}
+.hero {
+  background-color: #3bb878;
+  color: #ffffff;
+}
+.hero .lead a {
+  font-weight: 300;
+}
+.hero h1 > a,
+.hero h2 > a,
+.hero h3 > a,
+.hero h4 > a,
+.hero h5 > a,
+.hero h6 > a,
+.hero p > a,
+.hero li > a,
+.hero td > a,
+.hero address > a,
+.hero .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.hero h1 > a:hover,
+.hero h2 > a:hover,
+.hero h3 > a:hover,
+.hero h4 > a:hover,
+.hero h5 > a:hover,
+.hero h6 > a:hover,
+.hero p > a:hover,
+.hero li > a:hover,
+.hero td > a:hover,
+.hero address > a:hover,
+.hero .span > a:hover,
+.hero h1 > a:active,
+.hero h2 > a:active,
+.hero h3 > a:active,
+.hero h4 > a:active,
+.hero h5 > a:active,
+.hero h6 > a:active,
+.hero p > a:active,
+.hero li > a:active,
+.hero td > a:active,
+.hero address > a:active,
+.hero .span > a:active {
+  text-decoration: none;
+}
+.hero .nav li > a {
+  text-decoration: none;
+}
+.hero.separated {
+  border-bottom-color: #287e52;
+}
+.hero h1,
+.hero .h1,
+.hero h2,
+.hero .h2,
+.hero h3,
+.hero .h3,
+.hero h4,
+.hero .h4,
+.hero h5,
+.hero .h5,
+.hero h6,
+.hero .h6 {
+  color: #ffffff;
+}
+.hero h1 > a,
+.hero h2 > a,
+.hero h3 > a,
+.hero h4 > a,
+.hero h5 > a,
+.hero h6 > a,
+.hero p > a,
+.hero li > a,
+.hero td > a,
+.hero address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.hero h1 > a:hover,
+.hero h2 > a:hover,
+.hero h3 > a:hover,
+.hero h4 > a:hover,
+.hero h5 > a:hover,
+.hero h6 > a:hover,
+.hero p > a:hover,
+.hero li > a:hover,
+.hero td > a:hover,
+.hero address > a:hover {
+  text-decoration: none;
+}
+.hero.subnav .navbar-brand {
+  color: #ffffff;
+}
+.hero.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.hero.subnav li > a {
+  color: #a1e1c0;
+}
+.hero.subnav li > a.active {
+  color: #ffffff;
+}
+.hero.subnav li > a:hover {
+  color: #ffffff;
+}
+.hero.subnav .navbar-toggle {
+  color: #226b46;
+}
+.hero.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.hero.subnav .navbar-collapse {
+  border-top-color: #226b46;
+}
+.hero.subnav .subnav-divider {
+  border-bottom: 1px solid #3bb878;
+}
+.hero .form-control {
+  border: 0 !important;
+}
+.hero-accent {
+  background-color: #35a56b;
+  color: #ffffff;
+}
+.hero-accent .lead a {
+  font-weight: 300;
+}
+.hero-accent h1 > a,
+.hero-accent h2 > a,
+.hero-accent h3 > a,
+.hero-accent h4 > a,
+.hero-accent h5 > a,
+.hero-accent h6 > a,
+.hero-accent p > a,
+.hero-accent li > a,
+.hero-accent td > a,
+.hero-accent address > a,
+.hero-accent .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.hero-accent h1 > a:hover,
+.hero-accent h2 > a:hover,
+.hero-accent h3 > a:hover,
+.hero-accent h4 > a:hover,
+.hero-accent h5 > a:hover,
+.hero-accent h6 > a:hover,
+.hero-accent p > a:hover,
+.hero-accent li > a:hover,
+.hero-accent td > a:hover,
+.hero-accent address > a:hover,
+.hero-accent .span > a:hover,
+.hero-accent h1 > a:active,
+.hero-accent h2 > a:active,
+.hero-accent h3 > a:active,
+.hero-accent h4 > a:active,
+.hero-accent h5 > a:active,
+.hero-accent h6 > a:active,
+.hero-accent p > a:active,
+.hero-accent li > a:active,
+.hero-accent td > a:active,
+.hero-accent address > a:active,
+.hero-accent .span > a:active {
+  text-decoration: none;
+}
+.hero-accent .nav li > a {
+  text-decoration: none;
+}
+.hero-accent.separated {
+  border-bottom-color: #226b46;
+}
+.hero-accent h1,
+.hero-accent .h1,
+.hero-accent h2,
+.hero-accent .h2,
+.hero-accent h3,
+.hero-accent .h3,
+.hero-accent h4,
+.hero-accent .h4,
+.hero-accent h5,
+.hero-accent .h5,
+.hero-accent h6,
+.hero-accent .h6 {
+  color: #ffffff;
+}
+.hero-accent h1 > a,
+.hero-accent h2 > a,
+.hero-accent h3 > a,
+.hero-accent h4 > a,
+.hero-accent h5 > a,
+.hero-accent h6 > a,
+.hero-accent p > a,
+.hero-accent li > a,
+.hero-accent td > a,
+.hero-accent address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.hero-accent h1 > a:hover,
+.hero-accent h2 > a:hover,
+.hero-accent h3 > a:hover,
+.hero-accent h4 > a:hover,
+.hero-accent h5 > a:hover,
+.hero-accent h6 > a:hover,
+.hero-accent p > a:hover,
+.hero-accent li > a:hover,
+.hero-accent td > a:hover,
+.hero-accent address > a:hover {
+  text-decoration: none;
+}
+.hero-accent.subnav .navbar-brand {
+  color: #ffffff;
+}
+.hero-accent.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.hero-accent.subnav li > a {
+  color: #8edbb3;
+}
+.hero-accent.subnav li > a.active {
+  color: #ffffff;
+}
+.hero-accent.subnav li > a:hover {
+  color: #ffffff;
+}
+.hero-accent.subnav .navbar-toggle {
+  color: #1c5739;
+}
+.hero-accent.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.hero-accent.subnav .navbar-collapse {
+  border-top-color: #1c5739;
+}
+.hero-accent.subnav .subnav-divider {
+  border-bottom: 1px solid #35a56b;
+}
+.hero-accent .form-control {
+  border: 0 !important;
+}
+.primary {
+  background-color: #ffffff;
+  color: #747474;
+}
+.primary .lead a {
+  font-weight: 300;
+}
+.primary h1 > a,
+.primary h2 > a,
+.primary h3 > a,
+.primary h4 > a,
+.primary h5 > a,
+.primary h6 > a,
+.primary p > a,
+.primary li > a,
+.primary td > a,
+.primary address > a,
+.primary .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.primary h1 > a:hover,
+.primary h2 > a:hover,
+.primary h3 > a:hover,
+.primary h4 > a:hover,
+.primary h5 > a:hover,
+.primary h6 > a:hover,
+.primary p > a:hover,
+.primary li > a:hover,
+.primary td > a:hover,
+.primary address > a:hover,
+.primary .span > a:hover,
+.primary h1 > a:active,
+.primary h2 > a:active,
+.primary h3 > a:active,
+.primary h4 > a:active,
+.primary h5 > a:active,
+.primary h6 > a:active,
+.primary p > a:active,
+.primary li > a:active,
+.primary td > a:active,
+.primary address > a:active,
+.primary .span > a:active {
+  text-decoration: none;
+}
+.primary .nav li > a {
+  text-decoration: none;
+}
+.primary.separated {
+  border-bottom-color: #d9d9d9;
+}
+.primary h1,
+.primary .h1,
+.primary h2,
+.primary .h2,
+.primary h3,
+.primary .h3,
+.primary h4,
+.primary .h4,
+.primary h5,
+.primary .h5,
+.primary h6,
+.primary .h6 {
+  color: #000000;
+}
+.primary.jumbotron h1,
+.primary.jumbotron .h1 {
+  color: #343434;
+}
+.primary.jumbotron h2,
+.primary.jumbotron .h2,
+.primary.jumbotron h3,
+.primary.jumbotron .h3,
+.primary.jumbotron h4,
+.primary.jumbotron .h4,
+.primary.jumbotron h5,
+.primary.jumbotron .h5,
+.primary.jumbotron h6,
+.primary.jumbotron .h6 {
+  color: #747474;
+}
+.primary h1 > a:link,
+.primary h2 > a:link,
+.primary h3 > a:link,
+.primary h4 > a:link,
+.primary h5 > a:link,
+.primary h6 > a:link,
+.primary p > a:link,
+.primary li > a:link,
+.primary td > a:link,
+.primary address > a:link,
+.primary .span > a:link,
+.primary h1 > a:visited,
+.primary h2 > a:visited,
+.primary h3 > a:visited,
+.primary h4 > a:visited,
+.primary h5 > a:visited,
+.primary h6 > a:visited,
+.primary p > a:visited,
+.primary li > a:visited,
+.primary td > a:visited,
+.primary address > a:visited,
+.primary .span > a:visited,
+.primary h1 > a:active,
+.primary h2 > a:active,
+.primary h3 > a:active,
+.primary h4 > a:active,
+.primary h5 > a:active,
+.primary h6 > a:active,
+.primary p > a:active,
+.primary li > a:active,
+.primary td > a:active,
+.primary address > a:active,
+.primary .span > a:active {
+  color: #0089bc;
+}
+.primary h1 > a:hover,
+.primary h2 > a:hover,
+.primary h3 > a:hover,
+.primary h4 > a:hover,
+.primary h5 > a:hover,
+.primary h6 > a:hover,
+.primary p > a:hover,
+.primary li > a:hover,
+.primary td > a:hover,
+.primary address > a:hover,
+.primary .span > a:hover {
+  color: #005170;
+}
+.primary h1 > a .glyphicon.tile,
+.primary h2 > a .glyphicon.tile,
+.primary h3 > a .glyphicon.tile,
+.primary h4 > a .glyphicon.tile,
+.primary h5 > a .glyphicon.tile,
+.primary h6 > a .glyphicon.tile,
+.primary p > a .glyphicon.tile,
+.primary li > a .glyphicon.tile,
+.primary td > a .glyphicon.tile,
+.primary address > a .glyphicon.tile,
+.primary .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.primary h1 > a .glyphicon.tile:hover,
+.primary h2 > a .glyphicon.tile:hover,
+.primary h3 > a .glyphicon.tile:hover,
+.primary h4 > a .glyphicon.tile:hover,
+.primary h5 > a .glyphicon.tile:hover,
+.primary h6 > a .glyphicon.tile:hover,
+.primary p > a .glyphicon.tile:hover,
+.primary li > a .glyphicon.tile:hover,
+.primary td > a .glyphicon.tile:hover,
+.primary address > a .glyphicon.tile:hover,
+.primary .span > a .glyphicon.tile:hover,
+.primary h1 > a .glyphicon.tile:active,
+.primary h2 > a .glyphicon.tile:active,
+.primary h3 > a .glyphicon.tile:active,
+.primary h4 > a .glyphicon.tile:active,
+.primary h5 > a .glyphicon.tile:active,
+.primary h6 > a .glyphicon.tile:active,
+.primary p > a .glyphicon.tile:active,
+.primary li > a .glyphicon.tile:active,
+.primary td > a .glyphicon.tile:active,
+.primary address > a .glyphicon.tile:active,
+.primary .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.primary ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.primary ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.primary ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.primary ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.primary ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.primary ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.primary.subnav {
+  opacity: 0.96;
+}
+.primary.subnav .navbar-brand {
+  color: #000000;
+}
+.primary.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.primary.subnav li > a {
+  color: #aaa;
+}
+.primary.subnav li > a.active {
+  color: #000000;
+}
+.primary.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.primary.subnav .navbar-toggle {
+  color: #000000;
+}
+.primary.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.primary.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.primary.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.primary .sidebar strong {
+  color: #000000;
+}
+.primary .sidebar a strong {
+  color: #0089bc;
+}
+.primary .sidebar a strong:link,
+.primary .sidebar a strong:visited,
+.primary .sidebar a strong:active {
+  color: #0089bc;
+}
+.primary .sidebar a strong:hover {
+  color: #005170;
+}
+.primary cite.bubble strong {
+  color: #414141;
+}
+.primary cite.bubble a:link,
+.primary cite.bubble a:visited,
+.primary cite.bubble a:active {
+  color: #0089bc;
+}
+.primary cite.bubble a:hover {
+  color: #005170;
+}
+.primary blockquote {
+  color: #747474;
+}
+.primary blockquote p,
+.primary blockquote ul > li,
+.primary blockquote * {
+  color: #747474;
+}
+.alt {
+  background-color: #edf7fe;
+  color: #747474;
+}
+.alt .lead a {
+  font-weight: 300;
+}
+.alt h1 > a,
+.alt h2 > a,
+.alt h3 > a,
+.alt h4 > a,
+.alt h5 > a,
+.alt h6 > a,
+.alt p > a,
+.alt li > a,
+.alt td > a,
+.alt address > a,
+.alt .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.alt h1 > a:hover,
+.alt h2 > a:hover,
+.alt h3 > a:hover,
+.alt h4 > a:hover,
+.alt h5 > a:hover,
+.alt h6 > a:hover,
+.alt p > a:hover,
+.alt li > a:hover,
+.alt td > a:hover,
+.alt address > a:hover,
+.alt .span > a:hover,
+.alt h1 > a:active,
+.alt h2 > a:active,
+.alt h3 > a:active,
+.alt h4 > a:active,
+.alt h5 > a:active,
+.alt h6 > a:active,
+.alt p > a:active,
+.alt li > a:active,
+.alt td > a:active,
+.alt address > a:active,
+.alt .span > a:active {
+  text-decoration: none;
+}
+.alt .nav li > a {
+  text-decoration: none;
+}
+.alt.separated {
+  border-bottom-color: #a5d7fa;
+}
+.alt h1,
+.alt .h1,
+.alt h2,
+.alt .h2,
+.alt h3,
+.alt .h3,
+.alt h4,
+.alt .h4,
+.alt h5,
+.alt .h5,
+.alt h6,
+.alt .h6 {
+  color: #000000;
+}
+.alt.jumbotron h1,
+.alt.jumbotron .h1 {
+  color: #343434;
+}
+.alt.jumbotron h2,
+.alt.jumbotron .h2,
+.alt.jumbotron h3,
+.alt.jumbotron .h3,
+.alt.jumbotron h4,
+.alt.jumbotron .h4,
+.alt.jumbotron h5,
+.alt.jumbotron .h5,
+.alt.jumbotron h6,
+.alt.jumbotron .h6 {
+  color: #747474;
+}
+.alt h1 > a:link,
+.alt h2 > a:link,
+.alt h3 > a:link,
+.alt h4 > a:link,
+.alt h5 > a:link,
+.alt h6 > a:link,
+.alt p > a:link,
+.alt li > a:link,
+.alt td > a:link,
+.alt address > a:link,
+.alt .span > a:link,
+.alt h1 > a:visited,
+.alt h2 > a:visited,
+.alt h3 > a:visited,
+.alt h4 > a:visited,
+.alt h5 > a:visited,
+.alt h6 > a:visited,
+.alt p > a:visited,
+.alt li > a:visited,
+.alt td > a:visited,
+.alt address > a:visited,
+.alt .span > a:visited,
+.alt h1 > a:active,
+.alt h2 > a:active,
+.alt h3 > a:active,
+.alt h4 > a:active,
+.alt h5 > a:active,
+.alt h6 > a:active,
+.alt p > a:active,
+.alt li > a:active,
+.alt td > a:active,
+.alt address > a:active,
+.alt .span > a:active {
+  color: #0089bc;
+}
+.alt h1 > a:hover,
+.alt h2 > a:hover,
+.alt h3 > a:hover,
+.alt h4 > a:hover,
+.alt h5 > a:hover,
+.alt h6 > a:hover,
+.alt p > a:hover,
+.alt li > a:hover,
+.alt td > a:hover,
+.alt address > a:hover,
+.alt .span > a:hover {
+  color: #005170;
+}
+.alt h1 > a .glyphicon.tile,
+.alt h2 > a .glyphicon.tile,
+.alt h3 > a .glyphicon.tile,
+.alt h4 > a .glyphicon.tile,
+.alt h5 > a .glyphicon.tile,
+.alt h6 > a .glyphicon.tile,
+.alt p > a .glyphicon.tile,
+.alt li > a .glyphicon.tile,
+.alt td > a .glyphicon.tile,
+.alt address > a .glyphicon.tile,
+.alt .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.alt h1 > a .glyphicon.tile:hover,
+.alt h2 > a .glyphicon.tile:hover,
+.alt h3 > a .glyphicon.tile:hover,
+.alt h4 > a .glyphicon.tile:hover,
+.alt h5 > a .glyphicon.tile:hover,
+.alt h6 > a .glyphicon.tile:hover,
+.alt p > a .glyphicon.tile:hover,
+.alt li > a .glyphicon.tile:hover,
+.alt td > a .glyphicon.tile:hover,
+.alt address > a .glyphicon.tile:hover,
+.alt .span > a .glyphicon.tile:hover,
+.alt h1 > a .glyphicon.tile:active,
+.alt h2 > a .glyphicon.tile:active,
+.alt h3 > a .glyphicon.tile:active,
+.alt h4 > a .glyphicon.tile:active,
+.alt h5 > a .glyphicon.tile:active,
+.alt h6 > a .glyphicon.tile:active,
+.alt p > a .glyphicon.tile:active,
+.alt li > a .glyphicon.tile:active,
+.alt td > a .glyphicon.tile:active,
+.alt address > a .glyphicon.tile:active,
+.alt .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.alt ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.alt ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.alt ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.alt ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.alt ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.alt ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.alt.subnav {
+  opacity: 0.96;
+}
+.alt.subnav .navbar-brand {
+  color: #000000;
+}
+.alt.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.alt.subnav li > a {
+  color: #aaa;
+}
+.alt.subnav li > a.active {
+  color: #000000;
+}
+.alt.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.alt.subnav .navbar-toggle {
+  color: #000000;
+}
+.alt.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.alt.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.alt.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.alt .sidebar strong {
+  color: #000000;
+}
+.alt .sidebar a strong {
+  color: #0089bc;
+}
+.alt .sidebar a strong:link,
+.alt .sidebar a strong:visited,
+.alt .sidebar a strong:active {
+  color: #0089bc;
+}
+.alt .sidebar a strong:hover {
+  color: #005170;
+}
+.alt cite.bubble strong {
+  color: #414141;
+}
+.alt cite.bubble a:link,
+.alt cite.bubble a:visited,
+.alt cite.bubble a:active {
+  color: #0089bc;
+}
+.alt cite.bubble a:hover {
+  color: #005170;
+}
+.alt blockquote {
+  color: #747474;
+}
+.alt blockquote p,
+.alt blockquote ul > li,
+.alt blockquote * {
+  color: #747474;
+}
+.bold {
+  background-color: #2d3339;
+  color: #ffffff;
+}
+.bold .lead a {
+  font-weight: 300;
+}
+.bold h1 > a,
+.bold h2 > a,
+.bold h3 > a,
+.bold h4 > a,
+.bold h5 > a,
+.bold h6 > a,
+.bold p > a,
+.bold li > a,
+.bold td > a,
+.bold address > a,
+.bold .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.bold h1 > a:hover,
+.bold h2 > a:hover,
+.bold h3 > a:hover,
+.bold h4 > a:hover,
+.bold h5 > a:hover,
+.bold h6 > a:hover,
+.bold p > a:hover,
+.bold li > a:hover,
+.bold td > a:hover,
+.bold address > a:hover,
+.bold .span > a:hover,
+.bold h1 > a:active,
+.bold h2 > a:active,
+.bold h3 > a:active,
+.bold h4 > a:active,
+.bold h5 > a:active,
+.bold h6 > a:active,
+.bold p > a:active,
+.bold li > a:active,
+.bold td > a:active,
+.bold address > a:active,
+.bold .span > a:active {
+  text-decoration: none;
+}
+.bold .nav li > a {
+  text-decoration: none;
+}
+.bold.separated {
+  border-bottom-color: #0b0d0e;
+}
+.bold h1,
+.bold .h1,
+.bold h2,
+.bold .h2,
+.bold h3,
+.bold .h3,
+.bold h4,
+.bold .h4,
+.bold h5,
+.bold .h5,
+.bold h6,
+.bold .h6 {
+  color: #ffffff;
+}
+.bold h1 > a,
+.bold h2 > a,
+.bold h3 > a,
+.bold h4 > a,
+.bold h5 > a,
+.bold h6 > a,
+.bold p > a,
+.bold li > a,
+.bold td > a,
+.bold address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.bold h1 > a:hover,
+.bold h2 > a:hover,
+.bold h3 > a:hover,
+.bold h4 > a:hover,
+.bold h5 > a:hover,
+.bold h6 > a:hover,
+.bold p > a:hover,
+.bold li > a:hover,
+.bold td > a:hover,
+.bold address > a:hover {
+  text-decoration: none;
+}
+.bold.subnav .navbar-brand {
+  color: #ffffff;
+}
+.bold.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.bold.subnav li > a {
+  color: #6c7a89;
+}
+.bold.subnav li > a.active {
+  color: #ffffff;
+}
+.bold.subnav li > a:hover {
+  color: #ffffff;
+}
+.bold.subnav .navbar-toggle {
+  color: #000000;
+}
+.bold.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.bold.subnav .navbar-collapse {
+  border-top-color: #000000;
+}
+.bold.subnav .subnav-divider {
+  border-bottom: 1px solid #2d3339;
+}
+.bold .form-control {
+  border: 0 !important;
+}
+.accent {
+  background-color: #00aeef;
+  color: #ffffff;
+}
+.accent .lead a {
+  font-weight: 300;
+}
+.accent h1 > a,
+.accent h2 > a,
+.accent h3 > a,
+.accent h4 > a,
+.accent h5 > a,
+.accent h6 > a,
+.accent p > a,
+.accent li > a,
+.accent td > a,
+.accent address > a,
+.accent .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.accent h1 > a:hover,
+.accent h2 > a:hover,
+.accent h3 > a:hover,
+.accent h4 > a:hover,
+.accent h5 > a:hover,
+.accent h6 > a:hover,
+.accent p > a:hover,
+.accent li > a:hover,
+.accent td > a:hover,
+.accent address > a:hover,
+.accent .span > a:hover,
+.accent h1 > a:active,
+.accent h2 > a:active,
+.accent h3 > a:active,
+.accent h4 > a:active,
+.accent h5 > a:active,
+.accent h6 > a:active,
+.accent p > a:active,
+.accent li > a:active,
+.accent td > a:active,
+.accent address > a:active,
+.accent .span > a:active {
+  text-decoration: none;
+}
+.accent .nav li > a {
+  text-decoration: none;
+}
+.accent.separated {
+  border-bottom-color: #0076a3;
+}
+.accent h1,
+.accent .h1,
+.accent h2,
+.accent .h2,
+.accent h3,
+.accent .h3,
+.accent h4,
+.accent .h4,
+.accent h5,
+.accent .h5,
+.accent h6,
+.accent .h6 {
+  color: #ffffff;
+}
+.accent h1 > a,
+.accent h2 > a,
+.accent h3 > a,
+.accent h4 > a,
+.accent h5 > a,
+.accent h6 > a,
+.accent p > a,
+.accent li > a,
+.accent td > a,
+.accent address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.accent h1 > a:hover,
+.accent h2 > a:hover,
+.accent h3 > a:hover,
+.accent h4 > a:hover,
+.accent h5 > a:hover,
+.accent h6 > a:hover,
+.accent p > a:hover,
+.accent li > a:hover,
+.accent td > a:hover,
+.accent address > a:hover {
+  text-decoration: none;
+}
+.accent.subnav .navbar-brand {
+  color: #ffffff;
+}
+.accent.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.accent.subnav li > a {
+  color: #7fdcff;
+}
+.accent.subnav li > a.active {
+  color: #ffffff;
+}
+.accent.subnav li > a:hover {
+  color: #ffffff;
+}
+.accent.subnav .navbar-toggle {
+  color: #006489;
+}
+.accent.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.accent.subnav .navbar-collapse {
+  border-top-color: #006489;
+}
+.accent.subnav .subnav-divider {
+  border-bottom: 1px solid #00aeef;
+}
+.accent .form-control {
+  border: 0 !important;
+}
+.neutral {
+  background-color: #ebeff0;
+  color: #747474;
+}
+.neutral .lead a {
+  font-weight: 300;
+}
+.neutral h1 > a,
+.neutral h2 > a,
+.neutral h3 > a,
+.neutral h4 > a,
+.neutral h5 > a,
+.neutral h6 > a,
+.neutral p > a,
+.neutral li > a,
+.neutral td > a,
+.neutral address > a,
+.neutral .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.neutral h1 > a:hover,
+.neutral h2 > a:hover,
+.neutral h3 > a:hover,
+.neutral h4 > a:hover,
+.neutral h5 > a:hover,
+.neutral h6 > a:hover,
+.neutral p > a:hover,
+.neutral li > a:hover,
+.neutral td > a:hover,
+.neutral address > a:hover,
+.neutral .span > a:hover,
+.neutral h1 > a:active,
+.neutral h2 > a:active,
+.neutral h3 > a:active,
+.neutral h4 > a:active,
+.neutral h5 > a:active,
+.neutral h6 > a:active,
+.neutral p > a:active,
+.neutral li > a:active,
+.neutral td > a:active,
+.neutral address > a:active,
+.neutral .span > a:active {
+  text-decoration: none;
+}
+.neutral .nav li > a {
+  text-decoration: none;
+}
+.neutral.separated {
+  border-bottom-color: #bfcccf;
+}
+.neutral h1,
+.neutral .h1,
+.neutral h2,
+.neutral .h2,
+.neutral h3,
+.neutral .h3,
+.neutral h4,
+.neutral .h4,
+.neutral h5,
+.neutral .h5,
+.neutral h6,
+.neutral .h6 {
+  color: #000000;
+}
+.neutral.jumbotron h1,
+.neutral.jumbotron .h1 {
+  color: #343434;
+}
+.neutral.jumbotron h2,
+.neutral.jumbotron .h2,
+.neutral.jumbotron h3,
+.neutral.jumbotron .h3,
+.neutral.jumbotron h4,
+.neutral.jumbotron .h4,
+.neutral.jumbotron h5,
+.neutral.jumbotron .h5,
+.neutral.jumbotron h6,
+.neutral.jumbotron .h6 {
+  color: #747474;
+}
+.neutral h1 > a:link,
+.neutral h2 > a:link,
+.neutral h3 > a:link,
+.neutral h4 > a:link,
+.neutral h5 > a:link,
+.neutral h6 > a:link,
+.neutral p > a:link,
+.neutral li > a:link,
+.neutral td > a:link,
+.neutral address > a:link,
+.neutral .span > a:link,
+.neutral h1 > a:visited,
+.neutral h2 > a:visited,
+.neutral h3 > a:visited,
+.neutral h4 > a:visited,
+.neutral h5 > a:visited,
+.neutral h6 > a:visited,
+.neutral p > a:visited,
+.neutral li > a:visited,
+.neutral td > a:visited,
+.neutral address > a:visited,
+.neutral .span > a:visited,
+.neutral h1 > a:active,
+.neutral h2 > a:active,
+.neutral h3 > a:active,
+.neutral h4 > a:active,
+.neutral h5 > a:active,
+.neutral h6 > a:active,
+.neutral p > a:active,
+.neutral li > a:active,
+.neutral td > a:active,
+.neutral address > a:active,
+.neutral .span > a:active {
+  color: #0089bc;
+}
+.neutral h1 > a:hover,
+.neutral h2 > a:hover,
+.neutral h3 > a:hover,
+.neutral h4 > a:hover,
+.neutral h5 > a:hover,
+.neutral h6 > a:hover,
+.neutral p > a:hover,
+.neutral li > a:hover,
+.neutral td > a:hover,
+.neutral address > a:hover,
+.neutral .span > a:hover {
+  color: #005170;
+}
+.neutral h1 > a .glyphicon.tile,
+.neutral h2 > a .glyphicon.tile,
+.neutral h3 > a .glyphicon.tile,
+.neutral h4 > a .glyphicon.tile,
+.neutral h5 > a .glyphicon.tile,
+.neutral h6 > a .glyphicon.tile,
+.neutral p > a .glyphicon.tile,
+.neutral li > a .glyphicon.tile,
+.neutral td > a .glyphicon.tile,
+.neutral address > a .glyphicon.tile,
+.neutral .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.neutral h1 > a .glyphicon.tile:hover,
+.neutral h2 > a .glyphicon.tile:hover,
+.neutral h3 > a .glyphicon.tile:hover,
+.neutral h4 > a .glyphicon.tile:hover,
+.neutral h5 > a .glyphicon.tile:hover,
+.neutral h6 > a .glyphicon.tile:hover,
+.neutral p > a .glyphicon.tile:hover,
+.neutral li > a .glyphicon.tile:hover,
+.neutral td > a .glyphicon.tile:hover,
+.neutral address > a .glyphicon.tile:hover,
+.neutral .span > a .glyphicon.tile:hover,
+.neutral h1 > a .glyphicon.tile:active,
+.neutral h2 > a .glyphicon.tile:active,
+.neutral h3 > a .glyphicon.tile:active,
+.neutral h4 > a .glyphicon.tile:active,
+.neutral h5 > a .glyphicon.tile:active,
+.neutral h6 > a .glyphicon.tile:active,
+.neutral p > a .glyphicon.tile:active,
+.neutral li > a .glyphicon.tile:active,
+.neutral td > a .glyphicon.tile:active,
+.neutral address > a .glyphicon.tile:active,
+.neutral .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.neutral ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.neutral ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.neutral ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.neutral ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.neutral ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.neutral ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.neutral.subnav {
+  opacity: 0.96;
+}
+.neutral.subnav .navbar-brand {
+  color: #000000;
+}
+.neutral.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.neutral.subnav li > a {
+  color: #aaa;
+}
+.neutral.subnav li > a.active {
+  color: #000000;
+}
+.neutral.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.neutral.subnav .navbar-toggle {
+  color: #000000;
+}
+.neutral.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.neutral.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.neutral.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.neutral .sidebar strong {
+  color: #000000;
+}
+.neutral .sidebar a strong {
+  color: #0089bc;
+}
+.neutral .sidebar a strong:link,
+.neutral .sidebar a strong:visited,
+.neutral .sidebar a strong:active {
+  color: #0089bc;
+}
+.neutral .sidebar a strong:hover {
+  color: #005170;
+}
+.neutral cite.bubble strong {
+  color: #414141;
+}
+.neutral cite.bubble a:link,
+.neutral cite.bubble a:visited,
+.neutral cite.bubble a:active {
+  color: #0089bc;
+}
+.neutral cite.bubble a:hover {
+  color: #005170;
+}
+.neutral blockquote {
+  color: #747474;
+}
+.neutral blockquote p,
+.neutral blockquote ul > li,
+.neutral blockquote * {
+  color: #747474;
+}
+.add-ons-log-in {
+  margin-top: 16px;
+}
+.docs-list {
+  list-style: none;
+  padding-left: 20px;
+}
+.docs-list > li {
+  line-height: 30px;
+}
+.docs-list > li .glyphicon {
+  font-size: 18px;
+}
+@media print {
+  body > footer {
+    display: none;
+  }
+}
+#footer-copyright {
+  font-size: 19px;
+  line-height: 39px;
+}
+@media screen and (min-width: 768px) {
+  #footer-copyright {
+    padding: 0px 50px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #footer-copyright {
+    padding: 0px 150px;
+  }
+}
+.footer-col {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .footer-col {
+    float: left;
+    width: 25%;
+  }
+}
+.footer-col > h5,
+.footer-col > h5 > a {
+  line-height: 25px;
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  .footer-col > h5,
+  .footer-col > h5 > a {
+    width: 130px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+}
+.footer-col ul {
+  margin-bottom: 30px !important;
+  padding-left: 0px;
+  line-height: 25px;
+  list-style: none;
+}
+@media screen and (min-width: 768px) {
+  .footer-col ul {
+    width: 130px;
+    margin: 0 auto;
+  }
+}
+.footer-col ul > li {
+  padding: 7px 0;
+  font-size: 19px;
+  white-space: nowrap;
+}
+.footer-col ul > li:first-child {
+  padding-top: 0;
+}
+.footer-col ul > li:last-child {
+  padding-bottom: 0;
+}
+.footer-col ul > li > ul {
+  margin-top: 15px !important;
+}
+.footer-col ul > li > ul > li {
+  padding: 7px 0px;
+}
+@media screen and (min-width: 768px) {
+  .footer-col ul > li > ul > li {
+    padding: 1px 0px;
+  }
+}
+.footer-col ul > li .fa {
+  font-size: 17px;
+}
+@media screen and (min-width: 768px) {
+  .footer-col ul > li {
+    font-size: 14px;
+    padding: 0;
+  }
+}
+div.landing-tile {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 30px 0;
+  margin: 15px 0;
+  background-color: #ebeff0;
+}
+div.landing-tile:before,
+div.landing-tile:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+div.landing-tile:after {
+  clear: both;
+}
+div.landing-tile:before,
+div.landing-tile:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+div.landing-tile:after {
+  clear: both;
+}
+div.landing-tile h4 {
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  div.landing-tile h4 {
+    text-align: left;
+  }
+}
+div.landing-tile img {
+  width: 100%;
+  max-width: 300px;
+}
+@media screen and (min-width: 768px) {
+  div.landing-tile img {
+    width: 300px;
+  }
+}
+div.landing-tile p.description {
+  text-align: center;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 992px) {
+  div.landing-tile p.description {
+    text-align: left;
+    min-height: 120px;
+    margin-bottom: 0;
+  }
+}
+div.landing-tile p.cta {
+  text-align: center;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 992px) {
+  div.landing-tile p.cta {
+    text-align: left;
+  }
+}
+div.landing-tile .btn {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.legal {
+  font-weight: 800;
+}
+.legal > li {
+  padding: 10px 0px;
+}
+.legal > li > p {
+  font-weight: 400;
+}
+.legal > li > ol > li {
+  padding: 5px 0px;
+  font-weight: 400;
+}
+.legal address {
+  font-weight: 400;
+}
+img.logo-img {
+  max-height: 200px;
+}
+div.logo-tile {
+  min-height: 360px;
+  padding: 30px;
+  margin: 15px 0;
+  background-color: #ebeff0;
+  color: #747474;
+}
+div.logo-tile.standard {
+  padding: 61px 30px;
+}
+div.logo-tile .lead a {
+  font-weight: 300;
+}
+div.logo-tile h1 > a,
+div.logo-tile h2 > a,
+div.logo-tile h3 > a,
+div.logo-tile h4 > a,
+div.logo-tile h5 > a,
+div.logo-tile h6 > a,
+div.logo-tile p > a,
+div.logo-tile li > a,
+div.logo-tile td > a,
+div.logo-tile address > a,
+div.logo-tile .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+div.logo-tile h1 > a:hover,
+div.logo-tile h2 > a:hover,
+div.logo-tile h3 > a:hover,
+div.logo-tile h4 > a:hover,
+div.logo-tile h5 > a:hover,
+div.logo-tile h6 > a:hover,
+div.logo-tile p > a:hover,
+div.logo-tile li > a:hover,
+div.logo-tile td > a:hover,
+div.logo-tile address > a:hover,
+div.logo-tile .span > a:hover,
+div.logo-tile h1 > a:active,
+div.logo-tile h2 > a:active,
+div.logo-tile h3 > a:active,
+div.logo-tile h4 > a:active,
+div.logo-tile h5 > a:active,
+div.logo-tile h6 > a:active,
+div.logo-tile p > a:active,
+div.logo-tile li > a:active,
+div.logo-tile td > a:active,
+div.logo-tile address > a:active,
+div.logo-tile .span > a:active {
+  text-decoration: none;
+}
+div.logo-tile .nav li > a {
+  text-decoration: none;
+}
+div.logo-tile.separated {
+  border-bottom-color: #bfcccf;
+}
+div.logo-tile h1,
+div.logo-tile .h1,
+div.logo-tile h2,
+div.logo-tile .h2,
+div.logo-tile h3,
+div.logo-tile .h3,
+div.logo-tile h4,
+div.logo-tile .h4,
+div.logo-tile h5,
+div.logo-tile .h5,
+div.logo-tile h6,
+div.logo-tile .h6 {
+  color: #000000;
+}
+div.logo-tile.jumbotron h1,
+div.logo-tile.jumbotron .h1 {
+  color: #343434;
+}
+div.logo-tile.jumbotron h2,
+div.logo-tile.jumbotron .h2,
+div.logo-tile.jumbotron h3,
+div.logo-tile.jumbotron .h3,
+div.logo-tile.jumbotron h4,
+div.logo-tile.jumbotron .h4,
+div.logo-tile.jumbotron h5,
+div.logo-tile.jumbotron .h5,
+div.logo-tile.jumbotron h6,
+div.logo-tile.jumbotron .h6 {
+  color: #747474;
+}
+div.logo-tile h1 > a:link,
+div.logo-tile h2 > a:link,
+div.logo-tile h3 > a:link,
+div.logo-tile h4 > a:link,
+div.logo-tile h5 > a:link,
+div.logo-tile h6 > a:link,
+div.logo-tile p > a:link,
+div.logo-tile li > a:link,
+div.logo-tile td > a:link,
+div.logo-tile address > a:link,
+div.logo-tile .span > a:link,
+div.logo-tile h1 > a:visited,
+div.logo-tile h2 > a:visited,
+div.logo-tile h3 > a:visited,
+div.logo-tile h4 > a:visited,
+div.logo-tile h5 > a:visited,
+div.logo-tile h6 > a:visited,
+div.logo-tile p > a:visited,
+div.logo-tile li > a:visited,
+div.logo-tile td > a:visited,
+div.logo-tile address > a:visited,
+div.logo-tile .span > a:visited,
+div.logo-tile h1 > a:active,
+div.logo-tile h2 > a:active,
+div.logo-tile h3 > a:active,
+div.logo-tile h4 > a:active,
+div.logo-tile h5 > a:active,
+div.logo-tile h6 > a:active,
+div.logo-tile p > a:active,
+div.logo-tile li > a:active,
+div.logo-tile td > a:active,
+div.logo-tile address > a:active,
+div.logo-tile .span > a:active {
+  color: #0089bc;
+}
+div.logo-tile h1 > a:hover,
+div.logo-tile h2 > a:hover,
+div.logo-tile h3 > a:hover,
+div.logo-tile h4 > a:hover,
+div.logo-tile h5 > a:hover,
+div.logo-tile h6 > a:hover,
+div.logo-tile p > a:hover,
+div.logo-tile li > a:hover,
+div.logo-tile td > a:hover,
+div.logo-tile address > a:hover,
+div.logo-tile .span > a:hover {
+  color: #005170;
+}
+div.logo-tile h1 > a .glyphicon.tile,
+div.logo-tile h2 > a .glyphicon.tile,
+div.logo-tile h3 > a .glyphicon.tile,
+div.logo-tile h4 > a .glyphicon.tile,
+div.logo-tile h5 > a .glyphicon.tile,
+div.logo-tile h6 > a .glyphicon.tile,
+div.logo-tile p > a .glyphicon.tile,
+div.logo-tile li > a .glyphicon.tile,
+div.logo-tile td > a .glyphicon.tile,
+div.logo-tile address > a .glyphicon.tile,
+div.logo-tile .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+div.logo-tile h1 > a .glyphicon.tile:hover,
+div.logo-tile h2 > a .glyphicon.tile:hover,
+div.logo-tile h3 > a .glyphicon.tile:hover,
+div.logo-tile h4 > a .glyphicon.tile:hover,
+div.logo-tile h5 > a .glyphicon.tile:hover,
+div.logo-tile h6 > a .glyphicon.tile:hover,
+div.logo-tile p > a .glyphicon.tile:hover,
+div.logo-tile li > a .glyphicon.tile:hover,
+div.logo-tile td > a .glyphicon.tile:hover,
+div.logo-tile address > a .glyphicon.tile:hover,
+div.logo-tile .span > a .glyphicon.tile:hover,
+div.logo-tile h1 > a .glyphicon.tile:active,
+div.logo-tile h2 > a .glyphicon.tile:active,
+div.logo-tile h3 > a .glyphicon.tile:active,
+div.logo-tile h4 > a .glyphicon.tile:active,
+div.logo-tile h5 > a .glyphicon.tile:active,
+div.logo-tile h6 > a .glyphicon.tile:active,
+div.logo-tile p > a .glyphicon.tile:active,
+div.logo-tile li > a .glyphicon.tile:active,
+div.logo-tile td > a .glyphicon.tile:active,
+div.logo-tile address > a .glyphicon.tile:active,
+div.logo-tile .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+div.logo-tile ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+div.logo-tile ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+div.logo-tile ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+div.logo-tile ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+div.logo-tile ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+div.logo-tile ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+div.logo-tile.subnav {
+  opacity: 0.96;
+}
+div.logo-tile.subnav .navbar-brand {
+  color: #000000;
+}
+div.logo-tile.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+div.logo-tile.subnav li > a {
+  color: #aaa;
+}
+div.logo-tile.subnav li > a.active {
+  color: #000000;
+}
+div.logo-tile.subnav li > a:hover {
+  color: #5b5b5b;
+}
+div.logo-tile.subnav .navbar-toggle {
+  color: #000000;
+}
+div.logo-tile.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+div.logo-tile.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+div.logo-tile.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+div.logo-tile .sidebar strong {
+  color: #000000;
+}
+div.logo-tile .sidebar a strong {
+  color: #0089bc;
+}
+div.logo-tile .sidebar a strong:link,
+div.logo-tile .sidebar a strong:visited,
+div.logo-tile .sidebar a strong:active {
+  color: #0089bc;
+}
+div.logo-tile .sidebar a strong:hover {
+  color: #005170;
+}
+div.logo-tile cite.bubble strong {
+  color: #414141;
+}
+div.logo-tile cite.bubble a:link,
+div.logo-tile cite.bubble a:visited,
+div.logo-tile cite.bubble a:active {
+  color: #0089bc;
+}
+div.logo-tile cite.bubble a:hover {
+  color: #005170;
+}
+div.logo-tile blockquote {
+  color: #747474;
+}
+div.logo-tile blockquote p,
+div.logo-tile blockquote ul > li,
+div.logo-tile blockquote * {
+  color: #747474;
+}
+div.logo-tile.dark {
+  background-color: #2d3339;
+  color: #ffffff;
+}
+div.logo-tile.dark .lead a {
+  font-weight: 300;
+}
+div.logo-tile.dark h1 > a,
+div.logo-tile.dark h2 > a,
+div.logo-tile.dark h3 > a,
+div.logo-tile.dark h4 > a,
+div.logo-tile.dark h5 > a,
+div.logo-tile.dark h6 > a,
+div.logo-tile.dark p > a,
+div.logo-tile.dark li > a,
+div.logo-tile.dark td > a,
+div.logo-tile.dark address > a,
+div.logo-tile.dark .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+div.logo-tile.dark h1 > a:hover,
+div.logo-tile.dark h2 > a:hover,
+div.logo-tile.dark h3 > a:hover,
+div.logo-tile.dark h4 > a:hover,
+div.logo-tile.dark h5 > a:hover,
+div.logo-tile.dark h6 > a:hover,
+div.logo-tile.dark p > a:hover,
+div.logo-tile.dark li > a:hover,
+div.logo-tile.dark td > a:hover,
+div.logo-tile.dark address > a:hover,
+div.logo-tile.dark .span > a:hover,
+div.logo-tile.dark h1 > a:active,
+div.logo-tile.dark h2 > a:active,
+div.logo-tile.dark h3 > a:active,
+div.logo-tile.dark h4 > a:active,
+div.logo-tile.dark h5 > a:active,
+div.logo-tile.dark h6 > a:active,
+div.logo-tile.dark p > a:active,
+div.logo-tile.dark li > a:active,
+div.logo-tile.dark td > a:active,
+div.logo-tile.dark address > a:active,
+div.logo-tile.dark .span > a:active {
+  text-decoration: none;
+}
+div.logo-tile.dark .nav li > a {
+  text-decoration: none;
+}
+div.logo-tile.dark.separated {
+  border-bottom-color: #0b0d0e;
+}
+div.logo-tile.dark h1,
+div.logo-tile.dark .h1,
+div.logo-tile.dark h2,
+div.logo-tile.dark .h2,
+div.logo-tile.dark h3,
+div.logo-tile.dark .h3,
+div.logo-tile.dark h4,
+div.logo-tile.dark .h4,
+div.logo-tile.dark h5,
+div.logo-tile.dark .h5,
+div.logo-tile.dark h6,
+div.logo-tile.dark .h6 {
+  color: #ffffff;
+}
+div.logo-tile.dark h1 > a,
+div.logo-tile.dark h2 > a,
+div.logo-tile.dark h3 > a,
+div.logo-tile.dark h4 > a,
+div.logo-tile.dark h5 > a,
+div.logo-tile.dark h6 > a,
+div.logo-tile.dark p > a,
+div.logo-tile.dark li > a,
+div.logo-tile.dark td > a,
+div.logo-tile.dark address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+div.logo-tile.dark h1 > a:hover,
+div.logo-tile.dark h2 > a:hover,
+div.logo-tile.dark h3 > a:hover,
+div.logo-tile.dark h4 > a:hover,
+div.logo-tile.dark h5 > a:hover,
+div.logo-tile.dark h6 > a:hover,
+div.logo-tile.dark p > a:hover,
+div.logo-tile.dark li > a:hover,
+div.logo-tile.dark td > a:hover,
+div.logo-tile.dark address > a:hover {
+  text-decoration: none;
+}
+div.logo-tile.dark.subnav .navbar-brand {
+  color: #ffffff;
+}
+div.logo-tile.dark.subnav .navbar-brand a {
+  text-decoration: none;
+}
+div.logo-tile.dark.subnav li > a {
+  color: #6c7a89;
+}
+div.logo-tile.dark.subnav li > a.active {
+  color: #ffffff;
+}
+div.logo-tile.dark.subnav li > a:hover {
+  color: #ffffff;
+}
+div.logo-tile.dark.subnav .navbar-toggle {
+  color: #000000;
+}
+div.logo-tile.dark.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+div.logo-tile.dark.subnav .navbar-collapse {
+  border-top-color: #000000;
+}
+div.logo-tile.dark.subnav .subnav-divider {
+  border-bottom: 1px solid #2d3339;
+}
+div.logo-tile.dark .form-control {
+  border: 0 !important;
+}
+div.logo-tile img {
+  display: block;
+  margin: 0 auto;
+}
+div.logo-tile p {
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-align: center;
+}
+#main-nav {
+  z-index: 1001;
+}
+#main-nav span {
+  color: #e6e6e6;
+}
+#navbar-logo {
+  padding: 6px 0px 6px 15px;
+}
+@media screen and (min-width: 768px) {
+  #navbar-logo {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+.mobile-badge {
+  display: block;
+}
+.mobile-badge-apple {
+  margin-left: auto;
+  margin-right: 0px;
+}
+#pre-footer {
+  padding: 30px 0;
+  background-color: #161616;
+  color: #666666;
+  background-color: #222222;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+}
+#pre-footer a {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #a6a6a6;
+}
+#pre-footer a:hover,
+#pre-footer a:active {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  #pre-footer span {
+    font-size: 24px;
+    line-height: 38px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #pre-footer span {
+    font-size: 30px;
+  }
+}
+.resumator-basic-widget .resumator-jobs-text > p {
+  margin-bottom: 30px;
+}
+.resumator-basic-widget .resumator-jobs-text > p,
+.resumator-basic-widget .resumator-jobs-text li {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: #747474;
+}
+.resumator-basic-widget .resumator-jobs-text strong {
+  color: #414141;
+}
+.resumator-basic-widget .resumator-job-title {
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 16px;
+  font-size: 21px;
+  color: #000000;
+  padding-top: 30px !important;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  border-top-color: #e7e6e6;
+}
+.resumator-basic-widget .resumator-job-title small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.resumator-basic-widget .resumator-job-title + .lead {
+  padding-top: 10px;
+}
+.resumator-basic-widget .resumator-job-view-details {
+  margin-bottom: 30px;
+}
+.resumator-basic-widget .resumator-job-link {
+  margin-bottom: 30px !important;
+  font-size: 16px;
+}
+.resumator-basic-widget .resumator-job-link:link,
+.resumator-basic-widget .resumator-job-link:visited,
+.resumator-basic-widget .resumator-job-link:active {
+  color: #0089bc;
+}
+.resumator-basic-widget .resumator-job-link:hover {
+  color: #005170;
+}
+.resumator-basic-widget input[type="button"] {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  border: 0;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #3bb878;
+}
+.resumator-basic-widget input[type="button"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.resumator-basic-widget input[type="button"]:hover,
+.resumator-basic-widget input[type="button"]:focus {
+  color: #333333;
+  text-decoration: none;
+}
+.resumator-basic-widget input[type="button"]:active,
+.resumator-basic-widget input[type="button"].active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.resumator-basic-widget input[type="button"].disabled,
+.resumator-basic-widget input[type="button"][disabled],
+fieldset[disabled] .resumator-basic-widget input[type="button"] {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.resumator-basic-widget input[type="button"]:hover,
+.resumator-basic-widget input[type="button"]:focus,
+.resumator-basic-widget input[type="button"]:active,
+.resumator-basic-widget input[type="button"].active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
+  text-decoration: none;
+}
+.resumator-basic-widget input[type="button"]:hover,
+.resumator-basic-widget input[type="button"]:focus,
+.resumator-basic-widget input[type="button"]:active,
+.resumator-basic-widget input[type="button"].active {
+  color: #ffffff;
+  background-color: #35a56b;
+  outline: 0;
+}
+.resumator-basic-widget input[type="button"]:active,
+.resumator-basic-widget input[type="button"].active {
+  background-color: #2f915f;
+}
+.resumator-basic-widget input[type="button"].disabled,
+.resumator-basic-widget input[type="button"][disabled],
+fieldset[disabled] .resumator-basic-widget input[type="button"],
+.resumator-basic-widget input[type="button"].disabled:hover,
+.resumator-basic-widget input[type="button"][disabled]:hover,
+fieldset[disabled] .resumator-basic-widget input[type="button"]:hover,
+.resumator-basic-widget input[type="button"].disabled:focus,
+.resumator-basic-widget input[type="button"][disabled]:focus,
+fieldset[disabled] .resumator-basic-widget input[type="button"]:focus,
+.resumator-basic-widget input[type="button"].disabled:active,
+.resumator-basic-widget input[type="button"][disabled]:active,
+fieldset[disabled] .resumator-basic-widget input[type="button"]:active,
+.resumator-basic-widget input[type="button"].disabled.active,
+.resumator-basic-widget input[type="button"][disabled].active,
+fieldset[disabled] .resumator-basic-widget input[type="button"].active {
+  color: #e6e6e6;
+  background-color: #3bb878;
+}
+.resumator-basic-widget input[type="button"] .caret,
+.resumator-basic-widget input[type="button"] caret-right {
+  border-top-color: #ffffff;
+}
+.resumator-basic-widget input[type="button"].btn-border {
+  border-style: solid;
+  border-color: #2f915f;
+  border-width: 0px 0px 2px 0px;
+}
+.sidebar-modal-footer-close {
+  text-align: center;
+}
+.sidebar-modal-footer-close a {
+  display: block;
+}
+#sidebar-modal .modal-header * {
+  line-height: 20px;
+}
+.t {
+  display: none;
+}
+.toc-bar {
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  .toc-bar {
+    display: none;
+  }
+}
+.btn {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  border: 0;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
+  text-decoration: none;
+}
+.btn-full {
+  width: 100%;
+}
+.btn-half-circle {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  min-width: 50px;
+  max-width: 50px;
+}
+.btn-white {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #3bb878;
+}
+.btn-white:hover,
+.btn-white:focus,
+.btn-white:active,
+.btn-white.active {
+  color: #ffffff;
+  background-color: #35a56b;
+  outline: 0;
+}
+.btn-white:active,
+.btn-white.active {
+  background-color: #2f915f;
+}
+.btn-white.disabled,
+.btn-white[disabled],
+fieldset[disabled] .btn-white,
+.btn-white.disabled:hover,
+.btn-white[disabled]:hover,
+fieldset[disabled] .btn-white:hover,
+.btn-white.disabled:focus,
+.btn-white[disabled]:focus,
+fieldset[disabled] .btn-white:focus,
+.btn-white.disabled:active,
+.btn-white[disabled]:active,
+fieldset[disabled] .btn-white:active,
+.btn-white.disabled.active,
+.btn-white[disabled].active,
+fieldset[disabled] .btn-white.active {
+  color: #e6e6e6;
+  background-color: #3bb878;
+}
+.btn-white .caret,
+.btn-white caret-right {
+  border-top-color: #ffffff;
+}
+.btn-white.btn-border {
+  border-style: solid;
+  border-color: #2f915f;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-green {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #3bb878;
+}
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active,
+.btn-green.active {
+  color: #ffffff;
+  background-color: #35a56b;
+  outline: 0;
+}
+.btn-green:active,
+.btn-green.active {
+  background-color: #2f915f;
+}
+.btn-green.disabled,
+.btn-green[disabled],
+fieldset[disabled] .btn-green,
+.btn-green.disabled:hover,
+.btn-green[disabled]:hover,
+fieldset[disabled] .btn-green:hover,
+.btn-green.disabled:focus,
+.btn-green[disabled]:focus,
+fieldset[disabled] .btn-green:focus,
+.btn-green.disabled:active,
+.btn-green[disabled]:active,
+fieldset[disabled] .btn-green:active,
+.btn-green.disabled.active,
+.btn-green[disabled].active,
+fieldset[disabled] .btn-green.active {
+  color: #e6e6e6;
+  background-color: #3bb878;
+}
+.btn-green .caret,
+.btn-green caret-right {
+  border-top-color: #ffffff;
+}
+.btn-green.btn-border {
+  border-style: solid;
+  border-color: #2f915f;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-funky {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #c67fcf;
+}
+.btn-funky:hover,
+.btn-funky:focus,
+.btn-funky:active,
+.btn-funky.active {
+  color: #ffffff;
+  background-color: #be6cc8;
+  outline: 0;
+}
+.btn-funky:active,
+.btn-funky.active {
+  background-color: #b55ac1;
+}
+.btn-funky.disabled,
+.btn-funky[disabled],
+fieldset[disabled] .btn-funky,
+.btn-funky.disabled:hover,
+.btn-funky[disabled]:hover,
+fieldset[disabled] .btn-funky:hover,
+.btn-funky.disabled:focus,
+.btn-funky[disabled]:focus,
+fieldset[disabled] .btn-funky:focus,
+.btn-funky.disabled:active,
+.btn-funky[disabled]:active,
+fieldset[disabled] .btn-funky:active,
+.btn-funky.disabled.active,
+.btn-funky[disabled].active,
+fieldset[disabled] .btn-funky.active {
+  color: #e6e6e6;
+  background-color: #c67fcf;
+}
+.btn-funky .caret,
+.btn-funky caret-right {
+  border-top-color: #ffffff;
+}
+.btn-funky.btn-border {
+  border-style: solid;
+  border-color: #b55ac1;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-blue {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #2d8ec6;
+}
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
+.btn-blue.active {
+  color: #ffffff;
+  background-color: #287fb1;
+  outline: 0;
+}
+.btn-blue:active,
+.btn-blue.active {
+  background-color: #24709c;
+}
+.btn-blue.disabled,
+.btn-blue[disabled],
+fieldset[disabled] .btn-blue,
+.btn-blue.disabled:hover,
+.btn-blue[disabled]:hover,
+fieldset[disabled] .btn-blue:hover,
+.btn-blue.disabled:focus,
+.btn-blue[disabled]:focus,
+fieldset[disabled] .btn-blue:focus,
+.btn-blue.disabled:active,
+.btn-blue[disabled]:active,
+fieldset[disabled] .btn-blue:active,
+.btn-blue.disabled.active,
+.btn-blue[disabled].active,
+fieldset[disabled] .btn-blue.active {
+  color: #e6e6e6;
+  background-color: #2d8ec6;
+}
+.btn-blue .caret,
+.btn-blue caret-right {
+  border-top-color: #ffffff;
+}
+.btn-blue.btn-border {
+  border-style: solid;
+  border-color: #24709c;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-light-gray {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #3bb878;
+}
+.btn-light-gray:hover,
+.btn-light-gray:focus,
+.btn-light-gray:active,
+.btn-light-gray.active {
+  color: #ffffff;
+  background-color: #35a56b;
+  outline: 0;
+}
+.btn-light-gray:active,
+.btn-light-gray.active {
+  background-color: #2f915f;
+}
+.btn-light-gray.disabled,
+.btn-light-gray[disabled],
+fieldset[disabled] .btn-light-gray,
+.btn-light-gray.disabled:hover,
+.btn-light-gray[disabled]:hover,
+fieldset[disabled] .btn-light-gray:hover,
+.btn-light-gray.disabled:focus,
+.btn-light-gray[disabled]:focus,
+fieldset[disabled] .btn-light-gray:focus,
+.btn-light-gray.disabled:active,
+.btn-light-gray[disabled]:active,
+fieldset[disabled] .btn-light-gray:active,
+.btn-light-gray.disabled.active,
+.btn-light-gray[disabled].active,
+fieldset[disabled] .btn-light-gray.active {
+  color: #e6e6e6;
+  background-color: #3bb878;
+}
+.btn-light-gray .caret,
+.btn-light-gray caret-right {
+  border-top-color: #ffffff;
+}
+.btn-light-gray.btn-border {
+  border-style: solid;
+  border-color: #2f915f;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-sand {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #3bb878;
+}
+.btn-sand:hover,
+.btn-sand:focus,
+.btn-sand:active,
+.btn-sand.active {
+  color: #ffffff;
+  background-color: #35a56b;
+  outline: 0;
+}
+.btn-sand:active,
+.btn-sand.active {
+  background-color: #2f915f;
+}
+.btn-sand.disabled,
+.btn-sand[disabled],
+fieldset[disabled] .btn-sand,
+.btn-sand.disabled:hover,
+.btn-sand[disabled]:hover,
+fieldset[disabled] .btn-sand:hover,
+.btn-sand.disabled:focus,
+.btn-sand[disabled]:focus,
+fieldset[disabled] .btn-sand:focus,
+.btn-sand.disabled:active,
+.btn-sand[disabled]:active,
+fieldset[disabled] .btn-sand:active,
+.btn-sand.disabled.active,
+.btn-sand[disabled].active,
+fieldset[disabled] .btn-sand.active {
+  color: #e6e6e6;
+  background-color: #3bb878;
+}
+.btn-sand .caret,
+.btn-sand caret-right {
+  border-top-color: #ffffff;
+}
+.btn-sand.btn-border {
+  border-style: solid;
+  border-color: #2f915f;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-brown {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #c2ba7a;
+}
+.btn-brown:hover,
+.btn-brown:focus,
+.btn-brown:active,
+.btn-brown.active {
+  color: #ffffff;
+  background-color: #bab169;
+  outline: 0;
+}
+.btn-brown:active,
+.btn-brown.active {
+  background-color: #b2a857;
+}
+.btn-brown.disabled,
+.btn-brown[disabled],
+fieldset[disabled] .btn-brown,
+.btn-brown.disabled:hover,
+.btn-brown[disabled]:hover,
+fieldset[disabled] .btn-brown:hover,
+.btn-brown.disabled:focus,
+.btn-brown[disabled]:focus,
+fieldset[disabled] .btn-brown:focus,
+.btn-brown.disabled:active,
+.btn-brown[disabled]:active,
+fieldset[disabled] .btn-brown:active,
+.btn-brown.disabled.active,
+.btn-brown[disabled].active,
+fieldset[disabled] .btn-brown.active {
+  color: #e6e6e6;
+  background-color: #c2ba7a;
+}
+.btn-brown .caret,
+.btn-brown caret-right {
+  border-top-color: #ffffff;
+}
+.btn-brown.btn-border {
+  border-style: solid;
+  border-color: #b2a857;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-orange {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #ffac5f;
+}
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active {
+  color: #ffffff;
+  background-color: #ff9f45;
+  outline: 0;
+}
+.btn-orange:active,
+.btn-orange.active {
+  background-color: #ff922c;
+}
+.btn-orange.disabled,
+.btn-orange[disabled],
+fieldset[disabled] .btn-orange,
+.btn-orange.disabled:hover,
+.btn-orange[disabled]:hover,
+fieldset[disabled] .btn-orange:hover,
+.btn-orange.disabled:focus,
+.btn-orange[disabled]:focus,
+fieldset[disabled] .btn-orange:focus,
+.btn-orange.disabled:active,
+.btn-orange[disabled]:active,
+fieldset[disabled] .btn-orange:active,
+.btn-orange.disabled.active,
+.btn-orange[disabled].active,
+fieldset[disabled] .btn-orange.active {
+  color: #e6e6e6;
+  background-color: #ffac5f;
+}
+.btn-orange .caret,
+.btn-orange caret-right {
+  border-top-color: #ffffff;
+}
+.btn-orange.btn-border {
+  border-style: solid;
+  border-color: #ff922c;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-action {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #3bb878;
+}
+.btn-action:hover,
+.btn-action:focus,
+.btn-action:active,
+.btn-action.active {
+  color: #ffffff;
+  background-color: #35a56b;
+  outline: 0;
+}
+.btn-action:active,
+.btn-action.active {
+  background-color: #2f915f;
+}
+.btn-action.disabled,
+.btn-action[disabled],
+fieldset[disabled] .btn-action,
+.btn-action.disabled:hover,
+.btn-action[disabled]:hover,
+fieldset[disabled] .btn-action:hover,
+.btn-action.disabled:focus,
+.btn-action[disabled]:focus,
+fieldset[disabled] .btn-action:focus,
+.btn-action.disabled:active,
+.btn-action[disabled]:active,
+fieldset[disabled] .btn-action:active,
+.btn-action.disabled.active,
+.btn-action[disabled].active,
+fieldset[disabled] .btn-action.active {
+  color: #e6e6e6;
+  background-color: #3bb878;
+}
+.btn-action .caret,
+.btn-action caret-right {
+  border-top-color: #ffffff;
+}
+.btn-action.btn-border {
+  border-style: solid;
+  border-color: #2f915f;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-action-alt {
+  color: #000000 !important;
+  text-decoration: none !important;
+  background-color: #ffffff;
+}
+.btn-action-alt:hover,
+.btn-action-alt:focus,
+.btn-action-alt:active,
+.btn-action-alt.active {
+  color: #000000;
+  background-color: #f2f2f2;
+  outline: 0;
+}
+.btn-action-alt:active,
+.btn-action-alt.active {
+  background-color: #e6e6e6;
+}
+.btn-action-alt.disabled,
+.btn-action-alt[disabled],
+fieldset[disabled] .btn-action-alt,
+.btn-action-alt.disabled:hover,
+.btn-action-alt[disabled]:hover,
+fieldset[disabled] .btn-action-alt:hover,
+.btn-action-alt.disabled:focus,
+.btn-action-alt[disabled]:focus,
+fieldset[disabled] .btn-action-alt:focus,
+.btn-action-alt.disabled:active,
+.btn-action-alt[disabled]:active,
+fieldset[disabled] .btn-action-alt:active,
+.btn-action-alt.disabled.active,
+.btn-action-alt[disabled].active,
+fieldset[disabled] .btn-action-alt.active {
+  color: #000000;
+  background-color: #ffffff;
+}
+.btn-action-alt .caret,
+.btn-action-alt caret-right {
+  border-top-color: #000000;
+}
+.btn-action-alt.btn-border {
+  border-style: solid;
+  border-color: #e6e6e6;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-accent {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #00aeef;
+}
+.btn-accent:hover,
+.btn-accent:focus,
+.btn-accent:active,
+.btn-accent.active {
+  color: #ffffff;
+  background-color: #009bd6;
+  outline: 0;
+}
+.btn-accent:active,
+.btn-accent.active {
+  background-color: #0089bc;
+}
+.btn-accent.disabled,
+.btn-accent[disabled],
+fieldset[disabled] .btn-accent,
+.btn-accent.disabled:hover,
+.btn-accent[disabled]:hover,
+fieldset[disabled] .btn-accent:hover,
+.btn-accent.disabled:focus,
+.btn-accent[disabled]:focus,
+fieldset[disabled] .btn-accent:focus,
+.btn-accent.disabled:active,
+.btn-accent[disabled]:active,
+fieldset[disabled] .btn-accent:active,
+.btn-accent.disabled.active,
+.btn-accent[disabled].active,
+fieldset[disabled] .btn-accent.active {
+  color: #e6e6e6;
+  background-color: #00aeef;
+}
+.btn-accent .caret,
+.btn-accent caret-right {
+  border-top-color: #ffffff;
+}
+.btn-accent.btn-border {
+  border-style: solid;
+  border-color: #0089bc;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-standard {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background-color: #2d8ec6;
+}
+.btn-standard:hover,
+.btn-standard:focus,
+.btn-standard:active,
+.btn-standard.active {
+  color: #ffffff;
+  background-color: #287fb1;
+  outline: 0;
+}
+.btn-standard:active,
+.btn-standard.active {
+  background-color: #24709c;
+}
+.btn-standard.disabled,
+.btn-standard[disabled],
+fieldset[disabled] .btn-standard,
+.btn-standard.disabled:hover,
+.btn-standard[disabled]:hover,
+fieldset[disabled] .btn-standard:hover,
+.btn-standard.disabled:focus,
+.btn-standard[disabled]:focus,
+fieldset[disabled] .btn-standard:focus,
+.btn-standard.disabled:active,
+.btn-standard[disabled]:active,
+fieldset[disabled] .btn-standard:active,
+.btn-standard.disabled.active,
+.btn-standard[disabled].active,
+fieldset[disabled] .btn-standard.active {
+  color: #e6e6e6;
+  background-color: #2d8ec6;
+}
+.btn-standard .caret,
+.btn-standard caret-right {
+  border-top-color: #ffffff;
+}
+.btn-standard.btn-border {
+  border-style: solid;
+  border-color: #24709c;
+  border-width: 0px 0px 2px 0px;
+}
+.btn-subdued {
+  color: #000000 !important;
+  text-decoration: none !important;
+  background-color: #eeeeee;
+}
+.btn-subdued:hover,
+.btn-subdued:focus,
+.btn-subdued:active,
+.btn-subdued.active {
+  color: #000000;
+  background-color: #e2e2e2;
+  outline: 0;
+}
+.btn-subdued:active,
+.btn-subdued.active {
+  background-color: #d5d5d5;
+}
+.btn-subdued.disabled,
+.btn-subdued[disabled],
+fieldset[disabled] .btn-subdued,
+.btn-subdued.disabled:hover,
+.btn-subdued[disabled]:hover,
+fieldset[disabled] .btn-subdued:hover,
+.btn-subdued.disabled:focus,
+.btn-subdued[disabled]:focus,
+fieldset[disabled] .btn-subdued:focus,
+.btn-subdued.disabled:active,
+.btn-subdued[disabled]:active,
+fieldset[disabled] .btn-subdued:active,
+.btn-subdued.disabled.active,
+.btn-subdued[disabled].active,
+fieldset[disabled] .btn-subdued.active {
+  color: #000000;
+  background-color: #eeeeee;
+}
+.btn-subdued .caret,
+.btn-subdued caret-right {
+  border-top-color: #000000;
+}
+.btn-subdued.btn-border {
+  border-style: solid;
+  border-color: #d5d5d5;
+  border-width: 0px 0px 2px 0px;
+}
+#cloud-hosting-for {
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 50px;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+@media screen and (min-width: 768px) {
+  #cloud-hosting-for {
+    font-size: 80px;
+  }
+}
+.home-animation-delay {
+  -webkit-animation-delay: 3.5s;
+  -moz-animation-delay: 3.5s;
+  -o-animation-delay: 3.5s;
+  animation-delay: 3.5s;
+}
+#home-header {
+  font-size: 30px;
+}
+@media screen and (min-width: 768px) {
+  #home-header {
+    font-size: 45px;
+  }
+}
+#high-performance {
+  position: relative;
+}
+_::-webkit-full-page-media p,
+_:future p,
+:root p,
+_::-webkit-full-page-media q,
+_:future q,
+:root q,
+_::-webkit-full-page-media a,
+_:future a,
+:root a,
+_::-webkit-full-page-media li,
+_:future li,
+:root li,
+_::-webkit-full-page-media h1,
+_:future h1,
+:root h1,
+_::-webkit-full-page-media h2,
+_:future h2,
+:root h2,
+_::-webkit-full-page-media h3,
+_:future h3,
+:root h3,
+_::-webkit-full-page-media h4,
+_:future h4,
+:root h4,
+_::-webkit-full-page-media span,
+_:future span,
+:root span,
+_::-webkit-full-page-media input,
+_:future input,
+:root input,
+_::-webkit-full-page-media button,
+_:future button,
+:root button {
+  -webkit-transform: translateZ(0);
+}
+.home-hero {
+  background-repeat: no-repeat;
+}
+.home-hero p.lead {
+  font-size: 26px;
+  line-height: 1.2;
+}
+@media screen and (min-width: 768px) {
+  .home-hero {
+    background-image: url("/media/images/home/cloud_15.png");
+    padding-bottom: 75px;
+    margin-top: -75px;
+    background-position: 0% 75%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .home-hero {
+    background-position: 25% 75%;
+  }
+}
+.home-hero-accent h2 {
+  font-weight: 300;
+}
+.home-hero-accent h2 strong {
+  font-weight: 400;
+}
+.home-learn-more {
+  font-size: 18.4px;
+  font-weight: 200;
+  padding-top: 22px;
+  margin-bottom: 22px;
+  font-size: 19.8px;
+  font-weight: 300;
+  line-height: 1.4;
+  font-family: "Helvetica", "Arial", sans-serif;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .home-learn-more {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home-learn-more {
+    padding-top: 60px;
+  }
+}
+.home-logos {
+  text-align: center;
+}
+.home-logos img {
+  display: block;
+  margin: 0px auto 40px auto;
+  opacity: 0.4;
+}
+@media screen and (min-width: 768px) {
+  .home-logos img {
+    display: inline-block;
+    margin: 0;
+    padding: 20px 50px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .home-logos img {
+    padding: 0 15px;
+  }
+}
+.home-more-testimonials {
+  font-size: 14px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .home-more-testimonials {
+    text-align: right;
+    padding-top: 30px;
+  }
+}
+.home-tile {
+  text-align: center;
+}
+.home-tile .glyphicon {
+  font-size: 100px;
+  color: #a7a7a7;
+}
+.home-tile .glyphicon.large {
+  font-size: 120px;
+}
+.home-corner-banner {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 130px;
+  height: 130px;
+  background-image: url("/media/images/home/hiring_banner.png");
+  z-index: 1031;
+}
+.price-block {
+  background-color: #f4f4f4;
+  color: #6f6f6f;
+  font-family: "Lato", sans-serif;
+}
+.price-block .lead a {
+  font-weight: 300;
+}
+.price-block h1 > a,
+.price-block h2 > a,
+.price-block h3 > a,
+.price-block h4 > a,
+.price-block h5 > a,
+.price-block h6 > a,
+.price-block p > a,
+.price-block li > a,
+.price-block td > a,
+.price-block address > a,
+.price-block .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.price-block h1 > a:hover,
+.price-block h2 > a:hover,
+.price-block h3 > a:hover,
+.price-block h4 > a:hover,
+.price-block h5 > a:hover,
+.price-block h6 > a:hover,
+.price-block p > a:hover,
+.price-block li > a:hover,
+.price-block td > a:hover,
+.price-block address > a:hover,
+.price-block .span > a:hover,
+.price-block h1 > a:active,
+.price-block h2 > a:active,
+.price-block h3 > a:active,
+.price-block h4 > a:active,
+.price-block h5 > a:active,
+.price-block h6 > a:active,
+.price-block p > a:active,
+.price-block li > a:active,
+.price-block td > a:active,
+.price-block address > a:active,
+.price-block .span > a:active {
+  text-decoration: none;
+}
+.price-block .nav li > a {
+  text-decoration: none;
+}
+.price-block.separated {
+  border-bottom-color: #cdcdcd;
+}
+.price-block h1,
+.price-block .h1,
+.price-block h2,
+.price-block .h2,
+.price-block h3,
+.price-block .h3,
+.price-block h4,
+.price-block .h4,
+.price-block h5,
+.price-block .h5,
+.price-block h6,
+.price-block .h6 {
+  color: #000000;
+}
+.price-block.jumbotron h1,
+.price-block.jumbotron .h1 {
+  color: #2f2f2f;
+}
+.price-block.jumbotron h2,
+.price-block.jumbotron .h2,
+.price-block.jumbotron h3,
+.price-block.jumbotron .h3,
+.price-block.jumbotron h4,
+.price-block.jumbotron .h4,
+.price-block.jumbotron h5,
+.price-block.jumbotron .h5,
+.price-block.jumbotron h6,
+.price-block.jumbotron .h6 {
+  color: #6f6f6f;
+}
+.price-block h1 > a:link,
+.price-block h2 > a:link,
+.price-block h3 > a:link,
+.price-block h4 > a:link,
+.price-block h5 > a:link,
+.price-block h6 > a:link,
+.price-block p > a:link,
+.price-block li > a:link,
+.price-block td > a:link,
+.price-block address > a:link,
+.price-block .span > a:link,
+.price-block h1 > a:visited,
+.price-block h2 > a:visited,
+.price-block h3 > a:visited,
+.price-block h4 > a:visited,
+.price-block h5 > a:visited,
+.price-block h6 > a:visited,
+.price-block p > a:visited,
+.price-block li > a:visited,
+.price-block td > a:visited,
+.price-block address > a:visited,
+.price-block .span > a:visited,
+.price-block h1 > a:active,
+.price-block h2 > a:active,
+.price-block h3 > a:active,
+.price-block h4 > a:active,
+.price-block h5 > a:active,
+.price-block h6 > a:active,
+.price-block p > a:active,
+.price-block li > a:active,
+.price-block td > a:active,
+.price-block address > a:active,
+.price-block .span > a:active {
+  color: #0089bc;
+}
+.price-block h1 > a:hover,
+.price-block h2 > a:hover,
+.price-block h3 > a:hover,
+.price-block h4 > a:hover,
+.price-block h5 > a:hover,
+.price-block h6 > a:hover,
+.price-block p > a:hover,
+.price-block li > a:hover,
+.price-block td > a:hover,
+.price-block address > a:hover,
+.price-block .span > a:hover {
+  color: #005170;
+}
+.price-block h1 > a .glyphicon.tile,
+.price-block h2 > a .glyphicon.tile,
+.price-block h3 > a .glyphicon.tile,
+.price-block h4 > a .glyphicon.tile,
+.price-block h5 > a .glyphicon.tile,
+.price-block h6 > a .glyphicon.tile,
+.price-block p > a .glyphicon.tile,
+.price-block li > a .glyphicon.tile,
+.price-block td > a .glyphicon.tile,
+.price-block address > a .glyphicon.tile,
+.price-block .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.price-block h1 > a .glyphicon.tile:hover,
+.price-block h2 > a .glyphicon.tile:hover,
+.price-block h3 > a .glyphicon.tile:hover,
+.price-block h4 > a .glyphicon.tile:hover,
+.price-block h5 > a .glyphicon.tile:hover,
+.price-block h6 > a .glyphicon.tile:hover,
+.price-block p > a .glyphicon.tile:hover,
+.price-block li > a .glyphicon.tile:hover,
+.price-block td > a .glyphicon.tile:hover,
+.price-block address > a .glyphicon.tile:hover,
+.price-block .span > a .glyphicon.tile:hover,
+.price-block h1 > a .glyphicon.tile:active,
+.price-block h2 > a .glyphicon.tile:active,
+.price-block h3 > a .glyphicon.tile:active,
+.price-block h4 > a .glyphicon.tile:active,
+.price-block h5 > a .glyphicon.tile:active,
+.price-block h6 > a .glyphicon.tile:active,
+.price-block p > a .glyphicon.tile:active,
+.price-block li > a .glyphicon.tile:active,
+.price-block td > a .glyphicon.tile:active,
+.price-block address > a .glyphicon.tile:active,
+.price-block .span > a .glyphicon.tile:active {
+  color: #494949;
+}
+.price-block ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.price-block ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.price-block ul.nav-sidebar > li > a {
+  color: #888888;
+  transition: 0.1s all;
+}
+.price-block ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.price-block ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.price-block ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.price-block.subnav {
+  opacity: 0.96;
+}
+.price-block.subnav .navbar-brand {
+  color: #000000;
+}
+.price-block.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.price-block.subnav li > a {
+  color: #aaa;
+}
+.price-block.subnav li > a.active {
+  color: #000000;
+}
+.price-block.subnav li > a:hover {
+  color: #555555;
+}
+.price-block.subnav .navbar-toggle {
+  color: #000000;
+}
+.price-block.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.price-block.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.price-block.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.price-block .sidebar strong {
+  color: #000000;
+}
+.price-block .sidebar a strong {
+  color: #0089bc;
+}
+.price-block .sidebar a strong:link,
+.price-block .sidebar a strong:visited,
+.price-block .sidebar a strong:active {
+  color: #0089bc;
+}
+.price-block .sidebar a strong:hover {
+  color: #005170;
+}
+.price-block cite.bubble strong {
+  color: #414141;
+}
+.price-block cite.bubble a:link,
+.price-block cite.bubble a:visited,
+.price-block cite.bubble a:active {
+  color: #0089bc;
+}
+.price-block cite.bubble a:hover {
+  color: #005170;
+}
+.price-block blockquote {
+  color: #747474;
+}
+.price-block blockquote p,
+.price-block blockquote ul > li,
+.price-block blockquote * {
+  color: #747474;
+}
+.price-block .plan {
+  background-color: #00aeef;
+  color: #ffffff;
+  text-align: center;
+  padding: 13px 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+.price-block .plan .lead a {
+  font-weight: 300;
+}
+.price-block .plan h1 > a,
+.price-block .plan h2 > a,
+.price-block .plan h3 > a,
+.price-block .plan h4 > a,
+.price-block .plan h5 > a,
+.price-block .plan h6 > a,
+.price-block .plan p > a,
+.price-block .plan li > a,
+.price-block .plan td > a,
+.price-block .plan address > a,
+.price-block .plan .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.price-block .plan h1 > a:hover,
+.price-block .plan h2 > a:hover,
+.price-block .plan h3 > a:hover,
+.price-block .plan h4 > a:hover,
+.price-block .plan h5 > a:hover,
+.price-block .plan h6 > a:hover,
+.price-block .plan p > a:hover,
+.price-block .plan li > a:hover,
+.price-block .plan td > a:hover,
+.price-block .plan address > a:hover,
+.price-block .plan .span > a:hover,
+.price-block .plan h1 > a:active,
+.price-block .plan h2 > a:active,
+.price-block .plan h3 > a:active,
+.price-block .plan h4 > a:active,
+.price-block .plan h5 > a:active,
+.price-block .plan h6 > a:active,
+.price-block .plan p > a:active,
+.price-block .plan li > a:active,
+.price-block .plan td > a:active,
+.price-block .plan address > a:active,
+.price-block .plan .span > a:active {
+  text-decoration: none;
+}
+.price-block .plan .nav li > a {
+  text-decoration: none;
+}
+.price-block .plan.separated {
+  border-bottom-color: #0076a3;
+}
+.price-block .plan h1,
+.price-block .plan .h1,
+.price-block .plan h2,
+.price-block .plan .h2,
+.price-block .plan h3,
+.price-block .plan .h3,
+.price-block .plan h4,
+.price-block .plan .h4,
+.price-block .plan h5,
+.price-block .plan .h5,
+.price-block .plan h6,
+.price-block .plan .h6 {
+  color: #ffffff;
+}
+.price-block .plan h1 > a,
+.price-block .plan h2 > a,
+.price-block .plan h3 > a,
+.price-block .plan h4 > a,
+.price-block .plan h5 > a,
+.price-block .plan h6 > a,
+.price-block .plan p > a,
+.price-block .plan li > a,
+.price-block .plan td > a,
+.price-block .plan address > a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.price-block .plan h1 > a:hover,
+.price-block .plan h2 > a:hover,
+.price-block .plan h3 > a:hover,
+.price-block .plan h4 > a:hover,
+.price-block .plan h5 > a:hover,
+.price-block .plan h6 > a:hover,
+.price-block .plan p > a:hover,
+.price-block .plan li > a:hover,
+.price-block .plan td > a:hover,
+.price-block .plan address > a:hover {
+  text-decoration: none;
+}
+.price-block .plan.subnav .navbar-brand {
+  color: #ffffff;
+}
+.price-block .plan.subnav .navbar-brand a {
+  text-decoration: none;
+}
+.price-block .plan.subnav li > a {
+  color: #7fdcff;
+}
+.price-block .plan.subnav li > a.active {
+  color: #ffffff;
+}
+.price-block .plan.subnav li > a:hover {
+  color: #ffffff;
+}
+.price-block .plan.subnav .navbar-toggle {
+  color: #006489;
+}
+.price-block .plan.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.price-block .plan.subnav .navbar-collapse {
+  border-top-color: #006489;
+}
+.price-block .plan.subnav .subnav-divider {
+  border-bottom: 1px solid #00aeef;
+}
+.price-block .plan .form-control {
+  border: 0 !important;
+}
+.price-block .plan strong {
+  font-weight: 400;
+}
+.price-block .hourly {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 70px;
+  letter-spacing: -2px;
+  color: #414141;
+}
+.price-block .hourly small {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #414141;
+}
+.price-block .hourly sup {
+  font-size: 50px;
+  font-weight: 300;
+  color: #414141;
+}
+.price-block .monthly {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #8e8e8e;
+  font-size: 32px;
+  font-weight: 300;
+}
+.price-block .details {
+  text-align: center;
+  list-style: none;
+  padding: 0px 20px 20px 20px;
+  margin-bottom: 10px;
+}
+.price-block .details li {
+  margin: 10px 0px;
+  font-size: 15px;
+  color: #8e8e8e;
+}
+.price-block .details li strong {
+  color: #747474;
+}
+.price-block .action {
+  padding: 0 20px 20px 20px;
+}
+.price-block .action .btn {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media screen and (min-width: 768px) {
+  #pricing-smaller-plans > .container > .row-content {
+    height: 550px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #pricing-smaller-plans > .container > .row-content {
+    height: 550px;
+  }
+}
+#pricing-larger-plans {
+  display: none;
+}
+#pricing-larger-plans .table > tbody > tr > td:first-child {
+  font-family: "Lato", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+#pricing-larger-plans .table > tbody > tr > td:first-child strong {
+  font-weight: 400;
+}
+@media screen and (min-width: 480px) {
+  #pricing-larger-plans-table {
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  #pricing-larger-plans-table {
+    margin-top: -26px;
+    margin-bottom: 26px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #pricing-larger-plans-table span.pricing-monthly {
+    display: none;
+  }
+  #pricing-larger-plans-table > thead > tr > th {
+    padding: 17px 3px;
+    font-size: 16px;
+  }
+  #pricing-larger-plans-table > tbody > tr > td {
+    padding: 17px 3px;
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 480px) {
+  .pricing-view {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .pricing-view {
+    min-height: 550px;
+    margin-bottom: 0;
+  }
+}
+.pricing-plans-table thead tr > th {
+  text-align: center;
+}
+.pricing-plans-table thead tr > th:nth-last-child(2) {
+  text-align: left;
+}
+.pricing-plans-table tbody tr > td {
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  .pricing-plans-table tbody tr > td {
+    white-space: nowrap;
+  }
+}
+.pricing-plans-table tbody tr > td:nth-last-child(2) {
+  text-align: left;
+}
+.pricing-plans-table .price {
+  white-space: nowrap;
+}
+.pricing-plans-table .btn {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.plan-value,
+.plan-key {
+  margin: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  white-space: nowrap;
+}
+.plan-key {
+  text-align: left;
+}
+.plan-value {
+  text-align: right;
+}
+.pricing-learn-more {
+  font-size: 18.4px;
+  font-weight: 200;
+  padding-top: 22px;
+  margin-bottom: 22px;
+  font-size: 19.8px;
+  font-weight: 300;
+  line-height: 1.4;
+  font-family: "Helvetica", "Arial", sans-serif;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .pricing-learn-more {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .pricing-learn-more {
+    padding-top: 60px;
+  }
+}
+.speedtest-table > thead tr > th:last-child {
+  text-align: right;
+}
+.speedtest-table > tbody tr > td:last-child {
+  text-align: right;
+}
+.features div[class*="row"] div[class*="col"] {
+  margin-top: 30px;
+}
+@media screen and (min-width: 768px) {
+  .features div[class*="row"] div[class*="col"] {
+    margin-top: 0px;
+  }
+}
+.features div[class*="row"].row-content {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 768px) {
+  .features div[class*="row"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+  .features div[class*="row"].row-content {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .features .left {
+    text-align: right;
+  }
+  .features .right {
+    text-align: left;
+  }
+}
+.features-addon-icon {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+@media screen and (min-width: 992px) {
+  #features-dc-container {
+    position: relative;
+    z-index: 1000;
+  }
+}
+.features-dc-icon {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  position: relative;
+}
+.features-dc-list {
+  list-style: none;
+  display: block;
+  padding: 0;
+  text-align: center;
+  font-size: 20px;
+}
+.features-hardware {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  position: relative;
+}
+@media screen and (min-width: 992px) {
+  .features-screenshot-container {
+    width: 100%;
+    height: 500px;
+  }
+}
+#features-animation {
+  z-index: 9002;
+  position: relative;
+}
+#features-steps {
+  list-style: none;
+  font-size: 22px;
+  font-family: "Lato", sans-serif;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  #features-steps {
+    margin-top: 40px;
+    margin-left: 0px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #features-steps {
+    margin-top: 70px;
+    margin-left: 60px;
+  }
+}
+#features-steps li {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  white-space: nowrap;
+  padding: 5px 0px;
+  color: #c1c1c1;
+}
+#features-steps li.active {
+  color: #000000;
+}
+.features-steps-bullet {
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+}
+#features-bullet-1 {
+  background-color: #eeeeee;
+  box-shadow: inset 0 2px 2px 1px #C4C4C4;
+}
+#features-bullet-1.active {
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #eb0a94;
+  border-color: #eb0a94;
+}
+#features-bullet-2 {
+  background-color: #eeeeee;
+  box-shadow: inset 0 2px 2px 1px #C4C4C4;
+}
+#features-bullet-2.active {
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #593a82;
+  border-color: #593a82;
+}
+#features-bullet-3 {
+  background-color: #eeeeee;
+  box-shadow: inset 0 2px 2px 1px #C4C4C4;
+}
+#features-bullet-3.active {
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #22a5d5;
+  border-color: #22a5d5;
+}
+#features-stage-wrapper {
+  width: 100%;
+  min-height: 316px;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+}
+#features-stage {
+  width: 100%;
+  min-height: 382px;
+  display: block;
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
+  -webkit-transform-origin: 0% 0;
+}
+@media screen and (min-width: 992px) {
+  #features-stage {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+#features-laptop {
+  position: absolute;
+  width: 658px;
+  height: 382px;
+  background-image: url("/media/images/linodes/laptop.png");
+  background-size: 658px 382px;
+  z-index: 500;
+}
+#features-cursor {
+  position: relative;
+  z-index: 600;
+  width: 18px;
+  height: 33px;
+  background-image: url("/media/images/linodes/pointer.png");
+  background-size: 18px 33px;
+  left: 400px;
+  top: 220px;
+}
+.features-state {
+  display: none;
+  position: absolute;
+  z-index: 550;
+}
+#features-plan {
+  width: 91px;
+  height: 51px;
+  top: 142px;
+  left: 100px;
+  background-image: url("/media/images/linodes/2gb-active.png");
+  background-size: 91px 51px;
+}
+#features-dropdown {
+  width: 126px;
+  height: 0px;
+  display: block;
+  top: 102px;
+  left: 249px;
+  background-image: url("/media/images/linodes/distro-off.png");
+  background-size: 126px 204px;
+}
+#features-ubuntu {
+  width: 126px;
+  height: 26px;
+  top: 134px;
+  left: 249px;
+  background-image: url("/media/images/linodes/distro-active.png");
+  background-size: 126px 26px;
+  z-index: 555;
+}
+#features-location {
+  width: 133px;
+  height: 28px;
+  top: 147px;
+  left: 427px;
+  background-image: url("/media/images/linodes/location-active.png");
+  background-size: 133px 28px;
+}
+#features-prompt {
+  width: 527px;
+  height: 0px;
+  top: 17px;
+  left: 66px;
+  background-image: url("/media/images/linodes/prompt.png");
+  background-size: 527px 316px;
+  z-index: 650;
+  display: block;
+}
+#features-blink {
+  width: 18px;
+  height: 3px;
+  top: 85px;
+  left: 268px;
+  background-color: #25bc6c;
+  z-index: 700;
+  animation: blink 1s steps(2, start) infinite;
+  -webkit-animation: blink 1s steps(2, start) infinite;
+}
+@keyframes 'blink' {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes 'blink' {
+  to {
+    visibility: hidden;
+  }
+}
+@-moz-keyframes 'blink' {
+  to {
+    visibility: hidden;
+  }
+}
+@-o-keyframes 'blink' {
+  to {
+    visibility: hidden;
+  }
+}
+.features-manager-screen {
+  width: 100%;
+  margin-bottom: 30px;
+  border: 1px #555555 solid;
+}
+@media screen and (min-width: 992px) {
+  .features-manager-screen {
+    position: absolute;
+    width: 700px;
+    margin-bottom: 0px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 25px 25px 0px 25px;
+    border-radius: 25px 25px 0 0;
+    opacity: 0.5;
+    -webkit-transition: 0.4s all ease-in-out;
+    transition: 0.4s all ease-in-out;
+  }
+  .features-manager-screen.left {
+    top: 150px;
+    left: 0px;
+    z-index: 801;
+  }
+  .features-manager-screen.middle {
+    opacity: 1.0;
+    top: 0px;
+    left: 135px;
+    z-index: 900;
+  }
+  .features-manager-screen.right {
+    top: 150px;
+    left: 270px;
+    z-index: 800;
+  }
+}
+@media screen and (max-width: 992px) {
+  .features-manager-screen {
+    border: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .features-img-crop-container {
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px #555555 solid;
+  }
+}
+@media screen and (min-width: 768px) {
+  #backups-icon {
+    padding-left: 24px;
+  }
+}
+#backups-pricing-larger-plans {
+  display: none;
+}
+#backups-view-larger,
+#backups-view-smaller {
+  margin-top: 12px;
+}
+.backup-calendar {
+  font-family: "Lato", sans-serif;
+  background-image: url("/media/images/tour/backups/strategy_backup_icon.png");
+  background-repeat: no-repeat;
+  background-position: center 10%;
+}
+.backup-calendar-month {
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 26px;
+}
+.backup-calendar-day {
+  color: #3a3a3b;
+  font-size: 66px;
+  height: 116px;
+}
+.backups-pricing {
+  border: none;
+  box-shadow: 0px 1px 1px 1px rgba(174, 174, 174, 0.2);
+}
+.backups-pricing > thead > tr > th {
+  text-align: center;
+}
+.backups-pricing > tbody > tr:last-child {
+  border-bottom: none;
+}
+.backups-pricing > tbody > tr > td {
+  font-size: 18px;
+  text-align: center;
+}
+#longview-hero {
+  background-color: #ffffff;
+  color: #747474;
+  text-align: center;
+  min-height: 250px;
+  background: #ffffff url("/media/images/tour/longview/graph.png") 0% 100% repeat-x;
+}
+#longview-hero .lead a {
+  font-weight: 300;
+}
+#longview-hero h1 > a,
+#longview-hero h2 > a,
+#longview-hero h3 > a,
+#longview-hero h4 > a,
+#longview-hero h5 > a,
+#longview-hero h6 > a,
+#longview-hero p > a,
+#longview-hero li > a,
+#longview-hero td > a,
+#longview-hero address > a,
+#longview-hero .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+#longview-hero h1 > a:hover,
+#longview-hero h2 > a:hover,
+#longview-hero h3 > a:hover,
+#longview-hero h4 > a:hover,
+#longview-hero h5 > a:hover,
+#longview-hero h6 > a:hover,
+#longview-hero p > a:hover,
+#longview-hero li > a:hover,
+#longview-hero td > a:hover,
+#longview-hero address > a:hover,
+#longview-hero .span > a:hover,
+#longview-hero h1 > a:active,
+#longview-hero h2 > a:active,
+#longview-hero h3 > a:active,
+#longview-hero h4 > a:active,
+#longview-hero h5 > a:active,
+#longview-hero h6 > a:active,
+#longview-hero p > a:active,
+#longview-hero li > a:active,
+#longview-hero td > a:active,
+#longview-hero address > a:active,
+#longview-hero .span > a:active {
+  text-decoration: none;
+}
+#longview-hero .nav li > a {
+  text-decoration: none;
+}
+#longview-hero.separated {
+  border-bottom-color: #d9d9d9;
+}
+#longview-hero h1,
+#longview-hero .h1,
+#longview-hero h2,
+#longview-hero .h2,
+#longview-hero h3,
+#longview-hero .h3,
+#longview-hero h4,
+#longview-hero .h4,
+#longview-hero h5,
+#longview-hero .h5,
+#longview-hero h6,
+#longview-hero .h6 {
+  color: #000000;
+}
+#longview-hero.jumbotron h1,
+#longview-hero.jumbotron .h1 {
+  color: #343434;
+}
+#longview-hero.jumbotron h2,
+#longview-hero.jumbotron .h2,
+#longview-hero.jumbotron h3,
+#longview-hero.jumbotron .h3,
+#longview-hero.jumbotron h4,
+#longview-hero.jumbotron .h4,
+#longview-hero.jumbotron h5,
+#longview-hero.jumbotron .h5,
+#longview-hero.jumbotron h6,
+#longview-hero.jumbotron .h6 {
+  color: #747474;
+}
+#longview-hero h1 > a:link,
+#longview-hero h2 > a:link,
+#longview-hero h3 > a:link,
+#longview-hero h4 > a:link,
+#longview-hero h5 > a:link,
+#longview-hero h6 > a:link,
+#longview-hero p > a:link,
+#longview-hero li > a:link,
+#longview-hero td > a:link,
+#longview-hero address > a:link,
+#longview-hero .span > a:link,
+#longview-hero h1 > a:visited,
+#longview-hero h2 > a:visited,
+#longview-hero h3 > a:visited,
+#longview-hero h4 > a:visited,
+#longview-hero h5 > a:visited,
+#longview-hero h6 > a:visited,
+#longview-hero p > a:visited,
+#longview-hero li > a:visited,
+#longview-hero td > a:visited,
+#longview-hero address > a:visited,
+#longview-hero .span > a:visited,
+#longview-hero h1 > a:active,
+#longview-hero h2 > a:active,
+#longview-hero h3 > a:active,
+#longview-hero h4 > a:active,
+#longview-hero h5 > a:active,
+#longview-hero h6 > a:active,
+#longview-hero p > a:active,
+#longview-hero li > a:active,
+#longview-hero td > a:active,
+#longview-hero address > a:active,
+#longview-hero .span > a:active {
+  color: #0089bc;
+}
+#longview-hero h1 > a:hover,
+#longview-hero h2 > a:hover,
+#longview-hero h3 > a:hover,
+#longview-hero h4 > a:hover,
+#longview-hero h5 > a:hover,
+#longview-hero h6 > a:hover,
+#longview-hero p > a:hover,
+#longview-hero li > a:hover,
+#longview-hero td > a:hover,
+#longview-hero address > a:hover,
+#longview-hero .span > a:hover {
+  color: #005170;
+}
+#longview-hero h1 > a .glyphicon.tile,
+#longview-hero h2 > a .glyphicon.tile,
+#longview-hero h3 > a .glyphicon.tile,
+#longview-hero h4 > a .glyphicon.tile,
+#longview-hero h5 > a .glyphicon.tile,
+#longview-hero h6 > a .glyphicon.tile,
+#longview-hero p > a .glyphicon.tile,
+#longview-hero li > a .glyphicon.tile,
+#longview-hero td > a .glyphicon.tile,
+#longview-hero address > a .glyphicon.tile,
+#longview-hero .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+#longview-hero h1 > a .glyphicon.tile:hover,
+#longview-hero h2 > a .glyphicon.tile:hover,
+#longview-hero h3 > a .glyphicon.tile:hover,
+#longview-hero h4 > a .glyphicon.tile:hover,
+#longview-hero h5 > a .glyphicon.tile:hover,
+#longview-hero h6 > a .glyphicon.tile:hover,
+#longview-hero p > a .glyphicon.tile:hover,
+#longview-hero li > a .glyphicon.tile:hover,
+#longview-hero td > a .glyphicon.tile:hover,
+#longview-hero address > a .glyphicon.tile:hover,
+#longview-hero .span > a .glyphicon.tile:hover,
+#longview-hero h1 > a .glyphicon.tile:active,
+#longview-hero h2 > a .glyphicon.tile:active,
+#longview-hero h3 > a .glyphicon.tile:active,
+#longview-hero h4 > a .glyphicon.tile:active,
+#longview-hero h5 > a .glyphicon.tile:active,
+#longview-hero h6 > a .glyphicon.tile:active,
+#longview-hero p > a .glyphicon.tile:active,
+#longview-hero li > a .glyphicon.tile:active,
+#longview-hero td > a .glyphicon.tile:active,
+#longview-hero address > a .glyphicon.tile:active,
+#longview-hero .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+#longview-hero ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+#longview-hero ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+#longview-hero ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+#longview-hero ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+#longview-hero ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+#longview-hero ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+#longview-hero.subnav {
+  opacity: 0.96;
+}
+#longview-hero.subnav .navbar-brand {
+  color: #000000;
+}
+#longview-hero.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+#longview-hero.subnav li > a {
+  color: #aaa;
+}
+#longview-hero.subnav li > a.active {
+  color: #000000;
+}
+#longview-hero.subnav li > a:hover {
+  color: #5b5b5b;
+}
+#longview-hero.subnav .navbar-toggle {
+  color: #000000;
+}
+#longview-hero.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+#longview-hero.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+#longview-hero.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+#longview-hero .sidebar strong {
+  color: #000000;
+}
+#longview-hero .sidebar a strong {
+  color: #0089bc;
+}
+#longview-hero .sidebar a strong:link,
+#longview-hero .sidebar a strong:visited,
+#longview-hero .sidebar a strong:active {
+  color: #0089bc;
+}
+#longview-hero .sidebar a strong:hover {
+  color: #005170;
+}
+#longview-hero cite.bubble strong {
+  color: #414141;
+}
+#longview-hero cite.bubble a:link,
+#longview-hero cite.bubble a:visited,
+#longview-hero cite.bubble a:active {
+  color: #0089bc;
+}
+#longview-hero cite.bubble a:hover {
+  color: #005170;
+}
+#longview-hero blockquote {
+  color: #747474;
+}
+#longview-hero blockquote p,
+#longview-hero blockquote ul > li,
+#longview-hero blockquote * {
+  color: #747474;
+}
+#longview-hero h1,
+#longview-hero .h1 {
+  color: #343434;
+}
+#longview-hero h2,
+#longview-hero .h2,
+#longview-hero h3,
+#longview-hero .h3,
+#longview-hero h4,
+#longview-hero .h4,
+#longview-hero h5,
+#longview-hero .h5,
+#longview-hero h6,
+#longview-hero .h6 {
+  color: #747474;
+}
+#longview-hero h2 {
+  font-weight: 300;
+}
+.longview-screen-sm {
+  width: 100%;
+  max-width: 400px;
+}
+.longview-screen-lg {
+  width: 100%;
+  max-width: 878px;
+}
+#managed-action {
+  padding-top: 15px;
+}
+#managed-hero {
+  background-color: #161616;
+  color: #666666;
+  background-color: #0a0a0a;
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 2.14285714;
+  background-color: #eeeeee;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.64285714;
+  color: inherit;
+  background-color: transparent;
+  color: #ffffff;
+  min-height: 400px;
+  background: #ffffff url("/media/images/tour/managed/hero.jpg") 83% 38% no-repeat;
+  background-size: cover;
+}
+#managed-hero a {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #a6a6a6;
+}
+#managed-hero a:hover,
+#managed-hero a:active {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+#managed-hero h1 {
+  line-height: 1;
+  color: inherit;
+}
+#managed-hero p {
+  line-height: 1.4;
+}
+.container #managed-hero {
+  border-radius: 0px;
+}
+@media screen and (min-width: 768px) {
+  #managed-hero {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container #managed-hero {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  #managed-hero h1 {
+    font-size: 72px;
+  }
+}
+#managed-hero h1,
+#managed-hero .h1 {
+  font-size: 39px;
+}
+#managed-hero h2,
+#managed-hero .h2 {
+  font-size: 24px;
+}
+#managed-hero h3,
+#managed-hero .h3 {
+  font-size: 23px;
+}
+#managed-hero h4,
+#managed-hero .h4 {
+  font-size: 21px;
+}
+#managed-hero h5,
+#managed-hero .h5 {
+  font-size: 20px;
+}
+#managed-hero h6,
+#managed-hero .h6 {
+  font-size: 18px;
+}
+#managed-hero h2,
+#managed-hero .h2,
+#managed-hero h3,
+#managed-hero .h3,
+#managed-hero h4,
+#managed-hero .h4,
+#managed-hero h5,
+#managed-hero .h5,
+#managed-hero h6,
+#managed-hero .h6 {
+  font-weight: 300;
+}
+@media screen and (min-width: 768px) {
+  #managed-hero {
+    padding: 0px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+  }
+  #managed-hero h1,
+  #managed-hero .h1 {
+    font-size: 45px;
+  }
+  #managed-hero h2,
+  #managed-hero .h2 {
+    font-size: 26px;
+  }
+  #managed-hero h3,
+  #managed-hero .h3 {
+    font-size: 24px;
+  }
+  #managed-hero h4,
+  #managed-hero .h4 {
+    font-size: 23px;
+  }
+  #managed-hero h5,
+  #managed-hero .h5 {
+    font-size: 21px;
+  }
+  #managed-hero h6,
+  #managed-hero .h6 {
+    font-size: 20px;
+  }
+}
+#managed-hero .navbar-brand {
+  font-family: "Trebuchet MS", "Helvetica", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 22px;
+}
+@media screen and (min-width: 768px) {
+  #managed-hero {
+    min-height: 600px;
+    background-position: 0% 38%;
+  }
+}
+#managed-list {
+  font-size: 14px;
+}
+@media screen and (min-width: 768px) {
+  #managed-list {
+    font-size: 18px;
+    line-height: 36px;
+  }
+}
+.img-responsive-centered {
+  display: inline;
+  vertical-align: middle;
+}
+.blog-sidebar {
+  margin-top: 30px !important;
+  padding-top: 30px;
+  border-top: 1px solid #e7e6e6;
+}
+@media screen and (min-width: 768px) {
+  .blog-sidebar {
+    margin-top: 0 !important;
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+.blog-sidebar ul {
+  list-style: none;
+  padding-left: 0px;
+}
+@media screen and (min-width: 768px) {
+  .blog-sidebar ul {
+    padding-left: 20px;
+    border-left: 1px solid #e7e6e6;
+  }
+}
+.blog-sidebar ul > li > ul {
+  border: 0;
+  padding-left: 0;
+}
+.blog-sidebar ul.list {
+  padding-left: 20px;
+  list-style: disc;
+}
+.blog-sidebar ul.list > li {
+  padding: 10px 0px;
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .blog-sidebar > ul {
+    text-align: left;
+  }
+}
+.blog-sidebar > ul > li {
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  .blog-sidebar > ul > li {
+    padding: 0;
+  }
+}
+.blog-sidebar > ul > li > ul > li {
+  padding: 6px 0;
+  font-size: 19px;
+}
+.blog-sidebar > ul > li > ul > li:first-child {
+  padding-top: 0;
+}
+.blog-sidebar > ul > li > ul > li:last-child {
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .blog-sidebar > ul > li > ul > li {
+    padding: 0;
+    font-size: 16px;
+  }
+}
+.blog-sidebar h2 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 16px;
+  font-size: 21px;
+  font-weight: 400;
+}
+.blog-sidebar h2 small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.blog-sidebar h2 + .lead {
+  padding-top: 10px;
+}
+.post {
+  margin-bottom: 75px;
+}
+.post .title {
+  margin-bottom: 0px;
+}
+.entry img {
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+.entry h2 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 16px;
+  font-size: 21px;
+  font-weight: 400;
+}
+.entry h2 small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.entry h2 + .lead {
+  padding-top: 10px;
+}
+.entry h1,
+.entry h2,
+.entry h3,
+.entry h4,
+.entry h5,
+.entry h6 {
+  padding-top: 0;
+  margin-top: 0;
+}
+.entry .timestamp {
+  font-size: 14px;
+  color: #9a9a9a;
+}
+.entry .timestamp + h1,
+.entry .timestamp + h2,
+.entry .timestamp + h3,
+.entry .timestamp + h4,
+.entry .timestamp + h5,
+.entry .timestamp + h6 {
+  margin-top: 20px;
+}
+.entry .timestamp + p,
+.entry ol + p,
+.entry ul + p,
+.entry code + p,
+.entry pre + p {
+  padding-top: 20px;
+}
+img.wp-smiley {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
+}
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.alignright {
+  margin: 0 0 2px 7px;
+  padding: 4px;
+  display: inline;
+}
+img.alignleft {
+  margin: 0 7px 2px 0;
+  padding: 4px;
+  display: inline;
+}
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+h3.comments {
+  padding-top: 50px;
+}
+.avatar {
+  float: left;
+  margin-right: 10px;
+}
+ol.commentlist {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+ol.commentlist li {
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  zoom: 1;
+}
+ol.commentlist li .commentauthor a:link,
+ol.commentlist li .commentdate a:link,
+ol.commentlist li .commentauthor a:active,
+ol.commentlist li .commentdate a:active,
+ol.commentlist li .commentauthor a:visited,
+ol.commentlist li .commentdate a:visited {
+  color: #676767;
+}
+ol.commentlist li .commentauthor a:hover,
+ol.commentlist li .commentdate a:hover {
+  color: #414141;
+}
+ol.commentlist li .comment p {
+  margin-left: 80px;
+}
+.comment-edit-link:link,
+.comment-edit-link:visited,
+.comment-edit-link:active {
+  color: #0089bc;
+}
+.comment-edit-link:hover {
+  color: #005170;
+}
+#respond {
+  margin-top: 50px;
+}
+.commentmetadata em {
+  color: #9a9a9a;
+}
+#commentform label {
+  margin-bottom: 20px;
+  color: #9a9a9a;
+  font-weight: 400;
+}
+#commentform button {
+  margin-top: 20px;
+}
+div.browse {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+div.browse * {
+  display: table-cell;
+  vertical-align: top;
+}
+div.browse *:first-child {
+  text-align: left;
+}
+div.browse *:last-child {
+  text-align: right;
+}
+div.browse a:link,
+div.browse a:visited,
+div.browse a:active {
+  color: #0089bc;
+}
+div.browse a:hover {
+  color: #005170;
+}
+.api-tile {
+  position: relative;
+  float: left;
+  width: 33.33333333%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  padding: 10px 0px;
+  font-family: "Lato", sans-serif;
+}
+.api-tile a:link,
+.api-tile a:visited,
+.api-tile a:active {
+  color: #0089bc;
+}
+.api-tile a:hover {
+  color: #005170;
+}
+.api-tile .glyphicon,
+.api-tile img {
+  display: block;
+  margin: 10px auto 5px auto !important;
+  font-size: 64px;
+}
+.api-error {
+  background-color: #ffffff;
+  color: #000000;
+}
+.api-params {
+  padding-left: 0;
+  list-style: none;
+}
+.api-params li {
+  padding: 5px 0px 0px 0px;
+  color: #555555;
+}
+.api-params strong {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  color: #000000;
+}
+.api-params small {
+  display: block;
+  margin-left: 20px;
+  color: #747474;
+}
+.doc div.row-api {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.doc div.row-api:before,
+.doc div.row-api:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.doc div.row-api:after {
+  clear: both;
+}
+.doc div.row-api:before,
+.doc div.row-api:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.doc div.row-api:after {
+  clear: both;
+}
+.doc div.row-api + h1 {
+  margin-top: 30px;
+}
+.sidebar ul.stackscripts-popular {
+  list-style-type: decimal;
+  padding-left: 30px;
+}
+@media screen and (min-width: 768px) {
+  .sidebar ul.stackscripts-popular {
+    padding-left: 20px;
+  }
+}
+.stackscript {
+  margin-bottom: 45px;
+}
+.stackscript:last-child {
+  margin-bottom: 0;
+}
+.stackscript small {
+  display: block;
+}
+.stackscript-avatar {
+  width: 100%;
+}
+.stackscript-breadcrumb {
+  background-color: #ffffff;
+  padding: 30px 0 0 0;
+}
+.stackscript-breadcrumb > li + li:before {
+  content: "\00BB\00a0";
+  color: #9a9a9a;
+}
+.stackscript-breadcrumb > .active {
+  color: #9a9a9a;
+}
+.stackscript-meta {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.stackscript-meta a:link,
+.stackscript-meta a:visited,
+.stackscript-meta a:active {
+  color: #0089bc;
+}
+.stackscript-meta a:hover {
+  color: #005170;
+}
+.stackscripts-page-num {
+  display: block;
+  margin-top: 10px !important;
+}
+.stackscript-search-results {
+  margin-bottom: 30px !important;
+}
+@media screen and (min-width: 768px) {
+  .stackscript-title {
+    padding-left: 0px;
+  }
+}
+#ss-search .input-group-btn {
+  z-index: 2;
+}
+.case-study-lead {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 28px;
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 30px;
+  color: #000000;
+}
+.case-study-lead small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.case-study-lead + .lead {
+  padding-top: 10px;
+}
+.case-study-quote.case-study-quote {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 28px;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  padding: 90px 0;
+  border-color: #e7e6e6;
+  border-style: solid;
+  border-width: 1px 0;
+  color: #2d8ec6;
+}
+.case-study-quote.case-study-quote small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.case-study-quote.case-study-quote + .lead {
+  padding-top: 10px;
+}
+.case-study-quote-noborder {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 28px;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  padding: 30px 0;
+  border-style: none;
+  color: #2d8ec6 !important;
+}
+.case-study-quote-noborder small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.case-study-quote-noborder + .lead {
+  padding-top: 10px;
+}
+.case-study-separated-top {
+  border-top: 1px solid #d9d9d9;
+}
+.press-list {
+  padding-left: 0;
+}
+.press-list li {
+  font-size: 18px;
+  list-style: none;
+}
+.press-list li + li {
+  margin-top: 30px;
+}
+.pr-icons {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 28px;
+  font-size: 32px;
+  font-weight: 400;
+  padding-bottom: 15px;
+}
+.pr-icons small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.pr-icons + .lead {
+  padding-top: 10px;
+}
+.pr-icons:before,
+.pr-icons:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.pr-icons:after {
+  clear: both;
+}
+.pr-icons:before,
+.pr-icons:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.pr-icons:after {
+  clear: both;
+}
+@media print {
+  .pr-icons {
+    display: none;
+  }
+}
+.pr-icons a {
+  margin: 0 0 0 10px;
+}
+.pr-icons a:link,
+.pr-icons a:visited,
+.pr-icons a:active {
+  color: #0089bc;
+}
+.pr-icons a:hover {
+  color: #005170;
+}
+@media screen and (min-width: 768px) {
+  .pr-icons a {
+    float: right;
+  }
+}
+.pr-icons-press-release {
+  padding-top: 30px;
+  padding-bottom: 0;
+}
+.pr-more-container {
+  background-color: #edf7fe;
+  color: #747474;
+  padding: 30px;
+}
+.pr-more-container .lead a {
+  font-weight: 300;
+}
+.pr-more-container h1 > a,
+.pr-more-container h2 > a,
+.pr-more-container h3 > a,
+.pr-more-container h4 > a,
+.pr-more-container h5 > a,
+.pr-more-container h6 > a,
+.pr-more-container p > a,
+.pr-more-container li > a,
+.pr-more-container td > a,
+.pr-more-container address > a,
+.pr-more-container .span > a {
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+.pr-more-container h1 > a:hover,
+.pr-more-container h2 > a:hover,
+.pr-more-container h3 > a:hover,
+.pr-more-container h4 > a:hover,
+.pr-more-container h5 > a:hover,
+.pr-more-container h6 > a:hover,
+.pr-more-container p > a:hover,
+.pr-more-container li > a:hover,
+.pr-more-container td > a:hover,
+.pr-more-container address > a:hover,
+.pr-more-container .span > a:hover,
+.pr-more-container h1 > a:active,
+.pr-more-container h2 > a:active,
+.pr-more-container h3 > a:active,
+.pr-more-container h4 > a:active,
+.pr-more-container h5 > a:active,
+.pr-more-container h6 > a:active,
+.pr-more-container p > a:active,
+.pr-more-container li > a:active,
+.pr-more-container td > a:active,
+.pr-more-container address > a:active,
+.pr-more-container .span > a:active {
+  text-decoration: none;
+}
+.pr-more-container .nav li > a {
+  text-decoration: none;
+}
+.pr-more-container.separated {
+  border-bottom-color: #a5d7fa;
+}
+.pr-more-container h1,
+.pr-more-container .h1,
+.pr-more-container h2,
+.pr-more-container .h2,
+.pr-more-container h3,
+.pr-more-container .h3,
+.pr-more-container h4,
+.pr-more-container .h4,
+.pr-more-container h5,
+.pr-more-container .h5,
+.pr-more-container h6,
+.pr-more-container .h6 {
+  color: #000000;
+}
+.pr-more-container.jumbotron h1,
+.pr-more-container.jumbotron .h1 {
+  color: #343434;
+}
+.pr-more-container.jumbotron h2,
+.pr-more-container.jumbotron .h2,
+.pr-more-container.jumbotron h3,
+.pr-more-container.jumbotron .h3,
+.pr-more-container.jumbotron h4,
+.pr-more-container.jumbotron .h4,
+.pr-more-container.jumbotron h5,
+.pr-more-container.jumbotron .h5,
+.pr-more-container.jumbotron h6,
+.pr-more-container.jumbotron .h6 {
+  color: #747474;
+}
+.pr-more-container h1 > a:link,
+.pr-more-container h2 > a:link,
+.pr-more-container h3 > a:link,
+.pr-more-container h4 > a:link,
+.pr-more-container h5 > a:link,
+.pr-more-container h6 > a:link,
+.pr-more-container p > a:link,
+.pr-more-container li > a:link,
+.pr-more-container td > a:link,
+.pr-more-container address > a:link,
+.pr-more-container .span > a:link,
+.pr-more-container h1 > a:visited,
+.pr-more-container h2 > a:visited,
+.pr-more-container h3 > a:visited,
+.pr-more-container h4 > a:visited,
+.pr-more-container h5 > a:visited,
+.pr-more-container h6 > a:visited,
+.pr-more-container p > a:visited,
+.pr-more-container li > a:visited,
+.pr-more-container td > a:visited,
+.pr-more-container address > a:visited,
+.pr-more-container .span > a:visited,
+.pr-more-container h1 > a:active,
+.pr-more-container h2 > a:active,
+.pr-more-container h3 > a:active,
+.pr-more-container h4 > a:active,
+.pr-more-container h5 > a:active,
+.pr-more-container h6 > a:active,
+.pr-more-container p > a:active,
+.pr-more-container li > a:active,
+.pr-more-container td > a:active,
+.pr-more-container address > a:active,
+.pr-more-container .span > a:active {
+  color: #0089bc;
+}
+.pr-more-container h1 > a:hover,
+.pr-more-container h2 > a:hover,
+.pr-more-container h3 > a:hover,
+.pr-more-container h4 > a:hover,
+.pr-more-container h5 > a:hover,
+.pr-more-container h6 > a:hover,
+.pr-more-container p > a:hover,
+.pr-more-container li > a:hover,
+.pr-more-container td > a:hover,
+.pr-more-container address > a:hover,
+.pr-more-container .span > a:hover {
+  color: #005170;
+}
+.pr-more-container h1 > a .glyphicon.tile,
+.pr-more-container h2 > a .glyphicon.tile,
+.pr-more-container h3 > a .glyphicon.tile,
+.pr-more-container h4 > a .glyphicon.tile,
+.pr-more-container h5 > a .glyphicon.tile,
+.pr-more-container h6 > a .glyphicon.tile,
+.pr-more-container p > a .glyphicon.tile,
+.pr-more-container li > a .glyphicon.tile,
+.pr-more-container td > a .glyphicon.tile,
+.pr-more-container address > a .glyphicon.tile,
+.pr-more-container .span > a .glyphicon.tile {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  color: #000000;
+}
+.pr-more-container h1 > a .glyphicon.tile:hover,
+.pr-more-container h2 > a .glyphicon.tile:hover,
+.pr-more-container h3 > a .glyphicon.tile:hover,
+.pr-more-container h4 > a .glyphicon.tile:hover,
+.pr-more-container h5 > a .glyphicon.tile:hover,
+.pr-more-container h6 > a .glyphicon.tile:hover,
+.pr-more-container p > a .glyphicon.tile:hover,
+.pr-more-container li > a .glyphicon.tile:hover,
+.pr-more-container td > a .glyphicon.tile:hover,
+.pr-more-container address > a .glyphicon.tile:hover,
+.pr-more-container .span > a .glyphicon.tile:hover,
+.pr-more-container h1 > a .glyphicon.tile:active,
+.pr-more-container h2 > a .glyphicon.tile:active,
+.pr-more-container h3 > a .glyphicon.tile:active,
+.pr-more-container h4 > a .glyphicon.tile:active,
+.pr-more-container h5 > a .glyphicon.tile:active,
+.pr-more-container h6 > a .glyphicon.tile:active,
+.pr-more-container p > a .glyphicon.tile:active,
+.pr-more-container li > a .glyphicon.tile:active,
+.pr-more-container td > a .glyphicon.tile:active,
+.pr-more-container address > a .glyphicon.tile:active,
+.pr-more-container .span > a .glyphicon.tile:active {
+  color: #4e4e4e;
+}
+.pr-more-container ul.nav-sidebar > li.active > a {
+  color: #000000;
+}
+.pr-more-container ul.nav-sidebar > li.header > a {
+  color: #626262;
+  font-weight: 800;
+}
+.pr-more-container ul.nav-sidebar > li > a {
+  color: #8e8e8e;
+  transition: 0.1s all;
+}
+.pr-more-container ul.nav-sidebar > li > a:hover {
+  color: #000000;
+}
+.pr-more-container ul.dropdown-menu > li > a:link {
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+.pr-more-container ul.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+.pr-more-container.subnav {
+  opacity: 0.96;
+}
+.pr-more-container.subnav .navbar-brand {
+  color: #000000;
+}
+.pr-more-container.subnav .navbar-brand a {
+  text-decoration: none;
+  color: #000000;
+}
+.pr-more-container.subnav li > a {
+  color: #aaa;
+}
+.pr-more-container.subnav li > a.active {
+  color: #000000;
+}
+.pr-more-container.subnav li > a:hover {
+  color: #5b5b5b;
+}
+.pr-more-container.subnav .navbar-toggle {
+  color: #000000;
+}
+.pr-more-container.subnav .navbar-toggle:hover {
+  background-color: transparent;
+}
+.pr-more-container.subnav .navbar-collapse {
+  border-top-color: #e7e6e6;
+}
+.pr-more-container.subnav .subnav-divider {
+  border-bottom: 1px solid #e7e6e6;
+}
+.pr-more-container .sidebar strong {
+  color: #000000;
+}
+.pr-more-container .sidebar a strong {
+  color: #0089bc;
+}
+.pr-more-container .sidebar a strong:link,
+.pr-more-container .sidebar a strong:visited,
+.pr-more-container .sidebar a strong:active {
+  color: #0089bc;
+}
+.pr-more-container .sidebar a strong:hover {
+  color: #005170;
+}
+.pr-more-container cite.bubble strong {
+  color: #414141;
+}
+.pr-more-container cite.bubble a:link,
+.pr-more-container cite.bubble a:visited,
+.pr-more-container cite.bubble a:active {
+  color: #0089bc;
+}
+.pr-more-container cite.bubble a:hover {
+  color: #005170;
+}
+.pr-more-container blockquote {
+  color: #747474;
+}
+.pr-more-container blockquote p,
+.pr-more-container blockquote ul > li,
+.pr-more-container blockquote * {
+  color: #747474;
+}
+@media print {
+  .pr-more-container {
+    display: none;
+  }
+}
+.pr-more-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+.pr-more-container ul li {
+  margin-bottom: 10px;
+}
+.pr-summary-list {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+#contact-address > ul {
+  padding-left: 0;
+  list-style: none;
+}
+#contact-address > ul > li {
+  font-size: 19.8px;
+  font-weight: 300;
+  line-height: 1.4;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+.contact-label {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: 16px;
+  font-size: 21px;
+  font-weight: 400;
+  margin-top: 22px;
+  margin-bottom: 11px;
+  white-space: nowrap;
+}
+.contact-label small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.contact-label + .lead {
+  padding-top: 10px;
+}
+.call-us {
+  margin-bottom: 30px !important;
+  padding-left: 0;
+  line-height: 25px;
+  list-style: none;
+}
+.employee-display {
+  width: 216px;
+}
+.emp-left {
+  float: left;
+  width: 180px;
+  text-align: center;
+}
+.emp-left > strong {
+  display: block;
+  color: #000000;
+  padding-top: 10px;
+}
+.emp-right {
+  float: left;
+  width: 36px;
+  height: 180px;
+}
+.employee-pad {
+  padding: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.employee-link {
+  display: none;
+  width: 36px;
+  height: 36px;
+}
+.employee-link.employee-twitter {
+  background: #ffffff url("/media/images/employees/twitter.jpg") no-repeat center bottom;
+}
+.employee-link.employee-linkedin {
+  background: #ffffff url("/media/images/employees/linkedin.jpg") no-repeat center bottom;
+}
+.employee-link.employee-github {
+  background: #ffffff url("/media/images/employees/github.jpg") no-repeat center bottom;
+}
+.careers-greenback {
+  background-color: #3bb878;
+}
+.careers-greenback h1,
+.careers-greenback h2 {
+  color: #ffffff;
+}
+.careers-greenback p {
+  font-size: 18px;
+  color: #ffffff;
+}
+.careers-shadowtext {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 2px #000;
+  padding: 100px 40px 100px 40px;
+}
+.careers-action-blue {
+  background-color: #287fb1;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 80px 10px 80px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.33;
+}
+.careers-action-blue:active {
+  color: #ffffff;
+}
+.careers-icon {
+  display: block;
+  width: 192px;
+  height: 160px;
+  margin: auto;
+}
+.careers-office-img {
+  display: block;
+  width: 475x;
+  height: 284px;
+  border: 1px solid #777777;
+  margin-left: auto;
+  margin-right: auto;
+}
+.careers-job-department {
+  margin: 40px 0 15px;
+  padding: 16px;
+  padding-bottom: 10px;
+}
+.careers-job-link {
+  font-size: 16px;
+  padding-left: 20px;
+  font-weight: bold;
+  color: #0089bc;
+}
+.careers-job-link:hover {
+  color: #005170;
+}
+.careers-job-location {
+  font-size: 14px;
+  padding-left: 20px;
+  font-weight: 300;
+  line-height: 140%;
+  color: #7C7C7C;
+  margin: 8px 0px;
+}
+.careers-job-highlight {
+  background-color: #efefef;
+}
+.careers-job-descriptions {
+  display: none;
+  padding: 10px;
+}
+.careers-job-descriptions-show {
+  display: block;
+}
+.careers-job {
+  padding: 10px;
+}
+.careers-nopad {
+  padding: 0px !important;
+}
+.careers-pad30-tb {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+.careers-pad10 {
+  padding: 10px;
+}
+.careers-pad20-lr {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.careers-middlesquish {
+  padding-left: 55px;
+  padding-right: 55px;
+}
+.careers-more p {
+  font-size: 16px;
+  color: #737373;
+  padding-bottom: 10px;
+}
+.careers-content-slim {
+  margin-bottom: 25px;
+}
+.careers-content-slim ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+.careers-job-description {
+  font-size: 14px;
+}
+#careers-scrollme {
+  padding-top: 20px;
+}
+#careers-mainimg {
+  background: #000000 url(/media/images/careers/parallax.jpg) no-repeat 50% center fixed;
+  height: 400px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+}
+.carousel {
+  height: 372px;
+  margin-bottom: 60px;
+}
+.carousel-caption {
+  z-index: 10;
+}
+.carousel .item {
+  height: 372px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  /* width: 617px; */
+  height: 372px;
+}
+.carousel-indicators {
+  top: 340px;
+}
+.scope-form-top {
+  background-color: #f2f7fb;
+}
+.scope-form-category {
+  background-color: #f2f7fb;
+}
+.twitter-widget {
+  padding: 15px 30px;
+  background-color: #ffffff;
+}
+.welcome-hero {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+@media screen and (min-width: 768px) {
+  .welcome-hero {
+    background-image: url("/media/images/home/cloud_10.png");
+  }
+}
+.welcome-hero-accent h2 {
+  font-family: "Lato", sans-serif;
+  line-height: 1.1;
+  font-size: 20px;
+  font-size: 25px;
+  font-weight: 400;
+  font-weight: 300;
+}
+.welcome-hero-accent h2 small {
+  font-weight: normal;
+  line-height: 1;
+  color: #999999;
+}
+.welcome-hero-accent h2 + .lead {
+  padding-top: 10px;
+}
+.welcome-lead {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 19.8px;
+  font-weight: 300;
+  line-height: 1.4;
+  padding-top: 0;
+}
+.welcome-list {
+  font-size: 19.8px;
+  margin-bottom: 30px;
+}
+.welcome-list > li {
+  font-weight: 300;
+}

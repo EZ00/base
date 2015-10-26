@@ -1,0 +1,39 @@
+<paper-menu class="drawerMenu" selected="{{selected_number}}">
+  <a class="muneItem" href="/">首页</a>
+  <a href="#" class="heading" onclick="document.querySelector('#productClsMenu').toggle();">产品种类</a>
+  <iron-collapse id="productClsMenu">
+    <div class="content">
+      <paper-menu class="drawerMenu">
+        <a class="muneItem" href="/productcls/create">创建</a>
+        <a class="muneItem" href="/productcls/browse">浏览</a>
+      </paper-menu>
+    </div>
+  </iron-collapse>
+  <a href="#" class="heading" onclick="document.querySelector('#productMenu').toggle();">产品</a>
+  <iron-collapse id="productMenu">
+    <div class="content">
+      <paper-menu class="drawerMenu">
+        <a class="muneItem" href="/product0/create">创建</a>
+        <a class="muneItem" href="/product0/create">浏览</a>
+      </paper-menu>
+    </div>
+  </iron-collapse>
+  <a href="#" class="heading" onclick="document.querySelector('#keywordMenu').toggle();">关键词</a>
+  <iron-collapse id="keywordMenu">
+    <div class="content">
+      <paper-menu class="drawerMenu">
+        <a class="muneItem" href="/productcls/create">创建</a>
+        <a class="muneItem" href="/productcls/create">浏览</a>
+      </paper-menu>
+    </div>
+  </iron-collapse>
+  <a href="#" class="heading" onclick="document.querySelector('#pubMenu').toggle();">发布的产品信息</a>
+  <iron-collapse id="pubMenu">
+    <div class="content">
+      <paper-menu class="drawerMenu">
+        <a class="muneItem" href="/productcls/create">创建</a>
+        <a class="muneItem" href="/productcls/create">浏览</a>
+      </paper-menu>
+    </div>
+  </iron-collapse>
+</paper-menu>

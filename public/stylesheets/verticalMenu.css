@@ -1,0 +1,25 @@
+.vertical-menu-ul *{
+  line-height:28.8px;
+}
+
+.vertical-menu-li{
+  height:48.8px;
+  border-top: 1px solid #24323D;
+  border-bottom: 1px solid #3F566A;
+}
+
+.vertical-menu-a{
+  display: block;
+  height: 100%;
+  color: #F0F0F0;
+  font-size: 18px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.vertical-menu-a:hover{
+  text-decoration: none;
+  color:#F0F0F0;
+  background: #1FC08E;
+}

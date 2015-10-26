@@ -1,0 +1,17 @@
+.header-content {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.header-content *{
+  background: #efefef;
+  font-size: 30px;
+}
+
+.header-user{
+  margin-right: 10px;
+}

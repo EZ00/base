@@ -1,0 +1,12 @@
+.form-confirm-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:flex-end;
+  align-content: flex-end;
+  align-items: flex-start;
+}
+
+.form-confirm-item{
+  margin-left: 20px;
+}
