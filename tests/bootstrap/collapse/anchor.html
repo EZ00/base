@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../public/stylesheets/bootstrap.min.css">
+ </head>
+ <body>
+   <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+     Link with href
+   </a>
+   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+     Button with data-target
+   </button>
+   <div class="collapse" id="collapseExample">
+     <div class="well">
+       this is the text
+     </div>
+   </div>
+   <script src="../../../public/javascript/jquery-2.1.4.min.js"></script>
+   <script src="../../../public/javascript/bootstrap.min.js"></script>
+   <script>
+     $('.dropdown .dropdown-menu').on('click', function (e) {
+            e.stopPropagation();
+        });
+   </script>
+ </body>
+</html>
