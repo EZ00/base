@@ -31,6 +31,10 @@ module.exports = function(app,passport){
 		res.render('front/home',{layout:'front.hbs',react:'home',title:'Sunrise Industry Group - steel pipe manufacturer in china'});
 	})
 
+	app.get('/about',function(req,res){
+		res.render('front/about',{layout:'front.hbs',react:'home',title:'About Us - Sunrise Industry Group'});
+	})
+
 	app.get('/contact',function(req,res){
 		res.render('front/contact',{layout:'front.hbs',react:'home',title:'Contact Us - Sunrise Industry Group'});
 	})
