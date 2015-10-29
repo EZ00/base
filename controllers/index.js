@@ -35,6 +35,10 @@ module.exports = function(app,passport){
 		res.render('front/about',{layout:'front.hbs',react:'home',title:'About Us - Sunrise Industry Group'});
 	})
 
+  app.get('/faq',function(req,res){
+		res.render('front/faq',{layout:'front.hbs',react:'home',title:'FAQ - Sunrise Industry Group'});
+	})
+
 	app.get('/contact',function(req,res){
 		res.render('front/contact',{layout:'front.hbs',react:'home',title:'Contact Us - Sunrise Industry Group'});
 	})
