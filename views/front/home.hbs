@@ -1,28 +1,16 @@
   {{> front/header}}
-  <section class='banner'>
-    <div>
-      <div class='text-center banner-intro'>
-        <p class='title'>Steel Products for You.</p>
-        <p>Welcome to sunrise industry group in china</p>
-        <p>Founded in 1969 by Sunrise street council, Hebei Sunrise industry group is an industrial enterprise group with a long history.</p>
-        <p>For many years' development, Sunrise group includes 16 enterprises with a considerable scale and technology level right now.</p>
-        <p>We are specialized in cold-rolled steel strip, black annealing steel strip, galvanized steel tube, steel keel, seamless steel pipe and you can find the catalogue on the menu (<a href='#'>or click here...</a>).</p>
-        <p>We can manufacture them in different specifications according to customer's requirement. Our monthly production capacity is 6000 tons right now.</p>
-        <p>Our company can make sure product capability and delivery date. We are looking forward to setting up long term cooperation relationship with customers all over the world.</p>
-      </div>
-    </div>
-  </section>
-  <sectin>
-    <div>
-      <div>
-        <img src='/static/imgs/steel_pipe.png'></img>
-        <img src='/static/imgs/steel_strip.png' style="position:relative;left:-125px;bottom:-10px;"></img>
-      </div>
-      <div>
-        <img src='/static/imgs/steel_coil.png'></img>
-        <img src='/static/imgs/sample_icon1.png'></img>
-      </div>
-    </div>
+  <section>
+    <ul id="slippry-demo">
+      <li>
+        <a href="#slide1"><img src="/static/imgs/banner.jpg" alt="Steel Pipes!"></a>
+      </li>
+      <li>
+        <a href="#slide2"><img src="/static/imgs/banner1.jpg"  alt="Steel Coils!"></a>
+      </li>
+      <li>
+        <a href="#slide3"><img src="/static/imgs/banner2.jpg" alt=""></a>
+      </li>
+    </ul>
   </section>
   <section class='primary extra-space'>
     <div class='container'>
@@ -71,3 +59,8 @@
     {{> front/footer}}
     {{> front/footer-copyright}}
   </footer>
+  <script>
+    jQuery(document).ready(function(){
+      jQuery('#slippry-demo').slippry()
+    });
+  </script>

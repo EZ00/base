@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+   <script src="../../public/javascript/jquery-2.1.4.min.js"></script>
+   <script src="../../public/javascript/slippry.min.js"></script>
+   <link rel="stylesheet" href="../../public/stylesheets/slippry.css" />
+   <ul id="slippry-demo">
+     <li>
+       <a href="#slide1"><img src="../../public/imgs/banner.jpg" alt="Welcome to Slippry!"></a>
+     </li>
+     <li>
+       <a href="#slide2"><img src="../../public/imgs/banner1.jpg"  alt="This is an awesome jQuery slider plugin."></a>
+     </li>
+     <li>
+       <a href="#slide3"><img src="../../public/imgs/banner2.jpg" alt="Check it out, you are going to <span class='red'>♥</span> it :)"></a>
+     </li>
+   </ul>
+   <script>
+     jQuery(document).ready(function(){
+       jQuery('#slippry-demo').slippry()
+     });
+   </script>
+ </body>
+</html>
