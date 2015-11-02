@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/stylesheets/jquery.smartmenus.bootstrap.css">
+<style>
+.item{
+  clear:both;
+}
+.item .thumbnail{
+  float: left;
+  max-width: 200px;
+  width: 100%;
+}
+.item .desc{
+  display: inline;
+  width:auto;
+}
+/*.item a{
+  display: inline-block;
+}*/
+.item .desc .pmo{
+  margin-bottom: 20px;
+  /*clear:both;*/
+}
+/*.item .desc .pmo > div{
+  display: inline;
+  margin-left: 10px;
+}*/
+.item .desc .kvs .kv{
+  float:left;
+  width: 240px;
+  margin-left: 10px;
+}
+/*.item .desc .kvs > .kv:nth-child(2){
+  clear:both;
+}*/
+</style>
+ </head>
+ <body>
+   <script src="../../public/javascript/holder.js"></script>
+   <div class="container">
+       <div class="well well-sm">
+           <strong>Category Title</strong>
+           <div class="btn-group">
+               <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+               </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                   class="glyphicon glyphicon-th"></span>Grid</a>
+           </div>
+       </div>
+       <div id="products" class="list-group">
+           <div class="item">
+             <img class="thumbnail" src="../../public/images/C083.jpg" alt=""/>
+             <div class='desc'>
+               <a href='#'><h4>Square/Round Steel Pipe/Tube Cold Roll Forming Machine</h4></a>
+               <div class='pmo'>
+                 <div class='price'>Price: <b>US $500-1000</b> / Ton</div>
+                 <div class='moq'>MOQ: <b>10 Tons </b></div>
+               </div>
+               <div class='kvs'>
+                 <div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+                 <div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+                 <div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+                 <div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+                 <div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+                 <div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+               </div>
+             </div>
+           </div>
+       </div>
+   </div>
+   <script src="../../public/javascript/jquery-2.1.4.min.js"></script>
+   <script src="../../public/javascript/bootstrap.min.js"></script>
+   <script>
+   var itemStr="";
+   itemStr += "             <img class=\"thumbnail\" src=\"..\/..\/public\/images\/C083.jpg\" alt=\"\"\/>";
+   itemStr += "             <div class='desc'>";
+   itemStr += "               <a href='#'><h4>Square\/Round Steel Pipe\/Tube Cold Roll Forming Machine<\/h4><\/a>";
+   itemStr += "               <div class='pmo'>";
+   itemStr += "                 <div class='price'>Price: <b>US $500-1000<\/b> \/ Ton<\/div>";
+   itemStr += "                 <div class='moq'>MOQ: <b>10 Tons <\/b><\/div>";
+   itemStr += "               <\/div>";
+   itemStr += "               <div class='kvs'>";
+   itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+   itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+   itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+   itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+   itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+   itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+   itemStr += "               <\/div>";
+   itemStr += "             <\/div>";
+
+     $(document).ready(function() {
+       $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+       $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+     });
+     var elProducts = document.getElementById('products');
+     for(var i=0;i<10;i++){
+       //console.log('i:',i);
+       var elItem = document.createElement('div');
+       elItem.setAttribute('class',"item");
+       elItem.innerHTML = itemStr;
+       elProducts.appendChild(elItem);
+     }
+   </script>
+  </body>
+</html>
