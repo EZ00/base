@@ -1,38 +1,46 @@
-<link rel="stylesheet" href="/static/stylesheets/fixedsticky.css" />
-<script src="/static/javascript/fixedsticky.js"></script>
+<script src="/static/javascript/jquery.sticky-kit.min.js"></script>
 {{> front/header}}
 <div style='width:100%;position:relative;'>
-  <label class='drawer-toggle-label drawer-toggle-label-checked fixedsticky' id='drawerToggle'></label>
-  <!-- <span class='fixedsticky' style="top:0;" id='drawerToggle'>toggle catelogue</span> -->
-  <!-- <header class='drawer-header drawer-header-checked' id='drawerHeader'>header</header> -->
-  <nav class='drawer drawer-checked fixedsticky' id='drawerNav'>
+  <!-- <div class='fixedsticky' style:'top:10px;' id='drawerToggle'>
+    toggle catalogue
+  </div> -->
+  <nav class='drawer drawer-checked' id='drawerNav'>
     <ul class='side-menu'>
-        <li><div class='side-menu-text'>first level</div></li>
-        <li><div class='side-menu-text'>first level</div></li>
-        <li><div class='side-menu-text'>first level</div></li>
-        <li><div class='side-menu-text'>first level</div>
-            <ul>
-                <li><div class='side-menu-text'>steel coil, steel sheet, steel strip, steel plate</div></li>
-                <li><div class='side-menu-text'>second level</div></li>
-                <li><div class='side-menu-text'>second level</div>
-                    <ul>
-                        <li><div class='side-menu-text'>third level</div></li>
-                        <li><div class='side-menu-text'>third level</div></li>
-                    </ul>
-                </li>
-            </ul>
+        <li><div class='side-menu-text'><a href="#">cold rolled steel tube<span class="caret"></span></a></div>
+          <ul>
+            <li><div class='side-menu-text'><a href="#">cold rolled black annealed steel tube</a></div></li>
+            <li><div class='side-menu-text'><a href="#">cold rolled bright annealed steel tube</a></div></li>
+            <li><div class='side-menu-text'><a href="#">hard bright steel tube</a></div></li>
+          </ul>
         </li>
+        <li><div class='side-menu-text'><a href="#">hot rolled steel tube</a></div></li>
+        <li><div class='side-menu-text'><a href="#">galvanized steel tube<span class="caret"></span></a></div>
+          <ul>
+            <li><div class='side-menu-text'><a href="#">hot dipped galvanized steel tube</a></div></li>
+            <li><div class='side-menu-text'><a href="#">pregalvanized steel tube</a></div></li>
+          </ul>
+        </li>
+        <li><div class='side-menu-text'><a href="#">stainless steel tube</a></div></li>
+        <li><div class='side-menu-text'><a href="#">seamless steel pipe</a></div></li>
+        <li><div class='side-menu-text'><a href="#">steel coil, steel sheet, steel strip, steel plate<span class="caret"></div></a>
+          <ul>
+            <li><div class='side-menu-text'><a href="#">galvanized steel sheet or strip</a></div></li>
+            <li><div class='side-menu-text'><a href="#">hard bright steel sheet or strip</a></div></li>
+            <li><div class='side-menu-text'><a href="#">black annealed steel sheet or strip</a></div></li>
+            <li><div class='side-menu-text'><a href="#">blue steel sheet or strip</a></div></li>
+            <li><div class='side-menu-text'><a href="#">stainless steel sheet or strip</a></div></li>
+          </ul>
+        </li>
+        <li><div class='side-menu-text'><a href="#">L T Z tube</a></div></li>
+        <li><div class='side-menu-text'><a href="#">C U Z tube</a></div></li>
+        <li><div class='side-menu-text'><a href="#">angle bar</a></div></li>
+        <li><div class='side-menu-text'><a href="/products">all...</a></div></li>
     </ul>
   </nav>
   <div class='page-content page-content-checked' id='drawerContent'>
-    <div class="container">
+    <div>
         <div class="well well-sm">
             <strong>Category Title</strong>
-            <div class="btn-group">
-                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-                </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                    class="glyphicon glyphicon-th"></span>Grid</a>
-            </div>
         </div>
         <div id="products" class="list-group">
             <div class="item">
@@ -58,26 +66,23 @@
   </div>
 </div>
 <script>
-  var checked = true;
-  var elDrawerToggle = document.getElementById('drawerToggle');
- //  var elDrawerHeader = document.getElementById('drawerHeader');
-  var elDrawerNav = document.getElementById('drawerNav');
-  var elDrawerContent = document.getElementById('drawerContent');
-  elDrawerToggle.addEventListener('click',function(evt){
-    checked = !checked;
-    if(checked === true){
-      elDrawerToggle.setAttribute('class','drawer-toggle-label drawer-toggle-label-checked fixedsticky');
-     //  elDrawerHeader.setAttribute('class','drawer-header drawer-header-checked');
-      elDrawerNav.setAttribute('class','drawer drawer-checked fixedsticky');
-      elDrawerContent.setAttribute('class','page-content page-content-checked');
-    }
-    else{
-      elDrawerToggle.setAttribute('class','drawer-toggle-label fixedsticky');
-     //  elDrawerHeader.setAttribute('class','drawer-header');
-      elDrawerNav.setAttribute('class','drawer drawer-unchecked fixedsticky');
-      elDrawerContent.setAttribute('class','page-content');
-    }
-  })
+  // var checked = true;
+  // var elDrawerToggle = document.getElementById('drawerToggle');
+  // var elDrawerNav = document.getElementById('drawerNav');
+  // var elDrawerContent = document.getElementById('drawerContent');
+  // elDrawerToggle.addEventListener('click',function(evt){
+  //   checked = !checked;
+  //   if(checked === true){
+  //     elDrawerToggle.setAttribute('class','drawer-toggle-label drawer-toggle-label-checked fixedsticky');
+  //     elDrawerNav.setAttribute('class','drawer drawer-checked fixedsticky');
+  //     elDrawerContent.setAttribute('class','page-content page-content-checked');
+  //   }
+  //   else{
+  //     elDrawerToggle.setAttribute('class','drawer-toggle-label fixedsticky');
+  //     elDrawerNav.setAttribute('class','drawer drawer-unchecked fixedsticky');
+  //     elDrawerContent.setAttribute('class','page-content');
+  //   }
+  // })
 </script>
 <script>
 var itemStr="";
@@ -99,9 +104,10 @@ itemStr += "               <\/div>";
 itemStr += "             <\/div>";
 
   $(document).ready(function() {
-    $('.fixedsticky').fixedsticky();
-    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
-    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+    // $('#drawerToggle').stick_in_parent({offset_top:0});
+    $('#drawerNav').stick_in_parent({offset_top:20,recalc_every: 1});
+    // $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    // $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
   });
   var elProducts = document.getElementById('products');
   for(var i=0;i<10;i++){
