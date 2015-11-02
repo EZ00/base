@@ -13,6 +13,10 @@ var names = [
   {
     name:'任务',
     url:'/en/dashboard/tasks'
+  },
+  {
+    name:'产品',
+    url:'/en/dashboard/products'
   }
 ];
 

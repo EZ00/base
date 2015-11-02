@@ -349,6 +349,24 @@ Base.prototype = {
       done(err,docs);
     });
   },
+  findAllAndCounter: function(options,done){
+    var noop = function(){};
+    done = done || noop;
+    var opt = {
+      "sort": [['timeModified','desc']]
+    }
+    options = options || opt;
+    this.collection.find({},options).toArray(function(err,docs){
+      if(err){
+        done(err)
+      }
+      else{
+        this.counters.findOne({name:this.collectionName},function(err,counter){
+          done(err,docs,counter)
+        })
+      }
+    }.bind(this));
+  },
   findAllAndCounts: function(options,done){
     var noop = function(){};
     done = done || noop;
