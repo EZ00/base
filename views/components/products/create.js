@@ -37,6 +37,31 @@ var Path = React.createClass({
   }
 });
 
+var ImageInput = React.createClass({
+  getInitialState: function(){
+    return {
+      data_uri: null,
+    };
+  },
+  render: function() {
+    if(isNode){
+      var props = this.props;
+    }
+    else {
+      var props = window.REACT_PROPS;
+    }
+    return (
+      <div className="row-nav">
+        <div className='row-nav-path'>
+          <span><a href='/en/dashboard/products'>产品</a></span>
+          <span> > </span>
+          <span>创建</span>
+        </div>
+      </div>
+    )
+  }
+});
+
 var Panel = React.createClass({
   getInitialState: function(){
     return {
