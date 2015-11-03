@@ -38,6 +38,11 @@ var Path = React.createClass({
 });
 
 var Panel = React.createClass({
+  getInitialState: function(){
+    return {
+      data_uri: null,
+    };
+  },
   componentDidMount: function(){
     socket = io(window.location.host + "/product");
     // socket.emit('hello',{msg:'hello socket'});
@@ -72,6 +77,23 @@ var Panel = React.createClass({
     console.log(data);
     socket.emit('create',data);
   },
+  readURL: function(event){
+    console.log(event);
+    if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files);
+        var self = this;
+        var reader = new FileReader();
+
+        reader.onload = function (upload) {
+          console.log(upload.target.result);
+          self.setState({
+            data_uri: upload.target.result,
+          });
+        }
+
+        reader.readAsDataURL(event.target.files[0]);
+    }
+  },
   render: function() {
     return(
       <div className="panel panel-default">
@@ -83,7 +105,13 @@ var Panel = React.createClass({
               <input className='form-control' type='text' placeholder='标题' ref='title'></input>
           </div>
           <div className='form-group'>
-              <input className='form-control' type='text' placeholder='标题' ref='title'></input>
+            <input type='file' id="imgInp" onChange={this.readURL} />
+            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
+            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
+            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
+            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
+            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
+            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
           </div>
           <div className='form-group'>
               <textarea className="form-control" rows="8" placeholder='内容' ref='content'></textarea>
