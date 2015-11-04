@@ -37,25 +37,97 @@ var Path = React.createClass({
   }
 });
 
-var ImageInput = React.createClass({
+var ImageItem = React.createClass({
+  styles:{
+    thumbnail: {
+      display: 'block',
+      padding: '4px',
+      marginBottom: 0,
+      lineHeight: 1.42857,
+      backgroundColor: '#FFF',
+      border: '1px solid #DDD',
+      borderRadius: '4px',
+      transition: 'border 0.2s ease-in-out 0s',
+      width:'100px',
+      height:'100px'
+    }
+  },
   getInitialState: function(){
     return {
-      data_uri: null,
+      data_uri: this.props.data_uri,
     };
   },
+  printProp:function(){
+    console.log('imageItem:',this.props.data_uri);
+  },
+  changeDataUri:function(uri){
+    console.log('changeDataUri:',uri);
+    this.setState({data_uri:uri});
+  },
   render: function() {
-    if(isNode){
-      var props = this.props;
+    return (
+      <div className='image-item'>
+        <img src={this.state.data_uri} alt="预览" style={this.styles.thumbnail} />
+        <a className='btn-rm-image' onClick={this.props.handleDelete}>×</a>
+      </div>
+    )
+  }
+});
+
+var ImageInput = React.createClass({
+  getInitialState: function(){
+    this.imgNumber = 6;
+    var data_uris = [];
+    for(var i=0;i<this.imgNumber;i++){
+      data_uris.push(null);
     }
-    else {
-      var props = window.REACT_PROPS;
+    return {
+      data_uris: data_uris
+    };
+  },
+  readURL: function(event){
+    console.log(event);
+    if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files);
+        var self = this;
+        var reader = new FileReader();
+        var maxIndex = event.target.files.length-1;
+        var uris = this.state.data_uris;
+        var curIndex = 0;
+
+        reader.onload = function (data) {
+          console.log(data.target.result);
+          uris[curIndex] = data.target.result;
+          self.refs['preview'+curIndex].changeDataUri(uris[curIndex]);
+
+          if(curIndex === maxIndex){
+            console.log(uris);
+            self.setState({
+              data_uri: uris
+            },function(){
+              console.log('cb imageinput state:',self.state.data_uris);
+            });
+          }
+          curIndex += 1;
+        }
+        for(var i=0;i<event.target.files.length;i++){
+          reader.readAsDataURL(event.target.files[i]);
+        }
+    }
+  },
+  handleDelete: function(){
+
+  },
+  render: function() {
+    var images = [];
+    for(var i=0;i<this.imgNumber;i++){
+      images.push(<ImageItem key={'preview'+i} ref={'preview'+i} data_uri={this.state.data_uris[i]} handleDelete={this.handleDelete.bind(this,i)}/>);
     }
     return (
-      <div className="row-nav">
-        <div className='row-nav-path'>
-          <span><a href='/en/dashboard/products'>产品</a></span>
-          <span> > </span>
-          <span>创建</span>
+      <div className="image-input">
+        <input type='file' onChange={this.readURL} />
+        <div style={{display:'flex',flexDirection:'row',flexWrap: 'wrap',justifyContent: 'flex-start',alignContent:'flex-start',alignItems:'flex-start'}}>
+          {images}
         </div>
       </div>
     )
@@ -102,23 +174,6 @@ var Panel = React.createClass({
     console.log(data);
     socket.emit('create',data);
   },
-  readURL: function(event){
-    console.log(event);
-    if (event.target.files && event.target.files[0]) {
-      console.log(event.target.files);
-        var self = this;
-        var reader = new FileReader();
-
-        reader.onload = function (upload) {
-          console.log(upload.target.result);
-          self.setState({
-            data_uri: upload.target.result,
-          });
-        }
-
-        reader.readAsDataURL(event.target.files[0]);
-    }
-  },
   render: function() {
     return(
       <div className="panel panel-default">
@@ -130,13 +185,7 @@ var Panel = React.createClass({
               <input className='form-control' type='text' placeholder='标题' ref='title'></input>
           </div>
           <div className='form-group'>
-            <input type='file' id="imgInp" onChange={this.readURL} />
-            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
-            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
-            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
-            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
-            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
-            <img id="blah" src={this.state.data_uri} alt="your image" style={{width:'100px',height:'100px'}} />
+            <ImageInput />
           </div>
           <div className='form-group'>
               <textarea className="form-control" rows="8" placeholder='内容' ref='content'></textarea>
