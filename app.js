@@ -56,7 +56,7 @@ db.connect(env.mongo_url, function(err) {
     })
     var io = socketio(server);
 
-    var nss = ['table','task'];
+    var nss = ['table','task','product'];
     for(var i=0;i<nss.length;i++){
       var ns = require("./sockets/"+nss[i]);
       ns.regNs(io);

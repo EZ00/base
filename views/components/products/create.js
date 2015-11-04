@@ -50,9 +50,13 @@ var ImageItem = React.createClass({
       transition: 'border 0.2s ease-in-out 0s',
       width:'100px',
       height:'100px'
+    },
+    btnRmImage:{
+      cursor:'pointer',
     }
   },
   getInitialState: function(){
+    this.file = null;
     return {
       data_uri: this.props.data_uri,
     };
@@ -60,15 +64,21 @@ var ImageItem = React.createClass({
   printProp:function(){
     console.log('imageItem:',this.props.data_uri);
   },
-  changeDataUri:function(uri){
-    console.log('changeDataUri:',uri);
+  changeDataUri:function(uri,file){
+    console.log(file);
+    this.file = file;
+    //console.log('changeDataUri:',uri);
     this.setState({data_uri:uri});
+  },
+  handleDelete:function(){
+    this.file = null;
+    this.setState({data_uri:null});
   },
   render: function() {
     return (
       <div className='image-item'>
         <img src={this.state.data_uri} alt="预览" style={this.styles.thumbnail} />
-        <a className='btn-rm-image' onClick={this.props.handleDelete}>×</a>
+        <a onClick={this.handleDelete} style={this.styles.btnRmImage}>删除</a>
       </div>
     )
   }
@@ -88,35 +98,58 @@ var ImageInput = React.createClass({
   readURL: function(event){
     console.log(event);
     if (event.target.files && event.target.files[0]) {
+      if(event.target.files.length > 6){
+        event.preventDefault();
+        alert('最多可选6张图片！')
+        return;
+      }
       console.log(event.target.files);
         var self = this;
+        var files = event.target.files;
         var reader = new FileReader();
         var maxIndex = event.target.files.length-1;
         var uris = this.state.data_uris;
         var curIndex = 0;
 
-        reader.onload = function (data) {
-          console.log(data.target.result);
-          uris[curIndex] = data.target.result;
-          self.refs['preview'+curIndex].changeDataUri(uris[curIndex]);
+        reader.readAsDataURL(event.target.files[curIndex]);
 
-          if(curIndex === maxIndex){
-            console.log(uris);
-            self.setState({
-              data_uri: uris
-            },function(){
-              console.log('cb imageinput state:',self.state.data_uris);
-            });
-          }
+        reader.onload = function (data) {
+          //console.log(data.target.result);
+          uris[curIndex] = data.target.result;
+          self.refs['preview'+curIndex].changeDataUri(uris[curIndex],files[curIndex]);
           curIndex += 1;
+          if(curIndex < files.length){
+            reader.readAsDataURL(files[curIndex]);
+          }
+
+          // if(curIndex === maxIndex){
+          //   console.log(uris);
+          //   self.setState({
+          //     data_uri: uris
+          //   },function(){
+          //     console.log('cb imageinput state:',self.state.data_uris);
+          //   });
+          // }
         }
-        for(var i=0;i<event.target.files.length;i++){
-          reader.readAsDataURL(event.target.files[i]);
-        }
+        // for(var i=0;i<event.target.files.length;i++){
+        //   reader.readAsDataURL(event.target.files[i]);
+        // }
     }
   },
   handleDelete: function(){
 
+  },
+  getfiles: function(){
+    var files = [];
+    var file = {};
+    for(var i=0;i<this.imgNumber;i++){
+      if(this.refs['preview'+i].file !== null){
+        file.name = this.refs['preview'+i].file.name;
+        file.buffer = this.refs['preview'+i].file;
+        files.push(file);
+      }
+    }
+    return files;
   },
   render: function() {
     var images = [];
@@ -125,7 +158,7 @@ var ImageInput = React.createClass({
     }
     return (
       <div className="image-input">
-        <input type='file' onChange={this.readURL} />
+        <input type='file' multiple accept="image/*" onChange={this.readURL} />
         <div style={{display:'flex',flexDirection:'row',flexWrap: 'wrap',justifyContent: 'flex-start',alignContent:'flex-start',alignItems:'flex-start'}}>
           {images}
         </div>
@@ -157,20 +190,21 @@ var Panel = React.createClass({
   },
   handleSubmit: function(){
     var data = {
-      title:this.refs.title.getDOMNode().value,
-      content:this.refs.content.getDOMNode().value,
-      status:this.refs.display.getDOMNode().value,
-      priority:Number(this.refs.priority.getDOMNode().value),
-      assignee:this.refs.assignee.tags
+      files:this.refs.imageInput.getfiles(),
+      // title:this.refs.title.getDOMNode().value,
+      // content:this.refs.content.getDOMNode().value,
+      // status:this.refs.display.getDOMNode().value,
+      // priority:Number(this.refs.priority.getDOMNode().value),
+      // assignee:this.refs.assignee.tags
     }
-    if(data.title===''){
-      alert('请填写标题！')
-      return null;
-    }
-    if(data.content===''){
-      alert('请填写内容！')
-      return null;
-    }
+    // if(data.title===''){
+    //   alert('请填写标题！')
+    //   return null;
+    // }
+    // if(data.content===''){
+    //   alert('请填写内容！')
+    //   return null;
+    // }
     console.log(data);
     socket.emit('create',data);
   },
@@ -185,7 +219,7 @@ var Panel = React.createClass({
               <input className='form-control' type='text' placeholder='标题' ref='title'></input>
           </div>
           <div className='form-group'>
-            <ImageInput />
+            <ImageInput ref='imageInput'/>
           </div>
           <div className='form-group'>
               <textarea className="form-control" rows="8" placeholder='内容' ref='content'></textarea>
