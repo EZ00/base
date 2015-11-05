@@ -20,10 +20,10 @@ exports.regNs = function(io){
 				socket.on("create",function(data){
 		      console.log(data);
 					for(var i=0;i<data.files.length;i++){
-						fs.write('../uploads/data'+data.files[i].name,'data.files[i].buffer',function(err,name){
-							if (err) throw err;
+						fs.writeFile('./uploads/'+data.files[i].name,'data.files[i].buffer',function(err,name){
+							if (err) console.log(err);
 							console.log('It\'s saved!',name);
-						}.bind(data.files[i].name));
+						}.bind({name:this,data.files[i].name}));
 					}
 				});
         socket.on("edit",function(data){

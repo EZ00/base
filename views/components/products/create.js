@@ -205,7 +205,7 @@ var Panel = React.createClass({
     //   alert('请填写内容！')
     //   return null;
     // }
-    console.log(data);
+    //console.log(data);
     socket.emit('create',data);
   },
   render: function() {
