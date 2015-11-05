@@ -17,7 +17,11 @@ var names = [
   {
     name:'产品',
     url:'/en/dashboard/products'
-  }
+  },
+  {
+    name:'文件',
+    url:'/en/dashboard/files'
+  },
 ];
 
 var VerticalMenu = React.createClass({

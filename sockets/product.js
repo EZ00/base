@@ -23,7 +23,7 @@ exports.regNs = function(io){
 						fs.writeFile('./uploads/'+data.files[i].name,'data.files[i].buffer',function(err,name){
 							if (err) console.log(err);
 							console.log('It\'s saved!',name);
-						}.bind({name:this,data.files[i].name}));
+						}.bind({name:data.files[i].name}));
 					}
 				});
         socket.on("edit",function(data){
