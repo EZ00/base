@@ -26,7 +26,7 @@ var TagsInput = React.createClass({
     this.tags = this.props.tags;
     if(!isNode){
       $.get(this.props.source, function(result) {
-        console.log(result);
+        //console.log(result);
         this.options = JSON.parse(result);
         var options = [];
         for(var i=0;i < this.options.length;i++){

@@ -7,8 +7,8 @@ schemaObject.content = 'string';
 //schemaObject.editable = 'policy';
 // legal values: active,completed,failed,potential
 schemaObject.price = 'number';
-schemaObject.images = 'array';
 schemaObject.moq = 'number';
+schemaObject.images = 'array';
 // array of key value pairs
 schemaObject.kvs = 'array';
 schemaObject.display = 'boolean';

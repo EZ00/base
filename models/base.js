@@ -64,7 +64,7 @@ Base.prototype = {
       if(waitCounter === 0){
         //insert the newDoc
         //console.log('this.collection',this);
-        console.log('before insert to collection newDoc: ',newDoc);
+        //console.log('before insert to collection newDoc: ',newDoc);
         // if the counter doc exists, newDoc[autoIncProp] = the counter +1,else newDoc[autoIncProp] = 1
         this.counters.findOne({ name: this.collectionName },function(err,doc){
           if(doc){
@@ -108,7 +108,7 @@ Base.prototype = {
         }.bind(this))
       }
     }.bind(this));
-    console.log(this.schema);
+    //console.log(this.schema);
     for(var prop in this.schema){
       //init newDoc according to its type
       var type = this.schema[prop];
@@ -152,7 +152,7 @@ Base.prototype = {
       else if(this.schema[prop] === 'userId'){
         if(!(this.props[prop]===undefined)){
           //TODO: check type or length
-          console.log('base.js userId: '+this.props[prop]);
+          //console.log('base.js userId: '+this.props[prop]);
           newDoc[prop] = ObjectID(this.props[prop]);
         }
         else{

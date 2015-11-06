@@ -42,6 +42,7 @@ module.exports = function(passport){
 			'\
       <script src="/socket.io/socket.io.js"></script>\
       <script src="/static/javascript/jquery-2.1.4.min.js"></script>\
+      <script src="/static/javascript/bootstrap.min.js"></script>\
 			<script src="/static/comp/drawerMenu.js"></script>\
 			<script src="/static/comp/headerContent.js"></script>\
 			<script src="/static/comp/material_title_panel.js"></script>\

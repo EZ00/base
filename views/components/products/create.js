@@ -9,6 +9,32 @@ if(isNode){
   //var Path = require('./path');
   //var SidebarContent = require('./sidebar_content');
 }
+function sha256(buffer) {
+  return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
+      //console.log(hash);
+    return hex(hash);
+  });
+}
+
+function hex(buffer) {
+  var hexCodes = [];
+  var view = new DataView(buffer);
+  for (var i = 0; i < view.byteLength; i += 4) {
+    // Using getUint32 reduces the number of iterations needed (we process 4 bytes each time)
+    var value = view.getUint32(i)
+    // toString(16) will give the hex representation of the number without padding
+    var stringValue = value.toString(16)
+    //console.log(stringValue)
+    // We use concatenation and slice for padding
+    var padding = '00000000'
+    var paddedValue = (padding + stringValue).slice(-padding.length)
+    hexCodes.push(paddedValue);
+  }
+
+  // Join all the hex strings into one
+  return hexCodes.join("");
+}
+
 
 var socket;
 var tags = [
@@ -56,7 +82,11 @@ var ImageItem = React.createClass({
     }
   },
   getInitialState: function(){
-    this.file = null;
+    this.name = null;
+    this.size = null;
+    this.type = null;
+    this.buffer = null;
+    this.sha256 = null;
     return {
       data_uri: this.props.data_uri,
     };
@@ -64,14 +94,28 @@ var ImageItem = React.createClass({
   printProp:function(){
     console.log('imageItem:',this.props.data_uri);
   },
-  changeDataUri:function(uri,file){
-    console.log(file);
-    this.file = file;
+  changeMeta:function(name,size,type){
+    this.name = name;
+    this.size = size;
+    this.type = type;
+  },
+  changeDataUri:function(uri){
     //console.log('changeDataUri:',uri);
     this.setState({data_uri:uri});
   },
+  changeBuffer:function(buffer){
+    this.buffer = buffer;
+  },
+  changeSha256:function(sha256){
+    console.log('changeSha256:',sha256);
+    this.sha256 = sha256;
+  },
   handleDelete:function(){
-    this.file = null;
+    this.name = null;
+    this.size = null;
+    this.type = null;
+    this.buffer = null;
+    this.sha256 = null;
     this.setState({data_uri:null});
   },
   render: function() {
@@ -87,36 +131,37 @@ var ImageItem = React.createClass({
 var ImageInput = React.createClass({
   getInitialState: function(){
     this.imgNumber = 6;
-    var data_uris = [];
+    this.data_uris = [];
     for(var i=0;i<this.imgNumber;i++){
-      data_uris.push(null);
+      this.data_uris.push(null);
     }
-    return {
-      data_uris: data_uris
-    };
+    // return {
+    //   data_uris: data_uris
+    // };
+    return null;
   },
   readURL: function(event){
-    console.log(event);
+    //console.log(event);
     if (event.target.files && event.target.files[0]) {
       if(event.target.files.length > 6){
         event.preventDefault();
         alert('最多可选6张图片！')
         return;
       }
-      console.log(event.target.files);
+      //  console.log(event.target.files);
         var self = this;
         var files = event.target.files;
         var reader = new FileReader();
+        var readerBuffer = new FileReader();
         var maxIndex = event.target.files.length-1;
-        var uris = this.state.data_uris;
+        //var uris = this.state.data_uris;
         var curIndex = 0;
-
-        reader.readAsDataURL(event.target.files[curIndex]);
+        var bufIndex = 0;
 
         reader.onload = function (data) {
           //console.log(data.target.result);
-          uris[curIndex] = data.target.result;
-          self.refs['preview'+curIndex].changeDataUri(uris[curIndex],files[curIndex]);
+          //uris[curIndex] = data.target.result;
+          self.refs['preview'+curIndex].changeDataUri(data.target.result);
           curIndex += 1;
           if(curIndex < files.length){
             reader.readAsDataURL(files[curIndex]);
@@ -131,9 +176,27 @@ var ImageInput = React.createClass({
           //   });
           // }
         }
-        // for(var i=0;i<event.target.files.length;i++){
-        //   reader.readAsDataURL(event.target.files[i]);
-        // }
+        readerBuffer.onloadend = function(evnt){
+            if (evnt.target.readyState == FileReader.DONE) { // DONE == 2
+              self.refs['preview'+bufIndex].changeBuffer(evnt.target.result);
+              sha256(evnt.target.result).then(function(digest){
+                //console.log('index:',this.index);
+                //console.log(digest);
+                self.refs['preview'+this.index].changeSha256(digest);
+              }.bind({index:bufIndex}))
+              bufIndex += 1;
+              if(bufIndex < files.length){
+                readerBuffer.readAsArrayBuffer(files[bufIndex]);
+              }
+            }
+        }
+        reader.readAsDataURL(event.target.files[curIndex]);
+        readerBuffer.readAsArrayBuffer(event.target.files[bufIndex]);
+        // changeMeta
+        for(var i=0;i<event.target.files.length;i++){
+          var file = event.target.files[i];
+          self.refs['preview'+i].changeMeta(file.name,file.size,file.type);
+        }
     }
   },
   handleDelete: function(){
@@ -141,11 +204,15 @@ var ImageInput = React.createClass({
   },
   getfiles: function(){
     var files = [];
-    var file = {};
     for(var i=0;i<this.imgNumber;i++){
-      if(this.refs['preview'+i].file !== null){
-        file.name = this.refs['preview'+i].file.name;
-        file.buffer = this.refs['preview'+i].file;
+      if(this.refs['preview'+i].buffer !== null && this.refs['preview'+i].sha256 !== null){
+        var file = {};
+        file.name = this.refs['preview'+i].name.split('.')[0];
+        file.ext = this.refs['preview'+i].name.split('.')[1].toLowerCase();
+        file.size = this.refs['preview'+i].size;
+        file.type = this.refs['preview'+i].type;
+        file.buffer = this.refs['preview'+i].buffer;
+        file.sha256 = this.refs['preview'+i].sha256;
         files.push(file);
       }
     }
@@ -154,7 +221,7 @@ var ImageInput = React.createClass({
   render: function() {
     var images = [];
     for(var i=0;i<this.imgNumber;i++){
-      images.push(<ImageItem key={'preview'+i} ref={'preview'+i} data_uri={this.state.data_uris[i]} handleDelete={this.handleDelete.bind(this,i)}/>);
+      images.push(<ImageItem key={'preview'+i} ref={'preview'+i} data_uri={this.data_uris[i]} handleDelete={this.handleDelete.bind(this,i)}/>);
     }
     return (
       <div className="image-input">
@@ -205,44 +272,95 @@ var Panel = React.createClass({
     //   alert('请填写内容！')
     //   return null;
     // }
-    //console.log(data);
+    console.log(data);
     socket.emit('create',data);
   },
   render: function() {
     return(
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title">创建新产品</h3>
-        </div>
-        <div className="panel-body">
-          <div className='form-group'>
-              <input className='form-control' type='text' placeholder='标题' ref='title'></input>
+      <div>
+        <ul className="nav nav-tabs" role="tablist">
+          <li role="presentation"><a href="#category" aria-controls="category" role="tab" data-toggle="tab">选择类目</a></li>
+          <li role="presentation"><a href="#props" aria-controls="props" role="tab" data-toggle="tab">产品属性</a></li>
+          <li role="presentation" className="active"><a href="#productMain" aria-controls="productMain" role="tab" data-toggle="tab">主要信息</a></li>
+        </ul>
+        <div className="tab-content">
+          <div className="panel panel-default tab-pane active" role="tabpanel" id="productMain">
+            <div className="panel-heading">
+              <h3 className="panel-title">创建新产品</h3>
+            </div>
+            <div className="panel-body">
+              <div className='form-group'>
+                  <input className='form-control' type='text' placeholder='标题' ref='title'></input>
+              </div>
+              <div className='form-group'>
+                <ImageInput ref='imageInput'/>
+              </div>
+              <div className='form-group'>
+                <label>是否展示</label>
+                <select className="form-control" ref='display'>
+                  <option value='true'>展示</option>
+                  <option value='false'>不展示</option>
+                </select>
+              </div>
+              <div className='form-group'>
+                <label>价格</label>
+                <div className='form-inline'>
+                  <select className="form-control" ref='currency'>
+                    <option value='USD'>USD</option>
+                    <option value='RMB'>RMB</option>
+                  </select>
+                  <input className='form-control' type='number' placeholder='请填写数字' ref='priceMin'></input>
+                  <span> - </span>
+                  <input className='form-control' type='number' placeholder='请填写数字' ref='priceMax'></input>
+                  <span> / </span>
+                  <select className="form-control" ref='priceUnit'>
+                    <option value='ton/tons'>吨</option>
+                    <option value='piece/pieces'>件</option>
+                  </select>
+                </div>
+              </div>
+              <div className='form-group'>
+                <label>最小起订量</label>
+                <div className='form-inline'>
+                  <input className='form-control' type='number' placeholder='请填写数字' ref='moq'></input>
+                  <select className="form-control" ref='moqUnit'>
+                    <option value='ton/tons'>吨</option>
+                    <option value='piece/pieces'>件</option>
+                  </select>
+                </div>
+              </div>
+              <div className='form-group'>
+                <label>供货能力</label>
+                <div className='form-inline'>
+                  <input className='form-control' type='number' placeholder='请填写数字' ref='supplyQuantity'></input>
+                  <select className="form-control" ref='supplyUnit'>
+                    <option value='ton/tons'>吨</option>
+                    <option value='piece/pieces'>件</option>
+                  </select>
+                  <span> / </span>
+                  <select className="form-control" ref='supplyPeriod'>
+                    <option value='month'>月</option>
+                    <option value='year'>年</option>
+                    <option value='day'>天</option>
+                  </select>
+                </div>
+              </div>
+              <div className='form-group'>
+                <label>发货期限</label>
+                <input className='form-control' type='text' placeholder='' ref='consignmentTerm'></input>
+              </div>
+              <div className='form-group'>
+                <label>详细描述</label>
+                <textarea className="form-control" rows="8" placeholder='内容' ref='content'></textarea>
+              </div>
+              <div className='form-group form-confirm-container'>
+                <button className="btn btn-default form-confirm-item" type="submit" onClick={this.handleSubmit}>确定</button>
+                <a className="btn btn-danger form-confirm-item" href="/en/dashboard/tasks" role="button">取消</a>
+              </div>
+            </div>
           </div>
-          <div className='form-group'>
-            <ImageInput ref='imageInput'/>
-          </div>
-          <div className='form-group'>
-              <textarea className="form-control" rows="8" placeholder='内容' ref='content'></textarea>
-          </div>
-          <div className='form-group'>
-            <label>是否展示</label>
-            <select className="form-control" ref='display'>
-              <option value='true'>展示</option>
-              <option value='false'>不展示</option>
-            </select>
-          </div>
-          <div className='form-group'>
-            <label>优先级（选填）</label>
-            <input className='form-control' type='number' placeholder='请填写数字' ref='priority'></input>
-          </div>
-          <div className='form-group'>
-            <label>分配给（选填）</label>
-            <TagsInput placeholder='输入名字，按回车添加' tags={tags} source='/en/dashboard/users/all' ref='assignee'/>
-          </div>
-          <div className='form-group form-confirm-container'>
-            <button className="btn btn-default form-confirm-item" type="submit" onClick={this.handleSubmit}>确定</button>
-            <a className="btn btn-danger form-confirm-item" href="/en/dashboard/tasks" role="button">取消</a>
-          </div>
+          <div role="tabpanel" className="tab-pane" id="category">...</div>
+          <div role="tabpanel" className="tab-pane" id="props">...</div>
         </div>
       </div>
     )
