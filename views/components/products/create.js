@@ -359,7 +359,20 @@ var Panel = React.createClass({
               </div>
             </div>
           </div>
-          <div role="tabpanel" className="tab-pane" id="category">...</div>
+          <div role="tabpanel" className="tab-pane" id="category">
+            <div>
+              <select name="select" multiple>
+                <option value="value1">Value 1</option>
+                <option value="value2" selected>Value 2</option>
+                <option value="value3">Value 3</option>
+              </select>
+              <select name="select" multiple>
+                <option value="value1">Value 1</option>
+                <option value="value2" selected>Value 2</option>
+                <option value="value3">Value 3</option>
+              </select>
+            </div>
+          </div>
           <div role="tabpanel" className="tab-pane" id="props">...</div>
         </div>
       </div>
