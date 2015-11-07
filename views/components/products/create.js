@@ -9,6 +9,10 @@ if(isNode){
   //var Path = require('./path');
   //var SidebarContent = require('./sidebar_content');
 }
+else{
+
+}
+var socketCategory;
 function sha256(buffer) {
   return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
       //console.log(hash);
@@ -237,12 +241,18 @@ var ImageInput = React.createClass({
 var Panel = React.createClass({
   getInitialState: function(){
     return {
+      maxLevel: 0,
+      categories:[],
       data_uri: null,
     };
   },
   componentDidMount: function(){
     socket = io(window.location.host + "/product");
-    // socket.emit('hello',{msg:'hello socket'});
+    socketCategory = io(window.location.host + "/category");
+    socketCategory.emit('findFirstLevels');
+    socketCategory.on('findFirstLevels',function(data){
+      console.log('findFirstLevels',data);
+    })
     socket.on('create',function(data){
       if(data.err){
         alert(data.err);
@@ -274,6 +284,17 @@ var Panel = React.createClass({
     // }
     console.log(data);
     socket.emit('create',data);
+  },
+  createCategory: function(){
+    console.log('Enter createCategory');
+    var name = this.refs.categoryName.getDOMNode().value;
+    console.log(name);
+    this.refs.categoryName.getDOMNode().value = '';
+  },
+  handleCategoryKeyPress: function(e){
+    if(e.key === 'Enter'){
+      this.createCategory();
+    }
   },
   render: function() {
     return(
@@ -360,15 +381,25 @@ var Panel = React.createClass({
             </div>
           </div>
           <div role="tabpanel" className="tab-pane" id="category">
-            <div>
+            <div className='form-inline' style={{margin:'10px'}}>
+              <select>
+                <option value="child">子类目</option>
+                <option value="sibling">同级类目</option>
+                <option value="parent">上级类目</option>
+              </select>
+              <input type='text' ref='categoryName' onKeyPress={this.handleCategoryKeyPress}/>
+              <button onClick={this.createCategory}>创建</button>
+            </div>
+            <div ref='selected' style={{margin:'10px'}}></div>
+            <div style={{margin:'10px'}}>
               <select name="select" multiple>
                 <option value="value1">Value 1</option>
-                <option value="value2" selected>Value 2</option>
+                <option value="value2" defaultValue>Value 2</option>
                 <option value="value3">Value 3</option>
               </select>
               <select name="select" multiple>
                 <option value="value1">Value 1</option>
-                <option value="value2" selected>Value 2</option>
+                <option value="value2" defaultValue>Value 2</option>
                 <option value="value3">Value 3</option>
               </select>
             </div>

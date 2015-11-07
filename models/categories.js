@@ -5,12 +5,36 @@
 //   password: String,
 //   email: String
 // });
-var schema = require('./schemas/file.js');
+var schema = require('./schemas/category.js');
 var Model = require('../models/base');
 
-var File = new Model('files',schema);
+var Category = new Model('categories',schema);
 
-File.deleteById = function(_id,status,done){
+Category.insert = function(done){
+  var noop = function(){};
+  done = done || noop;
+  var proto = Object.getPrototypeOf(this);
+  proto.insert.call(this,function(err,doc){
+    if(err){
+    }
+    else{
+      if(doc.doc.status){
+        var mod = {};
+        mod[doc.doc.status] = 1;
+        this.subcount.findAndModify(
+         { name: this.collectionName },
+         [],
+         { $inc: mod },
+         {new: true,upsert: true},
+         function(err,r){
+           done(err,doc);
+        });
+      }
+    }
+  }.bind(this))
+}
+
+Product.deleteById = function(_id,status,done){
   var noop = function(){};
   done = done || noop;
   var proto = Object.getPrototypeOf(this);
@@ -35,7 +59,7 @@ File.deleteById = function(_id,status,done){
   }.bind(this))
 }
 
-File.updateOneById = function(id,newDoc,oldStatus,done){
+Product.updateOneById = function(id,newDoc,oldStatus,done){
   var noop = function(){};
   done = done || noop;
   var proto = Object.getPrototypeOf(this);
@@ -60,7 +84,7 @@ File.updateOneById = function(id,newDoc,oldStatus,done){
   }.bind(this))
 }
 
-File.updateOneByLocalId = function(id,newDoc,oldStatus,done){
+Product.updateOneByLocalId = function(id,newDoc,oldStatus,done){
   var noop = function(){};
   done = done || noop;
   var proto = Object.getPrototypeOf(this);
@@ -89,4 +113,12 @@ File.updateOneByLocalId = function(id,newDoc,oldStatus,done){
   }.bind(this))
 }
 
-module.exports = File;
+Category.findFirstLevels = function(done){
+  var noop = function(){};
+  done = done || noop;
+  this.collection.find({level:1}).toArray(function(err,docs){
+    done(err,docs);
+  });
+}
+
+module.exports = Category;
