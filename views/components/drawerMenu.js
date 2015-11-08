@@ -1,5 +1,6 @@
 var isNode = typeof module !== 'undefined' && module.exports;
-var React = isNode ? require('react/addons') : window.React;
+var React = isNode ? require('react') : window.React;
+var ReactDom = isNode ? require('react-dom') : window.ReactDom;
 
 
 var DrawerMenu = React.createClass({

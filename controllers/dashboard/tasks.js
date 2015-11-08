@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var React = require('react/addons');
+var React = require('react')
+var ReactDOM = require('react-dom');
 var Tasks = require('../../models/tasks');
 //var auth = require('../middlewares/auth')
 
@@ -24,7 +25,7 @@ module.exports = function(passport){
   			<script src="/static/comp/verticalMenu.js"></script>\
   			<script src="/static/comp/tasks.js"></script>\
   			',
-  			react: React.renderToString(tasks(props))
+  			react: ReactDOM.renderToString(tasks(props))
   		});
     }
     Tasks.findAllAndCounts(null,cb);
@@ -49,7 +50,7 @@ module.exports = function(passport){
       <script src="/static/comp/tagsInput.js"></script>\
 			<script src="/static/comp/tasks/create.js"></script>\
 			',
-			react: React.renderToString(tasks(props))
+			react: ReactDOM.renderToString(tasks(props))
 		});
   })
 
@@ -73,7 +74,7 @@ module.exports = function(passport){
     			<script src="/static/comp/verticalMenu.js"></script>\
     			<script src="/static/comp/tasks/view.js"></script>\
     			',
-    			react: React.renderToString(view(props))
+    			react: ReactDOM.renderToString(view(props))
     		});
       }
       else{
@@ -104,7 +105,7 @@ module.exports = function(passport){
           <script src="/static/comp/tagsInput.js"></script>\
     			<script src="/static/comp/tasks/edit.js"></script>\
     			',
-    			react: React.renderToString(edit(props))
+    			react: ReactDOM.renderToString(edit(props))
     		});
       }
       else{

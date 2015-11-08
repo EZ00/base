@@ -96,7 +96,7 @@
 	  }
 	});
 
-	React.render(React.createElement(App, null), document.getElementById('example'));
+	ReactDOM.render(React.createElement(App, null), document.getElementById('example'));
 
 	module.exports = App;
 
@@ -3261,7 +3261,7 @@
 	    ],
 	    replaceProps: [
 	      'replaceProps',
-	      'Instead, call React.render again at the top level.'
+	      'Instead, call ReactDOM.render again at the top level.'
 	    ],
 	    replaceState: [
 	      'replaceState',
@@ -3270,7 +3270,7 @@
 	    ],
 	    setProps: [
 	      'setProps',
-	      'Instead, call React.render again at the top level.'
+	      'Instead, call ReactDOM.render again at the top level.'
 	    ]
 	  };
 	  var defineDeprecationWarning = function(methodName, info) {
@@ -4663,7 +4663,7 @@
 
 	  var parentOrOwnerAddendum =
 	    ownerName ? (" Check the render method of " + ownerName + ".") :
-	    parentName ? (" Check the React.render call using <" + parentName + ">.") :
+	    parentName ? (" Check the ReactDOM.render call using <" + parentName + ">.") :
 	    '';
 
 	  // Usually the current owner is the offender, but if it accepts children as a
@@ -8398,7 +8398,7 @@
 	      'dangerouslyRenderMarkup(...): Cannot render markup in a worker ' +
 	      'thread. Make sure `window` and `document` are available globally ' +
 	      'before requiring React when unit testing or use ' +
-	      'React.renderToString for server rendering.'
+	      'ReactDOM.renderToString for server rendering.'
 	    ) : invariant(ExecutionEnvironment.canUseDOM));
 	    var nodeName;
 	    var markupByNodeName = {};
@@ -8505,7 +8505,7 @@
 	      'dangerouslyReplaceNodeWithMarkup(...): Cannot render markup in a ' +
 	      'worker thread. Make sure `window` and `document` are available ' +
 	      'globally before requiring React when unit testing or use ' +
-	      'React.renderToString for server rendering.'
+	      'ReactDOM.renderToString for server rendering.'
 	    ) : invariant(ExecutionEnvironment.canUseDOM));
 	    ("production" !== process.env.NODE_ENV ? invariant(markup, 'dangerouslyReplaceNodeWithMarkup(...): Missing markup.') : invariant(markup));
 	    ("production" !== process.env.NODE_ENV ? invariant(
@@ -8513,7 +8513,7 @@
 	      'dangerouslyReplaceNodeWithMarkup(...): Cannot replace markup of the ' +
 	      '<html> node. This is because browser quirks make this unreliable ' +
 	      'and/or slow. If you want to render to the root you must use ' +
-	      'server rendering. See React.renderToString().'
+	      'server rendering. See ReactDOM.renderToString().'
 	    ) : invariant(oldChild.tagName.toLowerCase() !== 'html'));
 
 	    var newChild = createNodesFromMarkup(markup, emptyFunction)[0];
@@ -9521,7 +9521,7 @@
 	  render: function(nextElement, container, callback) {
 	    ("production" !== process.env.NODE_ENV ? invariant(
 	      ReactElement.isValidElement(nextElement),
-	      'React.render(): Invalid component element.%s',
+	      'ReactDOM.render(): Invalid component element.%s',
 	      (
 	        typeof nextElement === 'string' ?
 	          ' Instead of passing an element string, make sure to instantiate ' +
@@ -9944,7 +9944,7 @@
 	      'You\'re trying to render a component to the document but ' +
 	        'you didn\'t use server rendering. We can\'t do this ' +
 	        'without using server rendering due to cross-browser quirks. ' +
-	        'See React.renderToString() for server rendering.'
+	        'See ReactDOM.renderToString() for server rendering.'
 	    ) : invariant(container.nodeType !== DOC_NODE_TYPE));
 
 	    setInnerHTML(container, markup);
@@ -12111,7 +12111,7 @@
 	        }
 	        if (error instanceof Error) {
 	          // We may want to extend this logic for similar errors in
-	          // React.render calls, so I'm abstracting it away into
+	          // ReactDOM.render calls, so I'm abstracting it away into
 	          // a function to minimize refactoring in the future
 	          var addendum = getDeclarationErrorAddendum(this);
 
@@ -12514,7 +12514,7 @@
 
 	  /**
 	   * Get the publicly accessible representation of this component - i.e. what
-	   * is exposed by refs and returned by React.render. Can be null for stateless
+	   * is exposed by refs and returned by ReactDOM.render. Can be null for stateless
 	   * components.
 	   *
 	   * @return {ReactComponent} the public component instance.
@@ -22558,7 +22558,7 @@
 	    // clean up, so we're going to stop honoring the name of this method
 	    // (and probably rename it eventually) if no problems arise.
 	    // document.documentElement.appendChild(div);
-	    return React.render(instance, div);
+	    return ReactDOM.render(instance, div);
 	  },
 
 	  isElement: function(element) {

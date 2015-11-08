@@ -27,6 +27,6 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.getElementById('example'))
+ReactDOM.render(<App />, document.getElementById('example'))
 
 module.exports = App;

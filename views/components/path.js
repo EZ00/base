@@ -1,5 +1,6 @@
 var isNode = typeof module !== 'undefined' && module.exports;
-var React = isNode ? require('react/addons') : window.React;
+var React = isNode ? require('react') : window.React;
+var ReactDOM = isNode ? require('react-dom') : window.ReactDOM;
 
 var Path = React.createClass({
   render: function() {

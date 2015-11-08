@@ -16,17 +16,19 @@ Category.insert = function(done){
   var proto = Object.getPrototypeOf(this);
   proto.insert.call(this,function(err,doc){
     if(err){
+      console.error(err);
     }
     else{
-      if(doc.doc.status){
+      if(doc.doc.level){
         var mod = {};
-        mod[doc.doc.status] = 1;
+        mod[doc.doc.level] = 1;
         this.subcount.findAndModify(
          { name: this.collectionName },
          [],
          { $inc: mod },
          {new: true,upsert: true},
          function(err,r){
+           //sconsole.log(r);
            done(err,doc);
         });
       }
@@ -34,7 +36,32 @@ Category.insert = function(done){
   }.bind(this))
 }
 
-Product.deleteById = function(_id,status,done){
+Category.insertChild = function(done){
+  var noop = function(){};
+  done = done || noop;
+  var proto = Object.getPrototypeOf(this);
+  proto.insert.call(this,function(err,doc){
+    if(err){
+      console.error(err);
+    }
+    else{
+      if(doc.doc.parents){
+        var mod = {};
+        mod[doc.doc.level] = 1;
+        this.collection.update(
+         { _id: {$in:doc.doc.parents} },
+         { $addToSet: { children: doc._id } },
+         {multi: true},
+         function(err,r){
+           //sconsole.log(r);
+           done(err,doc);
+        });
+      }
+    }
+  }.bind(this))
+}
+
+Category.deleteById = function(_id,status,done){
   var noop = function(){};
   done = done || noop;
   var proto = Object.getPrototypeOf(this);
@@ -59,7 +86,7 @@ Product.deleteById = function(_id,status,done){
   }.bind(this))
 }
 
-Product.updateOneById = function(id,newDoc,oldStatus,done){
+Category.updateOneById = function(id,newDoc,oldStatus,done){
   var noop = function(){};
   done = done || noop;
   var proto = Object.getPrototypeOf(this);
@@ -84,7 +111,7 @@ Product.updateOneById = function(id,newDoc,oldStatus,done){
   }.bind(this))
 }
 
-Product.updateOneByLocalId = function(id,newDoc,oldStatus,done){
+Category.updateOneByLocalId = function(id,newDoc,oldStatus,done){
   var noop = function(){};
   done = done || noop;
   var proto = Object.getPrototypeOf(this);

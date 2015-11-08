@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var React = require('react/addons');
+var React = require('react')
+var ReactDOM = require('react-dom');
 //var auth = require('../middlewares/auth')
 
 module.exports = function(passport){
@@ -42,7 +43,7 @@ module.exports = function(passport){
         <script src="/static/comp/register.js"></script>\
   			<script src="/static/comp/root.js"></script>\
   			',
-  			react: React.renderToString(root(props))
+  			react: ReactDOM.renderToString(root(props))
   		});
     }
     else{
@@ -81,7 +82,7 @@ module.exports = function(passport){
         <script src="/static/comp/register.js"></script>\
   			<script src="/static/comp/root.js"></script>\
   			',
-  			react: React.renderToString(root(props))
+  			react: ReactDOM.renderToString(root(props))
   		});
     }
     else{

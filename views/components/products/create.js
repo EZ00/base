@@ -1,7 +1,8 @@
 var isNode = typeof module !== 'undefined' && module.exports
-var React = isNode ? require('react/addons') : window.React
 
 if(isNode){
+  var React = require('react')
+  var ReactDOM = require('react-dom');
   var DrawerMenu = require('../drawerMenu');
   var VerticalMenu = require('../verticalMenu');
   var HeaderContent = require('../headerContent');
@@ -10,37 +11,53 @@ if(isNode){
   //var SidebarContent = require('./sidebar_content');
 }
 else{
+  var React = window.React;
+  var ReactDOM = window.ReactDOM;
+  var socket;
+  var socketCategory;
+  // Return an array of the selected opion values
+  // select is an HTML select element
+  var getSelectValues = function(select) {
+    var result = [];
+    var options = select && select.options;
+    var opt;
 
-}
-var socketCategory;
-function sha256(buffer) {
-  return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
-      //console.log(hash);
-    return hex(hash);
-  });
-}
+    for (var i=0, iLen=options.length; i<iLen; i++) {
+      opt = options[i];
 
-function hex(buffer) {
-  var hexCodes = [];
-  var view = new DataView(buffer);
-  for (var i = 0; i < view.byteLength; i += 4) {
-    // Using getUint32 reduces the number of iterations needed (we process 4 bytes each time)
-    var value = view.getUint32(i)
-    // toString(16) will give the hex representation of the number without padding
-    var stringValue = value.toString(16)
-    //console.log(stringValue)
-    // We use concatenation and slice for padding
-    var padding = '00000000'
-    var paddedValue = (padding + stringValue).slice(-padding.length)
-    hexCodes.push(paddedValue);
+      if (opt.selected) {
+        result.push({_id:(opt.value || opt.text),children:opt.dataset.children,parents:opt.dataset.parents,level:Number(opt.dataset.level)});
+      }
+    }
+    return result;
   }
 
-  // Join all the hex strings into one
-  return hexCodes.join("");
+  var hex = function(buffer) {
+    var hexCodes = [];
+    var view = new DataView(buffer);
+    for (var i = 0; i < view.byteLength; i += 4) {
+      // Using getUint32 reduces the number of iterations needed (we process 4 bytes each time)
+      var value = view.getUint32(i)
+      // toString(16) will give the hex representation of the number without padding
+      var stringValue = value.toString(16)
+      //console.log(stringValue)
+      // We use concatenation and slice for padding
+      var padding = '00000000'
+      var paddedValue = (padding + stringValue).slice(-padding.length)
+      hexCodes.push(paddedValue);
+    }
+
+    // Join all the hex strings into one
+    return hexCodes.join("");
+  }
+  var sha256 = function(buffer) {
+    return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
+        //console.log(hash);
+      return hex(hash);
+    });
+  }
 }
 
-
-var socket;
 var tags = [
   // 'tag a',
   // 'tag b',
@@ -238,21 +255,181 @@ var ImageInput = React.createClass({
   }
 });
 
+var SelectCategory = React.createClass({
+  getInitialState: function(){
+    this.maxLevel = null;
+    return {
+      categories: [],
+      selected: null
+    };
+  },
+  componentDidMount: function(){
+    socketCategory = io(window.location.host + "/category");
+    socketCategory.emit('findAll');
+    socketCategory.on('findAll',function(data){
+      console.log('findAll',data);
+      this.setState({categories:data.docs});
+    }.bind(this))
+    socketCategory.on("create",function(data){
+      console.log("Enter on create")
+      console.log(data);
+      var categories = this.state.categories;
+      categories.push(data.doc);
+      this.setState({categories:categories});
+      console.log("Leave on create")
+    }.bind(this))
+  },
+  componentWillUnmount: function() {
+    socketCategory.close();
+  },
+  createCategory: function(){
+    console.log('Enter createCategory');
+    var categories = this.state.categories;
+    var selected = this.state.selected;
+    var newCate = {};
+    newCate.name = this.refs.categoryName.getDOMNode().value.trim();
+    this.refs.categoryName.getDOMNode().value = '';
+    if(newCate.name === ''){
+      alert('类目名不能为空！');
+      return false;
+    }
+    if(categories.length===0){
+      newCate.level = 1;
+      newCate.parents = [];
+      newCate.children = [];
+    }
+    else if(selected !== null){
+      console.log("selected !== null");
+      //var maxLevel = this.state.selects.length;
+      //var selected = [{_id:1,level:2,parents:[1,2,3,4,5]},{_id:2,level:2,parents:[3,4,5,6]},{_id:3,level:2,parents:[4,5,6]}];
+      var thisCate = {};
+      thisCate.level = Number(selected[0].level);
+      thisCate._ids = [];
+      thisCate.parents = [];
+      for(var i=0;i<selected.length;i++){
+        thisCate._ids.push(selected[i]._id);
+        if(i === 0){
+          thisCate.parents = selected[i].parents;
+        }
+        else{
+          for(var j=0;j<thisCate.parents.length;j++){
+            var index = selected[i].parents.indexOf(thisCate.parents[j])
+            if(-1 === index){
+              thisCate.parents.splice(j,1);
+              j=j-1;
+            }
+          }
+        }
+      }
+      console.log(thisCate);
+      var relation = this.refs.relation.getDOMNode().value;
+      if(relation === "child"){
+        newCate.level = thisCate.level + 1;
+        newCate.parents = thisCate._ids;
+        newCate.children = [];
+        socketCategory.emit('insertChild',{doc:newCate});
+      }
+      else if(relation ==="sibling"){
+        newCate.level = thisCate.level;
+        newCate.parents = thisCate.parents;
+        newCate.children = [];
+      }
+      else{
+        newCate.level = thisCate.level - 1;
+        if(newCate.level === 0){
+          alert("不能创建上级类目！");
+          return false;
+        }
+      }
+    }
+    else{
+      alert('请选择类目！');
+      return false;
+    }
+    console.log(newCate);
+  },
+  handleCategoryKeyPress: function(e){
+    if(e.key === 'Enter'){
+      this.createCategory();
+    }
+  },
+  handleCategorySelect: function(e){
+    console.log("Enter handleCategorySelect");
+    var selected = getSelectValues(e.target);
+    console.log(selected);
+    this.setState({selected:selected});
+    console.log("Leave handleCategorySelect");
+  },
+  render: function() {
+    var selects = [];
+    var selected = this.state.selected;
+    var categories = this.state.categories;
+    if(categories.length > 0){
+      if(selected === null){
+        var options = [];
+        for(var i=0;i<categories.length;i++){
+          if(categories[i].level = 1){
+            options.push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+          }
+        }
+        var select = <select key='sel1' id="sel1" multiple onChange={this.handleCategorySelect}>{options}</select>;
+        selects.push(select);
+      }
+      else{
+        var options = {};
+        var level = selected[0].level+1;
+        var parents = [];
+        for(var i=0;i<selected.length;i++){
+          parents.push(selected[i]._id);
+        }
+        for(var i=0;i<categories.length;i++){
+          for(var j=1;j<=level;j++){
+            options[j] = options[j] || [];
+            if(j===level){
+              for(var k=0;k<parents.length;k++)
+              if(-1<categories[i].parents.indexOf(parents[k])){
+                options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+              }
+            }
+            else if(categories[i].level === j){
+              options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+            }
+          }
+        }
+        for(var key in options){
+          var select = <select key={'sel'+key} id={'sel'+key}  multiple onChange={this.handleCategorySelect}>{options[key]}</select>;
+          selects.push(select);
+        }
+      }
+    }
+    return(
+      <div>
+        <div className='form-inline' style={{margin:'10px'}}>
+          <select ref="relation">
+            <option value="child">子类目</option>
+            <option value="sibling">同级类目</option>
+            <option value="parent">上级类目</option>
+          </select>
+          <input type='text' ref='categoryName' onKeyPress={this.handleCategoryKeyPress}/>
+          <button onClick={this.createCategory}>创建</button>
+        </div>
+        <div ref='selected' style={{margin:'10px'}}></div>
+        <div style={{margin:'10px'}}>
+          {selects}
+        </div>
+      </div>
+    )
+  }
+})
+
 var Panel = React.createClass({
   getInitialState: function(){
     return {
-      maxLevel: 0,
-      categories:[],
       data_uri: null,
     };
   },
   componentDidMount: function(){
     socket = io(window.location.host + "/product");
-    socketCategory = io(window.location.host + "/category");
-    socketCategory.emit('findFirstLevels');
-    socketCategory.on('findFirstLevels',function(data){
-      console.log('findFirstLevels',data);
-    })
     socket.on('create',function(data){
       if(data.err){
         alert(data.err);
@@ -285,27 +462,20 @@ var Panel = React.createClass({
     console.log(data);
     socket.emit('create',data);
   },
-  createCategory: function(){
-    console.log('Enter createCategory');
-    var name = this.refs.categoryName.getDOMNode().value;
-    console.log(name);
-    this.refs.categoryName.getDOMNode().value = '';
-  },
-  handleCategoryKeyPress: function(e){
-    if(e.key === 'Enter'){
-      this.createCategory();
-    }
-  },
   render: function() {
     return(
       <div>
         <ul className="nav nav-tabs" role="tablist">
-          <li role="presentation"><a href="#category" aria-controls="category" role="tab" data-toggle="tab">选择类目</a></li>
+          <li role="presentation" className="active"><a href="#category" aria-controls="category" role="tab" data-toggle="tab">选择类目</a></li>
           <li role="presentation"><a href="#props" aria-controls="props" role="tab" data-toggle="tab">产品属性</a></li>
-          <li role="presentation" className="active"><a href="#productMain" aria-controls="productMain" role="tab" data-toggle="tab">主要信息</a></li>
+          <li role="presentation" ><a href="#productMain" aria-controls="productMain" role="tab" data-toggle="tab">主要信息</a></li>
         </ul>
         <div className="tab-content">
-          <div className="panel panel-default tab-pane active" role="tabpanel" id="productMain">
+          <div role="tabpanel" className="tab-pane active" id="category">
+            <SelectCategory ref="SelectCategory"/>
+          </div>
+          <div role="tabpanel" className="tab-pane" id="props">...</div>
+          <div className="panel panel-default tab-pane" role="tabpanel" id="productMain">
             <div className="panel-heading">
               <h3 className="panel-title">创建新产品</h3>
             </div>
@@ -380,31 +550,6 @@ var Panel = React.createClass({
               </div>
             </div>
           </div>
-          <div role="tabpanel" className="tab-pane" id="category">
-            <div className='form-inline' style={{margin:'10px'}}>
-              <select>
-                <option value="child">子类目</option>
-                <option value="sibling">同级类目</option>
-                <option value="parent">上级类目</option>
-              </select>
-              <input type='text' ref='categoryName' onKeyPress={this.handleCategoryKeyPress}/>
-              <button onClick={this.createCategory}>创建</button>
-            </div>
-            <div ref='selected' style={{margin:'10px'}}></div>
-            <div style={{margin:'10px'}}>
-              <select name="select" multiple>
-                <option value="value1">Value 1</option>
-                <option value="value2" defaultValue>Value 2</option>
-                <option value="value3">Value 3</option>
-              </select>
-              <select name="select" multiple>
-                <option value="value1">Value 1</option>
-                <option value="value2" defaultValue>Value 2</option>
-                <option value="value3">Value 3</option>
-              </select>
-            </div>
-          </div>
-          <div role="tabpanel" className="tab-pane" id="props">...</div>
         </div>
       </div>
     )
@@ -432,10 +577,10 @@ var App = React.createClass({
   }
 });
 
-//React.render(<App />, document.getElementById('example'))
+//ReactDOM.render(<App />, document.getElementById('example'))
 
 if (isNode) {
   module.exports = App;
 } else {
-  React.render(<App />, document.getElementById('example'));
+  ReactDOM.render(<App />, document.getElementById('example'));
 }

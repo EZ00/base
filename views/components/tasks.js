@@ -1,5 +1,6 @@
 var isNode = typeof module !== 'undefined' && module.exports
-var React = isNode ? require('react/addons') : window.React
+var React = isNode ? require('react') : window.React;
+var ReactDOM = isNode ? require('react-dom') : window.ReactDOM;
 
 if(isNode){
   var __ = require('underscore');
@@ -190,10 +191,10 @@ var App = React.createClass({
   }
 });
 
-//React.render(<App />, document.getElementById('example'))
+//ReactDOM.render(<App />, document.getElementById('example'))
 
 if (isNode) {
   module.exports = App;
 } else {
-  React.render(<App />, document.getElementById('example'));
+  ReactDOM.render(<App />, document.getElementById('example'));
 }

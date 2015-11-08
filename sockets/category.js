@@ -23,34 +23,43 @@ exports.regNs = function(io){
 			var user = session.passport.user;
 			if(user){
 				socket.on("create",function(data){
-		      //console.log(data);
-					for(var i=0;i<data.files.length;i++){
-						var file = data.files[i];
-						var filePath = splitPos(file.sha256,2);
-						var dirName = './files/'+filePath[0];
-						mkdirp(dirName,function(err){
-							if (err) console.log(err);
-							fs.writeFile(this.dirName+'/'+this.filePath[1]+'.'+this.file.ext,this.file.buffer,function(err){
-								if (err) console.log(err);
-								//console.log('It\'s saved!',this.file.name);
-								var newFile = {};
-								newFile.name = this.file.name;
-								newFile.ext = this.file.ext;
-								newFile.sha256 = this.file.sha256;
-								newFile.size = this.file.size;
-								newFile.type = this.file.type;
-								File.props = newFile;
-								File.props.creatorId = user._id;
-								File.props.creatorName = user.username;
-								File.insert();
-						  }.bind(this));
-						}.bind({file:file,filePath:filePath,dirName:dirName}))
-					}
+		      console.log(data);
+          Category.props = data.doc;
+          Category.props.creatorId = user._id;
+          Category.props.creatorName = user.username;
+          Category.insert(function(err,data){
+            if(err){
+              console.error(err);
+            }
+            else{
+              socket.emit("create",{doc:data.doc});
+            }
+          });
+				});
+        socket.on("insertChild",function(data){
+		      console.log(data);
+          Category.props = data.doc;
+          Category.props.creatorId = user._id;
+          Category.props.creatorName = user.username;
+          Category.insertChild(function(err,data){
+            if(err){
+              console.error(err);
+            }
+            else{
+              socket.emit("create",{doc:data.doc});
+            }
+          });
 				});
         socket.on("findFirstLevels",function(){
           console.log('findFirstLevels');
 		      Category.findFirstLevels(function(err,docs){
             socket.emit('findFirstLevels',{docs:docs});
+          });
+				});
+        socket.on("findAll",function(){
+          console.log('findAll');
+		      Category.findAll(function(err,docs){
+            socket.emit('findAll',{docs:docs});
           });
 				});
         socket.on("edit",function(data){

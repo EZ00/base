@@ -3,6 +3,7 @@ var database = require('../db');
 var ObjectID = require('mongodb').ObjectID;
 var events = require('events');
 var bCrypt = require('bcrypt-nodejs');
+var __ = require('underscore');
 
 var inits = {};
 inits['string'] = function(prop,newDoc,done){
@@ -73,7 +74,7 @@ Base.prototype = {
           else{
             newDoc[autoIncProp] = 1;
           }
-          this.collection.insert(newDoc,function(err,doc){
+          this.collection.insert(newDoc,function(err,insertedDoc){
             //inserted
             //update the counter
             this.counters.findAndModify(
@@ -92,6 +93,7 @@ Base.prototype = {
                //console.log('after insert to collection doc: ',doc);
                //console.log('after insert to collection doc._id: ',doc._id);
                //console.log('after insert to collection newDoc._id: ',newDoc._id);
+               var orgDoc = __.clone(newDoc);
                newDoc.itemId = newDoc._id;
                delete newDoc._id;
                delete newDoc.timeCreated;
@@ -100,7 +102,8 @@ Base.prototype = {
                delete newDoc.creatorName;
                //console.log('before insert to histories newDoc: ',newDoc);
                this.histories.insert(newDoc,function(err,doc){
-                 done(null,{_id:newDoc.itemId,doc:newDoc});
+                 //console.log("insertedDoc:",insertedDoc);
+                 done(null,{_id:newDoc.itemId,doc:orgDoc});
                })
               }.bind(this)
             );

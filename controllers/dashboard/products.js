@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var React = require('react/addons');
+var React = require('react')
+var ReactDOM = require('react-dom');
+ReactDOMServer = require('react-dom/server');
 var Products = require('../../models/products');
 //var auth = require('../middlewares/auth')
 
@@ -24,7 +26,7 @@ module.exports = function(passport){
   			<script src="/static/comp/verticalMenu.js"></script>\
   			<script src="/static/comp/products/list.js"></script>\
   			',
-  			react: React.renderToString(products(props))
+  			react: ReactDOMServer.renderToString(products(props))
   		});
     }
     Products.findAllAndCounter(null,cb);
@@ -35,11 +37,14 @@ module.exports = function(passport){
     var props = {user:req.user.username};
 		var component = require('../../public/comp/products/create.js');
 		var products = React.createFactory(component);
+    //console.log("products:",products);
+    //console.log("ReactDOM.renderToString",ReactDOM.renderToString);
 		//console.log('dashboard: ',req.user);
 		res.render('dashboard/home',{
 			component:
 			'<script>window.REACT_PROPS='+ JSON.stringify(props)+'</script>'+
 			'\
+      <script src="/static/javascript/underscore-min.js"></script>\
       <script src="/socket.io/socket.io.js"></script>\
       <script src="/static/javascript/jquery-2.1.4.min.js"></script>\
       <script src="/static/javascript/bootstrap.min.js"></script>\
@@ -50,7 +55,7 @@ module.exports = function(passport){
       <script src="/static/comp/tagsInput.js"></script>\
 			<script src="/static/comp/products/create.js"></script>\
 			',
-			react: React.renderToString(products(props))
+			react: ReactDOMServer.renderToString(products(props))
 		});
   })
 
@@ -74,7 +79,7 @@ module.exports = function(passport){
     			<script src="/static/comp/verticalMenu.js"></script>\
     			<script src="/static/comp/tasks/view.js"></script>\
     			',
-    			react: React.renderToString(view(props))
+    			react: ReactDOMServer.renderToString(view(props))
     		});
       }
       else{
@@ -105,7 +110,7 @@ module.exports = function(passport){
           <script src="/static/comp/tagsInput.js"></script>\
     			<script src="/static/comp/tasks/edit.js"></script>\
     			',
-    			react: React.renderToString(edit(props))
+    			react: ReactDOMServer.renderToString(edit(props))
     		});
       }
       else{

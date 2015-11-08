@@ -1,7 +1,8 @@
 //require('node-jsx').install({extension: '.js'});
 var express = require('express');
 var router = express.Router();
-var React = require('react/addons');
+var React = require('react')
+var ReactDOM = require('react-dom');
 
 
 var isAuthenticated = function (req, res, next) {
@@ -31,7 +32,7 @@ module.exports = function(passport){
 			<script src="/static/comp/verticalMenu.js"></script>\
 			<script src="/static/comp/responsive.js"></script>\
 			',
-			react: React.renderToString(responsive(props))
+			react: ReactDOM.renderToString(responsive(props))
 		});
 	});
 	//require('./databases')(app,passport);

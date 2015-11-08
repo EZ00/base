@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var React = require('react/addons');
+var React = require('react')
+var ReactDOM = require('react-dom');
 var Users = require('../../models/users');
 //var auth = require('../middlewares/auth')
 

@@ -50,6 +50,6 @@ var App = React.createClass({
   }
 });
 
-//React.render(React.createElement(App, null), document.getElementById('example'));
+//ReactDOM.render(React.createElement(App, null), document.getElementById('example'));
 
 module.exports = App;
