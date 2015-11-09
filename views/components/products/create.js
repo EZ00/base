@@ -482,10 +482,15 @@ var SelectCategory = React.createClass({
                 }
                 else{
                   var thisLvParents = parents[j-1];
+                  var allIn = true;
                   for(var k=0;k<thisLvParents.length;k++){
-                    if(-1<categories[i].parents.indexOf(thisLvParents[k])){
-                      options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+                    if(-1 === categories[i].parents.indexOf(thisLvParents[k])){
+                      allIn = false;
+                      break;
                     }
+                  }
+                  if(allIn){
+                    options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
                   }
                 }
               }

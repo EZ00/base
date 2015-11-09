@@ -3,6 +3,7 @@ var schemaObject = __.clone(require('./object.js'));
 
 schemaObject.title = "string";
 schemaObject.content = 'string';
+schemaObject.number = 'number';
 //schemaObject.visible = 'policy';
 //schemaObject.editable = 'policy';
 // legal values: active,completed,failed,potential
