@@ -38,7 +38,7 @@ module.exports = function(passport){
 		var component = require('../../public/comp/products/create.js');
 		var products = React.createFactory(component);
     //console.log("products:",products);
-    //console.log("ReactDOM.renderToString",ReactDOM.renderToString);
+    //console.log("ReactDOMServer.renderToString",ReactDOMServer.renderToString);
 		//console.log('dashboard: ',req.user);
 		res.render('dashboard/home',{
 			component:

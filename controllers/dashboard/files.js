@@ -25,7 +25,7 @@ module.exports = function(passport){
   			<script src="/static/comp/verticalMenu.js"></script>\
   			<script src="/static/comp/files/list.js"></script>\
   			',
-  			react: ReactDOM.renderToString(list(props))
+  			react: ReactDOMServer.renderToString(list(props))
   		});
     }
     Files.findAllAndCounter(null,cb);
@@ -50,7 +50,7 @@ module.exports = function(passport){
       <script src="/static/comp/tagsInput.js"></script>\
 			<script src="/static/comp/files/upload.js"></script>\
 			',
-			react: ReactDOM.renderToString(upload(props))
+			react: ReactDOMServer.renderToString(upload(props))
 		});
   })
 
@@ -74,7 +74,7 @@ module.exports = function(passport){
     			<script src="/static/comp/verticalMenu.js"></script>\
     			<script src="/static/comp/tasks/view.js"></script>\
     			',
-    			react: ReactDOM.renderToString(view(props))
+    			react: ReactDOMServer.renderToString(view(props))
     		});
       }
       else{
@@ -105,7 +105,7 @@ module.exports = function(passport){
           <script src="/static/comp/tagsInput.js"></script>\
     			<script src="/static/comp/tasks/edit.js"></script>\
     			',
-    			react: ReactDOM.renderToString(edit(props))
+    			react: ReactDOMServer.renderToString(edit(props))
     		});
       }
       else{

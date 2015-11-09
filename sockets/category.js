@@ -22,7 +22,7 @@ exports.regNs = function(io){
 			//console.log(session.passport.user);
 			var user = session.passport.user;
 			if(user){
-				socket.on("create",function(data){
+				socket.on("insert",function(data){
 		      console.log(data);
           Category.props = data.doc;
           Category.props.creatorId = user._id;
@@ -65,8 +65,18 @@ exports.regNs = function(io){
         socket.on("edit",function(data){
 		      //console.log(data);
 				});
-        socket.on("del",function(data){
-		      console.log(data);
+        socket.on("remove",function(selected){
+          console.log("Enter socket.on remove")
+		      console.log(selected);
+          Category.remove(selected,function(err,data){
+            if(err){
+              console.error(err);
+            }
+            else{
+              socket.emit("remove",data);
+            }
+          })
+          console.log("Leave socket.on remove")
 				});
 			}
 		})

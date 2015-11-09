@@ -5,6 +5,7 @@
 //   password: String,
 //   email: String
 // });
+var ObjectID = require('mongodb').ObjectID;
 var schema = require('./schemas/category.js');
 var Model = require('../models/base');
 
@@ -59,6 +60,34 @@ Category.insertChild = function(done){
       }
     }
   }.bind(this))
+}
+
+Category.remove = function(docs,done){
+  var noop = function(){};
+  done = done || noop;
+  for(var i=0;i<docs.length;i++){
+    var objectId = ObjectID(docs[i]._id);
+    for(var j=0;j<docs[i].parents.length;j++){
+      docs[i].parents[j] = ObjectID(docs[i].parents[j]);
+    }
+    this.collection.remove({_id:objectId},function(err,r){
+      if(err){
+        console.error(err);
+      }
+      else{
+        if(this.parents.length > 0){
+          this.collection.update(
+           { _id: {$in:this.parents} },
+           { $pull: { children: this._id } },
+           {multi: true},
+           function(err,r){
+             //sconsole.log(r);
+          }.bind(this));
+        }
+        done(err,{_id:this._id,parents:this.parents});
+      }
+    }.bind({collection:this.collection,parents:docs[i].parents,_id:objectId}))
+  }
 }
 
 Category.deleteById = function(_id,status,done){

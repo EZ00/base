@@ -43,7 +43,7 @@ module.exports = function(passport){
         <script src="/static/comp/register.js"></script>\
   			<script src="/static/comp/root.js"></script>\
   			',
-  			react: ReactDOM.renderToString(root(props))
+  			react: ReactDOMServer.renderToString(root(props))
   		});
     }
     else{
@@ -82,7 +82,7 @@ module.exports = function(passport){
         <script src="/static/comp/register.js"></script>\
   			<script src="/static/comp/root.js"></script>\
   			',
-  			react: ReactDOM.renderToString(root(props))
+  			react: ReactDOMServer.renderToString(root(props))
   		});
     }
     else{

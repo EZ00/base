@@ -8394,7 +8394,7 @@
 	      'dangerouslyRenderMarkup(...): Cannot render markup in a worker ' +
 	      'thread. Make sure `window` and `document` are available globally ' +
 	      'before requiring React when unit testing or use ' +
-	      'ReactDOM.renderToString for server rendering.'
+	      'ReactDOMServer.renderToString for server rendering.'
 	    ) : invariant(ExecutionEnvironment.canUseDOM));
 	    var nodeName;
 	    var markupByNodeName = {};
@@ -8501,7 +8501,7 @@
 	      'dangerouslyReplaceNodeWithMarkup(...): Cannot render markup in a ' +
 	      'worker thread. Make sure `window` and `document` are available ' +
 	      'globally before requiring React when unit testing or use ' +
-	      'ReactDOM.renderToString for server rendering.'
+	      'ReactDOMServer.renderToString for server rendering.'
 	    ) : invariant(ExecutionEnvironment.canUseDOM));
 	    ("production" !== process.env.NODE_ENV ? invariant(markup, 'dangerouslyReplaceNodeWithMarkup(...): Missing markup.') : invariant(markup));
 	    ("production" !== process.env.NODE_ENV ? invariant(
@@ -8509,7 +8509,7 @@
 	      'dangerouslyReplaceNodeWithMarkup(...): Cannot replace markup of the ' +
 	      '<html> node. This is because browser quirks make this unreliable ' +
 	      'and/or slow. If you want to render to the root you must use ' +
-	      'server rendering. See ReactDOM.renderToString().'
+	      'server rendering. See ReactDOMServer.renderToString().'
 	    ) : invariant(oldChild.tagName.toLowerCase() !== 'html'));
 
 	    var newChild = createNodesFromMarkup(markup, emptyFunction)[0];
@@ -9940,7 +9940,7 @@
 	      'You\'re trying to render a component to the document but ' +
 	        'you didn\'t use server rendering. We can\'t do this ' +
 	        'without using server rendering due to cross-browser quirks. ' +
-	        'See ReactDOM.renderToString() for server rendering.'
+	        'See ReactDOMServer.renderToString() for server rendering.'
 	    ) : invariant(container.nodeType !== DOC_NODE_TYPE));
 
 	    setInnerHTML(container, markup);

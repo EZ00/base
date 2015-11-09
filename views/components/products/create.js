@@ -26,7 +26,7 @@ else{
       opt = options[i];
 
       if (opt.selected) {
-        result.push({_id:(opt.value || opt.text),children:opt.dataset.children,parents:opt.dataset.parents,level:Number(opt.dataset.level)});
+        result.push({_id:(opt.value || opt.text),children:opt.dataset.children?opt.dataset.children.split(","):[],parents:opt.dataset.parents?opt.dataset.parents.split(","):[],level:Number(opt.dataset.level)});
       }
     }
     return result;
@@ -257,10 +257,11 @@ var ImageInput = React.createClass({
 
 var SelectCategory = React.createClass({
   getInitialState: function(){
-    this.maxLevel = null;
+    this.inited = false;
+    this.maxLevel = 1;
     return {
       categories: [],
-      selected: null
+      selected: []
     };
   },
   componentDidMount: function(){
@@ -268,7 +269,7 @@ var SelectCategory = React.createClass({
     socketCategory.emit('findAll');
     socketCategory.on('findAll',function(data){
       console.log('findAll',data);
-      this.setState({categories:data.docs});
+      this.setState({categories:data.docs},function(){this.inited=true;this.forceUpdate();}.bind(this));
     }.bind(this))
     socketCategory.on("create",function(data){
       console.log("Enter on create")
@@ -278,6 +279,43 @@ var SelectCategory = React.createClass({
       this.setState({categories:categories});
       console.log("Leave on create")
     }.bind(this))
+    socketCategory.on("remove",function(data){
+      console.log("Enter on remove")
+      console.log(data);
+      var categories = this.state.categories;
+      var selected = this.state.selected;
+      var parentsCount = 0;
+      var childRmed = false;
+      for(var i=0;i<categories.length;i++){
+        if(categories[i]._id === data._id){
+          categories.splice(i,1);
+          i -= 1;
+          childRmed = true;
+        }
+        if(data.parents.indexOf(categories[i]._id) > -1){
+          for(var j=0;j<categories[i].children.length;j++){
+            if(categories[i].children[j] === data._id){
+              categories[i].children.splice(j,1);
+              j -= 1;
+            }
+          }
+          parentsCount += 1;
+        }
+        if(childRmed && parentsCount===data.parents.length){
+          break;
+        }
+      }
+      for(var i=0;i<selected.length;i++){
+        for(var j=0;j<selected[i].length;j++){
+          if(selected[i][j]._id === data._id){
+            selected[i].splice(j,1);
+            j -= 1;
+          }
+        }
+      }
+      this.setState({categories:categories,selected:selected});
+      console.log("Leave on remove")
+    }.bind(this))
   },
   componentWillUnmount: function() {
     socketCategory.close();
@@ -285,68 +323,93 @@ var SelectCategory = React.createClass({
   createCategory: function(){
     console.log('Enter createCategory');
     var categories = this.state.categories;
-    var selected = this.state.selected;
+    var selected = null;
+    if(this.state.selected.length > 0){
+      selected = this.state.selected[this.state.selected.length-1];
+    }
     var newCate = {};
     newCate.name = this.refs.categoryName.getDOMNode().value.trim();
     this.refs.categoryName.getDOMNode().value = '';
     if(newCate.name === ''){
       alert('类目名不能为空！');
-      return false;
     }
-    if(categories.length===0){
-      newCate.level = 1;
-      newCate.parents = [];
-      newCate.children = [];
-    }
-    else if(selected !== null){
-      console.log("selected !== null");
-      //var maxLevel = this.state.selects.length;
-      //var selected = [{_id:1,level:2,parents:[1,2,3,4,5]},{_id:2,level:2,parents:[3,4,5,6]},{_id:3,level:2,parents:[4,5,6]}];
-      var thisCate = {};
-      thisCate.level = Number(selected[0].level);
-      thisCate._ids = [];
-      thisCate.parents = [];
-      for(var i=0;i<selected.length;i++){
-        thisCate._ids.push(selected[i]._id);
-        if(i === 0){
-          thisCate.parents = selected[i].parents;
-        }
-        else{
-          for(var j=0;j<thisCate.parents.length;j++){
-            var index = selected[i].parents.indexOf(thisCate.parents[j])
-            if(-1 === index){
-              thisCate.parents.splice(j,1);
-              j=j-1;
+    else{
+      if(categories.length===0){
+        newCate.level = 1;
+        newCate.parents = [];
+        newCate.children = [];
+        socketCategory.emit('insert',{doc:newCate});
+      }
+      else if(selected !== null){
+        console.log("selected !== null");
+        //var maxLevel = this.state.selects.length;
+        //var selected = [{_id:1,level:2,parents:[1,2,3,4,5]},{_id:2,level:2,parents:[3,4,5,6]},{_id:3,level:2,parents:[4,5,6]}];
+        var thisCate = {};
+        thisCate.level = Number(selected[0].level);
+        thisCate._ids = [];
+        thisCate.parents = [];
+        for(var i=0;i<selected.length;i++){
+          thisCate._ids.push(selected[i]._id);
+          if(i === 0){
+            thisCate.parents = selected[i].parents;
+          }
+          else{
+            for(var j=0;j<thisCate.parents.length;j++){
+              var index = selected[i].parents.indexOf(thisCate.parents[j])
+              if(-1 === index){
+                thisCate.parents.splice(j,1);
+                j=j-1;
+              }
             }
           }
         }
-      }
-      console.log(thisCate);
-      var relation = this.refs.relation.getDOMNode().value;
-      if(relation === "child"){
-        newCate.level = thisCate.level + 1;
-        newCate.parents = thisCate._ids;
-        newCate.children = [];
-        socketCategory.emit('insertChild',{doc:newCate});
-      }
-      else if(relation ==="sibling"){
-        newCate.level = thisCate.level;
-        newCate.parents = thisCate.parents;
-        newCate.children = [];
-      }
-      else{
-        newCate.level = thisCate.level - 1;
-        if(newCate.level === 0){
-          alert("不能创建上级类目！");
-          return false;
+        console.log(thisCate);
+        var relation = this.refs.relation.getDOMNode().value;
+        if(relation === "child"){
+          newCate.level = thisCate.level + 1;
+          newCate.parents = thisCate._ids;
+          newCate.children = [];
+          socketCategory.emit('insertChild',{doc:newCate});
+        }
+        else if(relation ==="sibling"){
+          newCate.level = thisCate.level;
+          newCate.parents = thisCate.parents;
+          newCate.children = [];
+          socketCategory.emit('insertChild',{doc:newCate});
+        }
+        else{
+          newCate.level = thisCate.level - 1;
+          if(newCate.level === 0){
+            alert("不能创建上级类目！");
+          }
         }
       }
+      else{
+        alert('请选择类目！');
+      }
+      console.log(newCate);
+    }
+  },
+  editCategory:function(){
+    console.log("Enter editCategory");
+    var selected = this.state.selected;
+    if(selected.length == 0){
+      alert("请选择类目！");
     }
     else{
-      alert('请选择类目！');
-      return false;
     }
-    console.log(newCate);
+    console.log("Leave editCategory");
+  },
+  deleteCategory:function(){
+    console.log("Enter deleteCategory");
+    var selected = this.state.selected;
+    if(selected.length == 0){
+      alert("请选择类目！");
+    }
+    else{
+      socketCategory.emit("remove",selected[this.maxLevel-1]);
+    }
+    console.log("Leave deleteCategory");
   },
   handleCategoryKeyPress: function(e){
     if(e.key === 'Enter'){
@@ -355,70 +418,113 @@ var SelectCategory = React.createClass({
   },
   handleCategorySelect: function(e){
     console.log("Enter handleCategorySelect");
-    var selected = getSelectValues(e.target);
-    console.log(selected);
+    var selected = this.state.selected;
+    var maxLvSel = getSelectValues(e.target);
+    console.log(maxLvSel);
+    var newMaxLevel = maxLvSel[0].level;
+    if(newMaxLevel === this.maxLevel){
+      selected[newMaxLevel-1]=maxLvSel;
+    }
+    else if(newMaxLevel > this.maxLevel){
+      selected.push(maxLvSel);
+      this.maxLevel = newMaxLevel;
+    }
+    else if(newMaxLevel < this.maxLevel){
+      selected.splice(newMaxLevel,this.maxLevel-newMaxLevel);
+      selected[newMaxLevel-1]=maxLvSel;
+      this.maxLevel = newMaxLevel;
+    }
+
     this.setState({selected:selected});
     console.log("Leave handleCategorySelect");
   },
   render: function() {
-    var selects = [];
-    var selected = this.state.selected;
-    var categories = this.state.categories;
-    if(categories.length > 0){
-      if(selected === null){
-        var options = [];
-        for(var i=0;i<categories.length;i++){
-          if(categories[i].level = 1){
-            options.push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
-          }
-        }
-        var select = <select key='sel1' id="sel1" multiple onChange={this.handleCategorySelect}>{options}</select>;
-        selects.push(select);
-      }
-      else{
-        var options = {};
-        var level = selected[0].level+1;
-        var parents = [];
-        for(var i=0;i<selected.length;i++){
-          parents.push(selected[i]._id);
-        }
-        for(var i=0;i<categories.length;i++){
-          for(var j=1;j<=level;j++){
-            options[j] = options[j] || [];
-            if(j===level){
-              for(var k=0;k<parents.length;k++)
-              if(-1<categories[i].parents.indexOf(parents[k])){
-                options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
-              }
-            }
-            else if(categories[i].level === j){
-              options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+    console.log("Enter render");
+    if(this.inited){
+      var selects = [];
+      var selected = this.state.selected;
+      var categories = this.state.categories;
+      if(categories.length > 0){
+        if(selected.length === 0){
+          var options = [];
+          for(var i=0;i<categories.length;i++){
+            if(categories[i].level === 1){
+              options.push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
             }
           }
-        }
-        for(var key in options){
-          var select = <select key={'sel'+key} id={'sel'+key}  multiple onChange={this.handleCategorySelect}>{options[key]}</select>;
+          var select = <select key='sel1' id="sel1" multiple onChange={this.handleCategorySelect}>{options}</select>;
           selects.push(select);
         }
+        else{
+          var options = {};
+          var level = this.maxLevel+1;
+          //var maxLvSel = selected[this.maxLevel-1];
+          var parents = [];
+          parents.push([]);
+          for(var i=0;i<selected.length;i++){
+            var thisLvSel = selected[i];
+            var thisLvParents = [];
+            for(var j=0;j<thisLvSel.length;j++){
+              thisLvParents.push(thisLvSel[j]._id);
+            }
+            parents.push(thisLvParents);
+          }
+          console.log("parents:",parents);
+          console.log("level:",level);
+          for(var i=0;i<categories.length;i++){
+            console.log("categories[i].level:",categories[i].level);
+            for(var j=1;j<=level;j++){
+              console.log("j:",j);
+              options[j] = options[j] || [];
+              if(categories[i].level === j){
+                if(j===1){
+                  options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+                }
+                else{
+                  var thisLvParents = parents[j-1];
+                  for(var k=0;k<thisLvParents.length;k++){
+                    if(-1<categories[i].parents.indexOf(thisLvParents[k])){
+                      options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          console.log(options);
+          for(var key in options){
+            var select = <select key={'sel'+key} id={'sel'+key}  multiple onChange={this.handleCategorySelect}>{options[key]}</select>;
+            selects.push(select);
+          }
+        }
       }
+      console.log("Leave render");
+      return(
+        <div>
+          <div className='form-inline' style={{margin:'10px'}}>
+            <select ref="relation">
+              <option value="child">子类目</option>
+              <option value="sibling">同级类目</option>
+            </select>
+            <input type='text' ref='categoryName' onKeyPress={this.handleCategoryKeyPress}/>
+            <button onClick={this.createCategory}>创建</button>
+            <button onClick={this.deleteCategory}>删除</button>
+            <button>上移</button>
+            <button>下移</button>
+            <button>左移</button>
+            <button>右移</button>
+          </div>
+          <div ref='selected' style={{margin:'10px'}}></div>
+          <div style={{margin:'10px'}}>
+            {selects}
+          </div>
+        </div>
+      )
     }
-    return(
-      <div>
-        <div className='form-inline' style={{margin:'10px'}}>
-          <select ref="relation">
-            <option value="child">子类目</option>
-            <option value="sibling">同级类目</option>
-            <option value="parent">上级类目</option>
-          </select>
-          <input type='text' ref='categoryName' onKeyPress={this.handleCategoryKeyPress}/>
-          <button onClick={this.createCategory}>创建</button>
-        </div>
-        <div ref='selected' style={{margin:'10px'}}></div>
-        <div style={{margin:'10px'}}>
-          {selects}
-        </div>
-      </div>
-    )
+    else{
+      console.log("Leave render");
+      return(<div>未初始化</div>)
+    }
   }
 })
 

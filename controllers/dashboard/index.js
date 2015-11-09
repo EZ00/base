@@ -1,9 +1,9 @@
 //require('node-jsx').install({extension: '.js'});
 var express = require('express');
 var router = express.Router();
-var React = require('react')
+var React = require('react');
 var ReactDOM = require('react-dom');
-
+var ReactDOMServer = require('react-dom/server');
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
@@ -32,7 +32,7 @@ module.exports = function(passport){
 			<script src="/static/comp/verticalMenu.js"></script>\
 			<script src="/static/comp/responsive.js"></script>\
 			',
-			react: ReactDOM.renderToString(responsive(props))
+			react: ReactDOMServer.renderToString(responsive(props))
 		});
 	});
 	//require('./databases')(app,passport);
