@@ -23,16 +23,16 @@ exports.regNs = function(io){
 			if(user){
         socket.on("all",function(data){
 		      //console.log(data);
-          Databases.allDbNames(function(err,dbs){
+          Databases.allCollectionNames(function(err,names){
             if(err){
               console.error(err);
             }
-            else if(dbs.length > 0){
-              console.log(dbs);
-              socket.emit("all",dbs);
+            else if(names.length > 0){
+              console.log(names);
+              socket.emit("all",names);
             }
             else{
-              console.error("dbs.length > 0 === false");
+              console.error("names.length > 0 === false");
             }
           })
 				});

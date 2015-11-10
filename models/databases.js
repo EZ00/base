@@ -24,3 +24,14 @@ exports.allDbNames = function(cb) {
     cb(err,dbNames);
   });
 }
+
+exports.allCollectionNames = function(cb){
+  db.get().listCollections().toArray(function(err, items) {
+    // assert.ok(items.length > 0);
+    var names = [];
+    for(var i=0;i<items.length;i++){
+      names.push(items[i].name);
+    }
+    cb(err,names);
+  });
+}

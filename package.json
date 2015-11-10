@@ -25,7 +25,7 @@
     "microtime": "^2.0.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.10.6",
-    "mongodb": "^2.0.45",
+    "mongodb": "^2.0.48",
     "mongoose": "^4.1.7",
     "node-jsx": "^0.13.3",
     "passport": "^0.3.0",
