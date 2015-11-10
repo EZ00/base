@@ -11,6 +11,17 @@ var Model = require('../models/base');
 
 var Category = new Model('categories',schema);
 
+Category.findAll = function(done){
+  var noop = function(){};
+  done = done || noop;
+  var opt = {
+    "sort": [['number','asc']]
+  }
+  Category.collection.find({},opt).toArray(function(err,docs){
+    done(err,docs);
+  })
+}
+
 Category.insert = function(done){
   var noop = function(){};
   done = done || noop;
@@ -90,6 +101,78 @@ Category.remove = function(docs,done){
   }
 }
 
+Category.moveUp = function(data,done){
+  var noop = function(){};
+  done = done || noop;
+  Category.collection.findOne({_id:data._id},function(err,doc){
+    if(err){
+      console.error(err);
+    }
+    else{
+      Category.collection.find({level:doc.level},{$sort:[["number","asc"]]}).toArray(function(err,docs){
+        var source = {};
+        source._id = doc._id;
+        var target = {};
+        target.number = doc.number;
+        var first = docs[0].number;
+        var last = docs[docs.length-1].number;
+        if(doc.number === first){
+          source.number = last;
+          target._id = docs[docs.length-1]._id;
+        }
+        else{
+          for(var i=0;i<docs.length;i++){
+            if(docs[i].number === doc.number){
+              source.number = docs[i-1].number;
+              target._id = docs[i-1]._id;
+              break;
+            }
+          }
+        }
+        var newDocs = [source,target];
+        Category.batchUpdateById(newDocs,function(){
+          done(null,newDocs);
+        })
+      })
+    }
+  })
+}
+Category.moveDown = function(data,done){
+  var noop = function(){};
+  done = done || noop;
+  Category.collection.findOne({_id:data._id},function(err,doc){
+    if(err){
+      console.error(err);
+    }
+    else{
+      Category.collection.find({level:doc.level},{$sort:[["number","asc"]]}).toArray(function(err,docs){
+        var source = {};
+        source._id = doc._id;
+        var target = {};
+        target.number = doc.number;
+        var first = docs[0].number;
+        var last = docs[docs.length-1].number;
+        if(doc.number === last){
+          source.number = first;
+          target._id = docs[0]._id;
+        }
+        else{
+          for(var i=0;i<docs.length;i++){
+            if(docs[i].number === doc.number){
+              source.number = docs[i+1].number;
+              target._id = docs[i+1]._id;
+              break;
+            }
+          }
+        }
+        var newDocs = [source,target];
+        Category.batchUpdateById(newDocs,function(){
+          done(null,newDocs);
+        })
+      })
+    }
+  })
+}
 Category.deleteById = function(_id,status,done){
   var noop = function(){};
   done = done || noop;

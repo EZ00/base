@@ -6,7 +6,21 @@ exports.all = function(cb) {
   var adminDb = db.get().admin();
 
   // List all the available databases
-  adminDb.listDatabases(function(err, dbs) {
-    cb(err,dbs);
+  adminDb.listDatabases(function(err, data) {
+    cb(err,data);
+  });
+}
+
+exports.allDbNames = function(cb) {
+  // Use the admin database for the operation
+  var adminDb = db.get().admin();
+
+  // List all the available databases
+  adminDb.listDatabases(function(err, data) {
+    var dbNames = [];
+    for(var i=0;i<data.databases.length;i++){
+      dbNames.push(data.databases[i].name);
+    }
+    cb(err,dbNames);
   });
 }

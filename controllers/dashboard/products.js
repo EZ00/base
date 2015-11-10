@@ -46,6 +46,7 @@ module.exports = function(passport){
 			'\
       <script src="/static/javascript/underscore-min.js"></script>\
       <script src="/socket.io/socket.io.js"></script>\
+      <script src="/static/javascript/db.js"></script>\
       <script src="/static/javascript/jquery-2.1.4.min.js"></script>\
       <script src="/static/javascript/bootstrap.min.js"></script>\
 			<script src="/static/comp/drawerMenu.js"></script>\

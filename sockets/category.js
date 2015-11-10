@@ -62,6 +62,18 @@ exports.regNs = function(io){
             socket.emit('findAll',{docs:docs});
           });
 				});
+        socket.on("moveUp",function(data){
+          console.log('moveUp');
+		      Category.moveUp({_id:data._id},function(err,docs){
+            socket.emit('set',{docs:docs});
+          });
+				});
+        socket.on("moveDown",function(data){
+          console.log('moveDown');
+		      Category.moveDown({_id:data._id},function(err,docs){
+            socket.emit('set',{docs:docs});
+          });
+				});
         socket.on("edit",function(data){
 		      //console.log(data);
 				});

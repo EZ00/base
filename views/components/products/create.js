@@ -26,7 +26,14 @@ else{
       opt = options[i];
 
       if (opt.selected) {
-        result.push({_id:(opt.value || opt.text),children:opt.dataset.children?opt.dataset.children.split(","):[],parents:opt.dataset.parents?opt.dataset.parents.split(","):[],level:Number(opt.dataset.level)});
+        result.push({
+          _id:(opt.value || opt.text),
+          children:opt.dataset.children?opt.dataset.children.split(","):[],
+          parents:opt.dataset.parents?opt.dataset.parents.split(","):[],
+          level:Number(opt.dataset.level),
+          number:Number(opt.dataset.number),
+          name:opt.dataset.name,
+        });
       }
     }
     return result;
@@ -63,6 +70,8 @@ var tags = [
   // 'tag b',
   // 'tag c'
 ];
+
+var db = {};
 
 var Path = React.createClass({
   render: function() {
@@ -260,7 +269,6 @@ var SelectCategory = React.createClass({
     this.inited = false;
     this.maxLevel = 1;
     return {
-      categories: [],
       selected: []
     };
   },
@@ -269,13 +277,27 @@ var SelectCategory = React.createClass({
     socketCategory.emit('findAll');
     socketCategory.on('findAll',function(data){
       console.log('findAll',data);
-      this.setState({categories:data.docs},function(){this.inited=true;this.forceUpdate();}.bind(this));
+      db.categories.init(data.docs);
+      this.inited=true;
+      this.forceUpdate();
     }.bind(this))
     socketCategory.on("create",function(data){
       console.log("Enter on create")
       console.log(data);
       var categories = this.state.categories;
       categories.push(data.doc);
+      this.setState({categories:categories});
+      console.log("Leave on create")
+    }.bind(this))
+    socketCategory.on("set",function(docs){
+      console.log("Enter on create")
+      console.log(data);
+      var categories = this.state.categories;
+      for(var i=0;i<docs.length;i++){
+        for(var j=0;j<categories.length;j++){
+
+        }
+      }
       this.setState({categories:categories});
       console.log("Leave on create")
     }.bind(this))
@@ -438,18 +460,34 @@ var SelectCategory = React.createClass({
     this.setState({selected:selected});
     console.log("Leave handleCategorySelect");
   },
+  moveUp:function(){
+    console.log("Enter moveUp");
+    var selected = this.state.selected;
+    var maxLvSel = selected[this.maxLevel-1];
+    console.log(maxLvSel);
+    socketCategory.emit("moveUp",{_id:maxLvSel._id});
+    console.log("Leave moveUp");
+  },
+  moveDown:function(){
+    console.log("Enter moveDown");
+    var selected = this.state.selected;
+    var maxLvSel = selected[this.maxLevel-1];
+    console.log(maxLvSel);
+    socketCategory.emit("moveDown",{_id:maxLvSel._id});
+    console.log("Leave moveDown");
+  },
   render: function() {
     console.log("Enter render");
     if(this.inited){
       var selects = [];
       var selected = this.state.selected;
-      var categories = this.state.categories;
+      var categories = db.categories.toArray();
       if(categories.length > 0){
         if(selected.length === 0){
           var options = [];
           for(var i=0;i<categories.length;i++){
             if(categories[i].level === 1){
-              options.push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+              options.push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level} data-number={categories[i].number} data-name={categories[i].name}>{categories[i].name}</option>);
             }
           }
           var select = <select key='sel1' id="sel1" multiple onChange={this.handleCategorySelect}>{options}</select>;
@@ -478,7 +516,7 @@ var SelectCategory = React.createClass({
               options[j] = options[j] || [];
               if(categories[i].level === j){
                 if(j===1){
-                  options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+                  options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level} data-number={categories[i].number} data-name={categories[i].name}>{categories[i].name}</option>);
                 }
                 else{
                   var thisLvParents = parents[j-1];
@@ -490,7 +528,7 @@ var SelectCategory = React.createClass({
                     }
                   }
                   if(allIn){
-                    options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level}>{categories[i].name}</option>);
+                    options[j].push(<option key={categories[i]._id} id={categories[i]._id} value={categories[i]._id} data-children={categories[i].children} data-parents={categories[i].parents} data-level={categories[i].level} data-number={categories[i].number} data-name={categories[i].name}>{categories[i].name}</option>);
                   }
                 }
               }
@@ -514,8 +552,8 @@ var SelectCategory = React.createClass({
             <input type='text' ref='categoryName' onKeyPress={this.handleCategoryKeyPress}/>
             <button onClick={this.createCategory}>创建</button>
             <button onClick={this.deleteCategory}>删除</button>
-            <button>上移</button>
-            <button>下移</button>
+            <button onClick={this.moveUp}>上移</button>
+            <button onClick={this.moveDown}>下移</button>
             <button>左移</button>
             <button>右移</button>
           </div>
@@ -693,5 +731,7 @@ var App = React.createClass({
 if (isNode) {
   module.exports = App;
 } else {
-  ReactDOM.render(<App />, document.getElementById('example'));
+  dbEvents.on("inited",function(){
+    ReactDOM.render(this.app, document.getElementById('example'));
+  }.bind({app:<App />}));
 }
