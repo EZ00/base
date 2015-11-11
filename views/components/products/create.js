@@ -292,13 +292,6 @@ var SelectCategory = React.createClass({
     socketCategory.on("set",function(docs){
       console.log("Enter on create")
       console.log(data);
-      var categories = this.state.categories;
-      for(var i=0;i<docs.length;i++){
-        for(var j=0;j<categories.length;j++){
-
-        }
-      }
-      this.setState({categories:categories});
       console.log("Leave on create")
     }.bind(this))
     socketCategory.on("remove",function(data){
@@ -473,7 +466,8 @@ var SelectCategory = React.createClass({
     var selected = this.state.selected;
     var maxLvSel = selected[this.maxLevel-1];
     console.log(maxLvSel);
-    socketCategory.emit("moveDown",{_id:maxLvSel._id});
+    console.log({_id:maxLvSel[0]._id});
+    socketCategory.emit("moveDown",{_id:maxLvSel[0]._id});
     console.log("Leave moveDown");
   },
   render: function() {

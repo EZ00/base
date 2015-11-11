@@ -140,11 +140,13 @@ Category.moveUp = function(data,done){
 Category.moveDown = function(data,done){
   var noop = function(){};
   done = done || noop;
+  var _id = O
   Category.collection.findOne({_id:data._id},function(err,doc){
     if(err){
       console.error(err);
     }
     else{
+      console.log(doc);
       Category.collection.find({level:doc.level},{$sort:[["number","asc"]]}).toArray(function(err,docs){
         var source = {};
         source._id = doc._id;

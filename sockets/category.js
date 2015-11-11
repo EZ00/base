@@ -70,6 +70,7 @@ exports.regNs = function(io){
 				});
         socket.on("moveDown",function(data){
           console.log('moveDown');
+          console.log(data);
 		      Category.moveDown({_id:data._id},function(err,docs){
             socket.emit('set',{docs:docs});
           });

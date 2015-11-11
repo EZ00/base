@@ -56,6 +56,16 @@ dbClass.prototype = {
   },
   toArray: function(){
     return this.docs;
+  },
+  set: function(newDocs){
+    for(var i=0;i<newDocs.length;i++){
+      for(var j=0;j<this.docs.length;j++){
+        if(this.docs[j]._id === newDocs[i]._id){
+          
+        }
+      }
+    }
+    this.setState({categories:categories});
   }
 }
 
