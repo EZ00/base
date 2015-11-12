@@ -140,8 +140,8 @@ Category.moveUp = function(data,done){
 Category.moveDown = function(data,done){
   var noop = function(){};
   done = done || noop;
-  var _id = O
-  Category.collection.findOne({_id:data._id},function(err,doc){
+  var _id = ObjectID(data._id);
+  Category.collection.findOne({_id:_id},function(err,doc){
     if(err){
       console.error(err);
     }

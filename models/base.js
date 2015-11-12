@@ -402,7 +402,8 @@ Base.prototype = {
     for(var i=0;i<newDocs.length;i++){
       var _id=newDocs[i]._id;
       delete newDocs[i]._id;
-      Category.collection.update({_id:_id},{$set:newDocs[i]},function(err,result){
+      console.log("newDocs[i]",newDocs[i]);
+      this.collection.update({_id:_id},{$set:newDocs[i]},function(err,result){
         if(err){
           console.error(err);
         }

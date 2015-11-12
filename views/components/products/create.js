@@ -456,6 +456,9 @@ var SelectCategory = React.createClass({
   moveUp:function(){
     console.log("Enter moveUp");
     var selected = this.state.selected;
+    if(selected.length == 0){
+      alert("请选择类目！");
+    }
     var maxLvSel = selected[this.maxLevel-1];
     console.log(maxLvSel);
     socketCategory.emit("moveUp",{_id:maxLvSel._id});
@@ -464,6 +467,9 @@ var SelectCategory = React.createClass({
   moveDown:function(){
     console.log("Enter moveDown");
     var selected = this.state.selected;
+    if(selected.length == 0){
+      alert("请选择类目！");
+    }
     var maxLvSel = selected[this.maxLevel-1];
     console.log(maxLvSel);
     console.log({_id:maxLvSel[0]._id});
