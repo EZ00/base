@@ -1,5 +1,5 @@
 node_modules
-data
-files
-public/comp
-env.js
+/data
+/files
+/public/comp
+/env.js
