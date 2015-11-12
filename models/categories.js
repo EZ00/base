@@ -109,7 +109,7 @@ Category.moveUp = function(data,done){
       console.error(err);
     }
     else{
-      Category.collection.find({level:doc.level},{$sort:[["number","asc"]]}).toArray(function(err,docs){
+      Category.collection.find({level:doc.level},{},{$sort:[["number","asc"]]}).toArray(function(err,docs){
         var source = {};
         source._id = doc._id;
         var target = {};
@@ -147,7 +147,7 @@ Category.moveDown = function(data,done){
     }
     else{
       console.log(doc);
-      Category.collection.find({level:doc.level},{$sort:[["number","asc"]]}).toArray(function(err,docs){
+      Category.collection.find({level:doc.level},{},{$sort:[["number","asc"]]}).toArray(function(err,docs){
         var source = {};
         source._id = doc._id;
         var target = {};

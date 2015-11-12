@@ -50,7 +50,7 @@ var dbClass = function(){
   this.docs = [];
 }
 
-dbClass.prototype = {
+collectionClass.prototype = {
   init: function(docs){
     this.docs = docs;
   },
@@ -58,21 +58,19 @@ dbClass.prototype = {
     return this.docs;
   },
   set: function(newDocs){
+    console.log("Enter collection set");
+    console.log(newDocs);
     for(var i=0;i<newDocs.length;i++){
-      for(var j=0;j<this.docs.length;j++){
-        if(this.docs[j]._id === newDocs[i]._id){
-          
-        }
-      }
+
     }
-    this.setState({categories:categories});
+    console.log("Leave collection set");
   }
 }
 
 sockets.db.emit("all");
 sockets.db.on("all",function(dbs){
   for(var i=0;i<dbs.length;i++){
-    db[dbs[i]] = new dbClass();
+    db[dbs[i]] = new collectionClass();
   }
   console.log(db);
   dbState.inited = true;

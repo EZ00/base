@@ -290,9 +290,9 @@ var SelectCategory = React.createClass({
       console.log("Leave on create")
     }.bind(this))
     socketCategory.on("set",function(docs){
-      console.log("Enter on create")
-      console.log(data);
-      console.log("Leave on create")
+      console.log("Enter on set")
+      console.log(docs);
+      console.log("Leave on set")
     }.bind(this))
     socketCategory.on("remove",function(data){
       console.log("Enter on remove")
