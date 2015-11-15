@@ -1,43 +1,60 @@
-<paper-drawer-panel id="paperHeaderPanel">
-  <paper-header-panel drawer>
-    <paper-toolbar class="drawerToolbar">
-      <div>Application</div>
-    </paper-toolbar>
-    <div>
-      {{> sideNav selected_number="2"}}
-    </div>
-  </paper-header-panel>
-  <paper-header-panel main>
-    {{> paperToolbar}}
-    <div>
-      <div class="chart"></div>
-    </div>
-  </paper-header-panel>
-</paper-drawer-panel>
+<body>
+  <script src='/static/javascript/d3.min.js'></script>
+</body>
 
 <style>
-.chart div {
-  font: 10px sans-serif;
-  background-color: steelblue;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
+.axis path,
+.axis line{
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
 }
 </style>
 
 <script>
-var data = [4, 8, 15, 16, 23, 42];
+var width = 300;  //画布的宽度
+var height = 300;   //画布的高度
 
-var x = d3.scale.linear()
-    .domain([0, d3.max(data)])
-    .range([0, 420]);
+var svg = d3.select("body")     //选择文档中的body元素
+  .append("svg")          //添加一个svg元素
+  .attr("width", width)       //设定宽度
+  .attr("height", height);    //设定高度
 
-d3.select(".chart")
-  .selectAll("div")
-    .data(data)
-  .enter().append("div")
-    .style("width", function(d) { return x(d) + "px"; })
-    .text(function(d) { return d; });
+var dataset = [ 250 , 210 , 170 , 130 , 90 ];  //数据（表示矩形的宽度）
+
+var linear = d3.scale.linear()
+    .domain([0, d3.max(dataset)])
+    .range([0, 250]);
+
+var axis = d3.svg.axis()
+   .scale(linear)      //指定比例尺
+   .orient("bottom")   //指定刻度的方向
+   .ticks(7);          //指定刻度的数量
+
+var rectHeight = 25;   //每个矩形所占的像素高度(包括空白)
+
+svg.selectAll("rect")
+  .data(dataset)
+  .enter()
+  .append("rect")
+  .attr("x",20)
+  .attr("y",function(d,i){
+       return i * rectHeight;
+  })
+  .attr("width",function(d){
+       return linear(d);
+  })
+  .attr("height",rectHeight-2)
+  .attr("fill","steelblue");
+
+svg.append("g")
+  .attr("class","axis")
+  .attr("transform","translate(20,130)")
+  .call(axis);
 
 </script>

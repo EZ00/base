@@ -15,4 +15,8 @@ router.get('/about', function(req, res) {
   res.send('About birds');
 });
 
+router.get('/chart', function(req, res) {
+  res.render('test/chart');
+});
+
 module.exports = router;
