@@ -46,7 +46,7 @@ var dbEvents = new CustomReactor();
 
 sockets["db"] = io(window.location.host + "/db");
 
-var dbClass = function(){
+var collectionClass = function(){
   this.docs = [];
 }
 
