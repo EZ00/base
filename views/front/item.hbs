@@ -1,16 +1,24 @@
 <style>
+html{
+  background-color: white;
+}
 ul {
     list-style: outside none none;
     padding:0;
 }
 .productSlide{
-  width:500px;
+  width:40%;
   float: left;
 }
+@media screen and (max-width: 768px) {
+  .productSlide{
+    width: 100%;
+  }
+}
 .thumb-box {
-    padding: 1.4em 0px 1em;
-    margin-left: -1%;
-    width: 102%;
+  padding: 1.4em 0px 1em;
+  margin-left: -1%;
+  width: 102%;
 }
 .thumb-box .thumbs {
     overflow: hidden;
@@ -36,32 +44,99 @@ ul {
     opacity: 1;
 }
 
+@media screen and (min-width: 768px) {
+  .productDesc{
+    display:inline-block;
+    width:58%;
+  }
+}
+
+h1{
+  display: inline-block;
+  margin: 0;
+}
+.metaContainer{
+  margin-top: 20px;
+}
+.productTitle{
+  font-size: 30px;
+}
 .rightDiv{
-  margin-left: auto;
-  margin-right: 0;
+  width: 100%;
+  text-align: right;
 }
 .leftDiv{
-  margin-left: auto;
-  margin-right: 0;
+  display: inline-block;
+  width: 132px;
+  float: left;
 }
-.meta{
-  width: 200px;
+.inlineBlock{
+  display: inline-block;
+}
+/*.meta{
+  width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .meta{
+    width: 300px;
+  }
+}*/
+.quickContact{
+  display:inline-block;
+  width: 100%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.quickContact textarea,.quickContact input{
+  display: block;
+  width: 100%;
 }
 </style>
 
-<div>
+<div style="overflow:auto;">
   {{{product}}}
-  <div>
+  <div class="productDesc">
+  <div style="display:inline-block;margin-left:20px;">
     <div>
-      <h1>cold rolled black annealed steel tube</h1>
-      <div>
+      <h1 class="productTitle">cold rolled black annealed steel tube</h1>
+      <div class="metaContainer">
         <div class="meta">
-          <div class="leftDiv">Price:</div>
-          <div class="rightDiv">500-1000 USD</div>
+          <div class="leftDiv">FOB Price:</div>
+          <div class="inlineBlock"><b>500-1000 USD</b></div>
+        </div>
+        <div class="meta">
+          <div class="leftDiv">Min Order Quantity:</div>
+          <div class="inlineBlock"><b>25 tons</b></div>
+        </div>
+        <div class="meta">
+          <div class="leftDiv">Supply Ability:</div>
+          <div class="inlineBlock"><b>6000 tons / month</b></div>
+        </div>
+        <div class="meta">
+          <div class="leftDiv">Port:</div>
+          <div class="inlineBlock"><b>Xingang Tianjin</b></div>
+        </div>
+        <div class="meta">
+          <div class="leftDiv">Payment Terms:</div>
+          <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
         </div>
       </div>
     </div>
   </div>
+  <br/>
+  <div class="quickContact">
+    <label>your name: </label>
+    <input type="text"></input>
+    <label>your email address: </label>
+    <input type="email"></input>
+    <label>your requirement:</label>
+    <textarea name="requirement" cols="40" rows="5" ></textarea>
+    <button class="btn btn-primary">Send</button>
+  </div>
+  </div>
+</div>
+<div>
+  Product Desc
 </div>
 
 <script>
@@ -84,4 +159,29 @@ jQuery(document).ready(function(){
     return false;
   });
 });
+
+(function() {
+
+  window.addEventListener("resize", resizeThrottler, false);
+
+  var resizeTimeout;
+  function resizeThrottler() {
+    // ignore resize events as long as an actualResizeHandler execution is in the queue
+    if ( !resizeTimeout ) {
+      resizeTimeout = setTimeout(function() {
+        resizeTimeout = null;
+        actualResizeHandler();
+
+       // The actualResizeHandler will execute at a rate of 15fps
+       }, 66);
+    }
+  }
+
+  function actualResizeHandler() {
+    // handle the resize event
+    var h = document.getElementById('productSlide').offsetHeight;
+    console.log(h);
+  }
+
+}());
 </script>

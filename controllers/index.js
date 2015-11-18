@@ -227,11 +227,12 @@ module.exports = function(app,passport){
 			}
 			var divSlide = document.createElement("div");
 			divSlide.setAttribute("class","productSlide");
+      divSlide.setAttribute("id","productSlide");
 			divSlide.appendChild(ulThumnails);
 			divSlide.appendChild(divThumBox);
 
 			var divMeta = document.createElement("div");
-			
+
 			res.render('front/item', {layout:"front.hbs",product:divSlide.outerHTML});
 		  console.log("Leave controller /p/:id/:title");
 		}
