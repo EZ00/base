@@ -1,5 +1,6 @@
 node_modules
 /data
 /files
+/uploads
 /public/comp
 /env.js
