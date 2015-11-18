@@ -12,7 +12,11 @@
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"25 days after deposit",
-    "images":[],
+    "images":[
+      "1631D6E884D0F71255BF9B5169B83600F797A2165F004CD86E22E1247B10B28B.jpg",
+      "E6535D00901A12C6AD088CAD8C16C8DFC0B1A2E8138DA1B9E6C81026BA11D8D1.jpg",
+      "F388BAC8AC51490747F86F257318737109C86B17AA301AAD509BCC3B4C66358E.jpg"
+    ],
     "kvs":{
       "steel grade":"Q195-Q235",
       "section shape":"square, rectangular, round, oval, LTZ",
@@ -47,7 +51,11 @@
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"",
-    "images":[],
+    "images":[
+      "1631D6E884D0F71255BF9B5169B83600F797A2165F004CD86E22E1247B10B28B.jpg",
+      "E6535D00901A12C6AD088CAD8C16C8DFC0B1A2E8138DA1B9E6C81026BA11D8D1.jpg",
+      "F388BAC8AC51490747F86F257318737109C86B17AA301AAD509BCC3B4C66358E.jpg"
+    ],
     "kvs":{},
     "content":"",
     "display":true
@@ -65,7 +73,11 @@
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"",
-    "images":[],
+    "images":[
+      "1631D6E884D0F71255BF9B5169B83600F797A2165F004CD86E22E1247B10B28B.jpg",
+      "E6535D00901A12C6AD088CAD8C16C8DFC0B1A2E8138DA1B9E6C81026BA11D8D1.jpg",
+      "F388BAC8AC51490747F86F257318737109C86B17AA301AAD509BCC3B4C66358E.jpg"
+    ],
     "kvs":{},
     "content":"",
     "display":true
@@ -83,7 +95,11 @@
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"",
-    "images":[],
+    "images":[
+      "1631D6E884D0F71255BF9B5169B83600F797A2165F004CD86E22E1247B10B28B.jpg",
+      "E6535D00901A12C6AD088CAD8C16C8DFC0B1A2E8138DA1B9E6C81026BA11D8D1.jpg",
+      "F388BAC8AC51490747F86F257318737109C86B17AA301AAD509BCC3B4C66358E.jpg"
+    ],
     "kvs":{},
     "content":"",
     "display":true
@@ -101,7 +117,11 @@
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"",
-    "images":[],
+    "images":[
+      "1631D6E884D0F71255BF9B5169B83600F797A2165F004CD86E22E1247B10B28B.jpg",
+      "E6535D00901A12C6AD088CAD8C16C8DFC0B1A2E8138DA1B9E6C81026BA11D8D1.jpg",
+      "F388BAC8AC51490747F86F257318737109C86B17AA301AAD509BCC3B4C66358E.jpg"
+    ],
     "kvs":{},
     "content":"",
     "display":true
@@ -119,7 +139,11 @@
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"",
-    "images":[],
+    "images":[
+      "1631D6E884D0F71255BF9B5169B83600F797A2165F004CD86E22E1247B10B28B.jpg",
+      "E6535D00901A12C6AD088CAD8C16C8DFC0B1A2E8138DA1B9E6C81026BA11D8D1.jpg",
+      "F388BAC8AC51490747F86F257318737109C86B17AA301AAD509BCC3B4C66358E.jpg"
+    ],
     "kvs":{},
     "content":"",
     "display":true
