@@ -3,8 +3,10 @@ var router = express.Router();
 var i18n = require('../middlewares/i18n.js');
 var Inquiry = require('../models/inquiries');
 var fs = require("fs");
+var jsdom = require("jsdom").jsdom;
+var serializeDocument = require("jsdom").serializeDocument;
 var products = JSON.parse(fs.readFileSync('./json/products.js', 'utf8'));
-console.log(products);
+//console.log(products);
 //var Comment = require('../models/comment')
 
 //router.use('/comments', require('./comments'))
@@ -64,7 +66,84 @@ module.exports = function(app,passport){
 	})
 
   app.get('/products',function(req,res){
-		res.render('front/products',{layout:'front.hbs',react:'home',title:'Products - Sunrise Industry Group'});
+		// <div id="products" class="list-group">
+		// 		<div class="item">
+		// 			<img class="thumbnail" src="/static/images/C083.jpg" alt=""/>
+		// 			<div class='desc'>
+		// 				<a href='#'><h4>Square/Round Steel Pipe/Tube Cold Roll Forming Machine</h4></a>
+		// 				<div class='pmo'>
+		// 					<div class='price'>Price: <b>US $500-1000</b> / Ton</div>
+		// 					<div class='moq'>MOQ: <b>10 Tons </b></div>
+		// 				</div>
+		// 				<div class='kvs'>
+		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+		// 				</div>
+		// 			</div>
+		// 		</div>
+		// </div>
+		var document = jsdom("");
+	  var divProducts = document.createElement("div");
+		divProducts.setAttribute("id","products");
+		divProducts.setAttribute("class","list-group");
+		for(var i=0;i<products.length;i++){
+			var divItem = document.createElement("div");
+			divItem.setAttribute("class","item");
+
+			var imgThum = document.createElement("img");
+			imgThum.setAttribute("class","thumbnail");
+			imgThum.setAttribute("src",products[i]["images"][0] || "");
+			divItem.appendChild(imgThum);
+
+			var divDesc = document.createElement("div");
+			divDesc.setAttribute("class","desc");
+
+			var aTitle = document.createElement("a");
+			aTitle.setAttribute("href","#");
+			var h4Title = document.createElement("h4");
+			h4Title.innerHTML = products[i].title;
+			aTitle.appendChild(h4Title);
+			divDesc.appendChild(aTitle);
+
+			var divPmo = document.createElement("div");
+			divPmo.setAttribute("class","pmo");
+			var divPrice = document.createElement("div");
+			divPrice.setAttribute("class","price");
+			var priceUnits = products[i].priceUnit.split("/");
+			divPrice.innerHTML = "Price: <b>"+products[i].priceMin+"-"+products[i].priceMax+products[i].currency+" / "+priceUnits[0]+"</b>";
+			divPmo.appendChild(divPrice);
+			var divMoq = document.createElement("div");
+			divMoq.setAttribute("class","moq");
+			divMoq.innerHTML = "MOQ: <b>"+products[i].moq+" "+products[i].moqUnit+"</b>";
+			divPmo.appendChild(divMoq);
+			divDesc.appendChild(divPmo);
+
+			var divKvs = document.createElement("div");
+			divKvs.setAttribute("class","kvs");
+			var j = 0;
+			for(var key in products[i].kvs){
+				var divKv = document.createElement("div");
+				divKv.setAttribute("class","kv");
+				divKv.innerHTML = key+": <b>"+products[i].kvs[key]+"</b>";
+				divKvs.appendChild(divKv);
+				j += 1;
+				if(j === 6){
+					break;
+				}
+			}
+			divDesc.appendChild(divKvs);
+			divItem.appendChild(divDesc);
+			divProducts.appendChild(divItem);
+		}
+	  //console.info(serializeDocument(doc));
+	  //console.info(doc.documentElement.outerHTML);
+	  //console.info(serializeDocument(divProducts));
+	  console.info(divProducts.outerHTML);
+		res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
 	})
 
 	app.get('/p/:id/title', function(req, res) {
