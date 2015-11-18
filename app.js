@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/static', express.static('public'));
 app.use('/img', express.static('D:/imgs'));
+app.use('/uploads', express.static('uploads'));
 
 //app.set('view engine', 'jade');
 var exphbs = require('express-handlebars');

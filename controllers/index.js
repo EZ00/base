@@ -96,14 +96,16 @@ module.exports = function(app,passport){
 
 			var imgThum = document.createElement("img");
 			imgThum.setAttribute("class","thumbnail");
-			imgThum.setAttribute("src",products[i]["images"][0] || "");
+			var imgUrl = products[i]["images"][0] || "";
+			imgUrl = "/uploads/"+imgUrl;
+			imgThum.setAttribute("src",imgUrl);
 			divItem.appendChild(imgThum);
 
 			var divDesc = document.createElement("div");
 			divDesc.setAttribute("class","desc");
 
 			var aTitle = document.createElement("a");
-			aTitle.setAttribute("href","#");
+			aTitle.setAttribute("href","/p/"+products[i].number+"/"+products[i].title.replace(/\s+/g, '-').toLowerCase());
 			var h4Title = document.createElement("h4");
 			h4Title.innerHTML = products[i].title;
 			aTitle.appendChild(h4Title);
@@ -114,11 +116,12 @@ module.exports = function(app,passport){
 			var divPrice = document.createElement("div");
 			divPrice.setAttribute("class","price");
 			var priceUnits = products[i].priceUnit.split("/");
-			divPrice.innerHTML = "Price: <b>"+products[i].priceMin+"-"+products[i].priceMax+products[i].currency+" / "+priceUnits[0]+"</b>";
+			divPrice.innerHTML = "Price: <b>"+products[i].priceMin+"-"+products[i].priceMax+" "+products[i].currency+" / "+priceUnits[0]+"</b>";
 			divPmo.appendChild(divPrice);
 			var divMoq = document.createElement("div");
 			divMoq.setAttribute("class","moq");
-			divMoq.innerHTML = "MOQ: <b>"+products[i].moq+" "+products[i].moqUnit+"</b>";
+			var moqUnits = products[i].moqUnit.split("/");
+			divMoq.innerHTML = "MOQ: <b>"+products[i].moq+" "+moqUnits[1]+"</b>";
 			divPmo.appendChild(divMoq);
 			divDesc.appendChild(divPmo);
 
@@ -142,15 +145,96 @@ module.exports = function(app,passport){
 	  //console.info(serializeDocument(doc));
 	  //console.info(doc.documentElement.outerHTML);
 	  //console.info(serializeDocument(divProducts));
-	  console.info(divProducts.outerHTML);
+	  //console.info(divProducts.outerHTML);
 		res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
 	})
 
-	app.get('/p/:id/title', function(req, res) {
-	  console.log("Enter controller /p/:id/title");
-	  var id = req.params.id;
-	  res.render('front/item', {layout: 'main'})
-	  console.log("Leave controller /p/:id/title");
+	app.get('/p/:id/:title', function(req, res, next) {
+		// <ul id="thumbnails">
+		//   <li>
+		//     <a href="#slide1">
+		//       <img src="/assets/img/image-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+		//     </a>
+		//   </li>
+		//   <li>
+		//     <a href="#slide2">
+		//       <img src="/assets/img/image-2.jpg"  alt="This is caption 2">
+		//     </a>
+		//   </li>
+		//   <li>
+		//     <a href="#slide3">
+		//       <img src="/assets/img/image-3.jpg" alt="And this is some very long caption for slide 3. Yes, really long.">
+		//     </a>
+		//   </li>
+		//   <li>
+		//     <a href="#slide4">
+		//       <img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4.">
+		//     </a>
+		//   </li>
+		// </ul>
+		// <div class="thumb-box">
+		//   <ul class="thumbs">
+		//     <li><a href="#1" data-slide="1"><img src="/assets/img/image-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>"></a></li>
+		//     <li><a href="#2" data-slide="2"><img src="/assets/img/image-2.jpg"  alt="This is caption 2"></a></li>
+		//     <li><a href="#3" data-slide="3"><img src="/assets/img/image-3.jpg" alt="And this is some very long caption for slide 3. Yes, really long."></a></li>
+		//     <li><a href="#4" data-slide="4"><img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4."></a></li>
+		//   </ul>
+		// </div>
+	  console.log("Enter controller /p/:id/:title");
+	  var id = Number(req.params.id);
+		var product = null;
+		for(var i=0;i<products.length;i++){
+			if(products[i].number === id){
+				product = products[i];
+				break;
+			}
+		}
+		if(product === null){
+			next();
+		}
+		else{
+			var document = jsdom("");
+			var ulThumnails = document.createElement("ul");
+			ulThumnails.setAttribute("id","thumbnails");
+			var divThumBox = document.createElement("div");
+			divThumBox.setAttribute("class","thumb-box");
+			var ulThumbs = document.createElement("ul");
+			ulThumbs.setAttribute("class","thumbs");
+			divThumBox.appendChild(ulThumbs);
+			for(var i=0;i<product["images"].length;i++){
+				var imgUrl = product["images"][i] || "";
+				imgUrl = "/uploads/"+imgUrl;
+				var liThum = document.createElement("li");
+				var aThum = document.createElement("a");
+				aThum.setAttribute("href","#slide"+(i+1));
+				var imgThum = document.createElement("img");
+				imgThum.setAttribute("src",imgUrl);
+				imgThum.setAttribute("alt","");
+				aThum.appendChild(imgThum);
+				liThum.appendChild(aThum);
+				ulThumnails.appendChild(liThum);
+
+				var liThumb = document.createElement("li");
+				var aThumb = document.createElement("a");
+				aThumb.setAttribute("href","#"+(i+1));
+				aThumb.setAttribute("data-slide",(i+1));
+				var imgThumb = document.createElement("img");
+				imgThumb.setAttribute("src",imgUrl);
+				imgThumb.setAttribute("alt","");
+				aThumb.appendChild(imgThumb);
+				liThumb.appendChild(aThumb);
+				ulThumbs.appendChild(liThumb);
+			}
+			var divSlide = document.createElement("div");
+			divSlide.setAttribute("class","productSlide");
+			divSlide.appendChild(ulThumnails);
+			divSlide.appendChild(divThumBox);
+
+			var divMeta = document.createElement("div");
+			
+			res.render('front/item', {layout:"front.hbs",product:divSlide.outerHTML});
+		  console.log("Leave controller /p/:id/:title");
+		}
 	})
 
 	var favicon = new Buffer('AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAWf4AAhr/AO77/wACIP8AACP/AAAm/wD5+fkALTrpAAA19gD//+cA/f/wABIb+QAfHdsA+vv/AAUs/wAAOP8AATj/AP/7/wAKNf8AAUT/AABH/wAAUP8AhKHpAAAg9wAAJvcABAQEAARi/wCGrPgA4Oj1AAct+gD9/f0A//39AABF+gAATfcA5ff1ALa+9wAJRPcAGD/fAARS/QAAWP0AzeX/AOfI+QADJfUA+Pj4AAAu/gAICAgAExn1ACEtvAAAN/4AAULyAABR+wAJUO8At7e3APLx/wADAwMAqqzwAAQg+QAAJf8A8//zAAIl/wADJf8A/fT2AA0Z/wD+/ucAAC7/AG1tbQD+8f8AAyv/AAAx/wAANP8A/Pz8AAgr/wD7//wAAD75AAwMDAABQP8AEjT2AIWY9QACW/8A/v/iAAcHBwCIr+kAAyr9AP3++gAPJ/0AAD/9ABg03ABaX+YAPj4+AAICAgABIf4A9v/sAAUl+AACKv4ABSz7APv7+wALCwsA//34AP38/gD///4A7e3tAHV1dQDx7/wA7P35AAIl8AAAI/wA9vb2APr68AAAKv8ABib8APv78wD4/fkA+f35APz2/wA4PNEA//z2AAE2/wAIMP8ABDb/AP/8/wD///8AAEL/AAEBAQAGUf8ABFT/ADNDwwAKHPoA9P/3AC8vLwD5/+4A+vr6APn/9wABNPoA/f36AOn47ABmdPoAEzn3AMvo/AAHYPcAACn+AP385gAKHf4A4eT5ABMz1AD//fIABS/+AAE1/gD+//gA//v+AP7+/gDZ2dkABkbyAABN/gCZsu0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlUFGNpZqNlAeeHgeK5VglWUeGUaVGXp4gIJZLUZkeHgGGXiVgkY0BkpZWB56X3pGeHh4eF94eHh4lR54X5WVRnh4eA0KHClmhwdzeHh4eHh4eHeGaDs5TH0JfplxeHh4eHhwF16ED3ZEkB1cI3h4eHh4PmySSZcbjCB0RwSDeHh4eFqRJTUCKHwUVUUFTXh4eHhUVhFbMooAmHkQXQt4eHiVbRZIUScaThUTMEMueHh4eAF1bjozJnshS5KLV3h4eHgqUohrf4kkMQ8sBIV4eHh4Z2kOEj2BPzcIA3JieHh4eHiOaTxAj0JPUy8feHh4eHh4YW8MOI0YImOUk3h4eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=', 'base64');

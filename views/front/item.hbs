@@ -1,0 +1,87 @@
+<style>
+ul {
+    list-style: outside none none;
+    padding:0;
+}
+.productSlide{
+  width:500px;
+  float: left;
+}
+.thumb-box {
+    padding: 1.4em 0px 1em;
+    margin-left: -1%;
+    width: 102%;
+}
+.thumb-box .thumbs {
+    overflow: hidden;
+}
+.thumb-box .thumbs li {
+    float: left;
+    width: 16.6%;
+    text-align: center;
+    padding: 0px 1%;
+}
+.thumb-box .thumbs li:hover img {
+    opacity: 1;
+    transition: opacity 0.2s ease 0s;
+}
+.thumb-box .thumbs li img {
+    width: 100%;
+    opacity: 0.8;
+    transition: opacity 0.32s ease 0s;
+    border-bottom: 4px solid transparent;
+}
+.thumb-box .thumbs li img.active {
+    border-color: #31ACE2;
+    opacity: 1;
+}
+
+.rightDiv{
+  margin-left: auto;
+  margin-right: 0;
+}
+.leftDiv{
+  margin-left: auto;
+  margin-right: 0;
+}
+.meta{
+  width: 200px;
+}
+</style>
+
+<div>
+  {{{product}}}
+  <div>
+    <div>
+      <h1>cold rolled black annealed steel tube</h1>
+      <div>
+        <div class="meta">
+          <div class="leftDiv">Price:</div>
+          <div class="rightDiv">500-1000 USD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+jQuery(document).ready(function(){
+  var thumbs = jQuery('#thumbnails').slippry({
+    // general elements & wrapper
+    slippryWrapper: '<div class="slippry_box thumbnails" />',
+    // options
+    transition: 'horizontal',
+    pager: false,
+    auto: false,
+    onSlideBefore: function (el, index_old, index_new) {
+      jQuery('.thumbs a img').removeClass('active');
+      jQuery('img', jQuery('.thumbs a')[index_new]).addClass('active');
+    }
+  });
+
+  jQuery('.thumbs a').click(function () {
+    thumbs.goToSlide($(this).data('slide'));
+    return false;
+  });
+});
+</script>
