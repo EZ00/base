@@ -1,11 +1,19 @@
 <style>
-html{
-  background-color: white;
+
+table {
+    border-collapse: collapse;
 }
+table, th, td {
+    border: 1px solid black;
+    background-clip: content-box;
+}
+
 ul {
     list-style: outside none none;
     padding:0;
 }
+
+
 .productSlide{
   width:40%;
   float: left;
@@ -47,7 +55,7 @@ ul {
 @media screen and (min-width: 768px) {
   .productDesc{
     display:inline-block;
-    width:58%;
+    width:56%;
   }
 }
 
@@ -91,52 +99,172 @@ h1{
   display: block;
   width: 100%;
 }
+.productDetails{
+}
+
+.sectionShapes h2{
+  font-size: 30px;
+}
+.sectionShapes .sectionShape{
+  display: inline-block;
+}
+.sectionShapes .shapeIcon{
+  height: 100px;
+}
+.sectionShapes .shapeName{
+  margin-top: 5px;
+  text-align: center;
+}
+#drawerContent a:link{ color: #0000EE; }
+#drawerContent a:visited { color: #551A8B; }
+.textCenter{
+  text-align: center;
+}
 </style>
 
-<div style="overflow:auto;">
+<script src="/static/javascript/jquery.sticky-kit.min.js"></script>
+{{> front/header}}
+
+<div style='width:100%;position:relative;'>
+<nav class='drawer drawer-checked' id='drawerNav'>
+  <ul class='side-menu'>
+      <li><div class='side-menu-text'><a href="#">cold rolled steel tube<span class="caret"></span></a></div>
+        <ul>
+          <li><div class='side-menu-text'><a href="#">cold rolled black annealed steel tube</a></div></li>
+          <li><div class='side-menu-text'><a href="#">cold rolled bright annealed steel tube</a></div></li>
+          <li><div class='side-menu-text'><a href="#">hard bright steel tube</a></div></li>
+        </ul>
+      </li>
+      <li><div class='side-menu-text'><a href="#">hot rolled steel tube</a></div></li>
+      <li><div class='side-menu-text'><a href="#">galvanized steel tube<span class="caret"></span></a></div>
+        <ul>
+          <li><div class='side-menu-text'><a href="#">hot dipped galvanized steel tube</a></div></li>
+          <li><div class='side-menu-text'><a href="#">pregalvanized steel tube</a></div></li>
+        </ul>
+      </li>
+      <li><div class='side-menu-text'><a href="#">stainless steel tube</a></div></li>
+      <li><div class='side-menu-text'><a href="#">seamless steel pipe</a></div></li>
+      <li><div class='side-menu-text'><a href="#">steel coil, steel sheet, steel strip, steel plate<span class="caret"></div></a>
+        <ul>
+          <li><div class='side-menu-text'><a href="#">galvanized steel sheet or strip</a></div></li>
+          <li><div class='side-menu-text'><a href="#">hard bright steel sheet or strip</a></div></li>
+          <li><div class='side-menu-text'><a href="#">black annealed steel sheet or strip</a></div></li>
+          <li><div class='side-menu-text'><a href="#">blue steel sheet or strip</a></div></li>
+          <li><div class='side-menu-text'><a href="#">stainless steel sheet or strip</a></div></li>
+        </ul>
+      </li>
+      <li><div class='side-menu-text'><a href="#">L T Z tube</a></div></li>
+      <li><div class='side-menu-text'><a href="#">C U Z tube</a></div></li>
+      <li><div class='side-menu-text'><a href="#">angle bar</a></div></li>
+      <li><div class='side-menu-text'><a href="/products">all...</a></div></li>
+  </ul>
+</nav>
+<div class='page-content page-content-checked' id='drawerContent'>
   {{{product}}}
-  <div class="productDesc">
-  <div style="display:inline-block;margin-left:20px;">
-    <div>
-      <h1 class="productTitle">cold rolled black annealed steel tube</h1>
-      <div class="metaContainer">
-        <div class="meta">
-          <div class="leftDiv">FOB Price:</div>
-          <div class="inlineBlock"><b>500-1000 USD</b></div>
-        </div>
-        <div class="meta">
-          <div class="leftDiv">Min Order Quantity:</div>
-          <div class="inlineBlock"><b>25 tons</b></div>
-        </div>
-        <div class="meta">
-          <div class="leftDiv">Supply Ability:</div>
-          <div class="inlineBlock"><b>6000 tons / month</b></div>
-        </div>
-        <div class="meta">
-          <div class="leftDiv">Port:</div>
-          <div class="inlineBlock"><b>Xingang Tianjin</b></div>
-        </div>
-        <div class="meta">
-          <div class="leftDiv">Payment Terms:</div>
-          <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
-        </div>
-      </div>
+<div class="productDetails">
+  <section class="sectionShapes">
+    <h2>Section shapes</h2>
+    <div class="row">
+    <div class="sectionShape col-sm-2 bottom-align-text">
+      <img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>
+      <div class="shapeName">round</div>
     </div>
-  </div>
-  <br/>
-  <div class="quickContact">
-    <label>your name: </label>
-    <input type="text"></input>
-    <label>your email address: </label>
-    <input type="email"></input>
-    <label>your requirement:</label>
-    <textarea name="requirement" cols="40" rows="5" ></textarea>
-    <button class="btn btn-primary">Send</button>
-  </div>
-  </div>
+    <div class="sectionShape col-sm-2 bottom-align-text">
+      <img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>
+      <div class="shapeName">square</div>
+    </div>
+    <div class="sectionShape col-sm-2 bottom-align-text">
+      <img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>
+      <div class="shapeName">rectangle</div>
+    </div>
+    <div class="sectionShape col-sm-2 bottom-align-text">
+      <img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>
+      <div class="shapeName">stadium</div>
+    </div>
+    <div class="sectionShape col-sm-2 bottom-align-text">
+      <img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>
+      <div class="shapeName">ellipse</div>
+    </div>
+    <div class="sectionShape col-sm-2 bottom-align-text">
+      <img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>
+      <div class="shapeName">hexagon</div>
+    </div>
+    </div>
+    <div class="textCenter">
+      For customized shapes, please <a href="/contact">contact us</a>
+    </div>
+  </section>
+  <table>
+      <tbody>
+          <tr>
+              <td rowspan="3">Size</td>
+              <td>OD</td>
+              <td>1/8”-24” (10.3mm-609.6mm)</td>
+          </tr>
+          <tr>
+              <td>Wall Thickness</td>
+              <td>0.2mm-60mm
+                  <br/>SCH20,SCH40,STD,XS,SCH80,SCH160,XXS</td>
+          </tr>
+          <tr>
+              <td>Length</td>
+              <td>Less than 12m or as your requirements.</td>
+          </tr>
+          <tr>
+              <td>Steel material</td>
+              <td colspan="2">Q195 → SS330,ST37,ST42
+                  <br/>Q235 → SS400,S235JR
+                  <br/>Q345 → S355JR,SS500,ST52</td>
+          </tr>
+          <tr>
+              <td>Standard</td>
+              <td colspan="2">ASTM A53, BS1387-1985</td>
+          </tr>
+          <tr>
+              <td>Usage</td>
+              <td colspan="2">1) low pressure liquid, water, gas, oil, line pipe
+                  <br/>2) Construction
+                  <br/>3)fence, door pipe</td>
+          </tr>
+          <tr>
+              <td>Ends</td>
+              <td colspan="2">1) Plain
+                  <br/>2) Beveled
+                  <br/>3) Thread with Coupling or cap
+                  <br/>4) Chamfer
+                  <br/>5) Groove
+                  <br/>6) Screw</td>
+          </tr>
+          <tr>
+              <td>End protector</td>
+              <td colspan="2">1) Bared
+                  <br/>2) Black Painted (varnish coating)
+                  <br/>3) Galvanized
+                  <br/>4) Oiled
+                  <br/>5) PE,3PE, FBE, corrosion resistant coating, Anti corrosion coating.</td>
+          </tr>
+          <tr>
+              <td>Technique</td>
+              <td colspan="2">Electronic Resistance Welded (ERW )
+                  <br/>Electronic Fusion Welded (EFW)
+                  <br/>Double Submerged Arc Welded (DSAW)</td>
+          </tr>
+          <tr>
+              <td>Welded line type</td>
+              <td colspan="2">Longitudinal</td>
+          </tr>
+          <tr>
+              <td>Section Shape</td>
+              <td colspan="2">Round</td>
+          </tr>
+          <tr>
+              <td>Inspection</td>
+              <td colspan="2">With Hydraulic Testing, Eddy Current , Infrared Test</td>
+          </tr>
+      </tbody>
+  </table>
 </div>
-<div>
-  Product Desc
+</div>
 </div>
 
 <script>
@@ -158,6 +286,8 @@ jQuery(document).ready(function(){
     thumbs.goToSlide($(this).data('slide'));
     return false;
   });
+
+  $('#drawerNav').stick_in_parent({offset_top:20,recalc_every: 1});
 });
 
 (function() {
@@ -185,3 +315,8 @@ jQuery(document).ready(function(){
 
 }());
 </script>
+<footer>
+  {{> front/footer-get-quote}}
+  {{> front/footer}}
+  {{> front/footer-copyright}}
+</footer>

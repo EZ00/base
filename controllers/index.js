@@ -150,6 +150,7 @@ module.exports = function(app,passport){
 	})
 
 	app.get('/p/:id/:title', function(req, res, next) {
+		//<div style="overflow:auto;">
 		// <ul id="thumbnails">
 		//   <li>
 		//     <a href="#slide1">
@@ -180,6 +181,47 @@ module.exports = function(app,passport){
 		//     <li><a href="#4" data-slide="4"><img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4."></a></li>
 		//   </ul>
 		// </div>
+
+		// <div class="productDesc">
+	  // <div style="display:inline-block;margin-left:20px;">
+	  //   <div>
+	  //     <h1 class="productTitle">cold rolled black annealed steel tube</h1>
+	  //     <div class="metaContainer">
+	  //       <div class="meta">
+	  //         <div class="leftDiv">FOB Price:</div>
+	  //         <div class="inlineBlock"><b>500-1000 USD</b></div>
+	  //       </div>
+	  //       <div class="meta">
+	  //         <div class="leftDiv">Min Order Quantity:</div>
+	  //         <div class="inlineBlock"><b>25 tons</b></div>
+	  //       </div>
+	  //       <div class="meta">
+	  //         <div class="leftDiv">Supply Ability:</div>
+	  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
+	  //       </div>
+	  //       <div class="meta">
+	  //         <div class="leftDiv">Port:</div>
+	  //         <div class="inlineBlock"><b>Xingang Tianjin</b></div>
+	  //       </div>
+	  //       <div class="meta">
+	  //         <div class="leftDiv">Payment Terms:</div>
+	  //         <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
+	  //       </div>
+	  //     </div>
+	  //   </div>
+	  // </div>
+	  // <br/>
+	  // <div class="quickContact">
+	  //   <label>your name: </label>
+	  //   <input type="text"></input>
+	  //   <label>your email address: </label>
+	  //   <input type="email"></input>
+	  //   <label>your requirement:</label>
+	  //   <textarea name="requirement" cols="40" rows="5" ></textarea>
+	  //   <button class="btn btn-primary">Send</button>
+	  // </div>
+	  // </div>
+		//</div>
 	  console.log("Enter controller /p/:id/:title");
 	  var id = Number(req.params.id);
 		var product = null;
@@ -231,9 +273,126 @@ module.exports = function(app,passport){
 			divSlide.appendChild(ulThumnails);
 			divSlide.appendChild(divThumBox);
 
-			var divMeta = document.createElement("div");
+			var priceUnits = product.priceUnit.split("/");
+			var moqUnits = product.moqUnit.split("/");
+			var supplyUnits = product.supplyUnit.split("/");
 
-			res.render('front/item', {layout:"front.hbs",product:divSlide.outerHTML});
+			var divProductDesc = document.createElement("div");
+			divProductDesc.setAttribute("class","productDesc");
+			var divTitleMeta = document.createElement("div");
+			divTitleMeta.setAttribute("style","display:inline-block;margin-left:20px;");
+			divProductDesc.appendChild(divTitleMeta);
+			//<h1 class="productTitle">product.title</h1>
+			var h1Title = document.createElement("h1");
+			h1Title.setAttribute("class","productTitle");
+			h1Title.innerHTML = product.title;
+			divTitleMeta.appendChild(h1Title);
+			//<div class="metaContainer">
+			var divMetaContainer = document.createElement("div");
+			divMetaContainer.setAttribute("class","metaContainer");
+			divTitleMeta.appendChild(divMetaContainer);
+			//       <div class="meta">
+		  //         <div class="leftDiv">FOB Price:</div>
+		  //         <div class="inlineBlock"><b>500-1000 USD</b></div>
+		  //       </div>
+			var divMetaPrice = document.createElement("div");
+			divMetaPrice.setAttribute("class","meta");
+			var divMetaPriceKey = document.createElement("div");
+			divMetaPriceKey.setAttribute("class","leftDiv");
+			divMetaPriceKey.innerHTML = "FOB Price:";
+			var divMetaPriceValue = document.createElement("div");
+			divMetaPriceValue.setAttribute("class","inlineBlock");
+			divMetaPriceValue.innerHTML = "<b>"+ product.priceMin + "-" + product.priceMax + " " + product.currency + " / " +priceUnits[0]+"</b>"
+			divMetaPrice.appendChild(divMetaPriceKey);
+			divMetaPrice.appendChild(divMetaPriceValue);
+			divMetaContainer.appendChild(divMetaPrice);
+			//       <div class="meta">
+		  //         <div class="leftDiv">Min Order Quantity:</div>
+		  //         <div class="inlineBlock"><b>25 tons</b></div>
+		  //       </div>
+			var divMetaMoq = document.createElement("div");
+			divMetaMoq.setAttribute("class","meta");
+			var divMetaMoqKey = document.createElement("div");
+			divMetaMoqKey.setAttribute("class","leftDiv");
+			divMetaMoqKey.innerHTML = "Min Order Quantity:";
+			var divMetaMoqValue = document.createElement("div");
+			divMetaMoqValue.setAttribute("class","inlineBlock");
+			divMetaMoqValue.innerHTML = "<b>"+ product.moq + " " + moqUnits[1]+"</b>"
+			divMetaMoq.appendChild(divMetaMoqKey);
+			divMetaMoq.appendChild(divMetaMoqValue);
+			divMetaContainer.appendChild(divMetaMoq);
+			//       <div class="meta">
+		  //         <div class="leftDiv">Supply Ability:</div>
+		  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
+		  //       </div>
+			var divMetaSup = document.createElement("div");
+			divMetaSup.setAttribute("class","meta");
+			var divMetaSupKey = document.createElement("div");
+			divMetaSupKey.setAttribute("class","leftDiv");
+			divMetaSupKey.innerHTML = "Min Order Quantity:";
+			var divMetaSupValue = document.createElement("div");
+			divMetaSupValue.setAttribute("class","inlineBlock");
+			divMetaSupValue.innerHTML = "<b>"+ product.supplyQuantity + " " + supplyUnits[0] + " / "+ product.supplyPeriod +"</b>";
+			divMetaSup.appendChild(divMetaSupKey);
+			divMetaSup.appendChild(divMetaSupValue);
+			divMetaContainer.appendChild(divMetaSup);
+			//       <div class="meta">
+		  //         <div class="leftDiv">Supply Ability:</div>
+		  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
+		  //       </div>
+			var divMetaLeadTime = document.createElement("div");
+			divMetaLeadTime.setAttribute("class","meta");
+			var divMetaLeadTimeKey = document.createElement("div");
+			divMetaLeadTimeKey.setAttribute("class","leftDiv");
+			divMetaLeadTimeKey.innerHTML = "Lead time:";
+			var divMetaLeadTimeValue = document.createElement("div");
+			divMetaLeadTimeValue.setAttribute("class","inlineBlock");
+			divMetaLeadTimeValue.innerHTML = "<b>"+ product.consignmentTerm+"</b>";
+			divMetaLeadTime.appendChild(divMetaLeadTimeKey);
+			divMetaLeadTime.appendChild(divMetaLeadTimeValue);
+			divMetaContainer.appendChild(divMetaLeadTime);
+			//       <div class="meta">
+		  //         <div class="leftDiv">Port:</div>
+		  //         <div class="inlineBlock"><b>Xingang Tianjin</b></div>
+		  //       </div>
+			var divMetaPort = document.createElement("div");
+			divMetaPort.setAttribute("class","meta");
+			divMetaPort.innerHTML = '<div class="leftDiv">Port:</div><div class="inlineBlock"><b>Xingang Tianjin</b></div>';
+			divMetaContainer.appendChild(divMetaPort);
+			//       <div class="meta">
+		  //         <div class="leftDiv">Payment Terms:</div>
+		  //         <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
+		  //       </div>
+			var divMetaPay = document.createElement("div");
+			divMetaPay.setAttribute("class","meta");
+			divMetaPay.innerHTML = '<div class="leftDiv">Payment Terms:</div><div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/faq#payment-terms">view all payment terms</a></b></div>';
+			divMetaContainer.appendChild(divMetaPay);
+
+			var brContact = document.createElement("br");
+			divProductDesc.appendChild(brContact);
+
+			//quickContact
+			var quickContact = document.createElement("div");
+			quickContact.setAttribute("class","quickContact");
+			quickContact.innerHTML = '<label>your name: </label>\
+			<input type="text"></input>\
+			<label>your email address: </label>\
+			<input type="email"></input>\
+			<label>your requirement:</label>\
+			<textarea name="requirement" cols="40" rows="5" ></textarea>\
+			<button class="btn btn-primary">Send</button>\
+			'
+			divProductDesc.appendChild(quickContact);
+
+			//<div style="overflow:auto;">
+			var divSlideDesc = document.createElement("div");
+			divSlideDesc.setAttribute("style","overflow:auto;");
+			divSlideDesc.appendChild(divSlide);
+			divSlideDesc.appendChild(divProductDesc);
+
+			var divProductContainer = document.createElement("div");
+
+			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML});
 		  console.log("Leave controller /p/:id/:title");
 		}
 	})
