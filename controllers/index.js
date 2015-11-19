@@ -392,7 +392,7 @@ module.exports = function(app,passport){
 
 			var divProductContainer = document.createElement("div");
 
-			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML});
+			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,title:product.title+" - Sunrise Industry Group"});
 		  console.log("Leave controller /p/:id/:title");
 		}
 	})
