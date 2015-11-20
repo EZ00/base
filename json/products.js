@@ -30,7 +30,7 @@
       "Thickness":"0.35 - 2.0 mm",
       "HS Code":"7306610000",
       "Drawback":"9%",
-      "shape":{
+      "shapes":{
         "round":{
           "outer diameter":"8-127mm",
           "wall thickness":"mm",

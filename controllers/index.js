@@ -390,9 +390,72 @@ module.exports = function(app,passport){
 			divSlideDesc.appendChild(divSlide);
 			divSlideDesc.appendChild(divProductDesc);
 
-			var divProductContainer = document.createElement("div");
+			var productDetails = "";
 
-			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,title:product.title+" - Sunrise Industry Group"});
+			var sectionShapes = document.createElement("section");
+			sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
+			sectionShapes.innerHTML='\
+			<h2 class="textCenter">Section shapes</h2>\
+	    <div class="inlineBlock">\
+	    <div class="sectionShape">\
+	      <img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>\
+	      <div class="shapeName">round</div>\
+	    </div>\
+	    <div class="sectionShape">\
+	      <img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>\
+	      <div class="shapeName">square</div>\
+	    </div>\
+	    <div class="sectionShape">\
+	      <img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>\
+	      <div class="shapeName">rectangle</div>\
+	    </div>\
+	    <div class="sectionShape">\
+	      <img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>\
+	      <div class="shapeName">stadium</div>\
+	    </div>\
+	    <div class="sectionShape">\
+	      <img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>\
+	      <div class="shapeName">ellipse</div>\
+	    </div>\
+	    <div class="sectionShape">\
+	      <img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>\
+	      <div class="shapeName">hexagon</div>\
+	    </div>\
+	    </div>\
+	    <div class="textCenter lead">\
+	      For customized shapes, please <a href="/contact">contact us</a>\
+	    </div>';
+			productDetails += sectionShapes.outerHTML;
+
+			var sectionSizes = document.createElement("section");
+			sectionSizes.setAttribute("class","sizes blockCenter textCenter");
+			var h2SizesTitle = document.createElement("h2");
+			h2SizesTitle.innerHTML = "Sizes";
+			sectionSizes.appendChild(h2SizesTitle);
+			var sizesContainer = document.createElement("div");
+			sizesContainer.setAttribute("class","inlineBlock");
+			console.log("product.kvs.shapes",product.kvs.shapes);
+			for(var key in product.kvs.shapes){
+				console.log("key:",key);
+				var sizeContainer = document.createElement("div");
+				sizeContainer.setAttribute("class","inlineBlock");
+				var shapeName = document.createElement("div");
+				shapeName.setAttribute("class","textCenter shapeName");
+				shapeName.innerHTML = "<b>"+key+"</b>";
+				sizeContainer.appendChild(shapeName);
+				for(var prop in product.kvs.shapes[key]){
+					console.log("prop:",prop);
+					var divProp = document.createElement("div");
+					divProp.setAttribute("class","textCenter");
+					divProp.innerHTML = product.kvs.shapes[key][prop];
+					sizeContainer.appendChild(divProp);
+				}
+				sizesContainer.appendChild(sizeContainer);
+			}
+			sectionSizes.appendChild(sizesContainer);
+			productDetails += sectionSizes.outerHTML;
+
+			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,productDetails:productDetails,title:product.title+" - Sunrise Industry Group"});
 		  console.log("Leave controller /p/:id/:title");
 		}
 	})
