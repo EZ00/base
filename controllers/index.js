@@ -435,7 +435,7 @@ module.exports = function(app,passport){
 			<input type="email"></input>\
 			<label>your requirement:</label>\
 			<textarea name="requirement" cols="40" rows="5" ></textarea>\
-			<button class="btn btn-primary">Send</button>\
+			<button class="btn btn-primary" id="btnSend">Send</button>\
 			'
 			divProductDesc.appendChild(quickContact);
 
@@ -504,7 +504,7 @@ module.exports = function(app,passport){
 			for(var key in product.kvs.shapes){
 				console.log("key:",key);
 				var sizeContainer = document.createElement("div");
-				sizeContainer.setAttribute("class","inlineBlock");
+				sizeContainer.setAttribute("class","sizeContainer inlineBlock");
 				var shapeName = document.createElement("div");
 				shapeName.setAttribute("class","textCenter shapeName");
 				shapeName.innerHTML = "<b>"+key+"</b>";
@@ -512,8 +512,8 @@ module.exports = function(app,passport){
 				for(var prop in product.kvs.shapes[key]){
 					console.log("prop:",prop);
 					var divProp = document.createElement("div");
-					divProp.setAttribute("class","textCenter");
-					divProp.innerHTML = product.kvs.shapes[key][prop];
+					divProp.setAttribute("class","sizeProp textCenter");
+					divProp.innerHTML = prop +":"+ product.kvs.shapes[key][prop];
 					sizeContainer.appendChild(divProp);
 				}
 				sizesContainer.appendChild(sizeContainer);
