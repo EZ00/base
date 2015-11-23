@@ -95,7 +95,11 @@ h1{
   margin-left: 20px;
   margin-top: 20px;
 }
-.quickContact textarea,.quickContact input{
+.quickContact input{
+  display: inline;
+  width: 100%;
+}
+.quickContact textarea{
   display: block;
   width: 100%;
 }
@@ -369,6 +373,22 @@ h1{
 </div>
 
 <script>
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
+var btnSend = document.getElementById("btnSend");
+btnSend.addEventListener("click",function(){
+  var inputName = document.getElementById("inputName");
+  var inputEmailAddr = document.getElementById("inputEmailAddr");
+  var textareaRequirement = document.getElementById("textareaRequirement");
+  var name = inputName.value.trim();
+  var emailAddr = inputEmailAddr.value.trim();
+  var requirement = textareaRequirement.value.trim();
+  console.log("name: ",name);
+  console.log("emailAddr: ",validateEmail(emailAddr));
+  console.log("requirement: ",requirement);
+})
 jQuery(document).ready(function(){
   var thumbs = jQuery('#thumbnails').slippry({
     // general elements & wrapper

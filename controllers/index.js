@@ -120,6 +120,18 @@ module.exports = function(app,passport){
 		res.redirect('/');
 	})
 
+	app.post('/requirement',function(req,res,next){
+		Inquiry.props['creatorId'] = null;
+		Inquiry.props['creatorName'] = 'customer';
+		Inquiry.props['name'] = req.body.name;
+		Inquiry.props['email'] = req.body.email;
+		Inquiry.props['company'] = req.body.company;
+		Inquiry.props['phone'] = req.body.phone;
+		Inquiry.props['content'] = req.body.content;
+		Inquiry.insert();
+		res.redirect('/');
+	})
+
   app.get('/products',function(req,res){
 		// <div id="products" class="list-group">
 		// 		<div class="item">
@@ -429,13 +441,18 @@ module.exports = function(app,passport){
 			//quickContact
 			var quickContact = document.createElement("div");
 			quickContact.setAttribute("class","quickContact");
-			quickContact.innerHTML = '<label>your name: </label>\
-			<input type="text"></input>\
+			quickContact.innerHTML = '\
+			<form action="/requirement" method="POST">\
+			<div class="form-group">\
+			<label>your name: </label>\
+			<input type="text" id="inputName name="name"></input>\
+			</div>\
 			<label>your email address: </label>\
-			<input type="email"></input>\
+			<input type="email" id="inputEmailAddr" name="email"></input>\
 			<label>your requirement:</label>\
-			<textarea name="requirement" cols="40" rows="5" ></textarea>\
-			<button class="btn btn-primary" id="btnSend">Send</button>\
+			<textarea name="requirement" cols="40" rows="5" id="textareaRequirement" name="content"></textarea>\
+			<button class="btn btn-primary" id="btnSend" type="submit">Send</button>\
+			</form>\
 			'
 			divProductDesc.appendChild(quickContact);
 
