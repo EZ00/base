@@ -5,6 +5,7 @@ var Inquiry = require('../models/inquiries');
 var fs = require("fs");
 var jsdom = require("jsdom").jsdom;
 var serializeDocument = require("jsdom").serializeDocument;
+var document = jsdom("");
 var products = JSON.parse(fs.readFileSync('./json/products.js', 'utf8'));
 //console.log(products);
 //var Comment = require('../models/comment')
@@ -27,6 +28,60 @@ var isAuthenticated = function (req, res, next) {
 		return next();
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
+}
+
+var isObject = function(obj){
+  return obj === Object(obj) && Object.prototype.toString.call(obj) !== '[object Array]'
+}
+
+var calcRowspan = function(obj){
+    var n = 0;
+    var total = 0;
+    for(var i in obj){
+        if(isObject(obj[i])){
+            total += calcRowspan(obj[i]);
+        }
+        else{
+            n += 1;
+        }
+    }
+    return total+n;
+}
+
+var objToRows = function(elTbody,key,obj){
+    var elTr = document.createElement("tr");
+    var elTd = document.createElement("td");
+    elTd.innerHTML = key;
+    elTd.setAttribute("rowspan",calcRowspan(obj));
+    elTr.appendChild(elTd);
+    elTbody.appendChild(elTr);
+}
+var jsonToTable = function(data){
+    var elTable = document.createElement("table");
+    var elTbody = document.createElement("tbody");
+    elTable.appendChild(elTbody);
+    if(Array.isArray(data)){
+        console.log("is array");
+    }
+    else{
+        for(var key in data){
+            if(isObject(data[key])){
+                //objToRows(elTbody,key,data[key])
+            }
+            else{
+            var trRow = document.createElement("tr");
+            var trDataKey = document.createElement("td");
+            var trDataValue = document.createElement("td");
+            trDataKey.innerHTML = key;
+            trDataValue.innerHTML = data[key];
+            trRow.appendChild(trDataKey);
+            trRow.appendChild(trDataValue);
+            elTbody.appendChild(trRow);
+            }
+            //console.log(key,data[key]);
+        }
+        return elTable;
+    }
 }
 
 module.exports = function(app,passport){
@@ -235,7 +290,7 @@ module.exports = function(app,passport){
 			next();
 		}
 		else{
-			var document = jsdom("");
+			//var document = jsdom("");
 			var ulThumnails = document.createElement("ul");
 			ulThumnails.setAttribute("id","thumbnails");
 			var divThumBox = document.createElement("div");
@@ -391,6 +446,17 @@ module.exports = function(app,passport){
 			divSlideDesc.appendChild(divProductDesc);
 
 			var productDetails = "";
+
+			var sectionTable = document.createElement("section");
+			sectionTable.setAttribute("class","blockCenter textCenter");
+			var h2TableTitle = document.createElement("h2");
+			h2TableTitle.innerHTML = "Details in a table";
+			sectionTable.appendChild(h2TableTitle);
+			var tableContainer = document.createElement("div");
+			tableContainer.setAttribute("class","inlineBlock");
+			sectionTable.appendChild(tableContainer);
+			tableContainer.appendChild(jsonToTable(product.kvs))
+			productDetails += sectionTable.outerHTML;
 
 			var sectionShapes = document.createElement("section");
 			sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
