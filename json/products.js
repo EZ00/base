@@ -21,22 +21,22 @@
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
     "kvs":{
-      "steel grade":"Q195-Q235",
-      "section shape":"square, rectangular, round, oval, LTZ",
-      "surface treatment":"oiled",
+      "Steel grade":"Q195-Q235",
+      "Section shape":"square, rectangular, round, oval, LTZ",
+      "Surface treatment":"oiled",
       "Technique":"cold rolled, ERW",
       "Application":"Structure Pipe",
       "Standard":"GB/T 13793-2008",
       "Thickness":"0.35 - 2.0 mm",
       "HS Code":"7306610000",
       "Drawback":"9%",
-      "shapes":{
-        "round":{
+      "sizes":{
+        "Round":{
           "outer diameter":"8-127mm",
           "wall thickness":"mm",
           "length":"mm"
         },
-        "square":{
+        "Square":{
           "side length":"10-100mm",
           "wall thickness":"mm",
           "length":"mm"
@@ -47,6 +47,11 @@
           "length":"mm"
         },
         "Stadium":{
+          "axb":"9*17-32*53mm",
+          "wall thickness":"mm",
+          "length":"mm"
+        },
+        "Ellipse":{
           "axb":"9*17-32*53mm",
           "wall thickness":"mm",
           "length":"mm"

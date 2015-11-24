@@ -56,8 +56,9 @@ var objToRows = function(elTbody,key,obj){
     elTr.appendChild(elTd);
     elTbody.appendChild(elTr);
 }
-var jsonToTable = function(data){
+var jsonToTable = function(data,style){
     var elTable = document.createElement("table");
+		elTable.setAttribute("style",style);
     var elTbody = document.createElement("tbody");
     elTable.appendChild(elTbody);
     if(Array.isArray(data)){
@@ -128,6 +129,7 @@ module.exports = function(app,passport){
 		Inquiry.props['company'] = req.body.company;
 		Inquiry.props['phone'] = req.body.phone;
 		Inquiry.props['content'] = req.body.content;
+		//console.log(Inquiry.props);
 		Inquiry.insert();
 		res.redirect('/');
 	})
@@ -346,6 +348,7 @@ module.exports = function(app,passport){
 
 			var divProductDesc = document.createElement("div");
 			divProductDesc.setAttribute("class","productDesc");
+			divProductDesc.setAttribute("id","productDesc");
 			var divTitleMeta = document.createElement("div");
 			divTitleMeta.setAttribute("style","display:inline-block;margin-left:20px;");
 			divProductDesc.appendChild(divTitleMeta);
@@ -432,7 +435,7 @@ module.exports = function(app,passport){
 		  //       </div>
 			var divMetaPay = document.createElement("div");
 			divMetaPay.setAttribute("class","meta");
-			divMetaPay.innerHTML = '<div class="leftDiv">Payment Terms:</div><div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/faq#payment-terms">view all payment terms</a></b></div>';
+			divMetaPay.innerHTML = '<div class="leftDiv">Payment Terms:</div><div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance,Negotiable <br/> <a href="/faq#payment-terms">view all payment terms</a></b></div>';
 			divMetaContainer.appendChild(divMetaPay);
 
 			var brContact = document.createElement("br");
@@ -443,14 +446,24 @@ module.exports = function(app,passport){
 			quickContact.setAttribute("class","quickContact");
 			quickContact.innerHTML = '\
 			<form action="/requirement" method="POST">\
-			<div class="form-group">\
-			<label>your name: </label>\
-			<input type="text" id="inputName name="name"></input>\
+			<div class="formGroupInline">\
+			<label for="name">name: </label>\
+			<span class="inputContainer"><input type="text" id="name" name="name" placeholder="your name" required="required"></input></span>\
 			</div>\
-			<label>your email address: </label>\
-			<input type="email" id="inputEmailAddr" name="email"></input>\
-			<label>your requirement:</label>\
-			<textarea name="requirement" cols="40" rows="5" id="textareaRequirement" name="content"></textarea>\
+			<div class="formGroupInline">\
+			<label for="email">email address: </label>\
+			<span class="inputContainer"><input type="email" id="email" name="email" placeholder="your email address" required="required"></input></span>\
+			</div>\
+			<div class="formGroupInline">\
+			<label for="phone">phone: </label>\
+			<span class="inputContainer"><input type="phone" id="phone" name="phone" placeholder="your phone number" required="required"></input></span>\
+			</div>\
+			<div class="formGroupInline">\
+			<label for="company">company: </label>\
+			<span class="inputContainer"><input type="text" id="company" name="company" placeholder="your company name" required="required"></input></span>\
+			</div>\
+			<label for="content">your requirement:</label>\
+			<textarea cols="40" rows="5" id="content" name="content" placeholder="your requirement" required="required"></textarea>\
 			<button class="btn btn-primary" id="btnSend" type="submit">Send</button>\
 			</form>\
 			'
@@ -517,8 +530,8 @@ module.exports = function(app,passport){
 			sectionSizes.appendChild(h2SizesTitle);
 			var sizesContainer = document.createElement("div");
 			sizesContainer.setAttribute("class","inlineBlock");
-			console.log("product.kvs.shapes",product.kvs.shapes);
-			for(var key in product.kvs.shapes){
+			console.log("product.kvs.sizes",product.kvs.sizes);
+			for(var key in product.kvs.sizes){
 				console.log("key:",key);
 				var sizeContainer = document.createElement("div");
 				sizeContainer.setAttribute("class","sizeContainer inlineBlock");
@@ -526,11 +539,11 @@ module.exports = function(app,passport){
 				shapeName.setAttribute("class","textCenter shapeName");
 				shapeName.innerHTML = "<b>"+key+"</b>";
 				sizeContainer.appendChild(shapeName);
-				for(var prop in product.kvs.shapes[key]){
+				for(var prop in product.kvs.sizes[key]){
 					console.log("prop:",prop);
 					var divProp = document.createElement("div");
 					divProp.setAttribute("class","sizeProp textCenter");
-					divProp.innerHTML = prop +":"+ product.kvs.shapes[key][prop];
+					divProp.innerHTML = prop +":"+ product.kvs.sizes[key][prop];
 					sizeContainer.appendChild(divProp);
 				}
 				sizesContainer.appendChild(sizeContainer);
@@ -541,6 +554,83 @@ module.exports = function(app,passport){
 			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,productDetails:productDetails,title:product.title+" - Sunrise Industry Group"});
 		  console.log("Leave controller /p/:id/:title");
 		}
+	})
+
+function renderSizes(container,sizes){
+	console.log(sizes);
+	var sectionSizes = document.createElement("section");
+	sectionSizes.setAttribute("class","sizes blockCenter textCenter");
+	var h2SizesTitle = document.createElement("h2");
+	h2SizesTitle.innerHTML = "尺寸";
+	sectionSizes.appendChild(h2SizesTitle);
+	var sizesContainer = document.createElement("div");
+	sizesContainer.setAttribute("class","inlineBlock");
+	for(var key in sizes){
+		console.log("key:",key);
+		var sizeContainer = document.createElement("div");
+		sizeContainer.setAttribute("class","sizeContainer inlineBlock");
+		var shapeName = document.createElement("div");
+		shapeName.setAttribute("class","textCenter shapeName");
+		shapeName.innerHTML = "<b>"+key+"</b>";
+		sizeContainer.appendChild(shapeName);
+		for(var prop in sizes[key]){
+			console.log("prop:",prop);
+			var divProp = document.createElement("div");
+			divProp.setAttribute("class","sizeProp textCenter");
+			divProp.innerHTML = prop +":"+ sizes[key][prop];
+			sizeContainer.appendChild(divProp);
+		}
+		sizesContainer.appendChild(sizeContainer);
+	}
+	sectionSizes.appendChild(sizesContainer);
+	return sectionSizes.outerHTML;
+	console.log(sectionSizes.outerHTML);
+}
+	app.get("/products_zh",function(req,res){
+		var products_zh = JSON.parse(fs.readFileSync('./json/products_zh.js', 'utf8'));
+		console.log(products_zh);
+		var divProducts = "";
+		var sectionShapes = document.createElement("section");
+		sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
+		sectionShapes.innerHTML='\
+		<h2 class="textCenter">截面形状</h2>\
+		<div class="inlineBlock">\
+		<div class="sectionShape">\
+			<img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>\
+			<div class="shapeName">圆形</div>\
+		</div>\
+		<div class="sectionShape">\
+			<img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>\
+			<div class="shapeName">正方形</div>\
+		</div>\
+		<div class="sectionShape">\
+			<img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>\
+			<div class="shapeName">矩形</div>\
+		</div>\
+		<div class="sectionShape">\
+			<img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>\
+			<div class="shapeName">平椭圆</div>\
+		</div>\
+		<div class="sectionShape">\
+			<img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>\
+			<div class="shapeName">椭圆</div>\
+		</div>\
+		<div class="sectionShape">\
+			<img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>\
+			<div class="shapeName">六边形</div>\
+		</div>\
+		</div>';
+		divProducts += sectionShapes.outerHTML;
+    divProducts += '<section class="blockCenter textCenter"><h2>产品列表</h2></section>';
+
+		for(var i=0; i<products_zh.length;i++){
+			divProducts += '<section class="blockCenter"><div style="width:40%;margin-left:auto;margin-right:auto;margin-bottom:20px;">';
+			divProducts += jsonToTable(products_zh[i],style="width:100%;").outerHTML;
+			divProducts += '</div></section>';
+		}
+
+		//console.log(divProducts);
+		res.render('front/products_zh', {layout:"front.hbs",products:divProducts,title:"Sunrise Industry Group"});
 	})
 
 	var favicon = new Buffer('AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAWf4AAhr/AO77/wACIP8AACP/AAAm/wD5+fkALTrpAAA19gD//+cA/f/wABIb+QAfHdsA+vv/AAUs/wAAOP8AATj/AP/7/wAKNf8AAUT/AABH/wAAUP8AhKHpAAAg9wAAJvcABAQEAARi/wCGrPgA4Oj1AAct+gD9/f0A//39AABF+gAATfcA5ff1ALa+9wAJRPcAGD/fAARS/QAAWP0AzeX/AOfI+QADJfUA+Pj4AAAu/gAICAgAExn1ACEtvAAAN/4AAULyAABR+wAJUO8At7e3APLx/wADAwMAqqzwAAQg+QAAJf8A8//zAAIl/wADJf8A/fT2AA0Z/wD+/ucAAC7/AG1tbQD+8f8AAyv/AAAx/wAANP8A/Pz8AAgr/wD7//wAAD75AAwMDAABQP8AEjT2AIWY9QACW/8A/v/iAAcHBwCIr+kAAyr9AP3++gAPJ/0AAD/9ABg03ABaX+YAPj4+AAICAgABIf4A9v/sAAUl+AACKv4ABSz7APv7+wALCwsA//34AP38/gD///4A7e3tAHV1dQDx7/wA7P35AAIl8AAAI/wA9vb2APr68AAAKv8ABib8APv78wD4/fkA+f35APz2/wA4PNEA//z2AAE2/wAIMP8ABDb/AP/8/wD///8AAEL/AAEBAQAGUf8ABFT/ADNDwwAKHPoA9P/3AC8vLwD5/+4A+vr6APn/9wABNPoA/f36AOn47ABmdPoAEzn3AMvo/AAHYPcAACn+AP385gAKHf4A4eT5ABMz1AD//fIABS/+AAE1/gD+//gA//v+AP7+/gDZ2dkABkbyAABN/gCZsu0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlUFGNpZqNlAeeHgeK5VglWUeGUaVGXp4gIJZLUZkeHgGGXiVgkY0BkpZWB56X3pGeHh4eF94eHh4lR54X5WVRnh4eA0KHClmhwdzeHh4eHh4eHeGaDs5TH0JfplxeHh4eHhwF16ED3ZEkB1cI3h4eHh4PmySSZcbjCB0RwSDeHh4eFqRJTUCKHwUVUUFTXh4eHhUVhFbMooAmHkQXQt4eHiVbRZIUScaThUTMEMueHh4eAF1bjozJnshS5KLV3h4eHgqUohrf4kkMQ8sBIV4eHh4Z2kOEj2BPzcIA3JieHh4eHiOaTxAj0JPUy8feHh4eHh4YW8MOI0YImOUk3h4eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=', 'base64');

@@ -1,0 +1,169 @@
+<style>
+
+html{
+  background-color: white;
+}
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+    background-clip: content-box;
+}
+
+ul {
+    list-style: outside none none;
+    padding:0;
+}
+
+
+.productSlide{
+  width:40%;
+  float: left;
+}
+@media screen and (max-width: 768px) {
+  .productSlide{
+    width: 100%;
+  }
+}
+.thumb-box {
+  padding: 1.4em 0px 1em;
+  margin-left: -1%;
+  width: 102%;
+}
+.thumb-box .thumbs {
+    overflow: hidden;
+}
+.thumb-box .thumbs li {
+    float: left;
+    width: 16.6%;
+    text-align: center;
+    padding: 0px 1%;
+}
+.thumb-box .thumbs li:hover img {
+    opacity: 1;
+    transition: opacity 0.2s ease 0s;
+}
+.thumb-box .thumbs li img {
+    width: 100%;
+    opacity: 0.8;
+    transition: opacity 0.32s ease 0s;
+    border-bottom: 4px solid transparent;
+}
+.thumb-box .thumbs li img.active {
+    border-color: #31ACE2;
+    opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .productDesc{
+    display:inline-block;
+    width:56%;
+  }
+}
+
+h1{
+  display: inline-block;
+  margin: 0;
+}
+.metaContainer{
+  margin-top: 20px;
+}
+.productTitle{
+  font-size: 30px;
+}
+.rightDiv{
+  width: 100%;
+  text-align: right;
+}
+.leftDiv{
+  display: inline-block;
+  width: 132px;
+  float: left;
+}
+.inlineBlock{
+  display: inline-block;
+}
+/*.meta{
+  width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .meta{
+    width: 300px;
+  }
+}*/
+.quickContact{
+  display:inline-block;
+  width: 100%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.quickContact input{
+}
+.quickContact textarea{
+  display: block;
+  width: 100%;
+}
+.formGroupInline label{
+  float: left;
+}
+.formGroupInline .inputContainer{
+  overflow: hidden;
+  display: block;
+  padding: 0 4px 0 10px;
+}
+.formGroupInline input{
+  width: 100%;
+}
+.productDetails{
+  margin-bottom: 20px;
+}
+
+.productDetails h2{
+  font-size: 30px;
+}
+.sectionShapes .sectionShape{
+  display: inline-block;
+}
+.sectionShapes .shapeIcon{
+  height: 100px;
+}
+.sectionShapes .shapeName{
+  margin-top: 5px;
+  text-align: center;
+}
+#drawerContent a:link{ color: #0000EE; }
+#drawerContent a:visited { color: #551A8B; }
+.textCenter{
+  text-align: center;
+}
+.blockCenter{
+  max-width: 1000px;
+  width: auto;
+  margin: auto;
+}
+.inlineBlock{
+  display: inline-block;
+}
+
+.shapeName{
+  color:white;
+  background: #1B6EAE;
+}
+.sizeContainer{
+  border-left:1px solid black;
+  border-right:1px solid black;
+  border-bottom:1px solid black;
+  margin:0 0 0 -1px;
+}
+.sizes .shapeName{
+  font-size: 20px;
+}
+
+.blockData{
+  display: inline-block;
+  vertical-align: middle;
+}
+</style>
+
+{{{products}}}

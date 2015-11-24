@@ -96,11 +96,20 @@ h1{
   margin-top: 20px;
 }
 .quickContact input{
-  display: inline;
-  width: 100%;
 }
 .quickContact textarea{
   display: block;
+  width: 100%;
+}
+.formGroupInline label{
+  float: left;
+}
+.formGroupInline .inputContainer{
+  overflow: hidden;
+  display: block;
+  padding: 0 4px 0 10px;
+}
+.formGroupInline input{
   width: 100%;
 }
 .productDetails{
@@ -377,6 +386,33 @@ function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
+function actualResizeHandler() {
+  // handle the resize event
+  //var h = document.getElementById('productSlide').offsetHeight;
+  var winW = 630, winH = 460;
+  if (document.body && document.body.offsetWidth) {
+   winW = document.body.offsetWidth;
+   winH = document.body.offsetHeight;
+  }
+  if (document.compatMode=='CSS1Compat' &&
+      document.documentElement &&
+      document.documentElement.offsetWidth ) {
+   winW = document.documentElement.offsetWidth;
+   winH = document.documentElement.offsetHeight;
+  }
+  if (window.innerWidth && window.innerHeight) {
+   winW = window.innerWidth;
+   winH = window.innerHeight;
+  }
+  if(winW < 768){
+    $("#productSlide").trigger("sticky_kit:detach");
+  }
+  else{
+    $('#productSlide').stick_in_parent({recalc_every: 1});
+    //$("body").trigger("sticky_kit:recalc");
+  }
+  //console.log(winW);
+}
 var btnSend = document.getElementById("btnSend");
 btnSend.addEventListener("click",function(){
   var inputName = document.getElementById("inputName");
@@ -409,6 +445,8 @@ jQuery(document).ready(function(){
   });
 
   $('#drawerNav').stick_in_parent({offset_top:20,recalc_every: 1});
+  //$('#productDesc').stick_in_parent({recalc_every: 1});
+  actualResizeHandler();
 });
 
 (function() {
@@ -427,13 +465,6 @@ jQuery(document).ready(function(){
        }, 66);
     }
   }
-
-  function actualResizeHandler() {
-    // handle the resize event
-    var h = document.getElementById('productSlide').offsetHeight;
-    console.log(h);
-  }
-
 }());
 </script>
 <footer>
