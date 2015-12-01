@@ -6,12 +6,13 @@ var Keywords = require('../../models/keywords');
 //var auth = require('../middlewares/auth')
 
 module.exports = function(passport){
-  router.get('/', function(req, res){
+  router.get('/', function(req, res,next){
+    console.log('enter dashboard/keywords');
     var cb = function(err,docs){
       var props = {user:req.user.username,keywords:docs};
   		var component = require('../../public/comp/keywords/list.js');
   		var keywords = React.createFactory(component);
-  		//console.log('dashboard: ',req.user);
+  		console.log('dashboard/keywords: ',req.user);
   		res.render('dashboard/home',{
   			component:
   			'<script>window.REACT_PROPS='+ JSON.stringify(props)+'</script>'+
@@ -23,7 +24,7 @@ module.exports = function(passport){
   			<script src="/static/comp/headerContent.js"></script>\
   			<script src="/static/comp/material_title_panel.js"></script>\
   			<script src="/static/comp/verticalMenu.js"></script>\
-  			<script src="/static/comp/tasks.js"></script>\
+  			<script src="/static/comp/keywords.js"></script>\
   			',
   			react: ReactDOMServer.renderToString(keywords(props))
   		});

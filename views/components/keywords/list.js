@@ -35,7 +35,7 @@ var Path = React.createClass({
     return (
       <div className="row-nav">
         <div className='row-nav-path'>
-          <span><a href='/en/dashboard/products'>产品</a></span>
+          <span><a href='/en/dashboard/keywords'>关键词</a></span>
           <span> > </span>
           <span>浏览</span>
         </div>
@@ -122,6 +122,15 @@ var ProductBrowser = React.createClass({
   }
 });
 
+var Keywords = React.createClass({
+  componentDidMount: function() {
+  },
+  render: function(){
+    return(
+      <div id="keywords">Keywords</div>
+    )
+  }
+})
 var App = React.createClass({
   getInitialState() {
     return {docked: false, open: false};
@@ -161,7 +170,7 @@ var App = React.createClass({
                docked={this.state.docked}
                onSetOpen={this.onSetOpen}>
         <Path />
-        <ProductBrowser products={props.products} counter={props.counter}/>
+        <Keywords/>
       </DrawerMenu>
     );
   }
