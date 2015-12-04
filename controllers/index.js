@@ -479,7 +479,6 @@ module.exports = function(app,passport){
 			divSlideDesc.appendChild(divProductDesc);
 
 			var productDetails = "";
-			productDetails += product.content;
 
 			var sectionTable = document.createElement("section");
 			sectionTable.setAttribute("class","blockCenter textCenter");
@@ -488,6 +487,7 @@ module.exports = function(app,passport){
 			sectionTable.appendChild(h2TableTitle);
 			var tableContainer = document.createElement("div");
 			tableContainer.setAttribute("class","inlineBlock");
+      tableContainer.setAttribute("style","text-align:left");
 			sectionTable.appendChild(tableContainer);
 			//tableContainer.appendChild(jsonToTable(product.kvs,"text-align:left;padding-left:3px;padding-right:3px;"))
 			tableContainer.innerHTML = product.content;

@@ -6,7 +6,7 @@
     "priceMin":450,
     "priceMax":570,
     "priceUnit":"ton/tons",
-    "moq":25,
+    "moq":10,
     "moqUnit":"ton/tons",
     "supplyQuantity":6000,
     "supplyUnit":"ton/tons",
@@ -64,17 +64,17 @@
         }
       }
     },
-    "content":"<table> <tbody> <tr> <td rowspan="3">Size</td> <td>OD</td> <td>1/8”-24” (10.3mm-609.6mm)</td> </tr> <tr> <td>Wall Thickness</td> <td>0.2mm-60mm <br/>SCH20,SCH40,STD,XS,SCH80,SCH160,XXS</td> </tr> <tr> <td>Length</td> <td>Less than 12m or as your requirements.</td> </tr> <tr> <td>Steel material</td> <td colspan=\"2\">Q195 → SS330,ST37,ST42 <br/>Q235 → SS400,S235JR <br/>Q345 → S355JR,SS500,ST52</td> </tr> <tr> <td>Standard</td> <td colspan="2">ASTM A53, BS1387-1985</td> </tr> <tr> <td>Usage</td> <td colspan=\"2\">1) low pressure liquid, water, gas, oil, line pipe <br/>2) Construction <br/>3)fence, door pipe</td> </tr> <tr> <td>Ends</td> <td colspan="2">1) Plain <br/>2) Beveled <br/>3) Thread with Coupling or cap <br/>4) Chamfer <br/>5) Groove <br/>6) Screw</td> </tr> <tr> <td>End protector</td> <td colspan=\"2\">1) Bared <br/>2) Black Painted (varnish coating) <br/>3) Galvanized <br/>4) Oiled <br/>5) PE,3PE, FBE, corrosion resistant coating, Anti corrosion coating.</td> </tr> <tr> <td>Technique</td> <td colspan="2">Electronic Resistance Welded (ERW ) <br/>Electronic Fusion Welded (EFW) <br/>Double Submerged Arc Welded (DSAW)</td> </tr> <tr> <td>Welded line type</td> <td colspan=\"2\">Longitudinal</td> </tr> <tr> <td>Section Shape</td> <td colspan="2">Round</td> </tr> <tr> <td>Inspection</td> <td colspan="2">With Hydraulic Testing, Eddy Current , Infrared Test</td> </tr> </tbody></table>",
+    "content":"<table> <tbody> <tr><td>Shape<\/td><td>Round<\/td><td>Square<\/td><td>Rectangular<\/td><td>Oval<\/td><\/tr> <tr><td>Od<\/td><td>8-102mm<\/td><td>10*10-100*100mm<\/td><td>10*20-50*100mm<\/td><td>14*26-40*90mm<\/td><\/tr> <tr><td>Od tolerance<\/td><td colspan=\"4\">+-0.3mm<\/td><\/tr> <tr><td>thickness<\/td><td>0.4-2.0mm<\/td><td>0.4-2.0mm<\/td><td>0.4-2.0mm<\/td><td>0.6-2.0mm<\/td><\/tr> <tr><td>Thi tolerance<\/td><td colspan=\"4\">+-0.3mm<\/td><\/tr> <tr><td>Length<\/td><td colspan=\"4\">+-0.03mm<\/td><\/tr> <tr><td>Material<\/td><td colspan=\"4\">Q195,Q235 low carbon<\/td><\/tr> <tr><td>Moq:<\/td><td colspan=\"4\">5-10 tons per size<\/td><\/tr> <tr><td>Packing<\/td><td colspan=\"4\">Bundled by steel belts(5-10belts)<\/td><\/tr> <tr><td>Payment<\/td><td colspan=\"4\">30% tt and balance before loading<\/td><\/tr> <tr><td>Lead time<\/td><td colspan=\"4\">According quantity less than 30 days after getting deposit.<\/td><\/tr> <tr><td>Marking<\/td><td colspan=\"4\">According customer’s requement. Painted or made tag<\/td><\/tr> <tr><td>Usage<\/td><td colspan=\"4\">Metal furniture,ladder,fence,tent,billboard,artware,door and so on.<\/td><\/tr> <tr><td>Attation<\/td><td colspan=\"4\">You can arrange person to check products quality and load in our factory.<\/td><\/tr> <\/tbody><\/table>",
     "display":true
   },
   {
     "title":"cold rolled black annealed steel tube",
-    "number":0,
+    "number":1,
     "currency":"USD",
-    "priceMin":450,
-    "priceMax":570,
+    "priceMin":470,
+    "priceMax":600,
     "priceUnit":"ton/tons",
-    "moq":25,
+    "moq":10,
     "moqUnit":"ton/tons",
     "supplyQuantity":6000,
     "supplyUnit":"ton/tons",
@@ -132,12 +132,12 @@
         }
       }
     },
-    "content":"",
+    "content":"<table> <tbody> <tr><td>Product Name<\/td><td colspan=\"6\" style=\"text-align:center;\">cold rolled black annealed steel tube<\/td><\/tr> <tr><td><\/td><td><\/td><td>Square<\/td><td>Rectangular<\/td><td>Round<\/td><td>Oval<\/td><td>LTZ<\/td><\/tr> <tr><td rowspan=\"6\">Size<\/td><td rowspan=\"4\">Outside Diameter:<br\/>(tolerance:+\/-0.3mm)<\/td><td rowspan=\"4\">10*10-100*100mm<\/td><td rowspan=\"4\">8*16-50*100mm<\/td><td rowspan=\"4\">12-102mm<\/td><td rowspan=\"4\">9.5*17-30*60mm<\/td><\/tr> <tr><td>L: 28-29-34-38-42-25<\/td><\/tr> <tr><td>T: 28-29-34-38-42<\/td><\/tr> <tr><td>Z: 28-29-34-38-42<\/td><\/tr> <tr><td>Wall Thickness:<br\/>(tolerance:+\/-0.3mm)<\/td><td>0.4-2.0mm<\/td><td>0.4-2.0mm<\/td><td>0.4-2.0mm<\/td><td>0.4-2.0mm<\/td><td>0.4-2.0mm<\/td><\/tr> <tr><td>Length:<br\/>(tolerance:+\/-20mm)<\/td><td>3~12 M<\/td><td>3~12 M<\/td><td>3~12 M<\/td><td>3~12 M<\/td><td>3~12 M<\/td><\/tr> <tr><td>Material<\/td><td colspan=\"6\">Q195<\/td><\/tr> <tr><td>Application<\/td><td colspan=\"6\">Structure Pipe, Furniture pipe<\/td><\/tr> <tr><td>Technique<\/td><td colspan=\"6\">Cold rolled, Black Annealed, ERW<\/td><\/tr> <tr><td>Package<\/td><td colspan=\"6\">Packed in bundle , wrapped with steel strips, packed with plastic sheet, or as per your requirement.<\/td><\/tr> <tr><td>Date of Delivery<\/td><td colspan=\"6\">According to The Specifications And the Quantities,<br\/>Usually within 20 days after receiving the deposit.<\/td><\/tr> <tr><td>MOQ<\/td><td colspan=\"6\">10 Ton per size<\/td><\/tr> <tr><td>Payment Items<\/td><td colspan=\"6\">T\/T, L\/C, Western Union, Paypal, Negotiable<br\/>Method Of Delivery<br\/>By Sea or land<\/td><\/tr> <tr><td>Others<\/td><td colspan=\"6\">1. Special design according to your requirements.<br\/>2. All the production process are made under the ISO 9001:2000 strictly.<\/td><\/tr> <\/tbody><\/table>",
     "display":true
   },
   {
-    "title":"cold rolled black annealed steel tube",
-    "number":1,
+    "title":"cold rolled bright annealed steel tube",
+    "number":2,
     "currency":"USD",
     "priceMin":1,
     "priceMax":2,
@@ -162,15 +162,15 @@
     "display":true
   },
   {
-    "title":"cold rolled black annealed steel tube",
+    "title":"hard bright steel tube",
     "number":2,
     "currency":"USD",
-    "priceMin":1,
-    "priceMax":2,
+    "priceMin":480,
+    "priceMax":520,
     "priceUnit":"ton/tons",
-    "moq":20,
+    "moq":10,
     "moqUnit":"ton/tons",
-    "supplyQuantity":2000,
+    "supplyQuantity":6000,
     "supplyUnit":"ton/tons",
     "supplyPeriod":"month",
     "consignmentTerm":"",
