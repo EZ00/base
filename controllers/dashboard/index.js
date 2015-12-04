@@ -45,6 +45,7 @@ module.exports = function(passport){
 	router.use('/users', require('./users')(passport));
   router.use('/sub', require('./sub'));
 	router.use('/test', require('./tests'));
+	router.use('/keywords', require('./keywords')(passport));
 
 	return router;
 }

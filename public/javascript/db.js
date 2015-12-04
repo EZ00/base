@@ -64,6 +64,8 @@ collectionClass.prototype = {
 
     }
     console.log("Leave collection set");
+  },
+  find: function(sel){
   }
 }
 

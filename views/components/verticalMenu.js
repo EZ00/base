@@ -23,6 +23,10 @@ var names = [
     name:'文件',
     url:'/en/dashboard/files'
   },
+  {
+    name:'关键词',
+    url:'/en/dashboard/keywords'
+  },
 ];
 
 var VerticalMenu = React.createClass({
