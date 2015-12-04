@@ -20,6 +20,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"Steel tubes that is produced in the “cold rolling” method, processed at close to normal room temperatures. Cold Roll is limited to a few shapes but comes in many finishes and offers superior strength and machinability.<br/>Our cold rolled steel tubes offers an extensive assortment of shapes ",
     "kvs":{
       "Steel grade":"Q195-Q235",
       "Section shape":"square, rectangular, round, oval, LTZ",
@@ -63,7 +64,7 @@
         }
       }
     },
-    "content":"",
+    "content":"<table> <tbody> <tr> <td rowspan="3">Size</td> <td>OD</td> <td>1/8”-24” (10.3mm-609.6mm)</td> </tr> <tr> <td>Wall Thickness</td> <td>0.2mm-60mm <br/>SCH20,SCH40,STD,XS,SCH80,SCH160,XXS</td> </tr> <tr> <td>Length</td> <td>Less than 12m or as your requirements.</td> </tr> <tr> <td>Steel material</td> <td colspan=\"2\">Q195 → SS330,ST37,ST42 <br/>Q235 → SS400,S235JR <br/>Q345 → S355JR,SS500,ST52</td> </tr> <tr> <td>Standard</td> <td colspan="2">ASTM A53, BS1387-1985</td> </tr> <tr> <td>Usage</td> <td colspan=\"2\">1) low pressure liquid, water, gas, oil, line pipe <br/>2) Construction <br/>3)fence, door pipe</td> </tr> <tr> <td>Ends</td> <td colspan="2">1) Plain <br/>2) Beveled <br/>3) Thread with Coupling or cap <br/>4) Chamfer <br/>5) Groove <br/>6) Screw</td> </tr> <tr> <td>End protector</td> <td colspan=\"2\">1) Bared <br/>2) Black Painted (varnish coating) <br/>3) Galvanized <br/>4) Oiled <br/>5) PE,3PE, FBE, corrosion resistant coating, Anti corrosion coating.</td> </tr> <tr> <td>Technique</td> <td colspan="2">Electronic Resistance Welded (ERW ) <br/>Electronic Fusion Welded (EFW) <br/>Double Submerged Arc Welded (DSAW)</td> </tr> <tr> <td>Welded line type</td> <td colspan=\"2\">Longitudinal</td> </tr> <tr> <td>Section Shape</td> <td colspan="2">Round</td> </tr> <tr> <td>Inspection</td> <td colspan="2">With Hydraulic Testing, Eddy Current , Infrared Test</td> </tr> </tbody></table>",
     "display":true
   },
   {
@@ -87,6 +88,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"",
     "kvs":{
       "Steel grade":"Q195-Q235",
       "Section shape":"square, rectangular, round, oval, LTZ",
@@ -154,6 +156,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"",
     "kvs":{},
     "content":"",
     "display":true
@@ -179,6 +182,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"",
     "kvs":{},
     "content":"",
     "display":true
@@ -204,6 +208,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"",
     "kvs":{},
     "content":"",
     "display":true
@@ -229,6 +234,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"",
     "kvs":{},
     "content":"",
     "display":true
@@ -254,6 +260,7 @@
       "694c7060867b7175423dcf1ad2c65f26e573488f2b484609be38d5c71f23f48c.jpg",
       "ab9adceb181bfd6bc1adb5939b23bf5875783a40a6cecfbc921702d0f5478c16.jpg"
     ],
+    "profile":"",
     "kvs":{},
     "content":"",
     "display":true

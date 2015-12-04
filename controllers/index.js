@@ -194,20 +194,23 @@ module.exports = function(app,passport){
 			divPmo.appendChild(divMoq);
 			divDesc.appendChild(divPmo);
 
-			var divKvs = document.createElement("div");
-			divKvs.setAttribute("class","kvs");
-			var j = 0;
-			for(var key in products[i].kvs){
-				var divKv = document.createElement("div");
-				divKv.setAttribute("class","kv");
-				divKv.innerHTML = key+": <b>"+products[i].kvs[key]+"</b>";
-				divKvs.appendChild(divKv);
-				j += 1;
-				if(j === 6){
-					break;
-				}
-			}
-			divDesc.appendChild(divKvs);
+			// var divKvs = document.createElement("div");
+			// divKvs.setAttribute("class","kvs");
+			// var j = 0;
+			// for(var key in products[i].kvs){
+			// 	var divKv = document.createElement("div");
+			// 	divKv.setAttribute("class","kv");
+			// 	divKv.innerHTML = key+": <b>"+products[i].kvs[key]+"</b>";
+			// 	divKvs.appendChild(divKv);
+			// 	j += 1;
+			// 	if(j === 6){
+			// 		break;
+			// 	}
+			// }
+			// divDesc.appendChild(divKvs);
+			var divProfile = document.createElement("div");
+			divProfile.innerHTML = products[i].profile;
+			divDesc.appendChild(divProfile);
 			divItem.appendChild(divDesc);
 			divProducts.appendChild(divItem);
 		}
@@ -476,6 +479,7 @@ module.exports = function(app,passport){
 			divSlideDesc.appendChild(divProductDesc);
 
 			var productDetails = "";
+			productDetails += product.content;
 
 			var sectionTable = document.createElement("section");
 			sectionTable.setAttribute("class","blockCenter textCenter");
@@ -485,71 +489,72 @@ module.exports = function(app,passport){
 			var tableContainer = document.createElement("div");
 			tableContainer.setAttribute("class","inlineBlock");
 			sectionTable.appendChild(tableContainer);
-			tableContainer.appendChild(jsonToTable(product.kvs))
+			//tableContainer.appendChild(jsonToTable(product.kvs,"text-align:left;padding-left:3px;padding-right:3px;"))
+			tableContainer.innerHTML = product.content;
 			productDetails += sectionTable.outerHTML;
 
-			var sectionShapes = document.createElement("section");
-			sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
-			sectionShapes.innerHTML='\
-			<h2 class="textCenter">Section shapes</h2>\
-	    <div class="inlineBlock">\
-	    <div class="sectionShape">\
-	      <img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>\
-	      <div class="shapeName">round</div>\
-	    </div>\
-	    <div class="sectionShape">\
-	      <img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>\
-	      <div class="shapeName">square</div>\
-	    </div>\
-	    <div class="sectionShape">\
-	      <img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>\
-	      <div class="shapeName">rectangle</div>\
-	    </div>\
-	    <div class="sectionShape">\
-	      <img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>\
-	      <div class="shapeName">stadium</div>\
-	    </div>\
-	    <div class="sectionShape">\
-	      <img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>\
-	      <div class="shapeName">ellipse</div>\
-	    </div>\
-	    <div class="sectionShape">\
-	      <img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>\
-	      <div class="shapeName">hexagon</div>\
-	    </div>\
-	    </div>\
-	    <div class="textCenter lead">\
-	      For customized shapes, please <a href="/contact">contact us</a>\
-	    </div>';
-			productDetails += sectionShapes.outerHTML;
+			// var sectionShapes = document.createElement("section");
+			// sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
+			// sectionShapes.innerHTML='\
+			// <h2 class="textCenter">Section shapes</h2>\
+	    // <div class="inlineBlock">\
+	    // <div class="sectionShape">\
+	    //   <img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>\
+	    //   <div class="shapeName">round</div>\
+	    // </div>\
+	    // <div class="sectionShape">\
+	    //   <img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>\
+	    //   <div class="shapeName">square</div>\
+	    // </div>\
+	    // <div class="sectionShape">\
+	    //   <img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>\
+	    //   <div class="shapeName">rectangle</div>\
+	    // </div>\
+	    // <div class="sectionShape">\
+	    //   <img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>\
+	    //   <div class="shapeName">stadium</div>\
+	    // </div>\
+	    // <div class="sectionShape">\
+	    //   <img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>\
+	    //   <div class="shapeName">ellipse</div>\
+	    // </div>\
+	    // <div class="sectionShape">\
+	    //   <img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>\
+	    //   <div class="shapeName">hexagon</div>\
+	    // </div>\
+	    // </div>\
+	    // <div class="textCenter lead">\
+	    //   For customized shapes, please <a href="/contact">contact us</a>\
+	    // </div>';
+			// productDetails += sectionShapes.outerHTML;
 
-			var sectionSizes = document.createElement("section");
-			sectionSizes.setAttribute("class","sizes blockCenter textCenter");
-			var h2SizesTitle = document.createElement("h2");
-			h2SizesTitle.innerHTML = "Sizes";
-			sectionSizes.appendChild(h2SizesTitle);
-			var sizesContainer = document.createElement("div");
-			sizesContainer.setAttribute("class","inlineBlock");
-			console.log("product.kvs.sizes",product.kvs.sizes);
-			for(var key in product.kvs.sizes){
-				console.log("key:",key);
-				var sizeContainer = document.createElement("div");
-				sizeContainer.setAttribute("class","sizeContainer inlineBlock");
-				var shapeName = document.createElement("div");
-				shapeName.setAttribute("class","textCenter shapeName");
-				shapeName.innerHTML = "<b>"+key+"</b>";
-				sizeContainer.appendChild(shapeName);
-				for(var prop in product.kvs.sizes[key]){
-					console.log("prop:",prop);
-					var divProp = document.createElement("div");
-					divProp.setAttribute("class","sizeProp textCenter");
-					divProp.innerHTML = prop +":"+ product.kvs.sizes[key][prop];
-					sizeContainer.appendChild(divProp);
-				}
-				sizesContainer.appendChild(sizeContainer);
-			}
-			sectionSizes.appendChild(sizesContainer);
-			productDetails += sectionSizes.outerHTML;
+			// var sectionSizes = document.createElement("section");
+			// sectionSizes.setAttribute("class","sizes blockCenter textCenter");
+			// var h2SizesTitle = document.createElement("h2");
+			// h2SizesTitle.innerHTML = "Sizes";
+			// sectionSizes.appendChild(h2SizesTitle);
+			// var sizesContainer = document.createElement("div");
+			// sizesContainer.setAttribute("class","inlineBlock");
+			// console.log("product.kvs.sizes",product.kvs.sizes);
+			// for(var key in product.kvs.sizes){
+			// 	console.log("key:",key);
+			// 	var sizeContainer = document.createElement("div");
+			// 	sizeContainer.setAttribute("class","sizeContainer inlineBlock");
+			// 	var shapeName = document.createElement("div");
+			// 	shapeName.setAttribute("class","textCenter shapeName");
+			// 	shapeName.innerHTML = "<b>"+key+"</b>";
+			// 	sizeContainer.appendChild(shapeName);
+			// 	for(var prop in product.kvs.sizes[key]){
+			// 		console.log("prop:",prop);
+			// 		var divProp = document.createElement("div");
+			// 		divProp.setAttribute("class","sizeProp textCenter");
+			// 		divProp.innerHTML = prop +":"+ product.kvs.sizes[key][prop];
+			// 		sizeContainer.appendChild(divProp);
+			// 	}
+			// 	sizesContainer.appendChild(sizeContainer);
+			// }
+			// sectionSizes.appendChild(sizesContainer);
+			// productDetails += sectionSizes.outerHTML;
 
 			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,productDetails:productDetails,title:product.title+" - Sunrise Industry Group"});
 		  console.log("Leave controller /p/:id/:title");
