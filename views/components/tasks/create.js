@@ -60,6 +60,7 @@ var Panel = React.createClass({
       content:this.refs.content.getDOMNode().value,
       status:this.refs.status.getDOMNode().value,
       priority:Number(this.refs.priority.getDOMNode().value),
+      visibility:this.refs.visibility.getDOMNode().value,
       assignee:this.refs.assignee.tags
     }
     if(data.title===''){
@@ -98,6 +99,13 @@ var Panel = React.createClass({
           <div className='form-group'>
             <label>优先级（选填）</label>
             <input className='form-control' type='number' placeholder='请填写数字' ref='priority'></input>
+          </div>
+          <div className='form-group'>
+            <label>对谁可见</label>
+            <select className="form-control" ref='visibility'>
+              <option value='public'>所有人</option>
+              <option value='private'>仅自己</option>
+            </select>
           </div>
           <div className='form-group'>
             <label>分配给（选填）</label>

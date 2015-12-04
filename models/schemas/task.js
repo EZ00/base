@@ -9,6 +9,7 @@ schemaObject.content = 'string';
 schemaObject.status = 'string';
 schemaObject.priority = 'number';
 // array of userIds
+schemaObject.visibility = 'string';
 schemaObject.assignee = 'array';
 
 
