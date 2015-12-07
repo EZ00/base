@@ -194,23 +194,23 @@ module.exports = function(app,passport){
 			divPmo.appendChild(divMoq);
 			divDesc.appendChild(divPmo);
 
-			// var divKvs = document.createElement("div");
-			// divKvs.setAttribute("class","kvs");
-			// var j = 0;
-			// for(var key in products[i].kvs){
-			// 	var divKv = document.createElement("div");
-			// 	divKv.setAttribute("class","kv");
-			// 	divKv.innerHTML = key+": <b>"+products[i].kvs[key]+"</b>";
-			// 	divKvs.appendChild(divKv);
-			// 	j += 1;
-			// 	if(j === 6){
-			// 		break;
-			// 	}
-			// }
-			// divDesc.appendChild(divKvs);
-			var divProfile = document.createElement("div");
-			divProfile.innerHTML = products[i].profile;
-			divDesc.appendChild(divProfile);
+			var divKvs = document.createElement("div");
+			divKvs.setAttribute("class","kvs");
+			var j = 0;
+			for(var key in products[i].kvs){
+				var divKv = document.createElement("div");
+				divKv.setAttribute("class","kv");
+				divKv.innerHTML = key+": <b>"+products[i].kvs[key]+"</b>";
+				divKvs.appendChild(divKv);
+				j += 1;
+				if(j === 6){
+					break;
+				}
+			}
+			divDesc.appendChild(divKvs);
+			// var divProfile = document.createElement("div");
+			// divProfile.innerHTML = products[i].profile;
+			// divDesc.appendChild(divProfile);
 			divItem.appendChild(divDesc);
 			divProducts.appendChild(divItem);
 		}

@@ -32,15 +32,13 @@
           </ul>
         </li>
         <li><div class='side-menu-text'><a href="#">L T Z tube</a></div></li>
-        <li><div class='side-menu-text'><a href="#">C U Z tube</a></div></li>
-        <li><div class='side-menu-text'><a href="#">angle bar</a></div></li>
         <li><div class='side-menu-text'><a href="/products">all...</a></div></li>
     </ul>
   </nav>
   <div class='page-content page-content-checked' id='drawerContent'>
     <div>
         <div class="well well-sm">
-            <strong>Category Title</strong>
+            <strong>Products</strong>
         </div>
         {{{products}}}
     </div>
@@ -66,23 +64,23 @@
   // })
 </script>
 <script>
-var itemStr="";
-itemStr += "             <img class=\"thumbnail\" src=\"\/static\/images\/C083.jpg\" alt=\"\"\/>";
-itemStr += "             <div class='desc'>";
-itemStr += "               <a href='#'><h4>Square\/Round Steel Pipe\/Tube Cold Roll Forming Machine<\/h4><\/a>";
-itemStr += "               <div class='pmo'>";
-itemStr += "                 <div class='price'>Price: <b>US $500-1000<\/b> \/ Ton<\/div>";
-itemStr += "                 <div class='moq'>MOQ: <b>10 Tons <\/b><\/div>";
-itemStr += "               <\/div>";
-itemStr += "               <div class='kvs'>";
-itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
-itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
-itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
-itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
-itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
-itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
-itemStr += "               <\/div>";
-itemStr += "             <\/div>";
+// var itemStr="";
+// itemStr += "             <img class=\"thumbnail\" src=\"\/static\/images\/C083.jpg\" alt=\"\"\/>";
+// itemStr += "             <div class='desc'>";
+// itemStr += "               <a href='#'><h4>Square\/Round Steel Pipe\/Tube Cold Roll Forming Machine<\/h4><\/a>";
+// itemStr += "               <div class='pmo'>";
+// itemStr += "                 <div class='price'>Price: <b>US $500-1000<\/b> \/ Ton<\/div>";
+// itemStr += "                 <div class='moq'>MOQ: <b>10 Tons <\/b><\/div>";
+// itemStr += "               <\/div>";
+// itemStr += "               <div class='kvs'>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "               <\/div>";
+// itemStr += "             <\/div>";
 
   $(document).ready(function() {
     // $('#drawerToggle').stick_in_parent({offset_top:0});
@@ -90,14 +88,14 @@ itemStr += "             <\/div>";
     // $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
     // $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
   });
-  var elProducts = document.getElementById('products');
-  for(var i=0;i<10;i++){
-    //console.log('i:',i);
-    var elItem = document.createElement('div');
-    elItem.setAttribute('class',"item");
-    elItem.innerHTML = itemStr;
-    elProducts.appendChild(elItem);
-  }
+  // var elProducts = document.getElementById('products');
+  // for(var i=0;i<10;i++){
+  //   //console.log('i:',i);
+  //   var elItem = document.createElement('div');
+  //   elItem.setAttribute('class',"item");
+  //   elItem.innerHTML = itemStr;
+  //   elProducts.appendChild(elItem);
+  // }
 </script>
 <footer>
   {{> front/footer-get-quote}}
