@@ -85,6 +85,69 @@ var jsonToTable = function(data,style){
     }
 }
 
+var ProductsGen = function(filtered){
+  var document = jsdom("");
+  var divProducts = document.createElement("div");
+  divProducts.setAttribute("id","products");
+  divProducts.setAttribute("class","list-group");
+  for(var i=0;i<filtered.length;i++){
+    var divItem = document.createElement("div");
+    divItem.setAttribute("class","item");
+
+    var imgThum = document.createElement("img");
+    imgThum.setAttribute("class","thumbnail");
+    imgThum.setAttribute("style","max-height:200px;height:100%;");
+    var imgUrl = filtered[i]["images"][0] || "";
+    imgUrl = "/uploads/"+imgUrl;
+    imgThum.setAttribute("src",imgUrl);
+    divItem.appendChild(imgThum);
+
+    var divDesc = document.createElement("div");
+    divDesc.setAttribute("class","desc");
+
+    var aTitle = document.createElement("a");
+    aTitle.setAttribute("href","/p/"+filtered[i].number+"/"+filtered[i].title.replace(/\s+/g, '-').toLowerCase());
+    var h4Title = document.createElement("h4");
+    h4Title.innerHTML = filtered[i].title;
+    aTitle.appendChild(h4Title);
+    divDesc.appendChild(aTitle);
+
+    var divPmo = document.createElement("div");
+    divPmo.setAttribute("class","pmo");
+    var divPrice = document.createElement("div");
+    divPrice.setAttribute("class","price");
+    var priceUnits = filtered[i].priceUnit.split("/");
+    divPrice.innerHTML = "Price: <b>"+filtered[i].priceMin+"-"+filtered[i].priceMax+" "+filtered[i].currency+" / "+priceUnits[0]+"</b>";
+    divPmo.appendChild(divPrice);
+    var divMoq = document.createElement("div");
+    divMoq.setAttribute("class","moq");
+    var moqUnits = filtered[i].moqUnit.split("/");
+    divMoq.innerHTML = "MOQ: <b>"+filtered[i].moq+" "+moqUnits[1]+"</b>";
+    divPmo.appendChild(divMoq);
+    divDesc.appendChild(divPmo);
+
+    var divKvs = document.createElement("div");
+    divKvs.setAttribute("class","kvs");
+    var j = 0;
+    for(var key in filtered[i].kvs){
+      var divKv = document.createElement("div");
+      divKv.setAttribute("class","kv");
+      divKv.innerHTML = key+": <b>"+filtered[i].kvs[key]+"</b>";
+      divKvs.appendChild(divKv);
+      j += 1;
+      if(j === 6){
+        break;
+      }
+    }
+    divDesc.appendChild(divKvs);
+    // var divProfile = document.createElement("div");
+    // divProfile.innerHTML = filtered[i].profile;
+    // divDesc.appendChild(divProfile);
+    divItem.appendChild(divDesc);
+    divProducts.appendChild(divItem);
+  }
+  return divProducts;
+}
 module.exports = function(app,passport){
   app.use(i18n);
 
@@ -135,6 +198,12 @@ module.exports = function(app,passport){
 	})
 
   app.get('/products',function(req,res){
+    var divProducts = ProductsGen(products);
+
+		res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
+	})
+
+  app.get('/products/:query',function(req,res){
 		// <div id="products" class="list-group">
 		// 		<div class="item">
 		// 			<img class="thumbnail" src="/static/images/C083.jpg" alt=""/>
@@ -155,65 +224,23 @@ module.exports = function(app,passport){
 		// 			</div>
 		// 		</div>
 		// </div>
-		var document = jsdom("");
-	  var divProducts = document.createElement("div");
-		divProducts.setAttribute("id","products");
-		divProducts.setAttribute("class","list-group");
-		for(var i=0;i<products.length;i++){
-			var divItem = document.createElement("div");
-			divItem.setAttribute("class","item");
-
-			var imgThum = document.createElement("img");
-			imgThum.setAttribute("class","thumbnail");
-			var imgUrl = products[i]["images"][0] || "";
-			imgUrl = "/uploads/"+imgUrl;
-			imgThum.setAttribute("src",imgUrl);
-			divItem.appendChild(imgThum);
-
-			var divDesc = document.createElement("div");
-			divDesc.setAttribute("class","desc");
-
-			var aTitle = document.createElement("a");
-			aTitle.setAttribute("href","/p/"+products[i].number+"/"+products[i].title.replace(/\s+/g, '-').toLowerCase());
-			var h4Title = document.createElement("h4");
-			h4Title.innerHTML = products[i].title;
-			aTitle.appendChild(h4Title);
-			divDesc.appendChild(aTitle);
-
-			var divPmo = document.createElement("div");
-			divPmo.setAttribute("class","pmo");
-			var divPrice = document.createElement("div");
-			divPrice.setAttribute("class","price");
-			var priceUnits = products[i].priceUnit.split("/");
-			divPrice.innerHTML = "Price: <b>"+products[i].priceMin+"-"+products[i].priceMax+" "+products[i].currency+" / "+priceUnits[0]+"</b>";
-			divPmo.appendChild(divPrice);
-			var divMoq = document.createElement("div");
-			divMoq.setAttribute("class","moq");
-			var moqUnits = products[i].moqUnit.split("/");
-			divMoq.innerHTML = "MOQ: <b>"+products[i].moq+" "+moqUnits[1]+"</b>";
-			divPmo.appendChild(divMoq);
-			divDesc.appendChild(divPmo);
-
-			var divKvs = document.createElement("div");
-			divKvs.setAttribute("class","kvs");
-			var j = 0;
-			for(var key in products[i].kvs){
-				var divKv = document.createElement("div");
-				divKv.setAttribute("class","kv");
-				divKv.innerHTML = key+": <b>"+products[i].kvs[key]+"</b>";
-				divKvs.appendChild(divKv);
-				j += 1;
-				if(j === 6){
-					break;
-				}
-			}
-			divDesc.appendChild(divKvs);
-			// var divProfile = document.createElement("div");
-			// divProfile.innerHTML = products[i].profile;
-			// divDesc.appendChild(divProfile);
-			divItem.appendChild(divDesc);
-			divProducts.appendChild(divItem);
-		}
+    var words = req.params.query.split(" ");
+    // console.log("words:",words);
+    var count = 0;
+    var filtered = [];
+    for(var i=0;i<products.length;i++){
+      // console.log("products[i].title:",products[i].title);
+      for(var j=0;j<words.length;j++){
+        if(products[i].title.indexOf(words[j]) > -1){
+          count += 1;
+        }
+      }
+      if(count === words.length){
+        filtered.push(products[i]);
+      }
+      var count = 0;
+    }
+    var divProducts = ProductsGen(filtered);
 	  //console.info(serializeDocument(doc));
 	  //console.info(doc.documentElement.outerHTML);
 	  //console.info(serializeDocument(divProducts));
