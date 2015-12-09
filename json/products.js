@@ -459,12 +459,12 @@
     "supplyPeriod":"month",
     "consignmentTerm":"25 days after deposit",
     "images":[
-      "L_T_Z_tube/1.jpg",
-      "L_T_Z_tube/2.jpg",
-      "L_T_Z_tube/3.jpg",
-      "L_T_Z_tube/4.jpg",
-      "L_T_Z_tube/5.jpg",
-      "L_T_Z_tube/6.jpg"
+      "l_t_z_tube/1.jpg",
+      "l_t_z_tube/2.jpg",
+      "l_t_z_tube/3.jpg",
+      "l_t_z_tube/4.jpg",
+      "l_t_z_tube/5.jpg",
+      "l_t_z_tube/6.jpg"
     ],
     "profile":"Steel tubes that is produced in the “cold rolling” method, processed at close to normal room temperatures. Cold Roll is limited to a few shapes but comes in many finishes and offers superior strength and machinability.<br/>Our cold rolled steel tubes offers an extensive assortment of shapes ",
     "kvs":{},
