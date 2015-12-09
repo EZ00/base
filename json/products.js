@@ -236,34 +236,6 @@
     "display":true
   },
   {
-    "title":"seamless steel pipe",
-    "number":7,
-    "currency":"USD",
-    "priceMin":400,
-    "priceMax":480,
-    "priceUnit":"ton/tons",
-    "moq":10,
-    "moqUnit":"ton/tons",
-    "supplyQuantity":6000,
-    "supplyUnit":"ton/tons",
-    "supplyPeriod":"month",
-    "consignmentTerm":"25 days after deposit",
-    "images":[
-      "seamless_steel_pipe/1.jpg",
-      "seamless_steel_pipe/2.jpg",
-      "seamless_steel_pipe/3.jpg",
-      "seamless_steel_pipe/4.jpg",
-      "seamless_steel_pipe/5.jpg",
-      "seamless_steel_pipe/6.jpg"
-    ],
-    "profile":"Steel tubes that is produced in the “cold rolling” method, processed at close to normal room temperatures. Cold Roll is limited to a few shapes but comes in many finishes and offers superior strength and machinability.<br/>Our cold rolled steel tubes offers an extensive assortment of shapes ",
-    "kvs":{
-      "Section shape":"square, rectangular, round, oval"
-    },
-    "content":"<table> <tbody> <tr> <td rowspan=\"3\">Size<\/td> <td>Out diameter<\/td> <td>20-508mm<\/td> <\/tr> <tr> <td>W.T<\/td> <td>3-60mm<\/td> <\/tr> <tr> <td>Length<\/td> <td>5.8 meters for 20\" container, 6 meters to 12 meters<br\/>for 40\" container or as customer's request<\/td> <\/tr> <tr><td>Standard<\/td><td colspan=\"2\">Grade\/Material<\/td><\/tr> <tr><td>GB5310<\/td><td colspan=\"2\">12CrMo, 15CrMo, 12Cr1MoV, 12Cr2Mo<\/td><\/tr> <tr><td>ASTM A179\/A192\/A210\/A335<\/td><td colspan=\"2\">P1, P11, P12, P2, P22, P5, P9, P91, P11<\/td><\/tr> <tr><td>DIN17175<\/td><td colspan=\"2\">19Mn5, 13Cr.Mo44, 14MoV63, 10CrMo910<\/td><\/tr> <tr><td>JIS G3458, JIS G3462<\/td><td colspan=\"2\">STPA12, STPA20, STPA22, STPA23, STPA24, STPA25, STPA26, STBA12,<br\/>STBA13, STBA22, STBA20, STBA23<\/td><\/tr> <tr><td>Applicaition\/ Usage<\/td><td colspan=\"2\">1) Chemicals<br\/>2) Fertilizer<br\/>3) Petrochemicals<br\/>4) Offshore Oil & Gas<br\/>5) Medical equipment<br\/>6) Boiler heat, Exchanger<br\/>7) Construction, etc.<\/td><\/tr> <tr><td>Surface<\/td><td colspan=\"2\">Black, Galvanized, Hot dipped, vanish;phosphating; PE coated, HDPE or<br\/>other coating on the pipe.<\/td><\/tr> <tr><td rowspan=\"2\">Inspection<\/td><td colspan=\"2\">With Chemical Composition and Mechanical Properties Testing;<br\/>Hydrostatic Test<\/td><\/tr> <tr><td colspan=\"2\">Dimensional and Visual Inspection, Also With Nondestructive<br\/>Inspection<\/td><\/tr> <tr><td>Technique<\/td><td colspan=\"2\">Cold Drawn\/Hot Rolled<\/td><\/tr> <\/tbody><\/table>",
-    "display":true
-  },
-  {
     "title":"galvanized steel coil or strip",
     "number":8,
     "currency":"USD",
