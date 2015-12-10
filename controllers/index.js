@@ -224,14 +224,14 @@ module.exports = function(app,passport){
 		// 			</div>
 		// 		</div>
 		// </div>
-    var words = req.params.query.split(" ");
+    var words = req.params.query.toLowerCase().split(" ");
     // console.log("words:",words);
     var count = 0;
     var filtered = [];
     for(var i=0;i<products.length;i++){
       // console.log("products[i].title:",products[i].title);
       for(var j=0;j<words.length;j++){
-        if(products[i].title.indexOf(words[j]) > -1){
+        if(products[i].title.toLowerCase().split(" ").indexOf(words[j]) > -1){
           count += 1;
         }
       }

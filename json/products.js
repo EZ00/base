@@ -392,7 +392,7 @@
     "display":true
   },
   {
-    "title":"PPGI, prepainted galvanized steel coil or strip",
+    "title":"PPGI , prepainted galvanized steel coil or strip",
     "number":14,
     "currency":"USD",
     "priceMin":550,
