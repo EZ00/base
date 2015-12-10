@@ -665,10 +665,10 @@ function renderSizes(container,sizes){
 		res.render('front/products_zh', {layout:"front.hbs",products:divProducts,title:"Sunrise Industry Group"});
 	})
 
-  app.get("/fir", function(req, res) {
+  app.get("/fir*", function(req, res) {
     res.redirect('/about');
   });
-  app.get("/pipe", function(req, res) {
+  app.get("/pipe*", function(req, res) {
     res.redirect('/about');
   });
 
