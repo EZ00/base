@@ -28,7 +28,13 @@ var exphbs = require('express-handlebars');
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "http://127.0.0.1");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+};
 
+app.use(allowCrossDomain);
 // Connect to Mongo on start
 db.connect(env.mongo_url, function(err) {
   if (err) {
@@ -57,7 +63,7 @@ db.connect(env.mongo_url, function(err) {
     })
     var io = socketio(server);
 
-    var nss = ["db",'table','task','product','category','file'];
+    var nss = ["db",'table','task','product','category','file','alitools'];
     for(var i=0;i<nss.length;i++){
       var ns = require("./sockets/"+nss[i]);
       ns.regNs(io);
