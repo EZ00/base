@@ -60,7 +60,7 @@ db.connect(env.mongo_url, function(err) {
     });
 
     var server = app.listen(env.port, function() {
-      console.log('Listening on port ' + env.port)
+      console.log('Listening on port ' + env.port);
     })
     var io = socketio(server);
 
