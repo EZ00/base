@@ -691,6 +691,7 @@ function renderSizes(container,sizes){
 	app.use('/:lang/dashboard',require('./dashboard')(passport));
 
 	app.use('/user',require('./users')(passport));
+	app.use('/accounte',require('./accounte')(passport));
 
 	//return router;
 }
