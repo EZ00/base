@@ -152,7 +152,13 @@ module.exports = function(app,passport){
   app.use(i18n);
 
 	app.get('/',function(req,res){
-		res.render('front/home',{layout:'front.hbs',react:'home',title:'Sunrise Industry Group - steel pipe manufacturer in china'});
+		console.log(req.hostname);
+		if(req.hostname === "sunrisefurniturechina.com"){
+			res.render('front/home_f',{layout:'front_f.hbs',react:'home',title:'Sunrise Furniture - glass and plastic products'});
+		}
+		else{
+			res.render('front/home',{layout:'front.hbs',react:'home',title:'Sunrise Industry Group - steel pipe manufacturer in china'});
+		}
 	})
 
 	app.get('/about',function(req,res){
