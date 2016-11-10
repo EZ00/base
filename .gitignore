@@ -4,3 +4,4 @@ node_modules
 /uploads
 /public/comp
 /env.js
+npm-debug.log
