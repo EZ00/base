@@ -1,3 +1,29 @@
 html, body, h1{
   margin:0;
 }
+h1,h2,h3,h4,h5,h6{
+  font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+}
+.flexCon{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.landing_heading_holder{
+  display: flex;
+  flex-direction: column;
+  color:#fff;
+  /*justify-content:center;*/
+}
+.landing_heading_holder h1{
+  font-size: 48px;
+  font-weight: bold;
+}
+.landing_heading_holder p{
+  font-size: 18px;
+}
+.site_header{
+  position: absolute;
+}
