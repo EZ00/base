@@ -51,7 +51,9 @@ ul{
 .mainHeader {
   max-height: 101px;
   max-width: 1200px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 .mainMenu{
   max-width: 1200px;
@@ -90,6 +92,7 @@ ul{
 }
 .mainFooter{
   background-color: #ebebeb;
+  overflow: auto;
 }
 .footerCon{
   max-width: 1200px;
@@ -106,4 +109,52 @@ ul{
   color:#217ac0;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media screen and (min-width: 992px)
+.container {
+    max-width: 970px;
+}
+@media (min-width: 992px)
+.container {
+    width: 970px;
+}
+@media (min-width: 768px)
+.container {
+    width: 750px;
+}
+.text-center {
+    text-align: center;
+}
+
+@media screen and (min-width: 992px)
+#footer-copyright {
+    padding: 0px 150px;
+}
+@media screen and (min-width: 768px)
+#footer-copyright {
+    padding: 0px 50px;
+    font-size: 14px;
+    line-height: 14px;
+}
+#footer-copyright {
+    font-size: 19px;
+    line-height: 39px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.row:first-child{
+  margin-top: 30px;
+}
+.row:last-child{
+  margin-bottom: 30px;
 }
