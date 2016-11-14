@@ -4,9 +4,26 @@ html, body, h1{
 h1,h2,h3,h4,h5,h6{
   font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
 }
+ul{
+
+}
 .flexCon{
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.flexConHor{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.flexConVer{
+  display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
@@ -26,4 +43,67 @@ h1,h2,h3,h4,h5,h6{
 }
 .site_header{
   position: absolute;
+}
+.mainCon {
+  max-width: 980px;
+  margin: auto;
+}
+.mainHeader {
+  max-height: 101px;
+  max-width: 980px;
+  margin: auto;
+}
+.mainMenu{
+  max-width: 980px;
+  max-height: 48px;
+  margin: auto;
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+.mainMenuItem a{
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+.mainMenuItem a:hover{
+  color:#217ac0;
+  text-decoration: underline;
+}
+.homeSlider{
+  max-height: 450px;
+}
+.homeProducts{
+
+}
+.homeProductsTitle{
+  font-size: 60px;
+}
+.homeProductsCate{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.mainFooter{
+  background-color: #ebebeb;
+}
+.footerCon{
+  max-width: 980px;
+  margin: auto;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.footerMenu li a{
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+.footerMenu li a:hover{
+  color:#217ac0;
+  text-decoration: underline;
+  cursor: pointer;
 }
