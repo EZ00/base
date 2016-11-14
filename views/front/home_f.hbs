@@ -11,8 +11,23 @@
   <li class="mainMenuItem"><a href="#">Contact Us</a></li>
 </ul>
 <main class="mainCon">
-  <div class="homeSlider flexCon" style="background: url('/static/imgs/homebg_f1.jpg'); background-size: cover; height: 100vh; margin: 0;">
-  </div>
+  <ul id="slippry-demo">
+    <li>
+      <a href="#"><img src="/static/imgs/banner_f1.jpg"></a>
+    </li>
+    <li>
+      <a href="#"><img src="/static/imgs/banner_f2.jpg"></a>
+    </li>
+    <li>
+      <a href="#"><img src="/static/imgs/banner_f3.jpg"></a>
+    </li>
+    <li>
+      <a href="#"><img src="/static/imgs/banner_f4.jpg"></a>
+    </li>
+    <li>
+      <a href="#"><img src="/static/imgs/banner_f5.jpg"></a>
+    </li>
+  </ul>
   <div class="homeProducts flexConVer">
     <div class="homeProductsTitle">Products</div>
     <div class="homeProductsCate">
@@ -62,3 +77,8 @@
     </div>
   </div>
 </footer>
+<script>
+  jQuery(document).ready(function(){
+    jQuery('#slippry-demo').slippry()
+  });
+</script>
