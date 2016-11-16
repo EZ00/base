@@ -153,7 +153,7 @@ module.exports = function(app,passport){
 
 	app.get('/',function(req,res){
 		console.log(req.hostname);
-		if(req.hostname.indexOf("sunrisefurniturechina.com") || req.hostname.indexOf("sunrisefurniturechinal.com")){
+		if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
 			res.render('front/home_f',{layout:'front_f.hbs',react:'home',title:'Sunrise Furniture - glass and plastic products'});
 		}
 		else{
