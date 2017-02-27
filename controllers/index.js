@@ -162,15 +162,39 @@ module.exports = function(app,passport){
 	})
 
 	app.get('/about',function(req,res){
-		res.render('front/about',{layout:'front.hbs',react:'home',title:'About Us - Sunrise Industry Group'});
+    if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      res.render('front/about_f',{layout:'front_f.hbs',react:'home',title:'About Us - Sunrise Furniture'});
+		}
+		else{
+			res.render('front/about',{layout:'front.hbs',react:'home',title:'About Us - Sunrise Industry Group'});
+		}
 	})
 
   app.get('/faq',function(req,res){
-		res.render('front/faq',{layout:'front.hbs',react:'home',title:'FAQ - Sunrise Industry Group'});
+    if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      res.render('front/faq_f',{layout:'front_f.hbs',react:'home',title:'FAQ - Sunrise Furniture'});
+		}
+		else{
+			res.render('front/faq',{layout:'front.hbs',react:'home',title:'FAQ - Sunrise Industry Group'});
+		}
 	})
 
 	app.get('/contact',function(req,res){
-		res.render('front/contact',{layout:'front.hbs',react:'home',title:'Contact Us - Sunrise Industry Group'});
+    if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      res.render('front/contact_f',{layout:'front_f.hbs',react:'home',title:'Contact Us - Sunrise Furniture'});
+		}
+		else{
+			res.render('front/contact',{layout:'front.hbs',react:'home',title:'Contact Us - Sunrise Industry Group'});
+		}
+	})
+
+  app.get('/download',function(req,res){
+    if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      res.render('front/download_f',{layout:'front_f.hbs',react:'home',title:'Download - Sunrise Furniture'});
+		}
+		else{
+			res.redirect('/');
+		}
 	})
 
 	app.get('/request-quote',function(req,res){

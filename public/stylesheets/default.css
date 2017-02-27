@@ -7,6 +7,15 @@ h1,h2,h3,h4,h5,h6{
 ul{
 
 }
+html {
+  height: 100vh;
+}
+body {
+  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .flexCon{
   display: flex;
   flex-direction: row;
@@ -90,13 +99,20 @@ ul{
   justify-content: flex-start;
   align-items: flex-start;
 }
+.homeAlibaba{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .mainFooter{
   background-color: #ebebeb;
   overflow: auto;
 }
 .footerCon{
   max-width: 1200px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: auto;
   justify-content: space-around;
   align-items: flex-start;
 }

@@ -1,15 +1,4 @@
-<header class="mainHeader">
-  <img src="/static/imgs/logo_90.png"></img>
-</header>
-<ul class="mainMenu flexConHor">
-  <li class="mainMenuItem"><a href="#">Home</a></li>
-  <li class="mainMenuItem"><a href="#">About Us</a></li>
-  <li class="mainMenuItem"><a href="#">Products</a></li>
-  <li class="mainMenuItem"><a href="#">Feedback</a></li>
-  <li class="mainMenuItem"><a href="#">Download</a></li>
-  <li class="mainMenuItem"><a href="#">FAQ</a></li>
-  <li class="mainMenuItem"><a href="#">Contact Us</a></li>
-</ul>
+{{> front/header_f}}
 <main class="mainCon">
   <ul id="slippry-demo">
     <li>
@@ -39,43 +28,14 @@
       <div><img src="/static/imgs/products_f/6.png"></img></div>
     </div>
   </div>
-</main>
-<footer class="mainFooter">
-  <div class="flexConHor footerCon">
-    <div class="flexConVer">
-      <div>About Us</div>
-      <ul class="footerMenu">
-        <li><a herf="#">About Us</a></li>
-        <li><a herf="#">Furniture Fair</a></li>
-      </ul>
-    </div>
-    <div class="flexConVer">
-      <div>Products</div>
-      <ul class="footerMenu">
-        <li><a herf="#">Coffee Table</a></li>
-        <li><a herf="#">End Table</a></li>
-        <li><a herf="#">TV Table</a></li>
-        <li><a herf="#">Glass Wall Art</a></li>
-        <li><a herf="#">Plastic Chair</a></li>
-      </ul>
-    </div>
-    <div class="flexConVer">
-      <div>News</div>
-      <ul class="footerMenu">
-        <li><a herf="#">Company News</a></li>
-        <li><a herf="#">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="flexConVer">
-      <div>Contact Us</div>
-      <ul>
-        <li>Tel:+86-0316-7893456</li>
-        <li>Mob:+86-15132662156</li>
-        <li>Skype:dswh11</li>
-        <li>Email:dswhjj04@globlefactory.com</li>
-      </ul>
+  <div class="homeAlibaba flexConHor">
+    <div>
+      <a href="https://worldfurniture.en.alibaba.com/" target="_blank"><img src="/static/imgs/alibaba_logo_73.png"></img></a>
     </div>
   </div>
+</main>
+<footer class="mainFooter">
+  {{> front/footer_f}}
   {{> front/footer-copyright_f}}
 </footer>
 <script>
