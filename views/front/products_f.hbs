@@ -1,0 +1,77 @@
+{{> front/header_f}}
+<div>
+<div class="porductsCon">
+  <!-- <div class='fixedsticky' style:'top:10px;' id='drawerToggle'>
+    toggle catalogue
+  </div> -->
+  <nav style="display:inline-block;vertical-align: top;">
+    <ul class='productsCate'>
+      <li class="cateItem cateItem-first"><a href="#">> Coffee Table</a></li>
+      <li class="cateItem"><a href="#">> End Table</a></li>
+      <li class="cateItem"><a href="#">> TV Table</a></li>
+      <li class="cateItem"><a href="#">> Glass Wall Art</a></li>
+      <li class="cateItem"><a href="#">> Plastic Chair</a></li>
+    </ul>
+  </nav>
+  <div style="display:inline-block;">
+    <div>
+        <div class="well well-sm">
+            <strong>Products</strong>
+        </div>
+        {{{products}}}
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  // var checked = true;
+  // var elDrawerToggle = document.getElementById('drawerToggle');
+  // var elDrawerNav = document.getElementById('drawerNav');
+  // var elDrawerContent = document.getElementById('drawerContent');
+  // elDrawerToggle.addEventListener('click',function(evt){
+  //   checked = !checked;
+  //   if(checked === true){
+  //     elDrawerToggle.setAttribute('class','drawer-toggle-label drawer-toggle-label-checked fixedsticky');
+  //     elDrawerNav.setAttribute('class','drawer drawer-checked fixedsticky');
+  //     elDrawerContent.setAttribute('class','page-content page-content-checked');
+  //   }
+  //   else{
+  //     elDrawerToggle.setAttribute('class','drawer-toggle-label fixedsticky');
+  //     elDrawerNav.setAttribute('class','drawer drawer-unchecked fixedsticky');
+  //     elDrawerContent.setAttribute('class','page-content');
+  //   }
+  // })
+</script>
+<script>
+// var itemStr="";
+// itemStr += "             <img class=\"thumbnail\" src=\"\/static\/images\/C083.jpg\" alt=\"\"\/>";
+// itemStr += "             <div class='desc'>";
+// itemStr += "               <a href='#'><h4>Square\/Round Steel Pipe\/Tube Cold Roll Forming Machine<\/h4><\/a>";
+// itemStr += "               <div class='pmo'>";
+// itemStr += "                 <div class='price'>Price: <b>US $500-1000<\/b> \/ Ton<\/div>";
+// itemStr += "                 <div class='moq'>MOQ: <b>10 Tons <\/b><\/div>";
+// itemStr += "               <\/div>";
+// itemStr += "               <div class='kvs'>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "                 <div class='kv'>Thickness: <b>0.1mm-100mm<\/b><\/div>";
+// itemStr += "               <\/div>";
+// itemStr += "             <\/div>";
+
+
+  // var elProducts = document.getElementById('products');
+  // for(var i=0;i<10;i++){
+  //   //console.log('i:',i);
+  //   var elItem = document.createElement('div');
+  //   elItem.setAttribute('class',"item");
+  //   elItem.innerHTML = itemStr;
+  //   elProducts.appendChild(elItem);
+  // }
+</script>
+<footer class="mainFooter">
+  {{> front/footer_f}}
+  {{> front/footer-copyright_f}}
+</footer>

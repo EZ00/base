@@ -8,7 +8,7 @@ ul{
 
 }
 html {
-  height: 100vh;
+  min-height: 100vh;
 }
 body {
   min-height: 100vh;
@@ -173,4 +173,40 @@ body {
 }
 .row:last-child{
   margin-bottom: 30px;
+}
+
+.porductsCon{
+  display:block;
+  width:1200px;
+  margin-top: 0;
+  margin-left:auto;
+  margin-right:auto;
+  vertical-align: top;
+}
+.productsCate{
+  width: 206px;
+  vertical-align: top;
+}
+.cateItem{
+  height: 42px;
+  line-height: 42px;
+  white-space: nowrap;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  list-style: none;
+  padding-left: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cateItem a{
+  color: #535353;
+  text-decoration: none;
+  font-size: 14px;
+}
+.cateItem a:hover{
+  color:#49afcd;
+}
+.cateItem-first{
+  border-top-style: solid;
+  border-top-width: thin;
 }

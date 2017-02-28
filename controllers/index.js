@@ -228,9 +228,14 @@ module.exports = function(app,passport){
 	})
 
   app.get('/products',function(req,res){
-    var divProducts = ProductsGen(products);
+    if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      res.render('front/products_f',{layout:'front_f.hbs',react:'home',title:'Products - Sunrise Furniture'});
+		}
+		else{
+      var divProducts = ProductsGen(products);
 
-		res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
+  		res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
+		}
 	})
 
   app.get('/products/:query',function(req,res){
