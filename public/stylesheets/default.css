@@ -1,5 +1,9 @@
-html, body, h1{
-  margin:0;
+html, body{
+  margin: 0;
+  padding: 0;
+}
+h1{
+  margin: 0;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
@@ -9,12 +13,13 @@ ul{
 }
 html {
   min-height: 100vh;
+  display: flex;
 }
 body {
   min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 .flexCon{
   display: flex;
@@ -56,6 +61,9 @@ body {
 .mainCon {
   max-width: 1200px;
   margin: auto;
+}
+.headerWrapper{
+  flex-grow: 0;
 }
 .mainHeader {
   max-height: 101px;
@@ -108,6 +116,7 @@ body {
   overflow: auto;
 }
 .footerCon{
+  flex-grow: 0;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -176,16 +185,22 @@ body {
 }
 
 .porductsCon{
-  display:block;
+  flex-grow: 1;
+  display:flex;
+  flex-direction: row;
+  flex-flow: row;
   width:1200px;
   margin-top: 0;
   margin-left:auto;
   margin-right:auto;
-  vertical-align: top;
+}
+.sideNav{
+  display: inline-block;
+  flex-grow: 0;
 }
 .productsCate{
   width: 206px;
-  vertical-align: top;
+  margin-top: 20px;
 }
 .cateItem{
   height: 42px;
@@ -209,4 +224,9 @@ body {
 .cateItem-first{
   border-top-style: solid;
   border-top-width: thin;
+}
+.productsListCon{
+  display:inline-block;
+  flex-grow: 1;
+  margin-left: 10px;
 }
