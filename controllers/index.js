@@ -7,6 +7,7 @@ var jsdom = require("jsdom").jsdom;
 var serializeDocument = require("jsdom").serializeDocument;
 var document = jsdom("");
 var products = JSON.parse(fs.readFileSync('./json/products.js', 'utf8'));
+var products_f = JSON.parse(fs.readFileSync('./json/products_f.js', 'utf8'));
 //console.log(products);
 //var Comment = require('../models/comment')
 
@@ -148,6 +149,49 @@ var ProductsGen = function(filtered){
   }
   return divProducts;
 }
+
+var ProductsGenF = function(filtered){
+  var document = jsdom("");
+  var divProducts = document.createElement("div");
+  divProducts.setAttribute("class","productList");
+  for(var i=0;i<filtered.length;i++){
+    var divItem = document.createElement("div");
+    divItem.setAttribute("class","productItem");
+
+    var imgThum = document.createElement("img");
+    imgThum.setAttribute("class","productImage");
+    var imgUrl = filtered[i]["images"][0] || "";
+    imgUrl = "/uploads/"+imgUrl;
+    imgThum.setAttribute("src",imgUrl);
+    divItem.appendChild(imgThum);
+
+    var divTitleAndDesc = document.createElement("div");
+    divTitleAndDesc.setAttribute("class","titleAndDesc");
+
+    var divTitle = document.createElement("div");
+    divTitle.setAttribute("class","productTitle");
+    divTitle.innerHTML = filtered[i].title;
+    divTitleAndDesc.appendChild(divTitle);
+
+    var divDesc = document.createElement("div");
+    divDesc.setAttribute("class","productDesc");
+    var j = 0;
+    for(var key in filtered[i].kvs){
+      var divKv = document.createElement("div");
+      divKv.innerHTML = key+": <b>"+filtered[i].kvs[key]+"</b>";
+      divDesc.appendChild(divKv);
+      j += 1;
+      if(j === 6){
+        break;
+      }
+    }
+    divTitleAndDesc.appendChild(divDesc);
+    divItem.appendChild(divTitleAndDesc);
+    divProducts.appendChild(divItem);
+  }
+  return divProducts;
+}
+
 module.exports = function(app,passport){
   app.use(i18n);
 
@@ -229,7 +273,8 @@ module.exports = function(app,passport){
 
   app.get('/products',function(req,res){
     if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
-      res.render('front/products_f',{layout:'front_f.hbs',react:'home',title:'Products - Sunrise Furniture'});
+      var divProductsF = ProductsGenF(products_f);
+      res.render('front/products_f',{layout:'front_f.hbs',products:divProductsF.outerHTML,title:'Products - Sunrise Furniture'});
 		}
 		else{
       var divProducts = ProductsGen(products);

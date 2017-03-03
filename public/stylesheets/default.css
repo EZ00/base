@@ -230,3 +230,32 @@ body {
   flex-grow: 1;
   margin-left: 10px;
 }
+
+.productList{
+  display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.productItem{
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+}
+.productImage{
+  width: 200px;
+  height: 200px;
+  flex-grow: 0;
+  background-color: #ff00ff;
+  margin: 15px;
+}
+.titleAndDesc{
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.productTitle{
+  margin-bottom: 10px;
+}
