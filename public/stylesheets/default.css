@@ -184,7 +184,7 @@ body {
   margin-bottom: 30px;
 }
 
-.porductsCon{
+.productsCon{
   flex-grow: 1;
   display:flex;
   flex-direction: row;
@@ -258,4 +258,24 @@ body {
 }
 .productTitle{
   margin-bottom: 10px;
+}
+
+.mainContent{
+  flex-grow: 1;
+  display:flex;
+  flex-direction: column;
+  flex-flow: column;
+  /*justify-content: center;*/
+  align-items: center;
+  width:1200px;
+  margin-top: 0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.contactCon{
+  margin-top: 20px;
+}
+.contactLeft{
+  margin-right: 20px;
 }
