@@ -168,8 +168,10 @@ var ProductsGenF = function(filtered){
     var divTitleAndDesc = document.createElement("div");
     divTitleAndDesc.setAttribute("class","titleAndDesc");
 
-    var divTitle = document.createElement("div");
+    var divTitle = document.createElement("a");
     divTitle.setAttribute("class","productTitle");
+    divTitle.setAttribute("href","/p/"+filtered[i].number+"/"+filtered[i].title);
+    divTitle.setAttribute("target","_blank");
     divTitle.innerHTML = filtered[i].title;
     divTitleAndDesc.appendChild(divTitle);
 
@@ -351,342 +353,359 @@ module.exports = function(app,passport){
 	})
 
 	app.get('/p/:id/:title', function(req, res, next) {
-		//<div style="overflow:auto;">
-		// <ul id="thumbnails">
-		//   <li>
-		//     <a href="#slide1">
-		//       <img src="/assets/img/image-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
-		//     </a>
-		//   </li>
-		//   <li>
-		//     <a href="#slide2">
-		//       <img src="/assets/img/image-2.jpg"  alt="This is caption 2">
-		//     </a>
-		//   </li>
-		//   <li>
-		//     <a href="#slide3">
-		//       <img src="/assets/img/image-3.jpg" alt="And this is some very long caption for slide 3. Yes, really long.">
-		//     </a>
-		//   </li>
-		//   <li>
-		//     <a href="#slide4">
-		//       <img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4.">
-		//     </a>
-		//   </li>
-		// </ul>
-		// <div class="thumb-box">
-		//   <ul class="thumbs">
-		//     <li><a href="#1" data-slide="1"><img src="/assets/img/image-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>"></a></li>
-		//     <li><a href="#2" data-slide="2"><img src="/assets/img/image-2.jpg"  alt="This is caption 2"></a></li>
-		//     <li><a href="#3" data-slide="3"><img src="/assets/img/image-3.jpg" alt="And this is some very long caption for slide 3. Yes, really long."></a></li>
-		//     <li><a href="#4" data-slide="4"><img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4."></a></li>
-		//   </ul>
-		// </div>
-
-		// <div class="productDesc">
-	  // <div style="display:inline-block;margin-left:20px;">
-	  //   <div>
-	  //     <h1 class="productTitle">cold rolled black annealed steel tube</h1>
-	  //     <div class="metaContainer">
-	  //       <div class="meta">
-	  //         <div class="leftDiv">FOB Price:</div>
-	  //         <div class="inlineBlock"><b>500-1000 USD</b></div>
-	  //       </div>
-	  //       <div class="meta">
-	  //         <div class="leftDiv">Min Order Quantity:</div>
-	  //         <div class="inlineBlock"><b>25 tons</b></div>
-	  //       </div>
-	  //       <div class="meta">
-	  //         <div class="leftDiv">Supply Ability:</div>
-	  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
-	  //       </div>
-	  //       <div class="meta">
-	  //         <div class="leftDiv">Port:</div>
-	  //         <div class="inlineBlock"><b>Xingang Tianjin</b></div>
-	  //       </div>
-	  //       <div class="meta">
-	  //         <div class="leftDiv">Payment Terms:</div>
-	  //         <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
-	  //       </div>
-	  //     </div>
-	  //   </div>
-	  // </div>
-	  // <br/>
-	  // <div class="quickContact">
-	  //   <label>your name: </label>
-	  //   <input type="text"></input>
-	  //   <label>your email address: </label>
-	  //   <input type="email"></input>
-	  //   <label>your requirement:</label>
-	  //   <textarea name="requirement" cols="40" rows="5" ></textarea>
-	  //   <button class="btn btn-primary">Send</button>
-	  // </div>
-	  // </div>
-		//</div>
-	  console.log("Enter controller /p/:id/:title");
-	  var id = Number(req.params.id);
-		var product = null;
-		for(var i=0;i<products.length;i++){
-			if(products[i].number === id){
-				product = products[i];
-				break;
-			}
-		}
-		if(product === null){
-			next();
+    if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      // var divProductsF = ProductsGenF(products_f);
+      // res.render('front/products_f',{layout:'front_f.hbs',products:divProductsF.outerHTML,title:'Products - Sunrise Furniture'});
+      // res.statusCode = 200;
+      // res.end("product deatail page");
+      var id = Number(req.params.id);
+  		var product = null;
+  		for(var i=0;i<products_f.length;i++){
+  			if(products_f[i].number === id){
+  				product = products_f[i];
+  				break;
+  			}
+  		}
+      res.render('front/item_f',{layout:'front_f.hbs',products:"",title:product.title+' - Sunrise Furniture'});
 		}
 		else{
-			//var document = jsdom("");
-			var ulThumnails = document.createElement("ul");
-			ulThumnails.setAttribute("id","thumbnails");
-			var divThumBox = document.createElement("div");
-			divThumBox.setAttribute("class","thumb-box");
-			var ulThumbs = document.createElement("ul");
-			ulThumbs.setAttribute("class","thumbs");
-			divThumBox.appendChild(ulThumbs);
-			for(var i=0;i<product["images"].length;i++){
-				var imgUrl = product["images"][i] || "";
-				imgUrl = "/uploads/"+imgUrl;
-				var liThum = document.createElement("li");
-				var aThum = document.createElement("a");
-				aThum.setAttribute("href","#slide"+(i+1));
-				var imgThum = document.createElement("img");
-				imgThum.setAttribute("src",imgUrl);
-				imgThum.setAttribute("alt","");
-				aThum.appendChild(imgThum);
-				liThum.appendChild(aThum);
-				ulThumnails.appendChild(liThum);
+      //<div style="overflow:auto;">
+  		// <ul id="thumbnails">
+  		//   <li>
+  		//     <a href="#slide1">
+  		//       <img src="/assets/img/image-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+  		//     </a>
+  		//   </li>
+  		//   <li>
+  		//     <a href="#slide2">
+  		//       <img src="/assets/img/image-2.jpg"  alt="This is caption 2">
+  		//     </a>
+  		//   </li>
+  		//   <li>
+  		//     <a href="#slide3">
+  		//       <img src="/assets/img/image-3.jpg" alt="And this is some very long caption for slide 3. Yes, really long.">
+  		//     </a>
+  		//   </li>
+  		//   <li>
+  		//     <a href="#slide4">
+  		//       <img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4.">
+  		//     </a>
+  		//   </li>
+  		// </ul>
+  		// <div class="thumb-box">
+  		//   <ul class="thumbs">
+  		//     <li><a href="#1" data-slide="1"><img src="/assets/img/image-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>"></a></li>
+  		//     <li><a href="#2" data-slide="2"><img src="/assets/img/image-2.jpg"  alt="This is caption 2"></a></li>
+  		//     <li><a href="#3" data-slide="3"><img src="/assets/img/image-3.jpg" alt="And this is some very long caption for slide 3. Yes, really long."></a></li>
+  		//     <li><a href="#4" data-slide="4"><img src="/assets/img/image-4.jpg" alt="And this is some very long caption for slide 4."></a></li>
+  		//   </ul>
+  		// </div>
 
-				var liThumb = document.createElement("li");
-				var aThumb = document.createElement("a");
-				aThumb.setAttribute("href","#"+(i+1));
-				aThumb.setAttribute("data-slide",(i+1));
-				var imgThumb = document.createElement("img");
-				imgThumb.setAttribute("src",imgUrl);
-				imgThumb.setAttribute("alt","");
-				aThumb.appendChild(imgThumb);
-				liThumb.appendChild(aThumb);
-				ulThumbs.appendChild(liThumb);
-			}
-			var divSlide = document.createElement("div");
-			divSlide.setAttribute("class","productSlide");
-      divSlide.setAttribute("id","productSlide");
-			divSlide.appendChild(ulThumnails);
-			divSlide.appendChild(divThumBox);
+  		// <div class="productDesc">
+  	  // <div style="display:inline-block;margin-left:20px;">
+  	  //   <div>
+  	  //     <h1 class="productTitle">cold rolled black annealed steel tube</h1>
+  	  //     <div class="metaContainer">
+  	  //       <div class="meta">
+  	  //         <div class="leftDiv">FOB Price:</div>
+  	  //         <div class="inlineBlock"><b>500-1000 USD</b></div>
+  	  //       </div>
+  	  //       <div class="meta">
+  	  //         <div class="leftDiv">Min Order Quantity:</div>
+  	  //         <div class="inlineBlock"><b>25 tons</b></div>
+  	  //       </div>
+  	  //       <div class="meta">
+  	  //         <div class="leftDiv">Supply Ability:</div>
+  	  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
+  	  //       </div>
+  	  //       <div class="meta">
+  	  //         <div class="leftDiv">Port:</div>
+  	  //         <div class="inlineBlock"><b>Xingang Tianjin</b></div>
+  	  //       </div>
+  	  //       <div class="meta">
+  	  //         <div class="leftDiv">Payment Terms:</div>
+  	  //         <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
+  	  //       </div>
+  	  //     </div>
+  	  //   </div>
+  	  // </div>
+  	  // <br/>
+  	  // <div class="quickContact">
+  	  //   <label>your name: </label>
+  	  //   <input type="text"></input>
+  	  //   <label>your email address: </label>
+  	  //   <input type="email"></input>
+  	  //   <label>your requirement:</label>
+  	  //   <textarea name="requirement" cols="40" rows="5" ></textarea>
+  	  //   <button class="btn btn-primary">Send</button>
+  	  // </div>
+  	  // </div>
+  		//</div>
+  	  console.log("Enter controller /p/:id/:title");
+  	  var id = Number(req.params.id);
+  		var product = null;
+  		for(var i=0;i<products.length;i++){
+  			if(products[i].number === id){
+  				product = products[i];
+  				break;
+  			}
+  		}
+  		if(product === null){
+  			next();
+  		}
+  		else{
+  			//var document = jsdom("");
+  			var ulThumnails = document.createElement("ul");
+  			ulThumnails.setAttribute("id","thumbnails");
+  			var divThumBox = document.createElement("div");
+  			divThumBox.setAttribute("class","thumb-box");
+  			var ulThumbs = document.createElement("ul");
+  			ulThumbs.setAttribute("class","thumbs");
+  			divThumBox.appendChild(ulThumbs);
+  			for(var i=0;i<product["images"].length;i++){
+  				var imgUrl = product["images"][i] || "";
+  				imgUrl = "/uploads/"+imgUrl;
+  				var liThum = document.createElement("li");
+  				var aThum = document.createElement("a");
+  				aThum.setAttribute("href","#slide"+(i+1));
+  				var imgThum = document.createElement("img");
+  				imgThum.setAttribute("src",imgUrl);
+  				imgThum.setAttribute("alt","");
+  				aThum.appendChild(imgThum);
+  				liThum.appendChild(aThum);
+  				ulThumnails.appendChild(liThum);
 
-			var priceUnits = product.priceUnit.split("/");
-			var moqUnits = product.moqUnit.split("/");
-			var supplyUnits = product.supplyUnit.split("/");
+  				var liThumb = document.createElement("li");
+  				var aThumb = document.createElement("a");
+  				aThumb.setAttribute("href","#"+(i+1));
+  				aThumb.setAttribute("data-slide",(i+1));
+  				var imgThumb = document.createElement("img");
+  				imgThumb.setAttribute("src",imgUrl);
+  				imgThumb.setAttribute("alt","");
+  				aThumb.appendChild(imgThumb);
+  				liThumb.appendChild(aThumb);
+  				ulThumbs.appendChild(liThumb);
+  			}
+  			var divSlide = document.createElement("div");
+  			divSlide.setAttribute("class","productSlide");
+        divSlide.setAttribute("id","productSlide");
+  			divSlide.appendChild(ulThumnails);
+  			divSlide.appendChild(divThumBox);
 
-			var divProductDesc = document.createElement("div");
-			divProductDesc.setAttribute("class","productDesc");
-			divProductDesc.setAttribute("id","productDesc");
-			var divTitleMeta = document.createElement("div");
-			divTitleMeta.setAttribute("style","display:inline-block;margin-left:20px;");
-			divProductDesc.appendChild(divTitleMeta);
-			//<h1 class="productTitle">product.title</h1>
-			var h1Title = document.createElement("h1");
-			h1Title.setAttribute("class","productTitle");
-			h1Title.innerHTML = product.title;
-			divTitleMeta.appendChild(h1Title);
-			//<div class="metaContainer">
-			var divMetaContainer = document.createElement("div");
-			divMetaContainer.setAttribute("class","metaContainer");
-			divTitleMeta.appendChild(divMetaContainer);
-			//       <div class="meta">
-		  //         <div class="leftDiv">FOB Price:</div>
-		  //         <div class="inlineBlock"><b>500-1000 USD</b></div>
-		  //       </div>
-			var divMetaPrice = document.createElement("div");
-			divMetaPrice.setAttribute("class","meta");
-			var divMetaPriceKey = document.createElement("div");
-			divMetaPriceKey.setAttribute("class","leftDiv");
-			divMetaPriceKey.innerHTML = "FOB Price:";
-			var divMetaPriceValue = document.createElement("div");
-			divMetaPriceValue.setAttribute("class","inlineBlock");
-			divMetaPriceValue.innerHTML = "<b>"+ product.priceMin + "-" + product.priceMax + " " + product.currency + " / " +priceUnits[0]+"</b>"
-			divMetaPrice.appendChild(divMetaPriceKey);
-			divMetaPrice.appendChild(divMetaPriceValue);
-			divMetaContainer.appendChild(divMetaPrice);
-			//       <div class="meta">
-		  //         <div class="leftDiv">Min Order Quantity:</div>
-		  //         <div class="inlineBlock"><b>25 tons</b></div>
-		  //       </div>
-			var divMetaMoq = document.createElement("div");
-			divMetaMoq.setAttribute("class","meta");
-			var divMetaMoqKey = document.createElement("div");
-			divMetaMoqKey.setAttribute("class","leftDiv");
-			divMetaMoqKey.innerHTML = "Min Order Quantity:";
-			var divMetaMoqValue = document.createElement("div");
-			divMetaMoqValue.setAttribute("class","inlineBlock");
-			divMetaMoqValue.innerHTML = "<b>"+ product.moq + " " + moqUnits[1]+"</b>"
-			divMetaMoq.appendChild(divMetaMoqKey);
-			divMetaMoq.appendChild(divMetaMoqValue);
-			divMetaContainer.appendChild(divMetaMoq);
-			//       <div class="meta">
-		  //         <div class="leftDiv">Supply Ability:</div>
-		  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
-		  //       </div>
-			var divMetaSup = document.createElement("div");
-			divMetaSup.setAttribute("class","meta");
-			var divMetaSupKey = document.createElement("div");
-			divMetaSupKey.setAttribute("class","leftDiv");
-			divMetaSupKey.innerHTML = "Min Order Quantity:";
-			var divMetaSupValue = document.createElement("div");
-			divMetaSupValue.setAttribute("class","inlineBlock");
-			divMetaSupValue.innerHTML = "<b>"+ product.supplyQuantity + " " + supplyUnits[0] + " / "+ product.supplyPeriod +"</b>";
-			divMetaSup.appendChild(divMetaSupKey);
-			divMetaSup.appendChild(divMetaSupValue);
-			divMetaContainer.appendChild(divMetaSup);
-			//       <div class="meta">
-		  //         <div class="leftDiv">Supply Ability:</div>
-		  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
-		  //       </div>
-			var divMetaLeadTime = document.createElement("div");
-			divMetaLeadTime.setAttribute("class","meta");
-			var divMetaLeadTimeKey = document.createElement("div");
-			divMetaLeadTimeKey.setAttribute("class","leftDiv");
-			divMetaLeadTimeKey.innerHTML = "Lead time:";
-			var divMetaLeadTimeValue = document.createElement("div");
-			divMetaLeadTimeValue.setAttribute("class","inlineBlock");
-			divMetaLeadTimeValue.innerHTML = "<b>"+ product.consignmentTerm+"</b>";
-			divMetaLeadTime.appendChild(divMetaLeadTimeKey);
-			divMetaLeadTime.appendChild(divMetaLeadTimeValue);
-			divMetaContainer.appendChild(divMetaLeadTime);
-			//       <div class="meta">
-		  //         <div class="leftDiv">Port:</div>
-		  //         <div class="inlineBlock"><b>Xingang Tianjin</b></div>
-		  //       </div>
-			var divMetaPort = document.createElement("div");
-			divMetaPort.setAttribute("class","meta");
-			divMetaPort.innerHTML = '<div class="leftDiv">Port:</div><div class="inlineBlock"><b>Xingang Tianjin</b></div>';
-			divMetaContainer.appendChild(divMetaPort);
-			//       <div class="meta">
-		  //         <div class="leftDiv">Payment Terms:</div>
-		  //         <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
-		  //       </div>
-			var divMetaPay = document.createElement("div");
-			divMetaPay.setAttribute("class","meta");
-			divMetaPay.innerHTML = '<div class="leftDiv">Payment Terms:</div><div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance,Negotiable <br/> <a href="/faq#payment-terms">view all payment terms</a></b></div>';
-			divMetaContainer.appendChild(divMetaPay);
+  			var priceUnits = product.priceUnit.split("/");
+  			var moqUnits = product.moqUnit.split("/");
+  			var supplyUnits = product.supplyUnit.split("/");
 
-			var brContact = document.createElement("br");
-			divProductDesc.appendChild(brContact);
+  			var divProductDesc = document.createElement("div");
+  			divProductDesc.setAttribute("class","productDesc");
+  			divProductDesc.setAttribute("id","productDesc");
+  			var divTitleMeta = document.createElement("div");
+  			divTitleMeta.setAttribute("style","display:inline-block;margin-left:20px;");
+  			divProductDesc.appendChild(divTitleMeta);
+  			//<h1 class="productTitle">product.title</h1>
+  			var h1Title = document.createElement("h1");
+  			h1Title.setAttribute("class","productTitle");
+  			h1Title.innerHTML = product.title;
+  			divTitleMeta.appendChild(h1Title);
+  			//<div class="metaContainer">
+  			var divMetaContainer = document.createElement("div");
+  			divMetaContainer.setAttribute("class","metaContainer");
+  			divTitleMeta.appendChild(divMetaContainer);
+  			//       <div class="meta">
+  		  //         <div class="leftDiv">FOB Price:</div>
+  		  //         <div class="inlineBlock"><b>500-1000 USD</b></div>
+  		  //       </div>
+  			var divMetaPrice = document.createElement("div");
+  			divMetaPrice.setAttribute("class","meta");
+  			var divMetaPriceKey = document.createElement("div");
+  			divMetaPriceKey.setAttribute("class","leftDiv");
+  			divMetaPriceKey.innerHTML = "FOB Price:";
+  			var divMetaPriceValue = document.createElement("div");
+  			divMetaPriceValue.setAttribute("class","inlineBlock");
+  			divMetaPriceValue.innerHTML = "<b>"+ product.priceMin + "-" + product.priceMax + " " + product.currency + " / " +priceUnits[0]+"</b>"
+  			divMetaPrice.appendChild(divMetaPriceKey);
+  			divMetaPrice.appendChild(divMetaPriceValue);
+  			divMetaContainer.appendChild(divMetaPrice);
+  			//       <div class="meta">
+  		  //         <div class="leftDiv">Min Order Quantity:</div>
+  		  //         <div class="inlineBlock"><b>25 tons</b></div>
+  		  //       </div>
+  			var divMetaMoq = document.createElement("div");
+  			divMetaMoq.setAttribute("class","meta");
+  			var divMetaMoqKey = document.createElement("div");
+  			divMetaMoqKey.setAttribute("class","leftDiv");
+  			divMetaMoqKey.innerHTML = "Min Order Quantity:";
+  			var divMetaMoqValue = document.createElement("div");
+  			divMetaMoqValue.setAttribute("class","inlineBlock");
+  			divMetaMoqValue.innerHTML = "<b>"+ product.moq + " " + moqUnits[1]+"</b>"
+  			divMetaMoq.appendChild(divMetaMoqKey);
+  			divMetaMoq.appendChild(divMetaMoqValue);
+  			divMetaContainer.appendChild(divMetaMoq);
+  			//       <div class="meta">
+  		  //         <div class="leftDiv">Supply Ability:</div>
+  		  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
+  		  //       </div>
+  			var divMetaSup = document.createElement("div");
+  			divMetaSup.setAttribute("class","meta");
+  			var divMetaSupKey = document.createElement("div");
+  			divMetaSupKey.setAttribute("class","leftDiv");
+  			divMetaSupKey.innerHTML = "Min Order Quantity:";
+  			var divMetaSupValue = document.createElement("div");
+  			divMetaSupValue.setAttribute("class","inlineBlock");
+  			divMetaSupValue.innerHTML = "<b>"+ product.supplyQuantity + " " + supplyUnits[0] + " / "+ product.supplyPeriod +"</b>";
+  			divMetaSup.appendChild(divMetaSupKey);
+  			divMetaSup.appendChild(divMetaSupValue);
+  			divMetaContainer.appendChild(divMetaSup);
+  			//       <div class="meta">
+  		  //         <div class="leftDiv">Supply Ability:</div>
+  		  //         <div class="inlineBlock"><b>6000 tons / month</b></div>
+  		  //       </div>
+  			var divMetaLeadTime = document.createElement("div");
+  			divMetaLeadTime.setAttribute("class","meta");
+  			var divMetaLeadTimeKey = document.createElement("div");
+  			divMetaLeadTimeKey.setAttribute("class","leftDiv");
+  			divMetaLeadTimeKey.innerHTML = "Lead time:";
+  			var divMetaLeadTimeValue = document.createElement("div");
+  			divMetaLeadTimeValue.setAttribute("class","inlineBlock");
+  			divMetaLeadTimeValue.innerHTML = "<b>"+ product.consignmentTerm+"</b>";
+  			divMetaLeadTime.appendChild(divMetaLeadTimeKey);
+  			divMetaLeadTime.appendChild(divMetaLeadTimeValue);
+  			divMetaContainer.appendChild(divMetaLeadTime);
+  			//       <div class="meta">
+  		  //         <div class="leftDiv">Port:</div>
+  		  //         <div class="inlineBlock"><b>Xingang Tianjin</b></div>
+  		  //       </div>
+  			var divMetaPort = document.createElement("div");
+  			divMetaPort.setAttribute("class","meta");
+  			divMetaPort.innerHTML = '<div class="leftDiv">Port:</div><div class="inlineBlock"><b>Xingang Tianjin</b></div>';
+  			divMetaContainer.appendChild(divMetaPort);
+  			//       <div class="meta">
+  		  //         <div class="leftDiv">Payment Terms:</div>
+  		  //         <div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance <br/> <a href="/payments">view all payment terms</a></b></div>
+  		  //       </div>
+  			var divMetaPay = document.createElement("div");
+  			divMetaPay.setAttribute("class","meta");
+  			divMetaPay.innerHTML = '<div class="leftDiv">Payment Terms:</div><div class="inlineBlock"><b>L/C,T/T,Western Union,30% deposit inadvance,Negotiable <br/> <a href="/faq#payment-terms">view all payment terms</a></b></div>';
+  			divMetaContainer.appendChild(divMetaPay);
 
-			//quickContact
-			var quickContact = document.createElement("div");
-			quickContact.setAttribute("class","quickContact");
-			quickContact.innerHTML = '\
-			<form action="/requirement" method="POST">\
-			<div class="formGroupInline">\
-			<label for="name">name: </label>\
-			<span class="inputContainer"><input type="text" id="name" name="name" placeholder="your name" required="required"></input></span>\
-			</div>\
-			<div class="formGroupInline">\
-			<label for="email">email address: </label>\
-			<span class="inputContainer"><input type="email" id="email" name="email" placeholder="your email address" required="required"></input></span>\
-			</div>\
-			<div class="formGroupInline">\
-			<label for="phone">phone: </label>\
-			<span class="inputContainer"><input type="phone" id="phone" name="phone" placeholder="your phone number" required="required"></input></span>\
-			</div>\
-			<div class="formGroupInline">\
-			<label for="company">company: </label>\
-			<span class="inputContainer"><input type="text" id="company" name="company" placeholder="your company name" required="required"></input></span>\
-			</div>\
-			<label for="content">your requirement:</label>\
-			<textarea cols="40" rows="5" id="content" name="content" placeholder="your requirement" required="required"></textarea>\
-			<button class="btn btn-primary" id="btnSend" type="submit">Send</button>\
-			</form>\
-			'
-			divProductDesc.appendChild(quickContact);
+  			var brContact = document.createElement("br");
+  			divProductDesc.appendChild(brContact);
 
-			//<div style="overflow:auto;">
-			var divSlideDesc = document.createElement("div");
-			divSlideDesc.setAttribute("style","overflow:auto;");
-			divSlideDesc.appendChild(divSlide);
-			divSlideDesc.appendChild(divProductDesc);
+  			//quickContact
+  			var quickContact = document.createElement("div");
+  			quickContact.setAttribute("class","quickContact");
+  			quickContact.innerHTML = '\
+  			<form action="/requirement" method="POST">\
+  			<div class="formGroupInline">\
+  			<label for="name">name: </label>\
+  			<span class="inputContainer"><input type="text" id="name" name="name" placeholder="your name" required="required"></input></span>\
+  			</div>\
+  			<div class="formGroupInline">\
+  			<label for="email">email address: </label>\
+  			<span class="inputContainer"><input type="email" id="email" name="email" placeholder="your email address" required="required"></input></span>\
+  			</div>\
+  			<div class="formGroupInline">\
+  			<label for="phone">phone: </label>\
+  			<span class="inputContainer"><input type="phone" id="phone" name="phone" placeholder="your phone number" required="required"></input></span>\
+  			</div>\
+  			<div class="formGroupInline">\
+  			<label for="company">company: </label>\
+  			<span class="inputContainer"><input type="text" id="company" name="company" placeholder="your company name" required="required"></input></span>\
+  			</div>\
+  			<label for="content">your requirement:</label>\
+  			<textarea cols="40" rows="5" id="content" name="content" placeholder="your requirement" required="required"></textarea>\
+  			<button class="btn btn-primary" id="btnSend" type="submit">Send</button>\
+  			</form>\
+  			'
+  			divProductDesc.appendChild(quickContact);
 
-			var productDetails = "";
+  			//<div style="overflow:auto;">
+  			var divSlideDesc = document.createElement("div");
+  			divSlideDesc.setAttribute("style","overflow:auto;");
+  			divSlideDesc.appendChild(divSlide);
+  			divSlideDesc.appendChild(divProductDesc);
 
-			var sectionTable = document.createElement("section");
-			sectionTable.setAttribute("class","blockCenter textCenter");
-			var h2TableTitle = document.createElement("h2");
-			h2TableTitle.innerHTML = "Details in a table";
-			sectionTable.appendChild(h2TableTitle);
-			var tableContainer = document.createElement("div");
-			tableContainer.setAttribute("class","inlineBlock");
-      tableContainer.setAttribute("style","text-align:left");
-			sectionTable.appendChild(tableContainer);
-			//tableContainer.appendChild(jsonToTable(product.kvs,"text-align:left;padding-left:3px;padding-right:3px;"))
-			tableContainer.innerHTML = product.content;
-			productDetails += sectionTable.outerHTML;
+  			var productDetails = "";
 
-			// var sectionShapes = document.createElement("section");
-			// sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
-			// sectionShapes.innerHTML='\
-			// <h2 class="textCenter">Section shapes</h2>\
-	    // <div class="inlineBlock">\
-	    // <div class="sectionShape">\
-	    //   <img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>\
-	    //   <div class="shapeName">round</div>\
-	    // </div>\
-	    // <div class="sectionShape">\
-	    //   <img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>\
-	    //   <div class="shapeName">square</div>\
-	    // </div>\
-	    // <div class="sectionShape">\
-	    //   <img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>\
-	    //   <div class="shapeName">rectangle</div>\
-	    // </div>\
-	    // <div class="sectionShape">\
-	    //   <img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>\
-	    //   <div class="shapeName">stadium</div>\
-	    // </div>\
-	    // <div class="sectionShape">\
-	    //   <img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>\
-	    //   <div class="shapeName">ellipse</div>\
-	    // </div>\
-	    // <div class="sectionShape">\
-	    //   <img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>\
-	    //   <div class="shapeName">hexagon</div>\
-	    // </div>\
-	    // </div>\
-	    // <div class="textCenter lead">\
-	    //   For customized shapes, please <a href="/contact">contact us</a>\
-	    // </div>';
-			// productDetails += sectionShapes.outerHTML;
+  			var sectionTable = document.createElement("section");
+  			sectionTable.setAttribute("class","blockCenter textCenter");
+  			var h2TableTitle = document.createElement("h2");
+  			h2TableTitle.innerHTML = "Details in a table";
+  			sectionTable.appendChild(h2TableTitle);
+  			var tableContainer = document.createElement("div");
+  			tableContainer.setAttribute("class","inlineBlock");
+        tableContainer.setAttribute("style","text-align:left");
+  			sectionTable.appendChild(tableContainer);
+  			//tableContainer.appendChild(jsonToTable(product.kvs,"text-align:left;padding-left:3px;padding-right:3px;"))
+  			tableContainer.innerHTML = product.content;
+  			productDetails += sectionTable.outerHTML;
 
-			// var sectionSizes = document.createElement("section");
-			// sectionSizes.setAttribute("class","sizes blockCenter textCenter");
-			// var h2SizesTitle = document.createElement("h2");
-			// h2SizesTitle.innerHTML = "Sizes";
-			// sectionSizes.appendChild(h2SizesTitle);
-			// var sizesContainer = document.createElement("div");
-			// sizesContainer.setAttribute("class","inlineBlock");
-			// console.log("product.kvs.sizes",product.kvs.sizes);
-			// for(var key in product.kvs.sizes){
-			// 	console.log("key:",key);
-			// 	var sizeContainer = document.createElement("div");
-			// 	sizeContainer.setAttribute("class","sizeContainer inlineBlock");
-			// 	var shapeName = document.createElement("div");
-			// 	shapeName.setAttribute("class","textCenter shapeName");
-			// 	shapeName.innerHTML = "<b>"+key+"</b>";
-			// 	sizeContainer.appendChild(shapeName);
-			// 	for(var prop in product.kvs.sizes[key]){
-			// 		console.log("prop:",prop);
-			// 		var divProp = document.createElement("div");
-			// 		divProp.setAttribute("class","sizeProp textCenter");
-			// 		divProp.innerHTML = prop +":"+ product.kvs.sizes[key][prop];
-			// 		sizeContainer.appendChild(divProp);
-			// 	}
-			// 	sizesContainer.appendChild(sizeContainer);
-			// }
-			// sectionSizes.appendChild(sizesContainer);
-			// productDetails += sectionSizes.outerHTML;
+  			// var sectionShapes = document.createElement("section");
+  			// sectionShapes.setAttribute("class","sectionShapes blockCenter textCenter");
+  			// sectionShapes.innerHTML='\
+  			// <h2 class="textCenter">Section shapes</h2>\
+  	    // <div class="inlineBlock">\
+  	    // <div class="sectionShape">\
+  	    //   <img src="/static/imgs/shapes/round-notes1.png" class="shapeIcon"></img>\
+  	    //   <div class="shapeName">round</div>\
+  	    // </div>\
+  	    // <div class="sectionShape">\
+  	    //   <img src="/static/imgs/shapes/square-notes1.png" class="shapeIcon"></img>\
+  	    //   <div class="shapeName">square</div>\
+  	    // </div>\
+  	    // <div class="sectionShape">\
+  	    //   <img src="/static/imgs/shapes/rectangle-notes1.png" class="shapeIcon"></img>\
+  	    //   <div class="shapeName">rectangle</div>\
+  	    // </div>\
+  	    // <div class="sectionShape">\
+  	    //   <img src="/static/imgs/shapes/stadium-notes1.png" class="shapeIcon"></img>\
+  	    //   <div class="shapeName">stadium</div>\
+  	    // </div>\
+  	    // <div class="sectionShape">\
+  	    //   <img src="/static/imgs/shapes/ellipse-notes1.png" class="shapeIcon"></img>\
+  	    //   <div class="shapeName">ellipse</div>\
+  	    // </div>\
+  	    // <div class="sectionShape">\
+  	    //   <img src="/static/imgs/shapes/hexagon-notes1.png" class="shapeIcon"></img>\
+  	    //   <div class="shapeName">hexagon</div>\
+  	    // </div>\
+  	    // </div>\
+  	    // <div class="textCenter lead">\
+  	    //   For customized shapes, please <a href="/contact">contact us</a>\
+  	    // </div>';
+  			// productDetails += sectionShapes.outerHTML;
 
-			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,productDetails:productDetails,title:product.title+" - Sunrise Industry Group"});
-		  console.log("Leave controller /p/:id/:title");
+  			// var sectionSizes = document.createElement("section");
+  			// sectionSizes.setAttribute("class","sizes blockCenter textCenter");
+  			// var h2SizesTitle = document.createElement("h2");
+  			// h2SizesTitle.innerHTML = "Sizes";
+  			// sectionSizes.appendChild(h2SizesTitle);
+  			// var sizesContainer = document.createElement("div");
+  			// sizesContainer.setAttribute("class","inlineBlock");
+  			// console.log("product.kvs.sizes",product.kvs.sizes);
+  			// for(var key in product.kvs.sizes){
+  			// 	console.log("key:",key);
+  			// 	var sizeContainer = document.createElement("div");
+  			// 	sizeContainer.setAttribute("class","sizeContainer inlineBlock");
+  			// 	var shapeName = document.createElement("div");
+  			// 	shapeName.setAttribute("class","textCenter shapeName");
+  			// 	shapeName.innerHTML = "<b>"+key+"</b>";
+  			// 	sizeContainer.appendChild(shapeName);
+  			// 	for(var prop in product.kvs.sizes[key]){
+  			// 		console.log("prop:",prop);
+  			// 		var divProp = document.createElement("div");
+  			// 		divProp.setAttribute("class","sizeProp textCenter");
+  			// 		divProp.innerHTML = prop +":"+ product.kvs.sizes[key][prop];
+  			// 		sizeContainer.appendChild(divProp);
+  			// 	}
+  			// 	sizesContainer.appendChild(sizeContainer);
+  			// }
+  			// sectionSizes.appendChild(sizesContainer);
+  			// productDetails += sectionSizes.outerHTML;
+
+  			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,productDetails:productDetails,title:product.title+" - Sunrise Industry Group"});
+  		  console.log("Leave controller /p/:id/:title");
+		}
 		}
 	})
 
