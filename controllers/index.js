@@ -284,48 +284,70 @@ module.exports = function(app,passport){
 	})
 
   app.get('/products/:query',function(req,res){
-		// <div id="products" class="list-group">
-		// 		<div class="item">
-		// 			<img class="thumbnail" src="/static/images/C083.jpg" alt=""/>
-		// 			<div class='desc'>
-		// 				<a href='#'><h4>Square/Round Steel Pipe/Tube Cold Roll Forming Machine</h4></a>
-		// 				<div class='pmo'>
-		// 					<div class='price'>Price: <b>US $500-1000</b> / Ton</div>
-		// 					<div class='moq'>MOQ: <b>10 Tons </b></div>
-		// 				</div>
-		// 				<div class='kvs'>
-		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
-		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
-		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
-		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
-		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
-		// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
-		// 				</div>
-		// 			</div>
-		// 		</div>
-		// </div>
-    var words = req.params.query.toLowerCase().split(" ");
-    // console.log("words:",words);
-    var count = 0;
-    var filtered = [];
-    for(var i=0;i<products.length;i++){
-      // console.log("products[i].title:",products[i].title);
-      for(var j=0;j<words.length;j++){
-        if(products[i].title.toLowerCase().split(" ").indexOf(words[j]) > -1){
-          count += 1;
-        }
-      }
-      if(count === words.length){
-        filtered.push(products[i]);
-      }
-      var count = 0;
-    }
-    var divProducts = ProductsGen(filtered);
-	  //console.info(serializeDocument(doc));
-	  //console.info(doc.documentElement.outerHTML);
-	  //console.info(serializeDocument(divProducts));
-	  //console.info(divProducts.outerHTML);
-		res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
+		if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
+      var words = req.params.query.toLowerCase().split(" ");
+	    // console.log("words:",words);
+	    var count = 0;
+	    var filtered = [];
+	    for(var i=0;i<products_f.length;i++){
+	      // console.log("products[i].title:",products[i].title);
+	      for(var j=0;j<words.length;j++){
+	        if(products_f[i].title.toLowerCase().split(" ").indexOf(words[j]) > -1){
+	          count += 1;
+	        }
+	      }
+	      if(count === words.length){
+	        filtered.push(products_f[i]);
+	      }
+	      var count = 0;
+	    }
+	    var divProductsF = ProductsGenF(filtered);
+      res.render('front/products_f',{layout:'front_f.hbs',products:divProductsF.outerHTML,title:'Products - Sunrise Furniture'});
+		}
+		else{
+			// <div id="products" class="list-group">
+			// 		<div class="item">
+			// 			<img class="thumbnail" src="/static/images/C083.jpg" alt=""/>
+			// 			<div class='desc'>
+			// 				<a href='#'><h4>Square/Round Steel Pipe/Tube Cold Roll Forming Machine</h4></a>
+			// 				<div class='pmo'>
+			// 					<div class='price'>Price: <b>US $500-1000</b> / Ton</div>
+			// 					<div class='moq'>MOQ: <b>10 Tons </b></div>
+			// 				</div>
+			// 				<div class='kvs'>
+			// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+			// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+			// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+			// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+			// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+			// 					<div class='kv'>Thickness: <b>0.1mm-100mm</b></div>
+			// 				</div>
+			// 			</div>
+			// 		</div>
+			// </div>
+	    var words = req.params.query.toLowerCase().split(" ");
+	    // console.log("words:",words);
+	    var count = 0;
+	    var filtered = [];
+	    for(var i=0;i<products.length;i++){
+	      // console.log("products[i].title:",products[i].title);
+	      for(var j=0;j<words.length;j++){
+	        if(products[i].title.toLowerCase().split(" ").indexOf(words[j]) > -1){
+	          count += 1;
+	        }
+	      }
+	      if(count === words.length){
+	        filtered.push(products[i]);
+	      }
+	      var count = 0;
+	    }
+	    var divProducts = ProductsGen(filtered);
+		  //console.info(serializeDocument(doc));
+		  //console.info(doc.documentElement.outerHTML);
+		  //console.info(serializeDocument(divProducts));
+		  //console.info(divProducts.outerHTML);
+			res.render('front/products',{layout:'front.hbs',products:divProducts.outerHTML,title:'Products - Sunrise Industry Group'});
+		}
 	})
 
 	app.get('/p/:id/:title', function(req, res, next) {
