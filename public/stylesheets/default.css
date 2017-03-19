@@ -62,6 +62,9 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+.rolledBanner{
+  width: 100%;
+}
 .headerWrapper{
   flex-grow: 0;
 }
@@ -95,12 +98,13 @@ body {
   max-height: 450px;
 }
 .homeProducts{
-
+  width: 100%;
 }
 .homeProductsTitle{
   font-size: 60px;
 }
 .homeProductsCate{
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -260,6 +264,50 @@ body {
   margin-bottom: 10px;
 }
 
+.productProfileDetail{
+  display:flex;
+  flex-flow: column;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+.productProfile{
+  display:flex;
+  flex-flow: row;
+}
+.productProfileL{
+  background-color: #ff0000;
+  max-height: 600px;
+  max-width: 600px;
+}
+.productProfileLimg{
+  height: 100%;
+  width: 100%;
+}
+.productProfileR{
+  /*background-color: #00ff00;*/
+  margin-left: 10px;
+  flex-grow: 0;
+}
+.productDetail{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  /*background-color: #0000ff;*/
+}
+.productDetail table {
+    border-collapse: collapse;
+}
+.productDetail table, th, td {
+    border: 1px solid black;
+    background-clip: content-box;
+}
+.productDetail td{
+  padding-left: 3px;
+  padding-right: 3px;
+}
 .mainContent{
   flex-grow: 1;
   display:flex;

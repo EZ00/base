@@ -170,7 +170,7 @@ var ProductsGenF = function(filtered){
 
     var divTitle = document.createElement("a");
     divTitle.setAttribute("class","productTitle");
-    divTitle.setAttribute("href","/p/"+filtered[i].number+"/"+filtered[i].title);
+    divTitle.setAttribute("href","/p/"+filtered[i].number+"/"+filtered[i].title.replace(/\//g,"-"));
     divTitle.setAttribute("target","_blank");
     divTitle.innerHTML = filtered[i].title;
     divTitleAndDesc.appendChild(divTitle);
@@ -198,7 +198,7 @@ module.exports = function(app,passport){
   app.use(i18n);
 
 	app.get('/',function(req,res){
-		console.log(req.hostname);
+		// console.log(req.hostname);
 		if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
 			res.render('front/home_f',{layout:'front_f.hbs',react:'home',title:'Sunrise Furniture - glass and plastic products'});
 		}
@@ -353,6 +353,7 @@ module.exports = function(app,passport){
 	})
 
 	app.get('/p/:id/:title', function(req, res, next) {
+    // console.log("Enter controller /p/" + req.params.id + "/:title");
     if(req.hostname.indexOf("sunrisefurniturechina.com") > -1 || req.hostname.indexOf("sunrisefurniturechinal.com") > -1){
       // var divProductsF = ProductsGenF(products_f);
       // res.render('front/products_f',{layout:'front_f.hbs',products:divProductsF.outerHTML,title:'Products - Sunrise Furniture'});
@@ -366,7 +367,36 @@ module.exports = function(app,passport){
   				break;
   			}
   		}
-      res.render('front/item_f',{layout:'front_f.hbs',products:"",title:product.title+' - Sunrise Furniture'});
+      if(product === null){
+  			next();
+  		}
+      else{
+        var productProfileL = "<img style=\"width:100%;height:100%;\" clsss=\"productProfileLimg\" src=\"";
+        var imgUrl = product["images"][0] || "";
+        imgUrl = "/uploads/"+imgUrl;
+        productProfileL += imgUrl;
+        productProfileL += '"></img>';
+        // <h2>hot bent glass coffee table C270</h2>
+        // <div>model: C270</div>
+        // <div>size: 120*65*36cm</div>
+        // <div>materials: 10mm clear glass</div>
+        productProfileR = "";
+        h3Title = "<h2>";
+        h3Title += product.title;
+        h3Title += "</h2>";
+        productProfileR += h3Title;
+        var j = 0;
+        for(var key in product.kvs){
+          var divKv = "<div>"+key+": "+product.kvs[key]+"</div>";
+          productProfileR += divKv;
+          j += 1;
+          if(j === 3){
+            break;
+          }
+        }
+        var productDetail = product.content;
+        res.render('front/item_f',{layout:'front_f.hbs',productProfileL:productProfileL,productProfileR:productProfileR,productDetail:productDetail,title:product.title+' - Sunrise Furniture'});
+      }
 		}
 		else{
       //<div style="overflow:auto;">
@@ -441,7 +471,6 @@ module.exports = function(app,passport){
   	  // </div>
   	  // </div>
   		//</div>
-  	  console.log("Enter controller /p/:id/:title");
   	  var id = Number(req.params.id);
   		var product = null;
   		for(var i=0;i<products.length;i++){
@@ -704,13 +733,13 @@ module.exports = function(app,passport){
   			// productDetails += sectionSizes.outerHTML;
 
   			res.render('front/item', {layout:"front.hbs",product:divSlideDesc.outerHTML,productDetails:productDetails,title:product.title+" - Sunrise Industry Group"});
-  		  console.log("Leave controller /p/:id/:title");
+  		  // console.log("Leave controller /p/:id/:title");
 		}
 		}
 	})
 
 function renderSizes(container,sizes){
-	console.log(sizes);
+	// console.log(sizes);
 	var sectionSizes = document.createElement("section");
 	sectionSizes.setAttribute("class","sizes blockCenter textCenter");
 	var h2SizesTitle = document.createElement("h2");
@@ -737,7 +766,7 @@ function renderSizes(container,sizes){
 	}
 	sectionSizes.appendChild(sizesContainer);
 	return sectionSizes.outerHTML;
-	console.log(sectionSizes.outerHTML);
+	// console.log(sectionSizes.outerHTML);
 }
 	app.get("/products_zh",function(req,res){
 		var products_zh = JSON.parse(fs.readFileSync('./json/products_zh.js', 'utf8'));
